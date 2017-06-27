@@ -1,0 +1,28 @@
+//- SITE FOOTER
+footer.site-footer.site-footer--sticky: .container
+	.row
+		.col-sm-4
+			h5.footer-heading About
+			ul
+				li: a(href='/about') More about SydJS
+				li: a(href='mailto:craig.sharkie+sydjs@gmail.com') Contact us
+
+		.col-sm-8
+			.row
+				.col-xs-4
+					h5.footer-heading Members
+					ul
+						li: a(href='/members') Members
+						if !user
+							li: a(href='/join').js-auth-trigger Become a Member
+				.col-xs-4
+					h5.footer-heading Resources
+					ul
+						li: a(href='/links') Links
+
+				.col-xs-4
+					h5.footer-heading Something
+
+	.row.footer-copyright
+		p Copyright &copy; 2017 Babylon. Powered by <a href='http://keystonejs.com' rel='external'>KeystoneJS</a>.
+		p Forked from <a href="https://github.com/JedWatson/sydjs-site" rel='external'>Sydjs</a>.
