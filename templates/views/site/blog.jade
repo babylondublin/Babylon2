@@ -12,9 +12,9 @@ block intro
 			br
 			hr
 			if user
-				a(href='/me/create/post').js-auth-trigger create post
+				a(href='/me/create/post') create post
 			if !user
-				a(href='/join').js-auth-trigger Register to create posts
+				a(href='/join') Register to create posts
 			hr
 block content
 	.page-content: .container
