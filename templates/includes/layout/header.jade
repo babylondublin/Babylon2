@@ -11,14 +11,14 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 				a(href='/me').user.hidden-md.hidden-lg
 					img(src=(user.photo.exists ? user._.photo.thumbnail(60,60) : user.gravatarUrl || '/images/avatar.png'), width=27).img-circle
 			//- Patty
-			a#site-nav-toggle(href='javascript:;').site-nav-toggle
-				.patty
-				
+				a#site-nav-toggle(href='javascript:;').site-nav-toggle
+					.patty
+					
 		#site-nav
 			nav(role='navigation')
-				ul.navbar-nav.navbar-nav--left
-					each link in navLinks
-						li(class=(section == link.key ? 'nav-item-' + link.key + ' active' : 'nav-item-' + link.key)): a(href=link.href)= link.label
+				//-ul.navbar-nav.navbar-nav--left
+						each link in navLinks
+							li(class=(section == link.key ? 'nav-item-' + link.key + ' active' : 'nav-item-' + link.key)): a(href=link.href)= link.label
 
 				ul.navbar-nav.navbar-nav--right
 					if user

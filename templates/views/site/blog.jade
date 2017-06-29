@@ -17,7 +17,7 @@ block intro
 				a(href='/join') Register to create posts
 			hr
 block content
-	.page-content: .container
+	.page-content: .container.blog
 		.row
 			div(class= data.categories.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
 				if filters.category && !data.category

@@ -210,4 +210,9 @@ $(function() {
 	// Dynamic window targetting
 	$("[rel='external']").attr("target", "_blank");
 
+	//Side Bar 
+	$('#nav-icon1').click(function(){
+
+		$("#panel").animate({width:'toggle'});
+		});
 });
