@@ -112,10 +112,17 @@ li{
 	background: white;
 	min-height: 400px;
 	height: 100%;
+	margin-left: 250px;
+    overflow: hidden;
 	.floor;
 	.floor-1;
 	padding-bottom: @page-padding;
 	padding-top: @page-padding;
+}
+@media screen and (max-width: 775px) {
+	.site-body{
+	margin-left: 0px;
+	}
 }
 
 
@@ -246,6 +253,7 @@ li{
     z-index: 3;
     left: 0;
     height: 100%;
+    width: 250px;
     top: 32px;
     padding: 30px 30px 30px 10px;
     background-color: whitesmoke;
@@ -265,126 +273,62 @@ li{
 	a.menu-item:hover{
 	color:grey;
 	}
-	.hamburger{
-	display: none;
-	}
+}
+.open-slide{
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 32px;
+    padding: 30px 30px 30px 10px;
+	overflow-x:hidden;
+
 }
 @media screen and (max-width: 775px) {
 	.sidebar{
-		background-color:transparent;
-		height: 30px;
+		display:none;
 		ul li{display: none;}
-		.hamburger{
-		float: left;
-		display: block;
-		text-decoration: none;
-		position: absolute;
-		color:black;
-		left: 15px;
-		z-index: 4;
-		}
 	}
 }
 
-//Panel Slide in
-#panel{
-    display: none; 
-    text-align: justify;
-    height: 100%;
-    position: absolute;
-    width: 150px;
-    padding: 50px;
-    background: whitesmoke;
-    z-index: 2;
-    padding-left: 0;
-
+//Side-Nav Slide in
+.toggle{
+  height:100%;
+  width:0;
+  position: absolute;
+  top:0;
+  left:0;
+  background-color:whitesmoke;
+  overflow-x:hidden;
+  padding-top:60px;
 	.menu-item{
 	margin-top:20px;
+	padding-left: 80px;
+	display:block;
 	color:#333;
 	font-size: 20px;
 	text-decoration: none;
 	cursor: pointer;
 	}
-	li{margin-bottom: 15px;}
-	li a:hover{
+	a:hover{
 	color:grey;
+	}
+	.btn-close{
+	position:absolute;
+	right:22px;
+	font-size:36px;
+	margin-left:50px;
+	text-decoration:none;
+	color:#333;
 	}
 } 
 
 @media screen and (min-width: 775px) {
-  #panel{
-	display:none;
-	li a{
-		display:none;
-	}
-  }
+	.open-slide{display:none}
+ 	.toggle{display:none;
+		a{display:none;}
+		.btn-close{display: none;}
+ 	}
 }
-//hamburger animation
-.hamburger {
-  width: 50px;
-  height: 30px;
-  z-index: 4;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-}
-.hamburger span {
-  position: absolute;
-  height: 3px;
-  width: 60%;
-  background: black;
-  border-radius: 0px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
-}
-
-.hamburger span:nth-child(1) {
-  top: 0px;
-}
-
-.hamburger span:nth-child(2) {
-  top: 13px;
-}
-
-.hamburger span:nth-child(3) {
-  top: 26px;
-}
-
-.hamburger.open span:nth-child(1) {
-  top: 18px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-  left: -60px;
-}
-
-.hamburger.open span:nth-child(3) {
-  top: 18px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-}
-
 // Page
 // ------------------------------
 

@@ -1,11 +1,13 @@
 //- SIDE NAV BAR LEFT
 div
-    div.sidebar#side-bar
-        a.hamburger#nav-icon1
-            span
-            span
-            span
-        ul
+    span.open-slide
+        a#btn-open(href='#')
+            svg(width='30', height='30')
+                path(d='M0,5 30,5', stroke='#333', stroke-width='5')
+                path(d='M0,14 30,14', stroke='#333', stroke-width='5')
+                path(d='M0,23 30,23', stroke='#333', stroke-width='5')
+    .sidebar
+        ul.sidebar-nav
             li
                 a.menu-item(href="/blog") News
             li
@@ -22,25 +24,14 @@ div
                 a.menu-item(href="/members") Members  
             li
                 a.menu-item(href="/contact") Contact
-                        
-
-    div#panel
-        ul  
-            li
-                a.menu-item(href="/blog") News  
-            li
-                a.menu-item(href="/turism") Turism 
-            li
-                a.menu-item(href="/living") Living  
-            li
-                a.menu-item(href="/culture") Culture
-            li
-                a.menu-item(href="/classifieds") Classifieds 
-            li
-                a.menu-item(href="/about#CoC") About  
-            li
-                a.menu-item(href="/members") Members
-            li
-                a.menu-item(href="/contact") Contact
-           
             
+    #toggle.toggle
+        a#btn-close.btn-close(href='#') ×
+        a.menu-item(href="/blog") News
+        a.menu-item(href="/turism") Turism
+        a.menu-item(href="/living") Living
+        a.menu-item(href="/culture") Culture
+        a.menu-item(href="/classifieds") Classifieds
+        a.menu-item(href="/about#CoC") About
+        a.menu-item(href="/members") Members
+        a.menu-item(href="/contact") Contact

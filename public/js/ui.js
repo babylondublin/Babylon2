@@ -211,8 +211,13 @@ $(function() {
 	$("[rel='external']").attr("target", "_blank");
 
 	//Side Bar 
-	$('#nav-icon1').click(function(){
+	$('#btn-open').click(function(){
+		$('#toggle').css({"width":"250px","z-index":"3","transition":"0.6s"});
+	 	$('#main').css({"margin-left":"250px","transition":"0.6s"});
+	})
 
-		$("#panel").animate({width:'toggle'});
-		});
+	$('#btn-close').click(function(){
+		$('#toggle').css({"width":"0px"});
+		$('#main').css({"margin-left":"0px"})
+	})
 });
