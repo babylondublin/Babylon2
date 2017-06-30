@@ -5,10 +5,7 @@ include ../../mixins/post
 block intro
 	.page-intro: .container
 		h1.page-title=data.category ? data.category.name : 'Blog'
-		p.lead
-			| This is the blog of Babylon, contributed by our members and guest authors.&nbsp;
-			a(href='/join').js-auth-trigger Join now
-			| &nbsp;to contribute. 
+		p.lead Some text
 			br
 			hr
 			if user
