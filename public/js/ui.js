@@ -12,7 +12,7 @@ $(function() {
 
 
 	// Nav
-	// ------------------------------
+	/* ------------------------------
 	$('#site-nav-toggle').click(function () {
 		$(this).toggleClass('open');
 		$('#site-nav').toggleClass('open');
@@ -25,6 +25,7 @@ $(function() {
 			document.ontouchmove = function(e){ return true; }
 		};
 	});
+	*/
 
 
 

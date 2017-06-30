@@ -35,18 +35,11 @@ block content
 							|  When there is a new post
 				hr.mv-2
 				h3 Your Services
-				p.help-block.mb-2 You can authenticate yourself on the SydJS website with any of the services you connect. When connected, links to your Twitter and Github will be displayed on your profile.
+				p.help-block.mb-2 You can authenticate yourself on the Babylon website with any of the services you connect. When connected, link to your Twitter will be displayed on your profile.
 				
 				
 				//- Unconfigured Services
 				
-				if !user.services.github.isConfigured
-					.form-group
-						label.col-sm-2.control-label Github
-						.col-sm-10
-							a(href='/auth/github', title='Connect your Github account').btn.btn-github
-								span.entypo-social.entypo-github
-								|  Connect your Github account
 				if !user.services.twitter.isConfigured
 					.form-group
 						label.col-sm-2.control-label Twitter
@@ -54,13 +47,6 @@ block content
 							a(href='/auth/twitter', title='Connect your Twitter account').btn.btn-twitter
 								span.entypo-social.entypo-twitter
 								|  Connect your Twitter account
-				if !user.services.google.isConfigured
-					.form-group
-						label.col-sm-2.control-label Google
-						.col-sm-10
-							a(href='/auth/google', title='Connect your Google account').btn.btn-google
-								span.entypo-social.entypo-google-circles
-								|  Connect your Google account
 				if !user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
@@ -72,15 +58,9 @@ block content
 				
 				//- Configured Services
 				
-				if user.services.github.isConfigured || user.services.twitter.isConfigured || user.services.google.isConfigured || user.services.facebook.isConfigured
+				if user.services.twitter.isConfigured || user.services.facebook.isConfigured
 					hr.line-dashed
-				if user.services.github.isConfigured
-					.form-group
-						label.col-sm-2.control-label Github
-						.col-sm-10.text-muted.faux-label
-							span.entypo-social.entypo-github
-							|  Your account is connected. 
-							a(href='?disconnect=github', title='Revoke authorization of your Github account') Disconnect
+				
 				if user.services.twitter.isConfigured
 					.form-group
 						label.col-sm-2.control-label Twitter
@@ -88,13 +68,6 @@ block content
 							span.entypo-social.entypo-twitter
 							|  Your account is connected. 
 							a(href='?disconnect=twitter', title='Revoke authorization of your Twitter account') Disconnect
-				if user.services.google.isConfigured
-					.form-group
-						label.col-sm-2.control-label Google
-						.col-sm-10.text-muted.faux-label
-							span.entypo-social.entypo-google-circles
-							|  Your account is connected. 
-							a(href='?disconnect=google', title='Revoke authorization of your Google account') Disconnect
 				if user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
@@ -113,7 +86,7 @@ block content
 					.col-sm-10
 						label.checkbox-inline
 							input(type='checkbox', name='isPublic', value='true', checked=user.isPublic ? 'true' : null)
-							|  Show my profile on the SydJS website
+							|  Show my profile on the Babylon website
 				.form-group
 					label.col-sm-2.control-label Website
 					.col-sm-10: input(type='text', name='website' value=user.website).form-control
