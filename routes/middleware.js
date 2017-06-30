@@ -16,7 +16,11 @@ exports.initLocals = function(req, res, next) {
 		{ label: 'About',			key: 'about',		href: '/about#CoC' },
 		{ label: 'Members',			key: 'members',		href: '/members' },
 		{ label: 'News',			key: 'blog',		href: '/blog' },
-		{ label: 'Contact',			key: 'contact',		href: '/contact'}
+		{ label: 'Contact',			key: 'contact',		href: '/contact'},
+		{ label: 'Turism',			key: 'turism',		href: '/turism'},
+		{ label: 'Living',			key: 'living',		href: '/living'},
+		{ label: 'Culture',			key: 'culture',		href: '/culture'},
+		{ label: 'Classifieds',		key: 'classifieds',	href: '/classifieds'}
 	];
 
 	locals.user = req.user;
