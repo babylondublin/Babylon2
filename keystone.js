@@ -92,7 +92,8 @@ keystone.set('email locals', {
 keystone.set('nav', {
 	'babylonians': 'users',
 	'posts': ['posts', 'post-categories', 'post-comments'],
-	'enquiries': 'enquiries'
+	'enquiries': 'enquiries',
+	'links':['links','link-tags','link-comments']
 });
 
 keystone.start();

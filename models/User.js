@@ -14,11 +14,7 @@ var User = new keystone.List('User', {
 });
 
 var deps = {
-
-
-	github: { 'services.github.isConfigured': true },
 	facebook: { 'services.facebook.isConfigured': true },
-	google: { 'services.google.isConfigured': true },
 	twitter: { 'services.twitter.isConfigured': true }
 }
 
@@ -29,35 +25,21 @@ User.add({
 	resetPasswordKey: { type: String, hidden: true }
 }, 'Profile', {
 	isPublic: { type: Boolean, default: true },
-	isOrganiser: Boolean,
     isGroup: Boolean,
 	photo: { type: Types.CloudinaryImage },
-	github: { type: String, width: 'short' },
 	twitter: { type: String, width: 'short' },
 	website: { type: Types.Url },
 	bio: { type: Types.Markdown },
 	gravatar: { type: String, noedit: true }
 }, 'Notifications', {
 	notifications: {
-		posts: { type: Boolean },
-		meetups: { type: Boolean, default: true }
+		posts: { type: Boolean }
 	}
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can Admin SydJS' },
+	isAdmin: { type: Boolean, label: 'Can Admin Babylon' },
 	isVerified: { type: Boolean, label: 'Has a verified email address' }
 }, 'Services', {
 	services: {
-		github: {
-			isConfigured: { type: Boolean, label: 'GitHub has been authenticated' },
-
-			profileId: { type: String, label: 'Profile ID', dependsOn: deps.github },
-
-			username: { type: String, label: 'Username', dependsOn: deps.github },
-			avatar: { type: String, label: 'Image', dependsOn: deps.github },
-
-			accessToken: { type: String, label: 'Access Token', dependsOn: deps.github },
-			refreshToken: { type: String, label: 'Refresh Token', dependsOn: deps.github }
-		},
 		facebook: {
 			isConfigured: { type: Boolean, label: 'Facebook has been authenticated' },
 
@@ -68,17 +50,6 @@ User.add({
 
 			accessToken: { type: String, label: 'Access Token', dependsOn: deps.facebook },
 			refreshToken: { type: String, label: 'Refresh Token', dependsOn: deps.facebook }
-		},
-		google: {
-			isConfigured: { type: Boolean, label: 'Google has been authenticated' },
-
-			profileId: { type: String, label: 'Profile ID', dependsOn: deps.google },
-
-			username: { type: String, label: 'Username', dependsOn: deps.google },
-			avatar: { type: String, label: 'Image', dependsOn: deps.google },
-
-			accessToken: { type: String, label: 'Access Token', dependsOn: deps.google },
-			refreshToken: { type: String, label: 'Refresh Token', dependsOn: deps.google }
 		},
 		twitter: {
 			isConfigured: { type: Boolean, label: 'Twitter has been authenticated' },
@@ -138,9 +109,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 // Pull out avatar image
 User.schema.virtual('avatarUrl').get(function() {
 	if (this.photo.exists) return this._.photo.thumbnail(120,120);
-	if (this.services.github.isConfigured && this.services.github.avatar) return this.services.github.avatar;
 	if (this.services.facebook.isConfigured && this.services.facebook.avatar) return this.services.facebook.avatar;
-	if (this.services.google.isConfigured && this.services.google.avatar) return this.services.google.avatar;
 	if (this.services.twitter.isConfigured && this.services.twitter.avatar) return this.services.twitter.avatar;
 	if (this.gravatar) return 'http://www.gravatar.com/avatar/' + this.gravatar + '?d=http%3A%2F%2Fsydjs.com%2Fimages%2Favatar.png&r=pg';
 });
@@ -148,9 +117,6 @@ User.schema.virtual('avatarUrl').get(function() {
 // Usernames
 User.schema.virtual('twitterUsername').get(function() {
 	return (this.services.twitter && this.services.twitter.isConfigured) ? this.services.twitter.username : '';
-});
-User.schema.virtual('githubUsername').get(function() {
-	return (this.services.github && this.services.github.isConfigured) ? this.services.github.username : '';
 });
 
 
@@ -167,11 +133,11 @@ User.schema.methods.resetPassword = function(callback) {
 		new keystone.Email('forgotten-password').send({
 			user: user,
 			link: '/reset-password/' + user.resetPasswordKey,
-			subject: 'Reset your SydJS Password',
+			subject: 'Reset your Babylon Password',
 			to: user.email,
 			from: {
-				name: 'SydJS',
-				email: 'contact@sydjs.com'
+				name: 'Babylon',
+				email: 'contact@babylon.com'
 			}
 		}, callback);
 	});

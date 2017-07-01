@@ -1,8 +1,7 @@
 var keystone = require('keystone'),
 	async = require('async');
 
-var Meetup = keystone.list('Meetup'),
-	User = keystone.list('User');
+var User = keystone.list('User');
 
 exports = module.exports = function(req, res) {
 	
@@ -10,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'tools';
-	locals.nextMeetup = false;
+
 
 
 	// Keep it secret, keep it safe

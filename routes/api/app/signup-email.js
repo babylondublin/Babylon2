@@ -105,8 +105,7 @@ exports = module.exports = function(req, res) {
 				isVerified: false,
 				
 				notifications: {
-					posts: locals.form.alertsNotifications,
-					meetups: locals.form.alertsNotifications
+					posts: locals.form.alertsNotifications
 				},
 				
 				services: {}

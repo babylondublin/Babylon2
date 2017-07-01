@@ -2,7 +2,6 @@ var keystone = require('keystone'),
 	_ = require('lodash'),
 	moment = require('moment');
 
-var Meetup = keystone.list('Meetup'),
 
 
 exports = module.exports = function(req, res) {
