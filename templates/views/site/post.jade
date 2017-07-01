@@ -34,7 +34,7 @@ block content
 						span.share-button
 							.fb-like(data-href="http://www.sydjs.com/blog/post/" + post.slug, data-colorscheme="light", data-layout="button_count", data-action="like", data-show-faces="false", data-send="false")
 						span.share-button
-							a(href="https://twitter.com/share", data-via="SydJS", data-hashtags="sydjs", data-count="button", data-dnt="true").twitter-share-button Tweet
+							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
 						span.share-button
 							.g-plusone(data-size="medium")
 				if post.image.exists
@@ -42,7 +42,7 @@ block content
 				!= post.content.full
 
 				//- Comment
-					.comments
+				.comments
 						h4.mb-1=post.comments.length == 0 ? 'Be the first to reply' : plural(post.comments.length, '* comment', '* comments')
 						for comment in post.comments
 							if comment.author
