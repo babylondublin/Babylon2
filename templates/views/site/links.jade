@@ -5,16 +5,13 @@ include ../../mixins/link
 block intro
 	.page-intro: .container
 		h1 Links
-		if data.tag
-			p.lead Tutorials, Libraries, Frameworks and blog posts under <strong>#{data.tag.name}</strong>
+		p.lead Some Text
+		//- .Create a link or Join/SignIn
+		if !user
+			a(href='/join').btn.btn-primary Join Babylon
+			a(href='/signin').btn.btn-default Sign In
 		else
-			p.lead Tutorials, Libraries, Frameworks and blog posts mentioned in SydJS talks, or just of general usefulness.
-		//- .buttons
-			if !user
-				a(href='/join').btn.btn-primary Join SydJS
-				a(href='/signin').btn.btn-default Sign In
-			else
-				a(href='/me/create/link').btn.btn-primary Add link
+			a(href='/me/create/link').btn.btn-primary Add link
 
 block content
 	.page-content: .container
