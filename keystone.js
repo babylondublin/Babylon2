@@ -31,7 +31,7 @@ keystone.init({
 	'static': 'public',
 
 	'views': 'templates/views',
-	'view engine': 'jade',
+	'view engine': 'pug',
 	'view cache': false,
 
 	'emails': 'templates/emails',
