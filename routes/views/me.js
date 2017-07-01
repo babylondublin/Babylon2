@@ -10,7 +10,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	locals.section = 'me';
-	locals.page.title = 'Settings - SydJS';
+	locals.page.title = 'Settings - Babylon';
 
 	view.on('post', { action: 'profile.details' }, function(next) {
 	
