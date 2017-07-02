@@ -1,0 +1,13 @@
+mixin article(article)
+	.col-sm-4
+		article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card
+			if article.image.exists
+				a(href='/turism/article/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
+			.post-summary
+				.post-byline
+					.post-author: a(href='/turism/article/' + article.slug)=article.author.name.full
+					//- .date-stamp: em=moment(post.publishedDate).fromNow()
+
+				h4(itemprop='name').post-title.mv-1
+					a(href='/turism/article/' + article.slug, itemprop='url')=article.title
+				.post-content-brief(itemprop='description')!= article.content.brief

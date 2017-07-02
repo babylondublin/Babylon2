@@ -93,7 +93,8 @@ keystone.set('nav', {
 	'babylonians': 'users',
 	'posts': ['posts', 'post-categories', 'post-comments'],
 	'enquiries': 'enquiries',
-	'links':['links','link-tags','link-comments']
+	'links':['links','link-tags','link-comments'],
+	'articles':['articles','article-tags','article-comments']
 });
 
 keystone.start();

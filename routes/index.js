@@ -92,7 +92,9 @@ exports = module.exports = function (app) {
 	app.get('/about', routes.views.about);
 	//app.get('/showbag', routes.views.showbag);
 	app.all('/contact', routes.views.contact);
-	app.all('/turism', routes.views.turism);
+	app.get('/turism/:tag?', routes.views.turism);
+	app.all('/turism/article/:article', routes.views.turismOne);
+	
 	app.all('/living', routes.views.living);
 	app.all('/culture', routes.views.culture);
 	app.all('/classifieds', routes.views.classifieds);
