@@ -46,7 +46,7 @@ exports = module.exports = function(req, res) {
 			.limit('4')
 	);
 
-	view.on('article', { action: 'create-comment' }, function(next) {
+	view.on('post', { action: 'create-comment' }, function(next) {
 
 		// handle form
 		var newArticleComment = new ArticleComment.model({

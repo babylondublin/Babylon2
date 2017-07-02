@@ -97,7 +97,9 @@ exports = module.exports = function (app) {
 	
 	app.all('/living', routes.views.living);
 	app.all('/culture', routes.views.culture);
+
 	app.all('/classifieds', routes.views.classifieds);
+	app.all('/classifieds/classified/:classified', routes.views.classified);
 
 	// Session
 	app.all('/join', routes.views.session.join);
@@ -116,6 +118,7 @@ exports = module.exports = function (app) {
 	app.all('/me', routes.views.me);
 	app.all('/me/create/post', routes.views.createPost);
 	app.all('/me/create/link', routes.views.createLink);
+	app.all('/me/create/classified', routes.views.createClassified);
 
 	// Tools
 	app.all('/notification-center', routes.views.tools['notification-center']);

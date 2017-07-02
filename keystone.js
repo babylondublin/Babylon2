@@ -94,7 +94,9 @@ keystone.set('nav', {
 	'posts': ['posts', 'post-categories', 'post-comments'],
 	'enquiries': 'enquiries',
 	'links':['links','link-tags','link-comments'],
-	'articles':['articles','article-tags','article-comments']
+	'articles':['articles','article-tags','article-comments'],
+	'classifieds':['classifieds','classified-comments']
+
 });
 
 keystone.start();
