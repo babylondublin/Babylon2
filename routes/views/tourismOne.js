@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 				if (article.state == 'published' || (req.user && req.user.isAdmin) || (req.user && article.author && (req.user.id == article.author.id))) {
 					locals.article = article;
 					locals.article.populateRelated('comments[author]', next);
-					locals.page.title = article.title + ' - Blog - Babylon';
+					locals.page.title = article.title + ' - Turism - Babylon';
 				} else {
 					return res.notfound('Article not found');
 				}

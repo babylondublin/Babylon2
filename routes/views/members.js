@@ -19,8 +19,6 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 		User.model.find()
 		.where('isPublic', true)
-		.where('_id').nin(locals.organiserIDs)
-		.where('_id').nin(locals.speakerIDs)
 		.exec(function(err, community) {
 			if (err) res.err(err);
 			locals.community = community;

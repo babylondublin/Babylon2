@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'classified';
 	locals.filters = {
 		classified: req.params.classified
 	};
@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-				return res.redirect('/classifieds/classified/' + locals.classified.slug);
+				return res.redirect('/classifieds/classifieds/' + locals.classified.slug);
 			}
 			next();
 		});
