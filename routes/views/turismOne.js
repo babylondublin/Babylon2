@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Init locals
-	locals.section = 'Turism';
+	locals.section = 'Tourism';
 	locals.filters = {
 		article: req.params.article
 	};
@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-				return res.redirect('/turism/article/' + locals.article.slug);
+				return res.redirect('/tourism/article/' + locals.article.slug);
 			}
 			next();
 		});
@@ -74,6 +74,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('site/turismOne');
+	view.render('site/tourismOne');
 
 }

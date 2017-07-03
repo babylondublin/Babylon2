@@ -7,8 +7,8 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	// Init locals
-	locals.section = 'turism';
-	locals.page.title = 'Turism - Babyblon';
+	locals.section = 'tourism';
+	locals.page.title = 'Tourism - Babyblon';
 	locals.filters = {
 		tag: req.params.tag
 	};
@@ -59,7 +59,7 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Load the articles
-	// HERE THERE MUST BE A FILTER TO LOAD ONLY THE 'TURISM' ARTICLES
+	// HERE THERE MUST BE A FILTER TO LOAD ONLY THE 'TOURISM' ARTICLES
 	view.on('init', function(next) {
 		
 		var q = keystone.list('Article').model.find().where('state', 'published').sort('-publishedDate').populate('author tags');
@@ -76,6 +76,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('site/turism');
+	view.render('site/tourism');
 	
 }
