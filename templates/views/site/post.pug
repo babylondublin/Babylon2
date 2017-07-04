@@ -2,7 +2,7 @@ extends ../../layouts/default
 
 block content
 	.container-sm
-		a(href='/blog').text-muted &larr; Back to the blog
+		a(href='/news').text-muted &larr; Back to the news
 		article.full-post
 			if !post
 				h2 Invalid Post.
@@ -23,7 +23,7 @@ block content
 						if post.categories && post.categories.length
 							|  in&nbsp;
 							each cat, cat_i in post.categories
-								a(href='/blog/' + cat.key)= cat.name
+								a(href='/news/' + cat.key)= cat.name
 								if cat_i < post.categories.length - 1
 									| ,&nbsp;
 								else
