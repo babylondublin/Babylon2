@@ -36,7 +36,7 @@ exports = module.exports = function(req, res) {
 			} else {
 				newPost.notifyAdmins();
 				req.flash('success', 'Your post has been added' + ((newPost.state == 'draft') ? ' and will appear on the site once it\'s been approved' : '') + '.');
-				return res.redirect('/blog/post/' + newPost.slug);
+				return res.redirect('/news/post/' + newPost.slug);
 			}
 			next();
 		});

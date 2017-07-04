@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'News';
 	locals.filters = {
 		post: req.params.post
 	};
@@ -28,7 +28,7 @@ exports = module.exports = function(req, res) {
 				if (post.state == 'published' || (req.user && req.user.isAdmin) || (req.user && post.author && (req.user.id == post.author.id))) {
 					locals.post = post;
 					locals.post.populateRelated('comments[author]', next);
-					locals.page.title = post.title + ' - Blog - Babylon';
+					locals.page.title = post.title + ' - News - Babylon';
 				} else {
 					return res.notfound('Post not found');
 				}
