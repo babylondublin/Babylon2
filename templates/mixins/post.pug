@@ -1,16 +1,18 @@
 mixin post(post)
 	.col-sm-4
 		article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card
-			if post.image.exists
-				a(href='/news/post/' + post.slug).post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
+			a(href='/news/post/' + post.slug)
+				.post-container-image
+					if post.image.exists
+						.post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
+					.post-content-brief!= post.content.brief
 			.post-summary
 				.post-byline
 					.post-author: a(href='/news/post/' + post.slug)=post.author.name.full
-					//- .date-stamp: em=moment(post.publishedDate).fromNow()
+					.date-stamp: em=moment(post.publishedDate).fromNow()
 
 				h4(itemprop='name').post-title.mv-1
 					a(href='/news/post/' + post.slug, itemprop='url')=post.title
-				.post-content-brief(itemprop='description')!= post.content.brief
 	//-article(role="article", itemscope itemtype="http://schema.org/BlogPosting").blog-post
 		.blog-post__date.illustrative-heading
 			span.illustrative-heading__line

@@ -21,7 +21,7 @@ block content
 					h3 Invalid Category.
 				else
 					if data.posts.length
-						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
+						.post-cards.row(itemscope)
 							each post in data.posts
 								+post(post)
 					else
