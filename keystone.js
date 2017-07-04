@@ -67,7 +67,7 @@ keystone.init({
  		+ ' directionality, emoticons, fullpage, hr, media, pagebreak,'
  		+ ' paste, preview, print, searchreplace, textcolor,'
  		+ ' visualblocks, visualchars, wordcount, legacyoutput',
-	'wysiwyg images': true
+	'wysiwyg images': true,
 });
 
 // Load your project's Models
