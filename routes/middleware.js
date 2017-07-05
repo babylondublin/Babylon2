@@ -12,7 +12,13 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 
 	/*get nav language*/
-	if(keystone.lang == undefined) keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];
+	if(keystone.lang == undefined){
+		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];		
+		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
+			keystone.lang = "en";
+		}
+	} 
+	console.log(keystone.lang);
 
 	locals.navLinks = [
 		{ label: 'Home',			key: 'home',		href: '/' },
