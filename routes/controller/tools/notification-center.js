@@ -57,6 +57,6 @@ exports = module.exports = function(req, res) {
 
 	
 	
-	view.render('tools/notification-center');
+	view.render(keystone.lang + '/tools/notification-center');
 	
 }

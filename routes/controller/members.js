@@ -27,5 +27,5 @@ exports = module.exports = function(req, res) {
 	});
 
 
-	view.render('site/members');
+	view.render(keystone.lang + '/site/members');
 }

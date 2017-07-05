@@ -42,6 +42,6 @@ exports = module.exports = function(req, res) {
 
 	});
 	
-	view.render('site/createLink');
+	view.render(keystone.lang + '/site/createLink');
 	
 }

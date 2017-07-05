@@ -38,6 +38,6 @@ exports = module.exports = function(req, res) {
 		}
 	});
 	
-	view.render('site/member');
+	view.render(keystone.lang + '/site/member');
 
 }

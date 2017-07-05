@@ -33,5 +33,5 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('site/contact');
+	view.render(keystone.lang + '/site/contact');
 };

@@ -43,6 +43,6 @@ exports = module.exports = function(req, res) {
 
 	});
 	
-	view.render('site/createPost');
+	view.render(keystone.lang + '/site/createPost');
 	
 }

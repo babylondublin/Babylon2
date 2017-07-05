@@ -38,6 +38,6 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	view.render('session/signin');
+	view.render(keystone.lang + '/session/signin');
 	
 }

@@ -74,6 +74,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('site/post');
+	view.render(keystone.lang + '/site/post');
 
 }

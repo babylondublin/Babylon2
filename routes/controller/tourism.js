@@ -76,6 +76,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('site/tourism');
+	view.render(keystone.lang + '/site/tourism');
 	
 }

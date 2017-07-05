@@ -5,10 +5,10 @@ exports = module.exports = function(req, res) {
 	var view = new keystone.View(req, res),
 		locals = res.locals;
 
-	locals.section = 'living';
-	locals.page.title = 'Living';
+	locals.section = 'about';
+	locals.page.title = 'About Babylon';
 
 
-	view.render('site/living');
+	view.render(keystone.lang + '/site/about');
 
 }

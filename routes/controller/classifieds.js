@@ -26,6 +26,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('site/classifieds');
+	view.render(keystone.lang + '/site/classifieds');
 	
 }

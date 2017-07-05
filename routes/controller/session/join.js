@@ -89,6 +89,6 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	view.render('session/join');
+	view.render(keystone.lang + '/session/join');
 	
 }

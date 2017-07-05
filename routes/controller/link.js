@@ -57,6 +57,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('site/link');
+	view.render(keystone.lang + '/site/link');
 	
 }

@@ -6,7 +6,7 @@ var Post = keystone.list('Post'),
 exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res),
-		locals = res.locals;
+	locals = res.locals;
 	
 	locals.section = 'home';
 	locals.page.title = 'Welcome to Babylon';
@@ -22,6 +22,6 @@ exports = module.exports = function(req, res) {
 	
 
 	
-	view.render('site/index');
+	view.render(keystone.lang + '/site/index');
 	
 }

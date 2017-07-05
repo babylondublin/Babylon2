@@ -43,6 +43,6 @@ exports = module.exports = function(req, res) {
 
 	});
 	
-	view.render('site/createClassified');
+	view.render(keystone.lang + '/site/createClassified');
 	
 }

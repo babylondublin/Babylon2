@@ -61,7 +61,7 @@ exports = module.exports = function(req, res) {
 	// Load the posts
 	view.on('init', function(next) {
 		
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author tag').limit(6);
+		var q = keystone.list('Post').model.find({lang: keystone.lang}).where('state', 'published').sort('-publishedDate').populate('author tag').limit(6);
 		
 		if (locals.data.tag) {
 			q.where('tag').in([locals.data.tag]);
@@ -75,6 +75,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('site/news');
+	view.render(keystone.lang + '/site/news');
 	
 }
