@@ -20,11 +20,11 @@ block content
 							a(href='/members', rel='author')=post.author.name.full
 						if post.publishedDate
 							|  on #{post._.publishedDate.format('MMMM D, YYYY')}
-						if post.categories && post.categories.length
+						if post.tags && post.tags.length
 							|  in&nbsp;
-							each cat, cat_i in post.categories
+							each cat, cat_i in post.tags
 								a(href='/news/' + cat.key)= cat.name
-								if cat_i < post.categories.length - 1
+								if cat_i < post.tags.length - 1
 									| ,&nbsp;
 								else
 									|&nbsp;

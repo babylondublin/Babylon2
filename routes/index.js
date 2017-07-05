@@ -87,7 +87,7 @@ exports = module.exports = function (app) {
 	app.get('/links', routes.views.links);
 	app.get('/links/:tag?', routes.views.links);
 	app.all('/links/link/:link', routes.views.link);
-	app.get('/news/:category?', routes.views.news);
+	app.get('/news/:tag?', routes.views.news);
 	app.all('/news/post/:post', routes.views.post);
 	app.get('/about', routes.views.about);
 	//app.get('/showbag', routes.views.showbag);

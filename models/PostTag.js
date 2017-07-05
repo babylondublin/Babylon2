@@ -6,12 +6,12 @@ var Types = keystone.Field.Types;
  * =====================
  */
 
-var PostCategory = new keystone.List('PostCategory', {
+var PostTag = new keystone.List('PostTag', {
 	track: true,
 	autokey: { from: 'name', path: 'key', unique: true }
 });
 
-PostCategory.add({
+PostTag.add({
 	name: { type: String, required: true }
 });
 
@@ -21,7 +21,7 @@ PostCategory.add({
  * =============
  */
 
-PostCategory.relationship({ ref: 'Post', refPath: 'categories', path: 'posts' });
+PostTag.relationship({ ref: 'Post', refPath: 'tag', path: 'posts' });
 
 
 /**
@@ -29,4 +29,4 @@ PostCategory.relationship({ ref: 'Post', refPath: 'categories', path: 'posts' })
  * ============
  */
 
-PostCategory.register();
+PostTag.register();

@@ -5,7 +5,7 @@ mixin classified(classified)
 				a(href='/classifieds/classified/' + classified.slug).post-image: img(src=classified._.image.thumbnail(600,320), alt=classified.title).img-responsive
 			.post-summary
 				.post-byline
-				//-	.post-author: a(href='/classifieds/classified/' + classified.slug)=classified.author.name.full
+				.post-author: a(href='/classifieds/classified/' + classified.slug)=classified.author.name.full
 
 				h4(itemprop='name').post-title.mv-1
 					a(href='/classifieds/classified/' + classified.slug, itemprop='url')=classified.title
