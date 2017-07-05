@@ -11,6 +11,9 @@ exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
 
+	/*get nav language*/
+	if(keystone.lang == undefined) keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];
+
 	locals.navLinks = [
 		{ label: 'Home',			key: 'home',		href: '/' },
 		{ label: 'About',			key: 'about',		href: '/about' },
