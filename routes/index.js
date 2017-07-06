@@ -37,7 +37,7 @@ keystone.set('500', function (err, req, res, next) {
 // Load Routes
 var routes = {
 	api: importRoutes('./api'),
-	views: importRoutes('./views'),
+	controller: importRoutes('./controller'),
 	auth: importRoutes('./auth'),
 };
 
@@ -77,36 +77,36 @@ exports = module.exports = function (app) {
 	}
 
 	// Website
-	app.get('/', routes.views.index);
-	//app.get('/meetups', routes.views.meetups);
-	//app.get('/meetups/:meetup', routes.views.meetup);
-	app.get('/members', routes.views.members);
-	//app.get('/members/mentors', routes.views.mentors);
-	app.get('/member/:member', routes.views.member);
-	//app.get('/organisations', routes.views.organisations);
-	app.get('/links', routes.views.links);
-	app.get('/links/:tag?', routes.views.links);
-	app.all('/links/link/:link', routes.views.link);
-	app.get('/news/:category?', routes.views.news);
-	app.all('/news/post/:post', routes.views.post);
-	app.get('/about', routes.views.about);
-	//app.get('/showbag', routes.views.showbag);
-	app.all('/contact', routes.views.contact);
-	app.get('/tourism/:tag?', routes.views.tourism);
-	app.all('/tourism/article/:article', routes.views.tourismOne);
+	app.get('/', routes.controller.index);
+	//app.get('/meetups', routes.controller.meetups);
+	//app.get('/meetups/:meetup', routes.controller.meetup);
+	app.get('/members', routes.controller.members);
+	//app.get('/members/mentors', routes.controller.mentors);
+	app.get('/member/:member', routes.controller.member);
+	//app.get('/organisations', routes.controller.organisations);
+	app.get('/links', routes.controller.links);
+	app.get('/links/:tag?', routes.controller.links);
+	app.all('/links/link/:link', routes.controller.link);
+	app.get('/news/:tag?', routes.controller.news);
+	app.all('/news/post/:post', routes.controller.post);
+	app.get('/about', routes.controller.about);
+	//app.get('/showbag', routes.controller.showbag);
+	app.all('/contact', routes.controller.contact);
+	app.get('/tourism/:tag?', routes.controller.tourism);
+	app.all('/tourism/article/:article', routes.controller.tourismOne);
 	
-	app.all('/living', routes.views.living);
-	app.all('/culture', routes.views.culture);
+	app.all('/living', routes.controller.living);
+	app.all('/culture', routes.controller.culture);
 
-	app.all('/classifieds', routes.views.classifieds);
-	app.all('/classifieds/classified/:classified', routes.views.classified);
+	app.all('/classifieds', routes.controller.classifieds);
+	app.all('/classifieds/classified/:classified', routes.controller.classified);
 
 	// Session
-	app.all('/join', routes.views.session.join);
-	app.all('/signin', routes.views.session.signin);
-	app.get('/signout', routes.views.session.signout);
-	app.all('/forgot-password', routes.views.session['forgot-password']);
-	app.all('/reset-password/:key', routes.views.session['reset-password']);
+	app.all('/join', routes.controller.session.join);
+	app.all('/signin', routes.controller.session.signin);
+	app.get('/signout', routes.controller.session.signout);
+	app.all('/forgot-password', routes.controller.session['forgot-password']);
+	app.all('/reset-password/:key', routes.controller.session['reset-password']);
 
 	// Authentication
 	app.all('/auth/confirm', routes.auth.confirm);
@@ -115,13 +115,13 @@ exports = module.exports = function (app) {
 
 	// User
 	app.all('/me*', middleware.requireUser);
-	app.all('/me', routes.views.me);
-	app.all('/me/create/post', routes.views.createPost);
-	app.all('/me/create/link', routes.views.createLink);
-	app.all('/me/create/classified', routes.views.createClassified);
+	app.all('/me', routes.controller.me);
+	app.all('/me/create/post', routes.controller.createPost);
+	app.all('/me/create/link', routes.controller.createLink);
+	app.all('/me/create/classified', routes.controller.createClassified);
 
 	// Tools
-	app.all('/notification-center', routes.views.tools['notification-center']);
+	app.all('/notification-center', routes.controller.tools['notification-center']);
 
 	// API
 	app.all('/api*', keystone.middleware.api);
