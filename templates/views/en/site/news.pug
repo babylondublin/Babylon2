@@ -4,30 +4,30 @@ include ../../../mixins/post
 
 block intro
 	.page-intro: .container
-		h1.page-title=data.category ? data.category.name : 'News'
+		h1.page-title=data.tag ? data.tag.name : 'News'
 
 		
 			
 block content
 	.page-content: .container.blog
 		.row
-			div(class= data.categories.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
-				if filters.category && !data.category
-					h3 Invalid Category.
+			div(class= data.tags.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+				if filters.tag && !data.tag
+					h3 Invalid tag.
 				else
 					if data.posts.length
 						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
 							each post in data.posts
 								+post(post)
 					
-			if data.categories.length
+			if data.tags.length
 				.col-md-2
-					if data.categories.length
+					if data.tags.length
 						h5.text-muted Filter by tag
 						ul.list-unstyled.tags-list
-							li: a(href='/News', class=!data.categories ? 'active' : false) All
-							each tag in data.categories
-								li: a(href='/blog/' + tag.key, class=data.category && data.category.id == tag.id ? 'active' : false).list-group-item= tag.name
+							li: a(href='/News', class=!data.tags ? 'active' : false) All
+							each tag in data.tags
+								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
 	
 			
 		nav#main-menu
@@ -44,4 +44,3 @@ block content
 						a(href='#') Sports
 					li.nav-button-Entertainment
 						a(href='#') Entertainment
-		
