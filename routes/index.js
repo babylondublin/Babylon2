@@ -82,10 +82,10 @@ exports = module.exports = function (app) {
 	//app.get('/meetups/:meetup', routes.controller.meetup);
 	app.get('/members', routes.controller.members);
 	//app.get('/members/mentors', routes.controller.mentors);
-	app.get('/member/:member', routes.controller.member);
+	//app.get('/member/:member', routes.controller.member);
 	//app.get('/organisations', routes.controller.organisations);
-	app.get('/links', routes.controller.links);
-	app.get('/links/:tag?', routes.controller.links);
+	//app.get('/links', routes.controller.links);
+	//app.get('/links/:tag?', routes.controller.links);
 	app.all('/links/link/:link', routes.controller.link);
 	app.get('/news/:tag?', routes.controller.news);
 	app.all('/news/post/:post', routes.controller.post);

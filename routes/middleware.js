@@ -17,7 +17,7 @@ exports.initLocals = function(req, res, next) {
 		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
 			keystone.lang = "en";
 		}
-	} 
+	}
 	console.log(keystone.lang);
 
 	locals.navLinks = [
