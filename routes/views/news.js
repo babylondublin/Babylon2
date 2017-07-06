@@ -17,6 +17,8 @@ exports = module.exports = function(req, res) {
 		categories: []
 	};
 	
+	
+	
 	// Load all categories
 	view.on('init', function(next) {
 		
@@ -76,5 +78,7 @@ exports = module.exports = function(req, res) {
 	
 	// Render the view
 	view.render('site/news');
+	
+
 	
 }

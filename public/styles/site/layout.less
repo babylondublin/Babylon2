@@ -30,7 +30,7 @@ li{
 	.container-md { max-width: @screen-md-min - @grid-gutter-width; }
 }
 .container{
-	width: 100% !important;
+	width: 90% !important;
 }
 
 // App alert
@@ -339,7 +339,9 @@ li{
 	padding-bottom: @page-padding;
 	text-align: center;
 	h1 {
-		margin-bottom: 0.25em;
+		margin-bottom: 0.020em;
+        margin-right: 500px;
+ 
 	}
 	.buttons > .btn {
 		margin-right: 10px;
@@ -452,3 +454,70 @@ li{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(359deg); }
 }
+
+//menu
+
+#main-menu .nav-bar { 
+    display: fixed;
+    list-style:none;
+    margin-top: 0px;
+    padding: 3px;
+    text-align: left;
+    margin-bottom:8px;
+    word-spacing: 50px;
+   
+ 
+  background: fade(white, 60%) ;
+  color: #fff ;
+  font: 15px "Trebuchet MS",Arial,sans-serif ;
+  line-height: 25px;
+  text-decoration: none ;
+
+
+    
+}
+
+#main-menu .nav-bar ul{
+padding: 0px; 
+margin: 0px; 
+list-style-type:none;
+background-color: fade(white, 60%); 
+
+}
+
+#main-menu .nav-bar li { 
+    display: inline-block;
+    width: 100px;
+    height: 40px; 
+    margin: 0px; 
+    padding: 0px; 
+    border-right: px solid black; 
+    text-align: center; 
+    line-height: 40 px;
+}
+
+#main-menu .nav-bar li a {
+display: block; 
+  text-decoration: none;
+  color: black;
+
+  padding-left: 20px;
+  text-transform: uppercase;
+	text-shadow: 1px 1px 1px #ccc;
+    text-align: center ;
+
+   
+}
+
+
+.nav-bar .nav-button-Business a { background:url("") no-repeat 0px -2px transparent; }
+
+.nav-bar .nav-button-Politics a { background:url("") no-repeat 0px -2px transparent; }
+
+.nav-bar .nav-button-Science a { background:url("") no-repeat 0px -2px transparent; }
+
+.nav-bar .nav-button-Health a { background:url("") no-repeat 0px -2px transparent; }
+
+.nav-bar .nav-button-Sports a { background:url("") no-repeat 0px -2px transparent; }
+
+.nav-bar .nav-button-Entertainment a { background:url("") no-repeat 0px -2px transparent; }

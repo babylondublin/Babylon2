@@ -33,11 +33,13 @@ exports = module.exports = function(req, res) {
 	
 	view.on('render', function(next) {
 		if (locals.member) {
-			locals.page.title = locals.member.name.full + ' - Babylon';
-
+			locals.page.title = locals.member.name.full + ' - SydJS';
+			locals.member.populateRelated('posts talks[meetup]', next);
 		}
 	});
 	
 	view.render('site/member');
+	
+	
 
 }
