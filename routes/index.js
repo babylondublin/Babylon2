@@ -80,7 +80,7 @@ exports = module.exports = function (app) {
 	app.get('/', routes.controller.index);
 	//app.get('/meetups', routes.controller.meetups);
 	//app.get('/meetups/:meetup', routes.controller.meetup);
-	app.get('/members', routes.controller.members);
+	//app.get('/members', routes.controller.members);
 	//app.get('/members/mentors', routes.controller.mentors);
 	//app.get('/member/:member', routes.controller.member);
 	//app.get('/organisations', routes.controller.organisations);

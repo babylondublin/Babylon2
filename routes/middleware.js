@@ -18,12 +18,11 @@ exports.initLocals = function(req, res, next) {
 			keystone.lang = "en";
 		}
 	}
-	console.log(keystone.lang);
+	
 
 	locals.navLinks = [
 		{ label: 'Home',			key: 'home',		href: '/' },
 		{ label: 'About',			key: 'about',		href: '/about' },
-		{ label: 'Members',			key: 'members',		href: '/members' },
 		{ label: 'News',			key: 'blog',		href: '/blog' },
 		{ label: 'Contact',			key: 'contact',		href: '/contact'},
 		{ label: 'Tourism',			key: 'tourism',		href: '/tourism'},

@@ -14,6 +14,7 @@ var Article = new keystone.List('Article', {
 });
 
 Article.add({
+	lang: {type: Types.Select, options: 'en, fr, pr, pl, sp, it', default: "en"},
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
