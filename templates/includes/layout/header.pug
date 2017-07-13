@@ -17,10 +17,8 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					
 		#site-nav
 			nav(role='navigation')
-				//-ul.navbar-nav.navbar-nav--left
-						each link in navLinks
-							li(class=(section == link.key ? 'nav-item-' + link.key + ' active' : 'nav-item-' + link.key)): a(href=link.href)= link.label
-
+				ul.navbar-nav.navbar-nav--left
+					div#play ▶
 				ul.navbar-nav.navbar-nav--right
 					if user
 						li: a(href='/me').user

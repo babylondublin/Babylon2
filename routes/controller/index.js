@@ -1,7 +1,7 @@
 var keystone = require('keystone'),
 	moment = require('moment')
 
-var Post = keystone.list('Post'),
+var Post = keystone.list('Post')
 
 exports = module.exports = function(req, res) {
 	
@@ -14,8 +14,6 @@ exports = module.exports = function(req, res) {
 
 
 	locals.user = req.user;
-	
-
 
 
 	// Decide which to render
