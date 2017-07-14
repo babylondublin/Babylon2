@@ -134,4 +134,8 @@ exports = module.exports = function (app) {
 	app.all('/api/app/signin-service-check', routes.api.app['signin-service-check']);
 	app.all('/api/app/signin-recover', routes.api.app['signin-recover']);
 
+	/**lang changer**/
+	app.get('/lang', routes.controller.index);
+	app.get('/lang/:lang', routes.controller.lang);
+
 }
