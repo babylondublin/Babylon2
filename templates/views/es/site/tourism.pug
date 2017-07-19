@@ -1,0 +1,40 @@
+extends ../../../layouts/default
+
+include ../../../mixins/article
+
+block intro
+	.page-intro: .container
+		h1.page-title Tourism
+block content
+	.page-content: .container.blog
+		.row
+			div(class= data.tags.length || !data.articles.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+				if filters.tag && !data.tag
+					h3 Invalid Tag.
+				else
+					if data.articles.length
+						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
+							each article in data.articles
+								+article(article)
+			
+			if data.tags.length
+				.col-md-2
+					if data.tags.length
+						h5.text-muted Filter by tag
+						ul.list-unstyled.tags-list
+							li: a(href='/tourism', class=!data.tags ? 'active' : false) All
+							each tag in data.tags
+								li: a(href='/tourism/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+		nav#main-menu
+				ul.nav-bar
+					li.nav-button-Pubs
+						a(href='#') Pubs
+					li.nav-button-Restaurants
+						a(href='#') Restaurants
+					li.nav-button-Museums
+						a(href='#') Museums
+					li.nav-button-Attractions
+						a(href='#') Attractions
+					li.nav-button-Informations
+						a(href='#') Sports
+					
