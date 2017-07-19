@@ -17,7 +17,7 @@ block content
 					p.blog-post__byline Posted
 						if post.author
 							|  by&nbsp;
-							a(href='/members', rel='author')=post.author.name.full
+							p= post.author.name.full
 						if post.publishedDate
 							|  on #{post._.publishedDate.format('MMMM D, YYYY')}
 						if post.tags && post.tags.length
