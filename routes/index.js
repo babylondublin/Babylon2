@@ -86,7 +86,7 @@ exports = module.exports = function (app) {
 	//app.get('/organisations', routes.controller.organisations);
 	//app.get('/links', routes.controller.links);
 	//app.get('/links/:tag?', routes.controller.links);
-	app.all('/links/link/:link', routes.controller.link);
+	//app.all('/links/link/:link', routes.controller.link);
 	app.get('/news/:tag?', routes.controller.news);
 	app.all('/news/post/:post', routes.controller.post);
 	app.get('/about', routes.controller.about);
@@ -117,7 +117,7 @@ exports = module.exports = function (app) {
 	app.all('/me*', middleware.requireUser);
 	app.all('/me', routes.controller.me);
 	app.all('/me/create/post', routes.controller.createPost);
-	app.all('/me/create/link', routes.controller.createLink);
+	//app.all('/me/create/link', routes.controller.createLink);
 	app.all('/me/create/classified', routes.controller.createClassified);
 
 	// Tools

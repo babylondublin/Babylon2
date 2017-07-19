@@ -25,6 +25,7 @@ Article.add({
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
 	tags: { type: Types.Relationship, ref: 'ArticleTag', many: true },
+	// A provisional way to filter the articles in Living, Culture, etc...
 	type: {type: Types.Relationship, ref: 'ArticleType', many: true}
 });
 

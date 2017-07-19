@@ -106,7 +106,6 @@ keystone.set('nav', {
 	'babylonians': 'users',
 	'news': ['posts', 'post-tags', 'post-comments'],
 	'enquiries': 'enquiries',
-	'links':['links','link-tags','link-comments'],
 	'articles':['articles','article-tags','article-types','article-comments'],
 	'classifieds':['classifieds','classified-comments']
 

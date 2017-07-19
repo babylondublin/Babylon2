@@ -121,20 +121,6 @@ export var datetime = (field) => ({
 	},
 });
 
-export var link = new GraphQLObjectType({
-	name: 'KeystoneLink',
-	fields: {
-		raw: {
-			type: GraphQLString,
-			description: 'The raw unformmated URL',
-		},
-		format: {
-			type: GraphQLString,
-			description: 'The URL after being passed through the `format Function` option',
-		},
-	},
-});
-
 export var markdown = new GraphQLObjectType({
 	name: 'KeystoneMarkdown',
 	fields: {
