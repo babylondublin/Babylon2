@@ -2,7 +2,7 @@ extends ../../../layouts/default
 
 block content
 	.container-sm
-		a(href='/tourism').text-muted &larr; Back to tourism
+		a(href='/places_to_go').text-muted &larr; Back to Places to Go
 		article.full-post
 			if !article
 				h2 Invalid Article.
@@ -23,7 +23,7 @@ block content
 						if article.tags && article.tags.length
 							|  in&nbsp;
 							each cat, cat_i in article.tags
-								a(href='/tourism/' + cat.key)= cat.name
+								a(href='/places_to_go/' + cat.key)= cat.name
 								if cat_i < article.tags.length - 1
 									| ,&nbsp;
 								else

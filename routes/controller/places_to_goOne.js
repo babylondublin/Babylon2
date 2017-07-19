@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 
 	// Init locals
-	locals.section = 'Tourism';
+	locals.section = 'Places to Go';
 	locals.filters = {
 		article: req.params.article
 	};
@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-				return res.redirect('/tourism/article/' + locals.article.slug);
+				return res.redirect('/places_to_go/article/' + locals.article.slug);
 			}
 			next();
 		});
@@ -74,6 +74,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render(keystone.lang + '/site/tourismOne');
+	view.render(keystone.lang + '/site/places_to_goOne');
 
 }

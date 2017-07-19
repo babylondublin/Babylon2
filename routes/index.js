@@ -92,8 +92,8 @@ exports = module.exports = function (app) {
 	app.get('/about', routes.controller.about);
 	//app.get('/showbag', routes.controller.showbag);
 	app.all('/contact', routes.controller.contact);
-	app.get('/tourism/:tag?', routes.controller.tourism);
-	app.all('/tourism/article/:article', routes.controller.tourismOne);
+	app.get('/places_to_go/:tag?', routes.controller.places_to_go);
+	app.all('/places_to_go/article/:article', routes.controller.places_to_goOne);
 	
 	app.all('/living', routes.controller.living);
 	app.all('/culture', routes.controller.culture);
