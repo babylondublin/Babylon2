@@ -28,20 +28,3 @@ block content
 							li: a(href='/News', class=!data.tags ? 'active' : false) All
 							each tag in data.tags
 								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
-	
-			
-		nav#main-menu
-				ul.nav-bar
-					li.nav-button-Business
-						a(href='#') Business
-					li.nav-button-Politics
-						a(href='#') Politics
-					li.nav-button-Science
-						a(href='#') Science
-					li.nav-button-Health
-						a(href='#') Health
-					li.nav-button-Sports
-						a(href='#') Sports
-					li.nav-button-Entertainment
-						a(href='#') Entertainment
-		
