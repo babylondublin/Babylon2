@@ -10,14 +10,6 @@ var keystone = require('keystone');
 exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
-
-	/*get nav language*/
-	if(keystone.lang == undefined){
-		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];		
-		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
-			keystone.lang = "en";
-		}
-	}
 	
 
 	locals.navLinks = [
@@ -65,15 +57,22 @@ exports.initLocals = function(req, res, next) {
 */
 
 exports.initErrorHandlers = function(req, res, next) {
+	/*get nav language*/
+	if(keystone.lang == undefined){
+		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];		
+		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
+			keystone.lang = "en";
+		}
+	}
 	res.err = function(err, title, message) {
-		res.status(500).render('errors/500', {
+		res.status(500).render(keystone.lang + '/errors/500', {
 			err: err,
 			errorTitle: title,
 			errorMsg: message
 		});
 	}
 	res.notfound = function(title, message) {
-		res.status(404).render('errors/404', {
+		res.status(404).render(keystone.lang + '/errors/404', {
 			errorTitle: title,
 			errorMsg: message
 		});
