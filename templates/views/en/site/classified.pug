@@ -16,8 +16,7 @@ block content
 					h1.blog-post__title= classified.title
 					p.blog-post__byline Posted
 						if classified.author
-							|  by&nbsp;
-							a(href='/members', rel='author')=classified.author.name.full
+							|  by #{classified.author.name.full}
 						if classified.publishedDate
 							|  on #{classified._.publishedDate.format('MMMM D, YYYY')}
 					//- sharing buttons
