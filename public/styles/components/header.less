@@ -37,8 +37,12 @@
 // General styles
 .navbar {
 	.clearfix();
-	margin: 0;
+	margin: auto;
 	font-weight: 500;
+
+	@media screen and (min-width: 1025px){
+		width: 90% !important;
+	}
 }
 
 .navbar-header {
@@ -115,6 +119,24 @@ nav {
 		img {
 			margin-right: 5px;
 		}
+	}
+}
+.navbar-nav.menu-item{
+	color:white;
+
+	padding: 0px 25px;
+
+	&:hover{
+		border-bottom: 5px solid white;
+	}
+	a{
+		color: inherit;
+		margin:0;
+		padding:0;
+		text-decoration:none;
+	}
+	@media screen and (max-width: 1023px){
+		display:none;
 	}
 }
 

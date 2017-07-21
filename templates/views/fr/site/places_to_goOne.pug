@@ -16,8 +16,7 @@ block content
 					h1.blog-article__title= article.title
 					p.blog-article__byline Posted
 						if article.author
-							|  by&nbsp;
-							a(href='/members', rel='author')=article.author.name.full
+							|  by #{article.author.name.full}
 						if article.publishedDate
 							|  on #{article._.publishedDate.format('MMMM D, YYYY')}
 						if article.tags && article.tags.length

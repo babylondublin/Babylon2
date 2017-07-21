@@ -1,6 +1,6 @@
 //- HEADER
 header(id='header', role='banner', class=(section == 'home' ? 'header--home' : 'header--page'))
-	nav.navbar(role='navigation'): .container
+	nav.navbar(role='navigation')
 		//- Site logo + site nav trigger button (on mobile)
 		.navbar-header
 			a(href='/', title='Back to Home').site-branding
@@ -17,8 +17,18 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					
 		#site-nav
 			nav(role='navigation')
-				ul.navbar-nav.navbar-nav--left
-					div#play ▶
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/news") News
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/places_to_go") Places to Go
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/living") Living
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/culture") Culture
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/classifieds") Classifieds
+				ul.navbar-nav.navbar-nav--left.menu-item
+					a(href="/about") About Us
 				ul.navbar-nav.navbar-nav--right
 					if user
 						li: a(href='/me').user
