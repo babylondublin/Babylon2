@@ -89,14 +89,14 @@ exports = module.exports = function (app) {
 	//app.all('/links/link/:link', routes.controller.link);
 	app.get('/news/:tag?', routes.controller.news);
 	app.all('/news/post/:post', routes.controller.post);
-	app.get('/about', routes.controller.about);
+	app.get('/plan_your_trip', routes.controller.plan_your_trip);
 	//app.get('/showbag', routes.controller.showbag);
-	app.all('/contact', routes.controller.contact);
+	app.all('/about', routes.controller.about);
 	app.get('/places_to_go/:tag?', routes.controller.places_to_go);
 	app.all('/places_to_go/article/:article', routes.controller.places_to_goOne);
 	
 	app.all('/living', routes.controller.living);
-	app.all('/culture', routes.controller.culture);
+	app.all('/things_to_do', routes.controller.things_to_do);
 
 	app.all('/classifieds', routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
