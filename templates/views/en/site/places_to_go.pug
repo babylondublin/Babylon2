@@ -8,6 +8,14 @@ block intro
 block content
 	.page-content: .container.blog
 		.row
+			if data.tags.length
+				.sub-menu
+					if data.tags.length
+						ul.list-unstyled.tags-list
+							li: a(href='/places_to_go', class=!data.tags ? 'active' : false) All
+							each tag in data.tags
+								li: a(href='/places_to_go/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+
 			div(class= data.tags.length || !data.articles.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
 				if filters.tag && !data.tag
 					h3 Invalid Tag.
@@ -17,12 +25,3 @@ block content
 							each article in data.articles
 								+article(article)
 			
-			if data.tags.length
-				.col-md-2
-					if data.tags.length
-						h5.text-muted Filter by tag
-						ul.list-unstyled.tags-list
-							li: a(href='/places_to_go', class=!data.tags ? 'active' : false) All
-							each tag in data.tags
-								li: a(href='/places_to_go/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
-

@@ -6,6 +6,8 @@
 	height: @navbar-height + 10;
 	.floor;
 	.ceiling;
+	position: fixed;
+    width: 100%;
 }
 
 // Header on home page
@@ -37,12 +39,8 @@
 // General styles
 .navbar {
 	.clearfix();
-	margin: auto;
+	margin: 0;
 	font-weight: 500;
-
-	@media screen and (min-width: 1025px){
-		width: 90% !important;
-	}
 }
 
 .navbar-header {
@@ -119,24 +117,6 @@ nav {
 		img {
 			margin-right: 5px;
 		}
-	}
-}
-.navbar-nav.menu-item{
-	color:white;
-
-	padding: 0px 25px;
-
-	&:hover{
-		border-bottom: 5px solid white;
-	}
-	a{
-		color: inherit;
-		margin:0;
-		padding:0;
-		text-decoration:none;
-	}
-	@media screen and (max-width: 1290px){
-		display:none;
 	}
 }
 

@@ -215,10 +215,13 @@ $(function() {
 	$('#btn-open').click(function(){
 		$('#toggle').css({"width":"250px","z-index":"3","transition":"0.6s"});
 	 	$('#main').css({"margin-left":"250px","transition":"0.6s"});
+		$('.news-panel').css({"margin-left":"250px","transition":"0.6s"});
 	})
 
 	$('#btn-close').click(function(){
 		$('#toggle').css({"width":"0px"});
-		$('#main').css({"margin-left":"0px"})
+		$('#main').css({"margin-left":"0px"});
+		$('.news-panel').css({"margin-left":"0px"});
+
 	})
 });

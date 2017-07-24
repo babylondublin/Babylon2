@@ -114,12 +114,29 @@ li{
 	background: white;
 	min-height: 400px;
 	height: 100%;
-	overflow: hidden;
+	top: 46px;
+	margin-left: 250px;
+	margin-right: 16.666667%; // only for the News panel
+    overflow: hidden;
 	.floor;
 	.floor-1;
 	padding-bottom: @page-padding;
 	padding-top: @page-padding;
 }
+@media screen and (max-width: 775px) {
+	.site-body{
+	margin-left: 0px;
+	}
+}
+@media screen and (max-width: 992px) {
+	.site-body{
+	margin-right: 0px;
+	top:0px;
+	}
+}
+
+
+
 
 // Footer
 // ------------------------------
@@ -243,12 +260,12 @@ li{
 // SIDE BAR NAV LEFT
 .sidebar{
     color: black;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     left: 0;
     height: 100%;
     width: 250px;
-    top: 32px;
+    top: 46px;
     padding: 30px 30px 30px 10px;
     background-color: whitesmoke;
     line-height: 1.1em;
@@ -256,16 +273,16 @@ li{
 	overflow-x:hidden;
 	transition:0.5s;
 	li{
-		margin-top: 15px;
+	margin-top: 15px;
 	}
 	a.menu-item{
-		margin-top: 20px;
-		color:#333;
-		text-decoration: none;
-		font-size: 20px;
+	margin-top: 20px;
+	color:#333;
+	text-decoration: none;
+	font-size: 20px;
 	}
 	a.menu-item:hover{
-		color:grey;
+	color:grey;
 	}
 }
 .open-slide{
@@ -288,7 +305,7 @@ li{
 .toggle{
   height:100%;
   width:0;
-  position: absolute;
+  position: fixed;
   top:0;
   left:0;
   background-color:whitesmoke;
@@ -309,6 +326,7 @@ li{
 	.btn-close{
 	position:absolute;
 	right:22px;
+	top:47px;
 	font-size:36px;
 	margin-left:50px;
 	text-decoration:none;
@@ -316,7 +334,7 @@ li{
 	}
 } 
 
-@media screen and (min-width: 1289px) {
+@media screen and (min-width: 775px) {
 	.open-slide{display:none}
  	.toggle{display:none;
 		a{display:none;}
@@ -332,7 +350,6 @@ li{
 	text-align: center;
 	h1 {
 		margin-bottom: 0.020em;
-        margin-right: 500px;
  
 	}
 	.buttons > .btn {
@@ -513,3 +530,46 @@ display: block;
 .nav-bar .nav-button-Sports a { background:url("") no-repeat 0px -2px transparent; }
 
 .nav-bar .nav-button-Entertainment a { background:url("") no-repeat 0px -2px transparent; }
+
+//---Sub Menu ---//
+.sub-menu{
+	width:100%;
+	margin:50px;
+}
+
+
+//------News side right section-------//
+@media (max-width: 992px){
+.news-panel {
+    width: 100%;
+	margin-left:250px;
+    position: relative;
+	border: solid 1px black;
+    background: white;
+    height: 200px;
+    overflow: hidden;
+	padding:80px;
+	.text-muted{
+		text-align: center;
+	}
+}
+}
+@media (max-width: 775px){
+.news-panel {
+	margin-left:0px;
+}
+}
+@media (min-width: 992px){
+.news-panel {
+    width: 16.66666667%;
+    position: absolute;
+    z-index: 2;
+    background: white;
+    right: 0;
+    top: 46px;
+    padding: 20px;
+    overflow: hidden;
+	border: solid 1px black;
+	height: 600px;
+}
+}
