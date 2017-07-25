@@ -1,15 +1,27 @@
 // Header
 // ------------------------------
+@media (min-width: 775px){
 #header {
 	line-height: @navbar-height + 7;
 	background-color: @navbar-default-bg;
-	height: @navbar-height + 10;
+	height: @navbar-height + 70;
 	.floor;
 	.ceiling;
 	position: fixed;
     width: 100%;
+	}
 }
-
+@media (max-width: 775px){
+   #header { 
+	   line-height: @navbar-height + 7;
+	   background-color: @navbar-default-bg;
+	   height: @navbar-height + 30;
+	    .floor;
+		.ceiling;
+		position: fixed;
+		width: 100%;
+	}
+}
 // Header on home page
 #header.header--home {
 	/*background-color: transparent;*/
@@ -79,17 +91,21 @@ nav {
 
 	#play{
 		color: white;
-		margin-top: 3px;
+    	margin-top: 12px;
 		cursor: pointer;
 	}
-
+	@media screen and (max-width: 775px) {
+	#play{
+		display: none;
+	}
+	}
 	> li {
 		display: inline-block;
 	}
 	> li > a {
 		.transition( all 0.1s ease );
 		display: block;
-		padding-top: 3px;
+		padding-top: 0px;
 		padding-right: 15px;
 		padding-left: 15px;
 		outline: none;
@@ -127,7 +143,55 @@ nav {
 .navbar-nav.navbar-nav--right {
 	float: right;
 }
-
+//-Searcher
+.searcher{
+	width: 170px;
+	height: 28px;
+	float: left;
+    margin-top: 18px;
+	margin-left: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../../images/ic_search_black_24dp_2x.png');
+    background-size: 22px;
+    background-position: 6px 3px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+	}
+	.searcher:focus{
+		width: 200px;
+	}
+	@media (max-width: 775px){
+	.searcher{
+		display:none;
+	}
+	}
+	//-TOP menu
+	@media (min-width: 775px){
+	.top-menu{
+		position: absolute;
+		width: 100%;
+		top:54px;
+		margin-left: 70px;
+		li{
+		display: inline-block;
+		margin-right:40px;
+		a{
+		color:white;
+		font-weight: 300;
+		}
+		a:hover{
+			text-decoration: none;
+		}
+		}
+	}
+	}
+	@media (max-width: 775px){.top-menu{display:none;}}
 // Mobile styles
 /*
 @media (max-width: @screen-sm-max) {

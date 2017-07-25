@@ -76,5 +76,6 @@ exports = module.exports = function(req, res) {
 	
 	// Render the view
 	view.render(keystone.lang + '/site/news');
+
 	
 }

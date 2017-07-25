@@ -19,6 +19,8 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 			nav(role='navigation')
 				ul.navbar-nav.navbar-nav--left
 					div#play ▶
+				ul
+					input(type="text" name="search" placeholder="Search a city..").searcher 
 				ul.navbar-nav.navbar-nav--right
 					if user
 						li: a(href='/me').user
@@ -29,4 +31,11 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					else
 						li: a(href='/signin', data-from=page.path, data-initial='signin').js-auth-trigger Sign in
 						li: a(href='/join', data-from=page.path).js-auth-trigger Join
+				.top-menu
+					li: a(href="/news") News
+					li: a(href="/places_to_go") Places to Go
+					li: a(href="/things_to_do") Things to Do
+					li: a(href="/plan_your_trip") Plan to trip
+					li: a(href="/classifieds") Classifieds
+					li: a(href="/about") About Us
 //-.header-placeholder

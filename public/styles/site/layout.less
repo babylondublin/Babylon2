@@ -114,8 +114,7 @@ li{
 	background: white;
 	min-height: 400px;
 	height: 100%;
-	top: 46px;
-	margin-left: 250px;
+	top: 106px;
 	margin-right: 16.666667%; // only for the News panel
     overflow: hidden;
 	.floor;
@@ -126,12 +125,13 @@ li{
 @media screen and (max-width: 775px) {
 	.site-body{
 	margin-left: 0px;
+	top: 66px;
 	}
 }
 @media screen and (max-width: 992px) {
 	.site-body{
 	margin-right: 0px;
-	top:0px;
+
 	}
 }
 
@@ -258,47 +258,15 @@ li{
 }
 
 // SIDE BAR NAV LEFT
-.sidebar{
-    color: black;
-    position: fixed;
-    z-index: 3;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    top: 46px;
-    padding: 30px 30px 30px 10px;
-    background-color: whitesmoke;
-    line-height: 1.1em;
-    font-size: 1.2em;
-	overflow-x:hidden;
-	transition:0.5s;
-	li{
-	margin-top: 15px;
-	}
-	a.menu-item{
-	margin-top: 20px;
-	color:#333;
-	text-decoration: none;
-	font-size: 20px;
-	}
-	a.menu-item:hover{
-	color:grey;
-	}
-}
+
 .open-slide{
     position: absolute;
     z-index: 2;
     left: 0;
-    top: 32px;
+    top: 45px;
     padding: 30px 30px 30px 10px;
 	overflow-x:hidden;
 
-}
-@media screen and (max-width: 775px) {
-	.sidebar{
-		display:none;
-		ul li{display: none;}
-	}
 }
 
 //Side-Nav Slide in
@@ -310,10 +278,10 @@ li{
   left:0;
   background-color:whitesmoke;
   overflow-x:hidden;
-  padding-top:60px;
+  padding-top:100px;
 	.menu-item{
 	margin-top:20px;
-	padding-left: 80px;
+	padding-left: 64px;
 	display:block;
 	color:#333;
 	font-size: 20px;
@@ -326,7 +294,7 @@ li{
 	.btn-close{
 	position:absolute;
 	right:22px;
-	top:47px;
+	top:65px;
 	font-size:36px;
 	margin-left:50px;
 	text-decoration:none;
@@ -334,7 +302,7 @@ li{
 	}
 } 
 
-@media screen and (min-width: 775px) {
+@media screen and (min-width: 776px) {
 	.open-slide{display:none}
  	.toggle{display:none;
 		a{display:none;}
@@ -534,18 +502,26 @@ display: block;
 //---Sub Menu ---//
 .sub-menu{
 	width:100%;
-	margin:50px;
+	margin:0px 0px 20px 0px;
 }
 
 
 //------News side right section-------//
+@media (max-width: 775px){
+.news-panel {
+	margin-left:0px;
+	top:66px;
+}
+}
+@media (min-width: 775px){
+.news-panel{
+top: 106px;
+}
+}
 @media (max-width: 992px){
 .news-panel {
-    width: 100%;
-	margin-left:250px;
     position: relative;
-	border: solid 1px black;
-    background: white;
+    background: whitesmoke;
     height: 200px;
     overflow: hidden;
 	padding:80px;
@@ -554,22 +530,15 @@ display: block;
 	}
 }
 }
-@media (max-width: 775px){
-.news-panel {
-	margin-left:0px;
-}
-}
 @media (min-width: 992px){
 .news-panel {
     width: 16.66666667%;
     position: absolute;
     z-index: 2;
-    background: white;
     right: 0;
-    top: 46px;
+    top: 106px;
     padding: 20px;
     overflow: hidden;
-	border: solid 1px black;
 	height: 600px;
 }
 }
