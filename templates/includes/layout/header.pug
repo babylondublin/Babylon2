@@ -1,578 +1,588 @@
 header#mainHeader
-  #playbuttons.col-md-4
-    #memberplayinner.col-md-4
-      span.fa.fa-play-circle(aria-hidden='true')
-  #logo.col-md-4
-    h1 BABYLON
-  .col-md-4(id='')
-    #flags.col-md-9.col-md-offset-1
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png')
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png')
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/1280px-Flag_of_Spain.svg.png')
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/255px-Flag_of_Portugal.svg.png')
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg')
-      a(href='#')
-        img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/1200px-Flag_of_Poland_%28normative%29.svg.png')
-    #memberbuttons.col-md-2
-      span.fa.fa-user-circle(aria-hidden='true')
+    #playbuttons.col-md-4
+        #memberplayinner.col-md-4
+            span.fa.fa-play-circle(aria-hidden='true')
+    #logo.col-md-4
+        h1 BABYLON
+    .col-md-4(id='')
+        #flags.col-md-9.col-md-offset-1
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1280px-Flag_of_the_United_Kingdom.svg.png')
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png')
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/1280px-Flag_of_Spain.svg.png')
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/255px-Flag_of_Portugal.svg.png')
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg')
+            a(href='#')
+                img(src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/1200px-Flag_of_Poland_%28normative%29.svg.png')
+        #memberbuttons.col-md-2
+            span.fa.fa-user-circle(aria-hidden='true')
 div(style='clear:both')
 nav#mainNav.navbar.navbar-default
-  div
-    // container-fluid
-    // Brand and toggle get grouped for better mobile display
-    .navbar-header.col-md-2
-      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(href='#') Babylon
-      span.fa.fa-play-circle(aria-hidden='true')
-    // Collect the nav links, forms, and other content for toggling
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav
-        // col-md-7
-        li(style='margin-left:3px')
-          a(href='#') News
-        li.dropdown.mega-dropdown
-          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | Places to Go 
-            span.glyphicon.glyphicon-chevron-down
-          ul.dropdown-menu.mega-dropdown-menu.row
-            li.col-sm-4.col-sm-offset-1
-              ul
-                li.dropdown-header Cities
-                .row
-                  .col-sm-5
-                    a(href='#')
-                      table.menuimg(background='http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg')
-                        tr
-                          td(valign='bottom')
-                            p.menuimgHeading Dublin
-                  .col-sm-5.col-sm-offset-1
-                    a(href='#')
-                      table.menuimg(background='http://blog.laterooms.com/wp-content/uploads/2015/06/Cobh-Cork.jpg')
-                        tr
-                          td(valign='bottom')
-                            p.menuimgHeading Cork
-                br
-                .row
-                  .col-sm-5
-                    a(href='#')
-                      table.menuimg(background='https://www.dan-dooley.ie/images/location-images/17-Car-Hire-Galway.jpg')
-                        tr
-                          td(valign='bottom')
-                            p.menuimgHeading Galway
-                  .col-sm-5.col-sm-offset-1
-                    a(href='#')
-                      table.menuimg(background='http://d5qsyj6vaeh11.cloudfront.net/images/destinations/backgrounds/d212_b_bg.jpg')
-                        tr
-                          td(valign='bottom')
-                            p.menuimgHeading Waterford
-                br
-                .row
-                  .col-sm-5.menulist
-                    li
-                      a(href='#') Dun Loaghaire
-                    li
-                      a(href='#') Limerick
-                    li
-                      a(href='#') Dundalk
-                    li
-                      a(href='#') Dingle
-                    li
-                      a(href='#') Kerry
-                  .col-sm-5.col-sm-offset-1.menulist
-                    li
-                      a(href='#') Text
-                    li
-                      a(href='#') Text
-                    li
-                      a(href='#') Text
-                    li
-                      a(href='#') Text
-                    li
-                      a(href='#') Text
-        li.col-sm-4.col-sm-offset-2
-          ul
-            li.dropdown-header Attraction
-            .row
-              .col-sm-5
-                a(href='#')
-                  table.menuimg(background='https://www.claytonhotelleopardstown.com/wp-content/uploads/Dublin-Zoo.jpg')
-                    tr
-                      td(valign='bottom')
-                        p.menuimgHeading Dublin Zoo
-              .col-sm-5.col-sm-offset-1
-                a(href='#')
-                  table.menuimg(background='https://4.bp.blogspot.com/-LNYkTYgz2pk/Vtw1O6m9OPI/AAAAAAAAApc/8ahi23wZ9-U/s1600/6995209237_c03fa463c4_o.jpg')
-                    tr
-                      td(valign='bottom')
-                        p.menuimgHeading Book of Kells
-            br
-            .row
-              .col-sm-5
-                a(href='#')
-                  table.menuimg(background='https://wildrovertours.com/wp-content/uploads/2015/12/Cliffs-of-Moher-2.jpg')
-                    tr
-                      td(valign='bottom')
-                        p.menuimgHeading Cliffs of Moher
-              .col-sm-5.col-sm-offset-1
-                a(href='#')
-                  table.menuimg(background='https://www.claytonhotelleopardstown.com/wp-content/uploads/Powerscourt.jpg')
-                    tr
-                      td(valign='bottom')
-                        p.menuimgHeading Powerscourt
-            br
-            .row
-              .col-sm-5.menulist
+    div
+        // container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header.col-md-2
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='#') Babylon
+            span.fa.fa-play-circle(aria-hidden='true')
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+                // col-md-7
+                li(style='margin-left:3px')
+                    a(href='/news') News
+                li.dropdown.mega-dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Places to Go 
+                        span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu.mega-dropdown-menu.row(style='height: 620px;')
+                        li.col-sm-4.col-sm-offset-1
+                            ul
+                                li.dropdown-header Cities
+                                .row
+                                    .col-sm-5
+                                        a(href='#')
+                                            table.menuimg(background='http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Dublin
+                                    .col-sm-5.col-sm-offset-1
+                                        a(href='#')
+                                            table.menuimg(background='http://blog.laterooms.com/wp-content/uploads/2015/06/Cobh-Cork.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Cork
+                                br
+                                .row
+                                    .col-sm-5
+                                        a(href='#')
+                                            table.menuimg(background='https://www.dan-dooley.ie/images/location-images/17-Car-Hire-Galway.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Galway
+                                    .col-sm-5.col-sm-offset-1
+                                        a(href='#')
+                                            table.menuimg(background='http://d5qsyj6vaeh11.cloudfront.net/images/destinations/backgrounds/d212_b_bg.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Waterford
+                                br
+                                .row
+                                    .col-sm-5.menulist
+                                        li
+                                            a(href='#') Dun Loaghaire
+                                        li
+                                            a(href='#') Limerick
+                                        li
+                                            a(href='#') Dundalk
+                                        li
+                                            a(href='#') Dingle
+                                        li
+                                            a(href='#') Kerry
+                                    .col-sm-5.col-sm-offset-1.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                        li.col-sm-4.col-sm-offset-2
+                            ul
+                                li.dropdown-header Attraction
+                                .row
+                                    .col-sm-5
+                                        a(href='#')
+                                            table.menuimg(background='https://www.claytonhotelleopardstown.com/wp-content/uploads/Dublin-Zoo.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Dublin Zoo
+                                    .col-sm-5.col-sm-offset-1
+                                        a(href='#')
+                                            table.menuimg(background='https://4.bp.blogspot.com/-LNYkTYgz2pk/Vtw1O6m9OPI/AAAAAAAAApc/8ahi23wZ9-U/s1600/6995209237_c03fa463c4_o.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Book of Kells
+                                br
+                                .row
+                                    .col-sm-5
+                                        a(href='#')
+                                            table.menuimg(background='https://wildrovertours.com/wp-content/uploads/2015/12/Cliffs-of-Moher-2.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Cliffs of Moher
+                                    .col-sm-5.col-sm-offset-1
+                                        a(href='#')
+                                            table.menuimg(background='https://www.claytonhotelleopardstown.com/wp-content/uploads/Powerscourt.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Powerscourt
+                                br
+                                .row
+                                    .col-sm-5.menulist
+                                        li
+                                            a(href='#') Glendalough
+                                        li
+                                            a(href='#') The Ring of Kerry
+                                        li
+                                            a(href='#') Kilmainham Goal
+                                        li
+                                            a(href='#') Bunratty Castle
+                                        li
+                                            a(href='#') Muckross House & Gardens
+                                    .col-sm-5.col-sm-offset-1.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                li.dropdown.mega-dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Things to Do 
+                        span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu.mega-dropdown-menu.row(style='height: 620px;')
+                        li.col-md-4.col-md-offset-1
+                            ul
+                                li.dropdown-header Festivals
+                                .row
+                                    .col-md-6
+                                        a(href='#')
+                                            table.menuimg(background='https://img.rasset.ie/000dc557-614.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading St. Patrick Festival
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Arts & Culture Festival
+                                        li
+                                            a(href='#') Jameson Dublin International Festival
+                                        li
+                                            a(href='#') Music Festival
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                                br
+                                li.dropdown-header Parks
+                                .row
+                                    .col-md-6
+                                        a(href='#')
+                                            table.menuimg(background='http://static.thousandwonders.net/St.Stephen%27s.Green.original.8362.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading St.Stephen's Park
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Phoenix Park
+                                        li
+                                            a(href='#') Ards Forest Park
+                                        li
+                                            a(href='#') Other Parks
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                        li.col-md-4.col-md-offset-2
+                            ul
+                                li.dropdown-header Museums
+                                .row
+                                    .col-md-6
+                                        a(href='#')
+                                            table.menuimg(background='http://www.frg.ie/wp-content/uploads/guinness-storehouse.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Guinness Storehouse
+                                br
+                                .row
+                                    .col-md-6.menulist
+                                        li
+                                            a(href='#') Dublin Writers Museum
+                                        li
+                                            a(href='#') The Old Jameson Distillery
+                                        li
+                                            a(href='#') Arts Galleries and Studios
+                                    .col-md-5.col-md-offset-1.menulist
+                                        li
+                                            a(href='#') National Museum
+                                        li
+                                            a(href='#') Other Musuems
+                                        li
+                                            a(href='#') Text
+                                br
+                                li.dropdown-header Shopping
+                                .row
+                                    .col-md-6
+                                        a(href='#')
+                                            table.menuimg(background='http://www.johnsiskandson.com/sites/default/files/project/191/408-dundrum-town-centre-dublin.jpg')
+                                                tbody
+                                                    tr
+                                                        td(valign='bottom')
+                                                            p.menuimgHeading Dundrum
+                                br
+                                .row
+                                    .col-md-6.menulist
+                                        li
+                                            a(href='#') Kildare Village
+                                        li
+                                            a(href='#') Other Shopping Centres
+                                        li
+                                            a(href='#') Other Markets
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                li.dropdown.mega-dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Plan Your Trip 
+                        span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu.mega-dropdown-menu.row(style='height: 620px;')
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header Before Coming
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://www.valenscube.com/wp-content/uploads/2016/02/Ireland-landscape1.jpg')
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') About Ireland
+                                        li
+                                            a(href='#') Customs & Traditions
+                                        li
+                                            a(href='#') Famous Irish People
+                                        li
+                                            a(href='#') Embassies
+                                        li
+                                            a(href='#') FAQ
+                                        li
+                                            a(href='#') Irish Symbols
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header How To Get Here
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='https://media-cdn.tripadvisor.com/media/photo-o/0e/c0/ca/5c/aer-lingus.jpg')
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Air Travel
+                                        li
+                                            a(href='#') Bus Services
+                                        li
+                                            a(href='#') Car Rental
+                                        li
+                                            a(href='#') Ferries
+                                        li
+                                            a(href='#') Train Services
+                                        li
+                                            a(href='#') Taxi
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header Accomodations
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://blog.knightfrank.ie/wp-content/uploads/2013/09/Satini-Court-1.jpg')
+                                        //
+                                            <a href="#">
+                                            <table class="menuimg" background="https://img.rasset.ie/000dc557-614.jpg" style="border:2px solid black" >
+                                            <tr>
+                                            <td valign="bottom">
+                                            <p class="menuimgHeading">St. Patrick Festival</p>
+                                            </td>
+                                            </tr>
+                                            </table>
+                                            </a>
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Apartments
+                                        li
+                                            a(href='#') Hostels
+                                        li
+                                            a(href='#') Hotels
+                                        li
+                                            a(href='#') Guest Houses
+                                        li
+                                            a(href='#') Self Catering
+                                        li
+                                            a(href='#') Townhouses
+                                        li
+                                            a(href='#') Country Homes and Farm Houses
+                li.dropdown.mega-dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Living 
+                        span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu.mega-dropdown-menu.row(style='height: 620px;')
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header Health
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/5/2015/09/Beacon-Hospital-Exterior.jpg')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') Emergency Numbers
+                                        li
+                                            a(href='#') Emergency
+                                        li
+                                            a(href='#') Health Agencies
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Health Insurance
+                                        li
+                                            a(href='#') Health Services
+                                        li
+                                            a(href='#') Text
+                                br
+                                li.dropdown-header Law
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://leap.utah.edu/_images/program-options/Pre-Law.jpg')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header Education
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='https://comeheretome.files.wordpress.com/2010/01/tcd.jpg')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') University
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                br
+                                li.dropdown-header Accomodation
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://www.isaacs.ie/de/wp-content/uploads/2013/09/Isaacs-60851.jpg')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') How
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                        li.col-md-3.col-md-offset-1
+                            ul
+                                li.dropdown-header Work
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://www.faithandwork.ie/hs-fs/hub/309618/file-306934408-jpg/CropedDublinOffices.jpg?t=1385483363000&width=1702&name=CropedDublinOffices.jpg')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') Bank Account
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                br
+                                li.dropdown-header Finance
+                                .row
+                                    .col-md-8
+                                        img.menuimg(src='http://wpb.org/CMSPages/GetAmazonFile.aspx?path=~\wpb_website\media\wpb_header_images\istock_000023265222_large_1.jpg&hash=32b4b6f8774dd82c57ae6b6be6255bacdb2e21ee394942080b0e722317ff073d')
+                                br
+                                .row
+                                    .col-md-5.menulist2
+                                        li
+                                            a(href='#') Tax
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist2
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                li.dropdown.mega-dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                        | Classifieds 
+                        span.glyphicon.glyphicon-chevron-down
+                    ul.dropdown-menu.mega-dropdown-menu.row(style='height: 620px;')
+                        li.col-md-4.col-md-offset-1
+                            ul
+                                li.dropdown-header Cars
+                                .row
+                                    .col-md-6
+                                        img.menuimg(src='http://article.images.consumerreports.org/prod/content/dam/CRO%20Images%202016/Cars/December/CR-Cars-Inline-2017-Acura-ILX-12-16')
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                                br
+                                li.dropdown-header Properties
+                                .row
+                                    .col-md-6
+                                        img.menuimg(src='http://iam-estates.com/img/slid3.jpg')
+                                br
+                                .row
+                                    .col-md-10.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                        li.col-md-4.col-md-offset-2
+                            ul
+                                li.dropdown-header Jobs
+                                .row
+                                    .col-md-6
+                                        img.menuimg(src='http://uptodatejobs.com/wp-content/uploads/2016/03/types-of-jobs.jpg')
+                                br
+                                .row
+                                    .col-md-6.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    .col-md-5.col-md-offset-1.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                br
+                                li.dropdown-header Sales
+                                .row
+                                    .col-md-6
+                                        img.menuimg(src='https://financesonline.com/uploads/2015/02/Sales.jpg')
+                                br
+                                .row
+                                    .col-md-6.menulist
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                        li
+                                            a(href='#') Text
+                                    //
+                                        <div class="col-md-5 col-md-offset-1 menulist">
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        <li><a href="#">Text</a></li>
+                                        </div>
+                // <li><a href="#">Things to Do</a></li>
+                // <li><a href="#">Plan Your Trip</a></li>
+                // <li><a href="#">Living</a></li>
+                // <li><a href="#">Classifieds</a></li>
                 li
-                  a(href='#') Glendalough
-                li
-                  a(href='#') The Ring of Kerry
-                li
-                  a(href='#') Kilmainham Goal
-                li
-                  a(href='#') Bunratty Castle
-                li
-                  a(href='#') Muckross House & Gardens
-              .col-sm-5.col-sm-offset-1.menulist
-                li
-                  a(href='#') Text
-                li
-                  a(href='#') Text
-                li
-                  a(href='#') Text
-                li
-                  a(href='#') Text
-                li
-                  a(href='#') Text
-      li.dropdown.mega-dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-          | Things to Do 
-          span.glyphicon.glyphicon-chevron-down
-        ul.dropdown-menu.mega-dropdown-menu.row
-          li.col-md-4.col-md-offset-1
-            ul
-              li.dropdown-header Festivals
-              .row
-                .col-md-6
-                  a(href='#')
-                    table.menuimg(background='https://img.rasset.ie/000dc557-614.jpg')
-                      tr
-                        td(valign='bottom')
-                          p.menuimgHeading St. Patrick Festival
-              br
-              .row
-                .col-md-10.menulist
-                  li
-                    a(href='#') Arts & Culture Festival
-                  li
-                    a(href='#') Jameson Dublin International Festival
-                  li
-                    a(href='#') Music Festival
-                //
-                  <div class="col-md-5 col-md-offset-1 menulist">
-                  <li><a href="#">Text</a></li>
-                  <li><a href="#">Text</a></li>
-                  <li><a href="#">Text</a></li>
-                  </div>
-          br
-          li.dropdown-header Parks
-          .row
-            .col-md-6
-              a(href='#')
-                table.menuimg(background='http://static.thousandwonders.net/St.Stephen%27s.Green.original.8362.jpg')
-                  tr
-                    td(valign='bottom')
-                      p.menuimgHeading St.Stephen's Park
-          br
-          .row
-            .col-md-10.menulist
-              li
-                a(href='#') Phoenix Park
-              li
-                a(href='#') Ards Forest Park
-              li
-                a(href='#') Other Parks
-            //
-              <div class="col-md-5 col-md-offset-1 menulist">
-              <li><a href="#">Text</a></li>
-              <li><a href="#">Text</a></li>
-              <li><a href="#">Text</a></li>
-              </div>
-      li.col-md-4.col-md-offset-2
-        ul
-          li.dropdown-header Museums
-          .row
-            .col-md-6
-              a(href='#')
-                table.menuimg(background='http://www.frg.ie/wp-content/uploads/guinness-storehouse.jpg')
-                  tr
-                    td(valign='bottom')
-                      p.menuimgHeading Guinness Storehouse
-          br
-          .row
-            .col-md-6.menulist
-              li
-                a(href='#') Dublin Writers Museum
-              li
-                a(href='#') The Old Jameson Distillery
-              li
-                a(href='#') Arts Galleries and Studios
-            .col-md-5.col-md-offset-1.menulist
-              li
-                a(href='#') National Museum
-              li
-                a(href='#') Other Musuems
-              li
-                a(href='#') Text
-      br
-      li.dropdown-header Shopping
-      .row
-        .col-md-6
-          a(href='#')
-            table.menuimg(background='http://www.johnsiskandson.com/sites/default/files/project/191/408-dundrum-town-centre-dublin.jpg')
-              tr
-                td(valign='bottom')
-                  p.menuimgHeading Dundrum
-      br
-      .row
-        .col-md-6.menulist
-          li
-            a(href='#') Kildare Village
-          li
-            a(href='#') Other Shopping Centres
-          li
-            a(href='#') Other Markets
-        //
-          <div class="col-md-5 col-md-offset-1 menulist">
-          <li><a href="#">Text</a></li>
-          <li><a href="#">Text</a></li>
-          <li><a href="#">Text</a></li>
-          </div>
-      li.dropdown.mega-dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-          | Plan Your Trip 
-          span.glyphicon.glyphicon-chevron-down
-        ul.dropdown-menu.mega-dropdown-menu.row
-          li.col-md-3.col-md-offset-1
-            ul
-              li.dropdown-header Before Coming
-              .row
-                .col-md-8
-                  img.menuimg(src='http://www.valenscube.com/wp-content/uploads/2016/02/Ireland-landscape1.jpg')
-              br
-              .row
-                .col-md-10.menulist
-                  li
-                    a(href='#') About Ireland
-                  li
-                    a(href='#') Customs & Traditions
-                  li
-                    a(href='#') Famous Irish People
-                  li
-                    a(href='#') Embassies
-                  li
-                    a(href='#') FAQ
-                  li
-                    a(href='#') Irish Symbols
-      li.col-md-3.col-md-offset-1
-        ul
-          li.dropdown-header How To Get Here
-          .row
-            .col-md-8
-              img.menuimg(src='https://media-cdn.tripadvisor.com/media/photo-o/0e/c0/ca/5c/aer-lingus.jpg')
-          br
-          .row
-            .col-md-10.menulist
-              li
-                a(href='#') Air Travel
-              li
-                a(href='#') Bus Services
-              li
-                a(href='#') Car Rental
-              li
-                a(href='#') Ferries
-              li
-                a(href='#') Train Services
-              li
-                a(href='#') Taxi
-      li.col-md-3.col-md-offset-1
-        ul
-          li.dropdown-header Accomodations
-          .row
-            .col-md-8
-              img.menuimg(src='http://blog.knightfrank.ie/wp-content/uploads/2013/09/Satini-Court-1.jpg')
-              //
-                <a href="#">
-                <table class="menuimg" background="https://img.rasset.ie/000dc557-614.jpg" style="border:2px solid black" >
-                <tr>
-                <td valign="bottom">
-                <p class="menuimgHeading">St. Patrick Festival</p>
-                </td>
-                </tr>
-                </table>
-                </a>
-          br
-          .row
-            .col-md-10.menulist
-              li
-                a(href='#') Apartments
-              li
-                a(href='#') Hostels
-              li
-                a(href='#') Hotels
-              li
-                a(href='#') Guest Houses
-              li
-                a(href='#') Self Catering
-              li
-                a(href='#') Townhouses
-              li
-                a(href='#') Country Homes and Farm Houses
-      li.dropdown.mega-dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-          | Living 
-          span.glyphicon.glyphicon-chevron-down
-        ul.dropdown-menu.mega-dropdown-menu.row
-          li.col-md-3.col-md-offset-1
-            ul
-              li.dropdown-header Health
-              .row
-                .col-md-8
-                  img.menuimg(src='https://d3hjf51r9j54j7.cloudfront.net/wp-content/uploads/sites/5/2015/09/Beacon-Hospital-Exterior.jpg')
-              br
-              .row
-                .col-md-5.menulist2
-                  li
-                    a(href='#') Emergency Numbers
-                  li
-                    a(href='#') Emergency
-                  li
-                    a(href='#') Health Agencies
-                .col-md-5.col-md-offset-1.menulist2
-                  li
-                    a(href='#') Health Insurance
-                  li
-                    a(href='#') Health Services
-                  li
-                    a(href='#') Text
-          br
-          li.dropdown-header Law
-          .row
-            .col-md-8
-              img.menuimg(src='http://leap.utah.edu/_images/program-options/Pre-Law.jpg')
-          br
-          .row
-            .col-md-5.menulist2
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-            .col-md-5.col-md-offset-1.menulist2
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-      li.col-md-3.col-md-offset-1
-        ul
-          li.dropdown-header Education
-          .row
-            .col-md-8
-              img.menuimg(src='https://comeheretome.files.wordpress.com/2010/01/tcd.jpg')
-          br
-          .row
-            .col-md-5.menulist2
-              li
-                a(href='#') University
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-            .col-md-5.col-md-offset-1.menulist2
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-      br
-      li.dropdown-header Accomodation
-      .row
-        .col-md-8
-          img.menuimg(src='http://www.isaacs.ie/de/wp-content/uploads/2013/09/Isaacs-60851.jpg')
-      br
-      .row
-        .col-md-5.menulist2
-          li
-            a(href='#') How
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-        .col-md-5.col-md-offset-1.menulist2
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-      li.col-md-3.col-md-offset-1
-        ul
-          li.dropdown-header Work
-          .row
-            .col-md-8
-              img.menuimg(src='http://www.faithandwork.ie/hs-fs/hub/309618/file-306934408-jpg/CropedDublinOffices.jpg?t=1385483363000&width=1702&name=CropedDublinOffices.jpg')
-          br
-          .row
-            .col-md-5.menulist2
-              li
-                a(href='#') Bank Account
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-            .col-md-5.col-md-offset-1.menulist2
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-      br
-      li.dropdown-header Finance
-      .row
-        .col-md-8
-          img.menuimg(src='http://wpb.org/CMSPages/GetAmazonFile.aspx?path=~\wpb_website\media\wpb_header_images\istock_000023265222_large_1.jpg&hash=32b4b6f8774dd82c57ae6b6be6255bacdb2e21ee394942080b0e722317ff073d')
-      br
-      .row
-        .col-md-5.menulist2
-          li
-            a(href='#') Tax
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-        .col-md-5.col-md-offset-1.menulist2
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-      li.dropdown.mega-dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-          | Classifieds 
-          span.glyphicon.glyphicon-chevron-down
-        ul.dropdown-menu.mega-dropdown-menu.row
-          li.col-md-4.col-md-offset-1
-            ul
-              li.dropdown-header Cars
-              .row
-                .col-md-6
-                  img.menuimg(src='http://article.images.consumerreports.org/prod/content/dam/CRO%20Images%202016/Cars/December/CR-Cars-Inline-2017-Acura-ILX-12-16')
-              br
-              .row
-                .col-md-10.menulist
-                  li
-                    a(href='#') Text
-                  li
-                    a(href='#') Text
-                  li
-                    a(href='#') Text
-                //
-                  <div class="col-md-5 col-md-offset-1 menulist">
-                  <li><a href="#">Text</a></li>
-                  <li><a href="#">Text</a></li>
-                  <li><a href="#">Text</a></li>
-                  </div>
-          br
-          li.dropdown-header Properties
-          .row
-            .col-md-6
-              img.menuimg(src='http://iam-estates.com/img/slid3.jpg')
-          br
-          .row
-            .col-md-10.menulist
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-            //
-              <div class="col-md-5 col-md-offset-1 menulist">
-              <li><a href="#">Text</a></li>
-              <li><a href="#">Text</a></li>
-              <li><a href="#">Text</a></li>
-              </div>
-      li.col-md-4.col-md-offset-2
-        ul
-          li.dropdown-header Jobs
-          .row
-            .col-md-6
-              img.menuimg(src='http://uptodatejobs.com/wp-content/uploads/2016/03/types-of-jobs.jpg')
-          br
-          .row
-            .col-md-6.menulist
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-            .col-md-5.col-md-offset-1.menulist
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-              li
-                a(href='#') Text
-      br
-      li.dropdown-header Sales
-      .row
-        .col-md-6
-          img.menuimg(src='https://financesonline.com/uploads/2015/02/Sales.jpg')
-      br
-      .row
-        .col-md-6.menulist
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-          li
-            a(href='#') Text
-        //
-          <div class="col-md-5 col-md-offset-1 menulist">
-          <li><a href="#">Text</a></li>
-          <li><a href="#">Text</a></li>
-          <li><a href="#">Text</a></li>
-          </div>
-      // <li><a href="#">Things to Do</a></li>
-      // <li><a href="#">Plan Your Trip</a></li>
-      // <li><a href="#">Living</a></li>
-      // <li><a href="#">Classifieds</a></li>
-      li
-        a(href='#') About Us
-      .nav.navbar-nav.col-md-2
-        #custom-search-input
-          .input-group
-            input.form-control.input-lg(type='text', placeholder='Search')
-            span.input-group-btn
-              button.btn.btn-info.btn-lg(type='button')
-                i.glyphicon.glyphicon-search
-      #memberplayNav.nav.navbar-nav
-        // <span class="fa fa-play-circle" aria-hidden="true"></span>
-        span.fa.fa-user-circle(aria-hidden='true')
-    // /.navbar-collapse
-  // /.container-fluid
+                    a(href='#') About Us
+            .nav.navbar-nav.col-md-2
+                #custom-search-input
+                    .input-group
+                        input.form-control.input-lg(type='text', placeholder='Search')
+                        span.input-group-btn
+                            button.btn.btn-info.btn-lg(type='button')
+                                i.glyphicon.glyphicon-search
+            #memberplayNav.nav.navbar-nav
+                // <span class="fa fa-play-circle" aria-hidden="true"></span>
+                span.fa.fa-user-circle(aria-hidden='true')

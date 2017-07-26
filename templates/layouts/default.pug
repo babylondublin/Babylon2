@@ -13,13 +13,17 @@ html
 		meta(name="apple-itunes-app", content="app-id=897396382")
 		
 		title= page.title
+
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href="/styles/font-awesome.min.css", rel="stylesheet")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet")
 		link(href="/styles/site.min.css", rel="stylesheet")
-		
+
 		if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
 		block css
+
 		block head
 
 	//- HTML BODY
@@ -34,7 +38,7 @@ html
 			include ../includes/layout/header
 			
 			//- SITE SIDE NAV BAR LEFT
-			include ../includes/layout/sideleft
+			//- include ../includes/layout/sideleft
 			
 			//- SITE BODY
 			block body
@@ -59,7 +63,6 @@ html
 				.modal-dialog
 					.modal-content
 						+auth-forms({ modal: true, initial: 'signin' })
-
 	//- JAVASCRIPT
 
 
