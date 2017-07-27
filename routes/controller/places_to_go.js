@@ -19,8 +19,14 @@ exports = module.exports = function(req, res) {
 	
 	// Load all tags
 	view.on('init', function(next) {
-		
-		keystone.list('ArticleTag').model.find().sort('name').exec(function(err, results) {
+		//filter what tags you wanna show
+		keystone.list('ArticleTag').model.find({
+										'name':{ $in:[
+											'Cliffs of Moher',
+											'Dublin Zoo',
+											'Powerscourt'
+											]}
+											}).sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
@@ -59,10 +65,9 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Load the articles
-	// HERE THERE MUST BE A FILTER TO LOAD ONLY THE 'PLACES TO GO' ARTICLES
 	view.on('init', function(next) {
-		
-		var q = keystone.list('Article').model.find().where('state', 'published').sort('-publishedDate').populate('author tags');
+		// Load the Articles Published and for 'Places to Go'
+		var q = keystone.list('Article').model.find().where({'state':'published','menu':'places_to_go'}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);

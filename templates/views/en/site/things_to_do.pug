@@ -1,6 +1,27 @@
 extends ../../../layouts/default
 
+include ../../../mixins/article
 
 block intro
 	.page-intro: .container
 		h1.page-title Things to Do
+block content
+	.page-content: .container.blog
+		.row
+			if data.tags.length
+				.sub-menu
+					if data.tags.length
+						ul.list-unstyled.tags-list
+							li: a(href='/things_to_do', class=!data.tags ? 'active' : false) All
+							each tag in data.tags
+								li: a(href='/things_to_do/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+
+			div(class= data.tags.length || !data.articles.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+				if filters.tag && !data.tag
+					h3 Invalid Tag.
+				else
+					if data.articles.length
+						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
+							each article in data.articles
+								+article(article)
+			

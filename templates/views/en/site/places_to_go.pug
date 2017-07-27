@@ -12,7 +12,6 @@ block content
 				.sub-menu
 					if data.tags.length
 						ul.list-unstyled.tags-list
-							li: a(href='/places_to_go', class=!data.tags ? 'active' : false) All
 							each tag in data.tags
 								li: a(href='/places_to_go/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
 

@@ -104,9 +104,11 @@ keystone.set('email locals', {
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	'babylonians': 'users',
+	'cities':'cities',
 	'news': ['posts', 'post-tags', 'post-comments'],
 	'enquiries': 'enquiries',
-	'articles':['articles','article-tags','article-types','article-comments'],
+	// Article tags => articles sub menu
+	'articles':['articles','article-tags','article-comments'],
 	'classifieds':['classifieds','classified-comments']
 
 });

@@ -12,7 +12,8 @@ var ArticleTag = new keystone.List('ArticleTag', {
 });
 
 ArticleTag.add({
-	name: { type: String, required: true }
+	name: { type: String, required: true },
+	menu: { type: Types.Relationship, ref: 'MenuItem', many: false },
 });
 
 
