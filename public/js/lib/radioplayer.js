@@ -29,11 +29,11 @@ $(function(){
     $('#play').click(function() {
     	if(isPlaying){
     		audioElement.pause();
-        	$("#play").text("▶");
+        	$("#play").addClass("fa-play-circle").removeClass("fa-pause-circle");
         	isPlaying = false;
     	}else{
     		audioElement.play();
-        	$("#play").text("❚❚");
+        	$("#play").addClass("fa-pause-circle").removeClass("fa-play-circle");
         	isPlaying = true;
     	}
     });
