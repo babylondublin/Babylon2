@@ -89,6 +89,10 @@ User.schema.pre('save', function(next) {
 */
 
 User.relationship({ ref: 'Post', refPath: 'author', path: 'posts' });
+User.relationship({ref:'ThingsToDoArticle',refPath:'author',path:'Things to DO Articles'});
+User.relationship({ref:'PlacesToGoArticle',refPath:'author',path:'Places to GO Articles'});
+User.relationship({ref:'LivingArticle',refPath:'author',path:'Living Articles'});
+User.relationship({ref:'Classified',refPath:'author',path:'Classified'});
 
 
 /**

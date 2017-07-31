@@ -105,11 +105,13 @@ keystone.set('email locals', {
 keystone.set('nav', {
 	'babylonians': 'users',
 	'cities':'cities',
-	'news': ['posts', 'post-tags', 'post-comments'],
-	'enquiries': 'enquiries',
 	// Article tags => articles sub menu
-	'articles':['articles','article-tags','article-comments'],
-	'classifieds':['classifieds','classified-comments']
+	'places-to-go':['places-to-go-articles','places-to-go-article-tags','places-to-go-article-comments'],
+	'things-to-do':['things-to-do-articles','things-to-do-article-tags','things-to-do-article-comments'],
+	'living':['living-articles','living-article-tags','living-article-comments'],
+	'news': ['posts', 'post-tags', 'post-comments'],
+	'classifieds':['classifieds', 'classified-tags','classified-comments'],
+	'enquiries': 'enquiries',
 
 });
 

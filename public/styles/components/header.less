@@ -166,8 +166,22 @@ nav {
 	.searcher:focus{
 		width: 200px;
 	}
+	.btn.submit-search{
+		position: absolute;
+		top: 15px;
+		margin-left: 20px;
+		color:white;
+		background:transparent;
+		border:1px solid white;
+	}
+	.btn.submit-search:hover{
+		color:white;
+	}
 	@media (max-width: 775px){
 	.searcher{
+		display:none;
+	}
+	.btn.submit-search{
 		display:none;
 	}
 	}

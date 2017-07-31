@@ -2,16 +2,16 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Post Categories Model
- * =====================
+ * Classified Tags Model
+ * ===============
  */
 
-var PostTag = new keystone.List('PostTag', {
-	track: false,
+var ClassifiedTag = new keystone.List('ClassifiedTag', {
+    track: true,
 	autokey: { from: 'name', path: 'key', unique: true }
 });
 
-PostTag.add({
+ClassifiedTag.add({
 	name: { type: String, required: true }
 });
 
@@ -21,7 +21,7 @@ PostTag.add({
  * =============
  */
 
-PostTag.relationship({ ref: 'Post', refPath: 'tag', path: 'posts' });
+ClassifiedTag.relationship({ ref: 'Classified', refPath: 'tags', path: 'classifieds' });
 
 
 /**
@@ -29,4 +29,4 @@ PostTag.relationship({ ref: 'Post', refPath: 'tag', path: 'posts' });
  * ============
  */
 
-PostTag.register();
+ClassifiedTag.register();

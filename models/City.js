@@ -9,13 +9,12 @@ var Types = keystone.Field.Types;
 
 var City = new keystone.List('City', {
 	map: { name: 'name' },
-	track: true,
+	track: false,
 	autokey: { path: 'slug', from: 'name', unique: true }
 });
 
 City.add({
-	name: { type: String, required: true, default:'Dublin' },
-    menuItems: {type: Types.Relationship, ref:'MenuItem', many: true},
+	name: { type: String, required: true },
     image: { type: Types.CloudinaryImage }
 });
 
@@ -34,8 +33,6 @@ City.schema.virtual('content.full').get(function() {
  * =============
  */
 
-City.relationship({ ref: 'MenuItem', refPath: 'city', path: 'Menu Items' });
-
 
 /**
  * Registration
@@ -43,5 +40,5 @@ City.relationship({ ref: 'MenuItem', refPath: 'city', path: 'Menu Items' });
  */
 
 City.defaultSort = 'name';
-City.defaultColumns = 'name, menu';
+City.defaultColumns = 'name';
 City.register();

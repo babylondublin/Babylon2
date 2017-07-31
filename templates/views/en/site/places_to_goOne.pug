@@ -21,9 +21,9 @@ block content
 							|  on #{article._.publishedDate.format('MMMM D, YYYY')}
 						if article.tags && article.tags.length
 							|  in&nbsp;
-							each cat, cat_i in article.tags
-								a(href='/places_to_go/' + cat.key)= cat.name
-								if cat_i < article.tags.length - 1
+							each tag, tag_i in article.tags
+								a(href='/places_to_go/' + tag.key)= tag.name
+								if tag_i < article.tags.length - 1
 									| ,&nbsp;
 								else
 									|&nbsp;

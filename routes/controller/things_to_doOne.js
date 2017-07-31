@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 
-var Article = keystone.list('Article');
-var ArticleComment = keystone.list('ArticleComment');
+var Article = keystone.list('ThingsToDoArticle');
+var ArticleComment = keystone.list('ThingsToDoArticleComment');
 
 exports = module.exports = function(req, res) {
 

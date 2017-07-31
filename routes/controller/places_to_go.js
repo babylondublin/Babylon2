@@ -16,17 +16,16 @@ exports = module.exports = function(req, res) {
 		articles: [],
 		tags: []
 	};
-	
+
+
+	// Load the tags of the menu item 'Places to GO'
+	//var q = keystone.list('MenuItem').model.find().where({'title':'Places to GO'});
+		
+
 	// Load all tags
 	view.on('init', function(next) {
 		//filter what tags you wanna show
-		keystone.list('ArticleTag').model.find({
-										'name':{ $in:[
-											'Cliffs of Moher',
-											'Dublin Zoo',
-											'Powerscourt'
-											]}
-											}).sort('name').exec(function(err, results) {
+		keystone.list('PlacesToGoArticleTag').model.find().sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
@@ -37,7 +36,7 @@ exports = module.exports = function(req, res) {
 			// Load the counts for each tag
 			async.each(locals.data.tag, function(tag, next) {
 				
-				keystone.list('Article').model.count().where('tag').in([tag.id]).exec(function(err, count) {
+				keystone.list('PlacesToGoArticle').model.count().where('tag').in([tag.id]).exec(function(err, count) {
 					tag.articleCount = count;
 					next(err);
 				});
@@ -54,7 +53,7 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 		
 		if (req.params.tag) {
-			keystone.list('ArticleTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
+			keystone.list('PlacesToGoArticleTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
 				locals.data.tag = result;
 				next(err);
 			});
@@ -66,8 +65,7 @@ exports = module.exports = function(req, res) {
 	
 	// Load the articles
 	view.on('init', function(next) {
-		// Load the Articles Published and for 'Places to Go'
-		var q = keystone.list('Article').model.find().where({'state':'published','menu':'places_to_go'}).sort('-publishedDate').populate('author tags');
+		var q = keystone.list('PlacesToGoArticle').model.find().where({'state':'published'}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);

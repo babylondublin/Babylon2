@@ -104,8 +104,11 @@ block content
 							.row
 								.col-sm-3: img(src=user._.photo.thumbnail(120,120)).img-responsive
 								.col-sm-9: input(type='file', name='photo_upload')
+								button(type='submit', data-loading-text="Changing...").btn.btn-primary Change
 						else
 							input(type='file', name='photo_upload')
+							button(type='submit', data-loading-text="Changing...").btn.btn-primary Change
+
 		
 		.ui-reveal
 			.ui-reveal__initial

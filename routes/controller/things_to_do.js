@@ -19,16 +19,7 @@ exports = module.exports = function(req, res) {
 	
 	// Load all tags
 	view.on('init', function(next) {
-		//if(city = dublin){ render tags of dublin, relationship tags-city}
-		keystone.list('ArticleTag').model.find({
-										'name':{ $in:[
-											'Book of Kells',
-											'Festivals',
-											'Museums',
-											'Parks',
-											'Shopping'
-											]}
-											}).sort('name').exec(function(err, results) {
+		keystone.list('ThingsToDoArticleTag').model.find().sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
@@ -39,7 +30,7 @@ exports = module.exports = function(req, res) {
 			// Load the counts for each tag
 			async.each(locals.data.tag, function(tag, next) {
 				
-				keystone.list('Article').model.count().where('tag').in([tag.id]).exec(function(err, count) {
+				keystone.list('ThingsToDoArticle').model.count().where('tag').in([tag.id]).exec(function(err, count) {
 					tag.articleCount = count;
 					next(err);
 				});
@@ -56,7 +47,7 @@ exports = module.exports = function(req, res) {
 	view.on('init', function(next) {
 		
 		if (req.params.tag) {
-			keystone.list('ArticleTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
+			keystone.list('ThingsToDoArticleTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
 				locals.data.tag = result;
 				next(err);
 			});
@@ -68,8 +59,7 @@ exports = module.exports = function(req, res) {
 	
 	// Load the articles
 	view.on('init', function(next) {
-		// Load the Articles Published and for 'Places to Go'
-		var q = keystone.list('Article').model.find().where({'state':'published','menu':'things_to_do'}).sort('-publishedDate').populate('author tags');
+		var q = keystone.list('ThingsToDoArticle').model.find().where({'state':'published'}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);
