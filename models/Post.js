@@ -17,7 +17,7 @@ Post.add({
 	lang: {type: Types.Select, options: 'en, fr, pr, pl, sp, it', default: "en"},
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	city: {type: Types.Relationship, ref: 'City', index:true},
+	country: {type: Types.Relationship, ref: 'Country', index:true},
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
 	image: { type: Types.CloudinaryImage },
@@ -91,5 +91,5 @@ Post.schema.methods.notifyAdmins = function(callback) {
  */
 
 Post.defaultSort = '-publishedDate';
-Post.defaultColumns = 'title, state|20%, city, author|20%, publishedDate|20%';
+Post.defaultColumns = 'title, state|20%, country, author|20%, publishedDate|20%';
 Post.register();

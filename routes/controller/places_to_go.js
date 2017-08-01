@@ -17,11 +17,6 @@ exports = module.exports = function(req, res) {
 		tags: []
 	};
 
-
-	// Load the tags of the menu item 'Places to GO'
-	//var q = keystone.list('MenuItem').model.find().where({'title':'Places to GO'});
-		
-
 	// Load all tags
 	view.on('init', function(next) {
 		//filter what tags you wanna show

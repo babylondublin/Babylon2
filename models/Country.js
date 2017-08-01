@@ -7,13 +7,13 @@ var Types = keystone.Field.Types;
  * ===========
  */
 
-var City = new keystone.List('City', {
+var Country= new keystone.List('Country', {
 	map: { name: 'name' },
 	track: false,
 	autokey: { path: 'slug', from: 'name', unique: true }
 });
 
-City.add({
+Country.add({
 	name: { type: String, required: true },
     image: { type: Types.CloudinaryImage }
 });
@@ -23,7 +23,7 @@ City.add({
  * ========
  */
 
-City.schema.virtual('content.full').get(function() {
+Country.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
@@ -39,6 +39,6 @@ City.schema.virtual('content.full').get(function() {
  * ============
  */
 
-City.defaultSort = 'name';
-City.defaultColumns = 'name';
-City.register();
+Country.defaultSort = 'name';
+Country.defaultColumns = 'name';
+Country.register();
