@@ -5,7 +5,8 @@ mixin article(article)
 				a(href='/places_to_go/article/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
 			.post-summary
 				.post-byline
-					.post-author: a(href='/places_to_go/article/' + article.slug)=article.author.name.full
+					if article.author.name.full.length
+						.post-author: a(href='/places_to_go/article/' + article.slug)=article.author.name.full
 					//- .date-stamp: em=moment(post.publishedDate).fromNow()
 
 				h4(itemprop='name').post-title.mv-1
