@@ -20,8 +20,8 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 				ul.navbar-nav.navbar-nav--left
 					div#play ▶
 				ul
-					form(action='/',method='get', autocomplete='on', novalidate)
-						input(type='text',name='query', placeholder="Search a city..").searcher 
+					form(action='country', method='post', autocomplete='on', novalidate)
+						input(type='text', name='query', placeholder="Search a city..").searcher 
 						input(type='submit', value='Search').btn.submit-search
 				ul.navbar-nav.navbar-nav--right
 					if user
