@@ -1,0 +1,120 @@
+body
+  .wrapper
+    .col-lg-9
+      .container
+        h1.pageHeading Book of Kells
+        .row
+          .col-lg-12
+            .col-lg-11.col-lg-offset-1
+              #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                  li.active(data-target='#myCarousel', data-slide-to='0')
+                  li(data-target='#myCarousel', data-slide-to='1')
+                  li(data-target='#myCarousel', data-slide-to='2')
+                // Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    img(src='https://media-cdn.tripadvisor.com/media/photo-s/0e/70/ae/15/trinity-library-with.jpg', alt='Dublin')
+                  .item
+                    img(src='http://cdn2.ireland-calling.com/wp-content/uploads/2013/07/The-Book-of-Kells_6001.jpg', alt='Dublin')
+                  .item
+                    img(src='https://2982-presscdn-29-70-pagely.netdna-ssl.com/wp-content/uploads/2015/10/Book-of-Kells_replica_Irish-Times.jpg', alt='Dublin')
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                  span.glyphicon.glyphicon-chevron-left
+                  span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', data-slide='next')
+                  span.glyphicon.glyphicon-chevron-right
+                  span.sr-only Next
+      br
+      .container
+        .row
+          .col-lg-12
+            .col-lg-9.col-lg-offset-2
+              p.info
+                | Lorem ipsum dolor sit amet, mei viris congue dissentias in, ius no unum saperet minimum. Pro in ullum paulo sententiae. Ei assum utinam scriptorem vim, augue consulatu ei per, est tempor abhorreant ea. Mea no viris everti, nam illum corpora partiendo no. Eum te unum dicam voluptaria, ius feugait appellantur comprehensam ne. Dicta accumsan erroribus no per, ex soluta petentium est.
+                | Ea vix quod alii graeci, vidit aeque aperiri ad nec. Eos elit intellegebat et. Forensibus adolescens duo ad, unum mentitum delectus te pri, in pro omittam quaestio qualisque. An vis dicit molestie. Scripta nusquam efficiendi cu qui.
+      br
+      .container
+        .row
+          .col-lg-12
+            #transportsIcons.col-lg-10.col-lg-offset-1
+              a(href='', style='text-decoration:none', target='_blank')
+                button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+                  span.fa.fa-bus
+                  br
+                  p Bus
+              a(href='', style='text-decoration:none', target='_blank')
+                button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+                  span.fa.fa-train
+                  br
+                  p Trains
+              a(href='', style='text-decoration:none', target='_blank')
+                button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+                  span.fa.fa-subway
+                  br
+                  p Luas
+              a(href='', style='text-decoration:none', target='_blank')
+                button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+                  span.fa.fa-taxi
+                  br
+                  p Taxi
+      br
+      .container
+        .row
+          .col-lg-8.col-lg-offset-1
+            .contactinfo
+              h3 Contact Information:
+              .row
+                .col-lg-4
+                  .contactBlock
+                    i.fa.fa-map-marker.contactIcon(aria-hidden='true')
+                    br
+                    p.contactDetail
+                      | Address Line 1,
+                      br
+                      | Address Line 2, 
+                      br
+                      | Address Line 3
+                .col-lg-4
+                  .contactBlock
+                    i.fa.fa-link.contactIcon(aria-hidden='true')
+                    br
+                    a.contactDetail2(href='#', style='color:black') Visit Website
+                    br
+                    i.fa.fa-phone.contactIcon(aria-hidden='true')
+                    br
+                    p.contactDetail2 567892342
+                .col-lg-4
+                  .contactBlock
+                    i.fa.fa-clock-o.contactIcon(aria-hidden='true')
+                    br
+                    p.contactDetail2
+                      | Mon-Fri
+                      br
+                      | 9am - 18pm
+    br
+    .container
+      .row
+        .col-lg-12
+          h2(style='text-align:center') @BookofKells
+          .col-lg-4
+            .instaImageWrapper
+              a(href='#', target='_blank')
+                img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20481900_1017858225017551_8278772633835667456_n.jpg', alt='Dublin')
+                i.fa.fa-instagram.instaIcon(aria-hidden='true')
+          .col-lg-4
+            .instaImageWrapper
+              a(href='#', target='_blank')
+                img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20582942_288238861640856_6154126864546791424_n.jpg', alt='Dublin')
+                i.fa.fa-instagram.instaIcon(aria-hidden='true')
+          .col-lg-4
+            .instaImageWrapper
+              a(href='#', target='_blank')
+                img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20479316_136614193600418_6233489463515807744_n.jpg', alt='Dublin')
+                i.fa.fa-instagram.instaIcon(aria-hidden='true')
+  .container
+    .row
+      .col-lg-2.col-lg-offset-1(style='background-color:blue')
+        | AD

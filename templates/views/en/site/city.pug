@@ -1,61 +1,63 @@
 body
-    #wrapper
-      h1 Dublin
-      .row
-        .col-lg-9
-          .col-lg-11.col-lg-offset-1
-            #myCarousel.carousel.slide(data-ride='carousel')
-              // Indicators
-              ol.carousel-indicators
-                li.active(data-target='#myCarousel', data-slide-to='0')
-                li(data-target='#myCarousel', data-slide-to='1')
-                li(data-target='#myCarousel', data-slide-to='2')
-              // Wrapper for slides
-              .carousel-inner
-                .item.active
-                  img(src='https://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg', alt='Dublin')
-                .item
-                  img(src='http://www.ihdublin.com/media/9266/dublincustomhouse-compressed.jpg?crop=0,0,0,0.2498124531132784&cropmode=percentage&width=1400&height=700&rnd=131369915490000000', alt='Dublin')
-                .item
-                  img(src='https://www.westjet.com/book/resources/_prod/img/hero/dublin-ireland.jpg', alt='Dublin')
-              // Left and right controls
-              a.left.carousel-control(href='#myCarousel', data-slide='prev')
-                span.glyphicon.glyphicon-chevron-left
-                span.sr-only Previous
-              a.right.carousel-control(href='#myCarousel', data-slide='next')
-                span.glyphicon.glyphicon-chevron-right
-                span.sr-only Next
-        .col-lg-2.col-lg-offset-1(style='background-color:blue')
-          | AD
-      br
-      .row
-        .col-lg-9
-          .col-lg-9.col-lg-offset-2
-            p.placestogoinfo
-              | Lorem ipsum dolor sit amet, mei viris congue dissentias in, ius no unum saperet minimum. Pro in ullum paulo sententiae. Ei assum utinam scriptorem vim, augue consulatu ei per, est tempor abhorreant ea. Mea no viris everti, nam illum corpora partiendo no. Eum te unum dicam voluptaria, ius feugait appellantur comprehensam ne. Dicta accumsan erroribus no per, ex soluta petentium est.
-              | Ea vix quod alii graeci, vidit aeque aperiri ad nec. Eos elit intellegebat et. Forensibus adolescens duo ad, unum mentitum delectus te pri, in pro omittam quaestio qualisque. An vis dicit molestie. Scripta nusquam efficiendi cu qui.
-      br
-      .row
-        .col-lg-9
-          #cityIcons.col-lg-6.col-lg-offset-3
-            button#hotelsBtn.btn.btn-default.btn-lg.text-center.active(type='button')
-              span.fa.fa-bed
-              br
-              p Hotels
-            button#restaurantsBtn.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:7%;')
-              span.fa.fa-cutlery
-              br
-              p Restuarants
-            button#pubsBtn.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:7%;')
-              span.fa.fa-beer
-              br
-              p Pubs
-      br
-      #hotels.active
+  .wrapper
+    .col-lg-9
+      .container
+        h1.pageHeading Dublin
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-11.col-lg-offset-1
+              #myCarousel.carousel.slide(data-ride='carousel')
+                // Indicators
+                ol.carousel-indicators
+                  li.active(data-target='#myCarousel', data-slide-to='0')
+                  li(data-target='#myCarousel', data-slide-to='1')
+                  li(data-target='#myCarousel', data-slide-to='2')
+                // Wrapper for slides
+                .carousel-inner
+                  .item.active
+                    img(src='https://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg', alt='Dublin')
+                  .item
+                    img(src='http://www.ihdublin.com/media/9266/dublincustomhouse-compressed.jpg?crop=0,0,0,0.2498124531132784&cropmode=percentage&width=1400&height=700&rnd=131369915490000000', alt='Dublin')
+                  .item
+                    img(src='https://www.westjet.com/book/resources/_prod/img/hero/dublin-ireland.jpg', alt='Dublin')
+                // Left and right controls
+                a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                  span.glyphicon.glyphicon-chevron-left
+                  span.sr-only Previous
+                a.right.carousel-control(href='#myCarousel', data-slide='next')
+                  span.glyphicon.glyphicon-chevron-right
+                  span.sr-only Next
+      br
+      .container
+        .row
+          .col-lg-12
+            .col-lg-9.col-lg-offset-2
+              p.info
+                | Lorem ipsum dolor sit amet, mei viris congue dissentias in, ius no unum saperet minimum. Pro in ullum paulo sententiae. Ei assum utinam scriptorem vim, augue consulatu ei per, est tempor abhorreant ea. Mea no viris everti, nam illum corpora partiendo no. Eum te unum dicam voluptaria, ius feugait appellantur comprehensam ne. Dicta accumsan erroribus no per, ex soluta petentium est.
+                | Ea vix quod alii graeci, vidit aeque aperiri ad nec. Eos elit intellegebat et. Forensibus adolescens duo ad, unum mentitum delectus te pri, in pro omittam quaestio qualisque. An vis dicit molestie. Scripta nusquam efficiendi cu qui.
+      br
+      .container
+        .row
+          .col-lg-12
+            #cityIcons.col-lg-8.col-lg-offset-3
+              button#hotelsBtn.btn.btn-default.btn-lg.text-center.active(type='button')
+                span.fa.fa-bed
+                br
+                p Hotels
+              button#restaurantsBtn.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:7%;')
+                span.fa.fa-cutlery
+                br
+                p Restuarants
+              button#pubsBtn.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:7%;')
+                span.fa.fa-beer
+                br
+                p Pubs
+      br
+      #hotels.active.container
+        .row
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.special-ireland.com/wp-content/uploads/2009/06/burlington_hotel_dublin_front1.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -64,9 +66,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.brookshotel.ie/cmsGallery/imagerow/2781/resized/1400x700/brooks_exterior.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -76,9 +76,9 @@ body
                     a(href='#', target='_blank') Visit Website
         br
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='https://www.dublinairport.com/images/default-source/default-album/radisson.jpg?sfvrsn=0', alt='Dublin')
                 .overlay
                   .text
@@ -87,9 +87,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://cache.marriott.com/propertyimages/d/dubbr/dubbr_main01.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -97,11 +95,11 @@ body
                     i.fa.fa-map-marker(aria-hidden='true')  Location
                     br
                     a(href='#', target='_blank') Visit Website
-      #restaurants
+      #restaurants.container
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Ireland/Dublin/CoppingerII-trave-dublin-large.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -110,9 +108,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.menupages.ie/uploads/files/dobbins.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -122,9 +118,9 @@ body
                     a(href='#', target='_blank') Visit Website
         br
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI_TnWM58YE6TGvna7wuGJc76lsQ3oZsLRUBo6iG-zneX7NedlFw', alt='Dublin')
                 .overlay
                   .text
@@ -133,9 +129,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.cornucopia.ie/wp-content/uploads/MG_1784.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -143,11 +137,11 @@ body
                     i.fa.fa-map-marker(aria-hidden='true')  Location
                     br
                     a(href='#', target='_blank') Visit Website
-      #pubs
+      #pubs.container
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.visitdublin.com/getmedia/f0e6d46f-65c9-47eb-8bb1-c80f346a913a/400x200-Brazen-Head-pub-frontage.jpg.aspx?width=400&height=200&ext=.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -156,9 +150,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://images.huffingtonpost.com/2016-04-01-1459517952-2024689-IMG_4906.JPG', alt='Dublin')
                 .overlay
                   .text
@@ -168,9 +160,9 @@ body
                     a(href='#', target='_blank') Visit Website
         br
         .row
-          .col-lg-9
-            .col-lg-5.col-lg-offset-1
-              .container.col-lg-12
+          .col-lg-12
+            .col-lg-5.col-lg-offset-2
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.visitdublin.com/getmedia/c0bf01b3-5737-4f80-8ddc-40eea35fc261/400x200-L-Mullligan-Grocer.jpg.aspx?width=400&height=200&ext=.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -179,9 +171,7 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
             .col-lg-5
-              //
-                <img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
-              .container.col-lg-12
+              .hrpBlock.col-lg-12
                 img.image(src='http://www.touristindublin.com/wp-content/uploads/2013/12/The-Duke-Dublin.jpg', alt='Dublin')
                 .overlay
                   .text
@@ -190,28 +180,32 @@ body
                     br
                     a(href='#', target='_blank') Visit Website
       br
-    script.
-      $("#restaurantsBtn").click(function() {
-      $(this).addClass('active');
-      $("#hotelsBtn").removeClass('active');
-      $("#pubsBtn").removeClass('active');
-      $("#hotels").css('display','none');
-      $("#pubs").css('display','none');
-      $("#restaurants").css('display','block');
-      });
-      $("#hotelsBtn").click(function() {
-      $(this).addClass('active');
-      $("#restaurantsBtn").removeClass('active');
-      $("#pubsBtn").removeClass('active');
-      $("#restaurants").css('display','none');
-      $("#pubs").css('display','none');
-      $("#hotels").css('display','block');
-      });
-      $("#pubsBtn").click(function() {
-      $(this).addClass('active');
-      $("#restaurantsBtn").removeClass('active');
-      $("#hotelsBtn").removeClass('active');
-      $("#restaurants").css('display','none');
-      $("#hotels").css('display','none');
-      $("#pubs").css('display','block');
-      });
+    .container
+      .row
+        .col-lg-2.col-lg-offset-1(style='background-color:blue')
+          | AD
+  script.
+    $("#restaurantsBtn").click(function() {
+    $(this).addClass('active');
+    $("#hotelsBtn").removeClass('active');
+    $("#pubsBtn").removeClass('active');
+    $("#hotels").css('display','none');
+    $("#pubs").css('display','none');
+    $("#restaurants").css('display','block');
+    });
+    $("#hotelsBtn").click(function() {
+    $(this).addClass('active');
+    $("#restaurantsBtn").removeClass('active');
+    $("#pubsBtn").removeClass('active');
+    $("#restaurants").css('display','none');
+    $("#pubs").css('display','none');
+    $("#hotels").css('display','block');
+    });
+    $("#pubsBtn").click(function() {
+    $(this).addClass('active');
+    $("#restaurantsBtn").removeClass('active');
+    $("#hotelsBtn").removeClass('active');
+    $("#restaurants").css('display','none');
+    $("#hotels").css('display','none');
+    $("#pubs").css('display','block');
+    });
