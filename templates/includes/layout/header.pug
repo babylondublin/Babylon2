@@ -20,8 +20,13 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 				ul.navbar-nav.navbar-nav--left
 					div#play ▶
 				ul
-					form(action='country', method='post', autocomplete='on', novalidate)
-						input(type='text', name='query', placeholder="Search a city..").searcher 
+					form(action='search', method='post', autocomplete='off', novalidate)
+						input(list='countries', name='query', placeholder="Search a country..").searcher 
+						datalist(id='countries')
+							option(value='Ireland')
+							option(value='Spain')
+							option(value='France')
+							option(value='Brazil')
 						input(type='submit', value='Search').btn.submit-search
 				ul.navbar-nav.navbar-nav--right
 					if user

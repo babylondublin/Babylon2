@@ -91,7 +91,7 @@ exports = module.exports = function (app) {
 	app.get('/news/:tag?', routes.controller.news);
 	app.all('/news/post/:post', routes.controller.post);
 
-	app.all('/country', routes.controller.searchCountry);
+	app.all('/search', routes.controller.searchCountry);
 
 	app.get('/about', routes.controller.about);
 

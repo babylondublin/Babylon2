@@ -33,11 +33,7 @@ ArticleTag.register();
 
 //Inheritence from ArticleTag:
 var ThingsToDoArticleTag = new keystone.List('ThingsToDoArticleTag', { inherits: ArticleTag });
-<<<<<<< HEAD
 ThingsToDoArticleTag.relationship({ ref: 'ThingsToDoArticle', refPath: 'tags', path: 'articles'});
-=======
-ThingsToDoArticleTag.relationship({ ref: 'ThingsToDoArticle', refPath: 'tag', path: 'articles'});
->>>>>>> origin/master
 ThingsToDoArticleTag.register();
 
 var PlacesToGoArticleTag = new keystone.List('PlacesToGoArticleTag', { inherits: ArticleTag });
