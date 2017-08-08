@@ -13,14 +13,17 @@ exports = module.exports = function(req, res) {
 		console.log('The country you have searched doesn not exist in our database yet...')
 		}
 		else{
-		console.log(result);
+		var result = JSON.stringify(result);
+		result = result.substring(1,result.length);
+		result = result.substring(0,result.length-1);
+		county = JSON.parse(result);
 
 		//extract the 'name' from results
 		//var countryName = result.name; or result['name'];-> doesn't work
 		//console.log(countryName);
 
 		//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
-		res.cookie('country', result).redirect("/");
+		res.cookie('country', county._id).redirect("/");
 		}
 	});
 }
