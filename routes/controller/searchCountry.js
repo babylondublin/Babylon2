@@ -12,7 +12,6 @@ exports = module.exports = function(req, res) {
 		flashErrors: true;
 
 		if(result == '' || err){
-		console.log('The country you have searched doesn not exist in our database yet...');
 		req.flash('error', 'The country you have searched doesn not exist in our database yet...');
 		view.render(keystone.lang + '/errors/404');
 		}
@@ -21,6 +20,9 @@ exports = module.exports = function(req, res) {
 		result = result.substring(1,result.length);
 		result = result.substring(0,result.length-1);
 		country = JSON.parse(result);
+
+		//Temporary alert
+		req.flash('info','You are in Babylon <strong>' + country.name +'</strong>');
 
 		//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
 		res.cookie('country', country._id).redirect("/");

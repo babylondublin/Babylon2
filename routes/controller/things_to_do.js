@@ -59,7 +59,8 @@ exports = module.exports = function(req, res) {
 	
 	// Load the articles
 	view.on('init', function(next) {
-		var q = keystone.list('ThingsToDoArticle').model.find().where({'state':'published'}).sort('-publishedDate').populate('author tags');
+		var cookie = req.cookies.country;
+		var q = keystone.list('ThingsToDoArticle').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);

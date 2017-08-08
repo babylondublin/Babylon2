@@ -60,8 +60,8 @@ exports = module.exports = function(req, res) {
 	
 	// Load the posts
 	view.on('init', function(next) {
-		
-		var q = keystone.list('Post').model.find({lang: keystone.lang}).where('state', 'published').sort('-publishedDate').populate('author tag').limit(6);
+		var cookie = req.cookies.country;
+		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
 		
 		if (locals.data.tag) {
 			q.where('tag').in([locals.data.tag]);

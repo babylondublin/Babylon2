@@ -102,7 +102,6 @@ exports = module.exports = function (app) {
 	app.get('/plan_your_trip', routes.controller.plan_your_trip);
 
 	app.all('/living', routes.controller.living);
-	app.all('/culture', routes.controller.culture);
 
 	app.all('/classifieds', routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);

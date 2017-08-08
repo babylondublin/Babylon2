@@ -15,8 +15,9 @@ exports = module.exports = function(req, res) {
 	
 	// Load the classifieds
 	view.on('init', function(next) {
-		
-		var q = keystone.list('Classified').model.find().where('state', 'published').sort('-publishedDate').populate('author');
+		var cookie = req.cookies.country;
+
+		var q = keystone.list('Classified').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author');
 		
 		q.exec(function(err, results) {
 			locals.data.classifieds = results;
