@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-			//	return res.redirect('/blog/post/' + locals.post.slug);
+				return res.redirect('/news/post/' + locals.post.slug);
 			}
 			next();
 		});
