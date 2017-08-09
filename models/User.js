@@ -37,7 +37,8 @@ User.add({
 	}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can Admin Babylon' },
-	isVerified: { type: Boolean, label: 'Has a verified email address' }
+	isVerified: { type: Boolean, label: 'Has a verified email address' },
+	isJournalist: {type: Boolean, label: 'Can CRUD only News'}
 }, 'Services', {
 	services: {
 		facebook: {
@@ -153,5 +154,5 @@ User.schema.methods.resetPassword = function(callback) {
  * ============
 */
 
-User.defaultColumns = 'name, email, twitter, isAdmin';
+User.defaultColumns = 'name, email, twitter, isAdmin, isJournalist';
 User.register();

@@ -124,6 +124,7 @@ exports = module.exports = function (app) {
 	//app.all('/me/create/post', routes.controller.createPost);
 	//app.all('/me/create/link', routes.controller.createLink);
 	app.all('/me/create/classified', routes.controller.createClassified);
+	app.all('/me/create/post', routes.controller.createPost);
 
 	// Tools
 	app.all('/notification-center', routes.controller.tools['notification-center']);

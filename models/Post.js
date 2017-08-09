@@ -79,7 +79,7 @@ Post.schema.methods.notifyAdmins = function(callback) {
 			keystone.list('User').model.findById(post.author).exec(next);
 		},
 		admins: function(next) {
-			keystone.list('User').model.find().where('isAdmin', true).exec(next)
+			keystone.list('User').model.find().where({$or:[{'isAdmin': true}, {'isJournalist': true}]}).exec(next)
 		}
 	}, sendEmail);
 };

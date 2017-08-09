@@ -21,7 +21,7 @@ var pkg = require('./package.json');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 keystone.init({
-
+	
 	'name': 'Babylon',
 	'brand': 'Babylon',
 	'back': '/me',
