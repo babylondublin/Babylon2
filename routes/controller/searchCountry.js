@@ -9,8 +9,6 @@ exports = module.exports = function(req, res) {
 	var q = keystone.list("Country").model.find({'name': {$regex: '.*' + query + '.*', $options: 'i'}});
 
 	q.exec(function(err, result){
-		flashErrors: true;
-
 		if(result == '' || err){
 		req.flash('error', 'The country you have searched doesn not exist in our database yet...');
 		view.render(keystone.lang + '/errors/404');

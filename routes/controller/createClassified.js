@@ -10,11 +10,13 @@ exports = module.exports = function(req, res) {
 	locals.page.title = 'Create a Classified - Babylon';
 	
 	view.on('post', { action: 'create-classified' }, function(next) {
-
+		
+		var cookie = req.cookies.country;
 		// handle form
 		var newClassified = new Classified.model({
 				author: locals.user.id,
-				publishedDate: new Date()
+				publishedDate: new Date(),
+				country: cookie
 			}),
 
 			updater = newClassified.getUpdateHandler(req, res, {
