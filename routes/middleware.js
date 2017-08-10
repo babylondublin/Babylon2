@@ -64,6 +64,8 @@ exports.initErrorHandlers = function(req, res, next) {
 		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
 			keystone.lang = "en";
 		}
+		// let it
+		keystone.lang = "en";
 	}
 	res.err = function(err, title, message) {
 		res.status(500).render(keystone.lang + '/errors/500', {
