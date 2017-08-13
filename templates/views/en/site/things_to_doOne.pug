@@ -53,6 +53,9 @@ block content
 											=comment.author.name.full
 											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
 										!=comment.content.html
+							//-delete classified comment
+							if user && user.id == comment.author.id
+								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
 				if user
 						//- Reply form
 						form(method='post').comment-form.mt-5

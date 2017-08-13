@@ -45,7 +45,7 @@ exports = module.exports = function(req, res) {
 			.populate('author')
 			.limit('4')
 	);
-
+	//Create comment
 	view.on('post', { action: 'create-comment' }, function(next) {
 
 		// handle form
@@ -71,6 +71,36 @@ exports = module.exports = function(req, res) {
 			next();
 		});
 
+	});
+	//Delete Comment
+	view.on('get', { remove: 'comment' }, function(next) {
+
+		if (!req.user) {
+			req.flash('error', 'You must be signed in to delete a comment.');
+			return next();
+		}
+		ArticleComment.model.findOne({
+				_id: req.query.comment,
+				article: locals.article.id
+			})
+			.exec(function(err, comment) {
+				if (err) {
+					return res.err(err);
+				}
+				if (!comment) {
+					req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
+					return next();
+				}
+				if (comment.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a comment to delete it.');
+					return next();
+				}
+				comment.remove(function(err) {
+					if (err) return res.err(err);
+					req.flash('success', 'Your comment has been deleted.');
+					return res.redirect('/things_to_do/article/' + locals.article.slug);
+				});
+			});
 	});
 
 	// Render the view

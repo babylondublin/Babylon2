@@ -23,7 +23,7 @@ exports = module.exports = function(req, res) {
 		req.flash('info','You are in Babylon <strong>' + country.name +'</strong>');
 
 		//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
-		res.cookie('country', country._id).redirect("/");
+		res.cookie('country', country._id).redirect('/');
 		}
 	});
 }
