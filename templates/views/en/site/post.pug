@@ -27,7 +27,9 @@ block content
 									| ,&nbsp;
 								else
 									|&nbsp;
-					
+					//- delete classified
+					if  user && user.id == post.author.id
+						a(href='?remove=post&post=' + post.id, title='Delete this Post', rel='tooltip', data-placement='left') Delete
 					//- sharing buttons
 					.share-buttons
 						span.share-button

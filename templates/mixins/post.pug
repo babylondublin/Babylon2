@@ -8,7 +8,7 @@ mixin post(post)
 					.post-content-brief!= post.content.brief
 			.post-summary
 				.post-byline
-					.post-author: a(href='/news/post/' + post.slug)=post.author.name.full
+					.post-author: p()=post.author.name.full
 					.date-stamp: em=moment(post.publishedDate).fromNow()
 
 				h4(itemprop='name').post-title.mv-1

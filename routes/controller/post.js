@@ -102,6 +102,39 @@ exports = module.exports = function(req, res) {
 				});
 			});
 	});
+	// Delete New (post)
+	// inspired by: https://gist.github.com/wuhaixing/e90b8497f925ff9c7bfc
+	view.on('get', { remove: 'post' }, function(next) {
+			if (!req.user) {
+				req.flash('error', 'You must be signed in to delete a classified.');
+				return next();
+			}
+		Post.model.findOne({
+				_id: req.query.post
+			})
+			.exec(function(err, post) {
+				if (err) {
+					if (err.name == 'CastError') {
+						req.flash('error', 'The post' + req.query.post+ ' could not be found.');
+						return next();
+					}
+					return res.err(err);
+				}
+				if (!post) {
+					req.flash('error', 'The post ' + req.query.post + ' could not be found.');
+					return next();
+				}
+				if (post.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a post to delete it.');
+					return next();
+				}
+				post.remove(function(err) {
+					if (err) return res.err(err);
+					req.flash('success', 'Your post has been deleted.');
+					return res.redirect('/news');
+				});
+			});
+	});
 	// Render the view
 	view.render(keystone.lang + '/site/post');
 
