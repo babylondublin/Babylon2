@@ -26,7 +26,10 @@ li{
 }
 @media (min-width: @screen-sm-min) {
 	.container-xs { width: 600px; }
-	.container-sm { width: @screen-sm-min - @grid-gutter-width; }
+	.container-sm { 
+		width: @screen-sm-min - @grid-gutter-width;
+		min-height: 800px !important;
+	 }
 	.container-md { max-width: @screen-md-min - @grid-gutter-width; }
 }
 .container{

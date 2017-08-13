@@ -19,6 +19,9 @@ block content
 							|  by #{classified.author.name.full}
 						if classified.publishedDate
 							|  on #{classified._.publishedDate.format('MMMM D, YYYY')}
+					//- delete classified
+					if user && user.id == classified.author.id
+						a(href='?remove=classified&classified=' + classified.id, title='Delete this classified', rel='tooltip', data-placement='left') Delete
 					//- sharing buttons
 					.share-buttons
 						span.share-button
@@ -44,6 +47,9 @@ block content
 											=comment.author.name.full
 											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
 										!=comment.content.html
+							//-delete classified comment
+							if user && user.id == comment.author.id
+								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
 				if user
 						//- Reply form
 						form(method='post').comment-form.mt-5
@@ -55,6 +61,7 @@ block content
 									textarea(placeholder='Add your comment...', name='content').form-control
 									.mv-1
 										button(type='submit').btn.btn-success Submit
+												//- Reply form
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")

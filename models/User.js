@@ -25,7 +25,6 @@ User.add({
 	resetPasswordKey: { type: String, hidden: true }
 }, 'Profile', {
 	isPublic: { type: Boolean, default: true },
-    isGroup: Boolean,
 	photo: { type: Types.CloudinaryImage },
 	twitter: { type: String, width: 'short' },
 	website: { type: Types.Url },

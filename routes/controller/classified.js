@@ -46,6 +46,7 @@ exports = module.exports = function(req, res) {
 			.limit('4')
 	);
 
+	//Create a comment
 	view.on('post', { action: 'create-comment' }, function(next) {
 
 		// handle form
@@ -71,6 +72,71 @@ exports = module.exports = function(req, res) {
 			next();
 		});
 
+	});
+
+	// Delete Classified
+	// inspired by: https://gist.github.com/wuhaixing/e90b8497f925ff9c7bfc
+	view.on('get', { remove: 'classified' }, function(next) {
+			if (!req.user) {
+				req.flash('error', 'You must be signed in to delete a classified.');
+				return next();
+			}
+		Classified.model.findOne({
+				_id: req.query.classified
+			})
+			.exec(function(err, classified) {
+				if (err) {
+					if (err.name == 'CastError') {
+						req.flash('error', 'The classified' + req.query.classified + ' could not be found.');
+						return next();
+					}
+					return res.err(err);
+				}
+				if (!classified) {
+					req.flash('error', 'The classified ' + req.query.classified + ' could not be found.');
+					return next();
+				}
+				if (classified.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a classified to delete it.');
+					return next();
+				}
+				classified.remove(function(err) {
+					if (err) return res.err(err);
+					req.flash('success', 'Your classified has been deleted.');
+					return res.redirect('/classifieds');
+				});
+			});
+	});
+	
+	//Delete Comment
+	view.on('get', { remove: 'comment' }, function(next) {
+
+		if (!req.user) {
+			req.flash('error', 'You must be signed in to delete a comment.');
+			return next();
+		}
+		ClassifiedComment.model.findOne({
+				_id: req.query.comment,
+				classified: locals.classified.id
+			})
+			.exec(function(err, comment) {
+				if (err) {
+					return res.err(err);
+				}
+				if (!comment) {
+					req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
+					return next();
+				}
+				if (comment.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a comment to delete it.');
+					return next();
+				}
+				comment.remove(function(err) {
+					if (err) return res.err(err);
+					req.flash('success', 'Your comment has been deleted.');
+					return res.redirect('/classifieds/classified/' + locals.classified.slug);
+				});
+			});
 	});
 
 	// Render the view
