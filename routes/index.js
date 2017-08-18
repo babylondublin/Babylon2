@@ -102,7 +102,7 @@ exports = module.exports = function (app) {
 	app.get('/living/:tag?', routes.controller.living);
 	app.all('/living/article/:article', routes.controller.livingOne);
 	app.get('/plan_your_trip', routes.controller.plan_your_trip);
-
+	app.all('/payment', routes.controller.payment);
 
 	app.all('/classifieds', routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);

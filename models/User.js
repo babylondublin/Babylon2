@@ -22,7 +22,8 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, index: true },
 	password: { type: Types.Password, initial: true },
-	resetPasswordKey: { type: String, hidden: true }
+	resetPasswordKey: { type: String, hidden: true },
+	customerId: { type: String, noedit: true }
 }, 'Profile', {
 	isPublic: { type: Boolean, default: true },
 	photo: { type: Types.CloudinaryImage },
@@ -37,7 +38,8 @@ User.add({
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can Admin Babylon' },
 	isVerified: { type: Boolean, label: 'Has a verified email address' },
-	isJournalist: {type: Boolean, label: 'Can CRUD only News'}
+	isJournalist: {type: Boolean, label: 'Can CRUD only News'},
+	isPremium: {type: Boolean, label: 'Has paid'}
 }, 'Services', {
 	services: {
 		facebook: {

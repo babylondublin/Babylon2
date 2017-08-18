@@ -38,6 +38,7 @@
     "react-dom": "0.14.8",
     "request": "2.69.0",
     "store-prototype": "1.1.1",
+    "stripe": "^4.24.0",
     "superagent": "1.8.5"
   },
   "engines": {
