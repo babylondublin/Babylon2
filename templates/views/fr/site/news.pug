@@ -16,7 +16,7 @@ block content
 					h3 Invalid tag.
 				else
 					if data.posts.length
-						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
+						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each post in data.posts
 								+post(post)
 					

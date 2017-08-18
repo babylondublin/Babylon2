@@ -1,7 +1,7 @@
 $(function(){ 
 	var audioElement = document.createElement('audio');
-	//audio(src='http://majestic.wavestreamer.com:1831/;')#radio
-	audioElement.setAttribute("src", "http://majestic.wavestreamer.com:1831/;")
+	//audio(src='https://majestic.wavestreamer.com:1831/;')#radio
+	audioElement.setAttribute("src", "https://majestic.wavestreamer.com:1831/;")
 
 	var isPlaying = false;
     
@@ -15,7 +15,7 @@ $(function(){
     
     audioElement.addEventListener("timeupdate",function(){
    		/*$.ajax({
-   			url: "http://majestic.wavestreamer.com:1831/currentsong?sid=1",
+   			url: "https://majestic.wavestreamer.com:1831/currentsong?sid=1",
    			type: "GET",
    			headers: {
             	'Access-Control-Allow-Origin': '*',

@@ -93,7 +93,7 @@ export var date = (field) => ({
 		format: {
 			type: GraphQLString,
 			description: 'A formated time using Moment.js tokens ' +
-				'http://momentjs.com/docs/#/displaying/format/',
+				'https://momentjs.com/docs/#/displaying/format/',
 		},
 	},
 	resolve: (source, args) => {
@@ -110,7 +110,7 @@ export var datetime = (field) => ({
 		format: {
 			type: GraphQLString,
 			description: 'A formated datetime using Moment.js tokens ' +
-				'http://momentjs.com/docs/#/displaying/format/',
+				'https://momentjs.com/docs/#/displaying/format/',
 		},
 	},
 	resolve: (source, args) => {

@@ -1,6 +1,6 @@
 mixin post(post)
 	.col-sm-4
-		article(role="article", itemscope itemtype="http://schema.org/BlogPosting").post-card
+		article(role="article", itemscope itemtype="https://schema.org/BlogPosting").post-card
 			a(href='/news/post/' + post.slug)
 				.post-container-image
 					if post.image.exists
@@ -13,7 +13,7 @@ mixin post(post)
 
 				h4(itemprop='name').post-title.mv-1
 					a(href='/news/post/' + post.slug, itemprop='url')=post.title
-	//-article(role="article", itemscope itemtype="http://schema.org/BlogPosting").blog-post
+	//-article(role="article", itemscope itemtype="https://schema.org/BlogPosting").blog-post
 		.blog-post__date.illustrative-heading
 			span.illustrative-heading__line
 			span.illustrative-heading__text

@@ -18,7 +18,7 @@ var keystone = require('keystone');
 var pkg = require('./package.json');
 
 // Initialise Keystone with your project's configuration.
-// See http://keystonejs.com/guide/config for available options
+// See https://keystonejs.com/guide/config for available options
 // and documentation.
 keystone.init({
 	
@@ -95,9 +95,9 @@ keystone.set('locals', {
 keystone.set('email locals', {
 	utils: keystone.utils,
 	host: (function() {
-		if (keystone.get('env') === 'staging') return 'http://sydjs-beta.herokuapp.com';
-		if (keystone.get('env') === 'production') return 'http://www.sydjs.com';
-		return (keystone.get('host') || 'http://localhost:') + (keystone.get('port') || '3000');
+		if (keystone.get('env') === 'staging') return 'https://sydjs-beta.herokuapp.com';
+		if (keystone.get('env') === 'production') return 'https://www.sydjs.com';
+		return (keystone.get('host') || 'https://localhost:') + (keystone.get('port') || '3000');
 	})()
 });
 

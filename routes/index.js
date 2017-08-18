@@ -4,7 +4,7 @@ var browserify = require('browserify-middleware');
 var clientConfig = require('../client/config');
 var keystone = require('keystone');
 var middleware = require('./middleware');
-var graphqlHTTP = require('express-graphql');
+var graphqlhttps = require('express-graphql');
 var graphQLSchema = require('../graphql/basicSchema').default;
 var relaySchema = require('../graphql/relaySchema').default;
 
@@ -60,8 +60,8 @@ exports = module.exports = function (app) {
 	}));
 
 	// GraphQL
-	app.use('/api/graphql', graphqlHTTP({ schema: graphQLSchema, graphiql: true }));
-	app.use('/api/relay', graphqlHTTP({ schema: relaySchema, graphiql: true }));
+	app.use('/api/graphql', graphqlhttps({ schema: graphQLSchema, graphiql: true }));
+	app.use('/api/relay', graphqlhttps({ schema: relaySchema, graphiql: true }));
 
 	// Allow cross-domain requests (development only)
 	if (process.env.NODE_ENV !== 'production') {

@@ -17,7 +17,7 @@ block content
 		.row
 			div(class= !data.classifieds.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
 				if data.classifieds.length
-					.post-cards.row(itemscope itemtype="http://schema.org/Blog")
+					.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 						each classified in data.classifieds
 							+classified(classified)
 				else
