@@ -20,7 +20,7 @@ Classified.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	country: {type: Types.Relationship, ref: 'Country', index:true},
 	publishedDate: { type: Types.Date, index: true },
-	tags: {type: Types.Relationship, ref: 'ClassifiedTag', many: false},
+	tag: {type: Types.Relationship, ref: 'ClassifiedTag', many: false},
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -91,5 +91,5 @@ Classified.schema.methods.notifyAdmins = function(callback) {
  */
 
 Classified.defaultSort = '-publishedDate';
-Classified.defaultColumns = 'title, state|20%, country, author|20%, publishedDate|20%, tag';
+Classified.defaultColumns = 'title, state|20%, country, tag, author|20%, publishedDate|20%';
 Classified.register();

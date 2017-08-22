@@ -21,7 +21,7 @@ ClassifiedTag.add({
  * =============
  */
 
-ClassifiedTag.relationship({ ref: 'Classified', refPath: 'tags', path: 'classifieds' });
+ClassifiedTag.relationship({ ref: 'Classified', refPath: 'tag', path: 'classifieds' });
 
 
 /**
