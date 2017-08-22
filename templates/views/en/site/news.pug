@@ -28,4 +28,4 @@ block content
 						ul.list-unstyled.tags-list
 							li: a(href='/News', class=!data.tags ? 'active' : false) All
 							each tag in data.tags
-								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+								li: a(href='/news/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name

@@ -8,9 +8,11 @@ include ../../../mixins/advertisement
 
 //- INTRO
 block intro
+		if country
+			h2.text-center= 'Welcome to Babylon  ' + country.name
+				if country.image
+					img(src=country.image.secure_url, alt=country.name).home-image
 
-		h2.text-center Welcome to Babylon EN
-	
 //- JS
 block js
 

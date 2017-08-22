@@ -23,4 +23,6 @@ block content
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each article in data.articles
 								+article(article)
+					else
+						h3.text-muted There are no Articles yet.
 			

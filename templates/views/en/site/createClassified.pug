@@ -13,8 +13,20 @@ block content
 					.form-group
 						h1 Create a classified
 						input(type='text', id='post-title', name='title', placeholder='Classified title').input.input-xl.input-faded
-					
-					
+
+					//-Tag (clean this up, for each tag get the tag.id as a value and display its tag.name)
+					.form.group
+						label Tag
+						select(name='tags')
+							option(value='599b7a517475831633aa1222') Books, CDs, DVDs
+							option(value='599b79d57475831633aa121d') Cars and Vehicles
+							option(value='599b7a037475831633aa1221') Clothes
+							option(value='599b79f17475831633aa1220') Electronics
+							option(value='599b79dd7475831633aa121e') Home
+							option(value='599b7a7b7475831633aa1224') Random Stuff
+							option(value='599b79e37475831633aa121f') Sports
+							option(value='599b7a617475831633aa1223') Swap
+
 					//- Image
 					.form-group
 						label Upload image
@@ -24,8 +36,8 @@ block content
 					.form-group
 						label Classified content
 						textarea(name='content.extended', class='wysiwyg').input.input-faded
-					
-					
+
+								
 					//- Submit
 					.form-group
 						button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Create classified

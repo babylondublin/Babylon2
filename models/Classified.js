@@ -20,7 +20,7 @@ Classified.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	country: {type: Types.Relationship, ref: 'Country', index:true},
 	publishedDate: { type: Types.Date, index: true },
-	tag: {type: Types.Relationship, ref: 'ClassifiedTag', many: true},
+	tags: {type: Types.Relationship, ref: 'ClassifiedTag', many: false},
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },

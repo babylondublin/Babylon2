@@ -105,6 +105,7 @@ exports = module.exports = function (app) {
 	app.all('/payment', routes.controller.payment);
 
 	app.all('/classifieds', routes.controller.classifieds);
+	app.get('/classifieds/:tag?',routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
 
 	// Session

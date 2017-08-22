@@ -1,2 +1,4 @@
-.news-panel
-	a(href='/news').text-muted Latest News
+
+if locals.section !== 'news'
+	.news-panel
+		a(href='/news').text-muted Latest News
