@@ -155,5 +155,5 @@ User.schema.methods.resetPassword = function(callback) {
  * ============
 */
 
-User.defaultColumns = 'name, email, twitter, isAdmin, isJournalist';
+User.defaultColumns = 'name, email, twitter, isAdmin, isJournalist, isPremium';
 User.register();
