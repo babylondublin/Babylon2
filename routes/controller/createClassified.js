@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
 		updater.process(req.body, {
 			flashErrors: true,
 			logErrors: true,
-			fields: 'title, image, content.extended'
+			fields: 'title, tag, image, content.extended'
 		}, function(err) {
 			if (err) {
 				locals.validationErrors = err.errors;

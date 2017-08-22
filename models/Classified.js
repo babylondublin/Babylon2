@@ -20,7 +20,7 @@ Classified.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	country: {type: Types.Relationship, ref: 'Country', index:true},
 	publishedDate: { type: Types.Date, index: true },
-	tag: {type: Types.Relationship, ref: 'ClassifiedTag', many: true},
+	tag: {type: Types.Relationship, ref: 'ClassifiedTag', many: false},
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -61,7 +61,7 @@ Classified.schema.methods.notifyAdmins = function(callback) {
 				admin: admin.name.first || admin.name.full,
 				author: results.author ? results.author.name.full : 'Somebody',
 				title: classified.title,
-				keystoneURL: 'http://www.sydjs.com/keystone/post/' + classified.id,
+				keystoneURL: 'https://www.sydjs.com/keystone/post/' + classified.id,
 				subject: 'New Classified to Babylon'
 			}, {
 				to: admin,
@@ -91,5 +91,5 @@ Classified.schema.methods.notifyAdmins = function(callback) {
  */
 
 Classified.defaultSort = '-publishedDate';
-Classified.defaultColumns = 'title, state|20%, country, author|20%, publishedDate|20%, tag';
+Classified.defaultColumns = 'title, state|20%, country, tag, author|20%, publishedDate|20%';
 Classified.register();

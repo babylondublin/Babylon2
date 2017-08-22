@@ -1,0 +1,16 @@
+mixin member(member)
+	- var twitterUsername = member.twitterUsername || (member.twitter ? member.twitter.replace('@', ''): '');
+
+	li.member-item
+		.member.member--card
+			.member-section.member__photo
+				a(href=member.url): img(src=(member.photo.exists ? member._.photo.thumbnail(360,360) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full, width=180, height=180)
+			.member-section.member__info
+				h5.member__title(class=(member.bio.html ? null : 'member__title-only')): a(href=member.url)= member.name.full
+				if member.bio.html
+					.member__bio!=utils.cropString( utils.htmlToText(member.bio.html), 100, '...', true )
+				if twitterUsername || member.github
+					.member__accounts.hidden-xs
+						if twitterUsername
+							a(href='https://twitter.com/' + twitterUsername, target='_blank', data-toggle='tooltip', data-title='@' + twitterUsername, data-placement='top', data-container='#members').member__account.member__account--twitter.is-tooltip
+								span.entypo-social.entypo-twitter

@@ -4,7 +4,7 @@ var browserify = require('browserify-middleware');
 var clientConfig = require('../client/config');
 var keystone = require('keystone');
 var middleware = require('./middleware');
-var graphqlHTTP = require('express-graphql');
+var graphqlhttps = require('express-graphql');
 var graphQLSchema = require('../graphql/basicSchema').default;
 var relaySchema = require('../graphql/relaySchema').default;
 
@@ -60,8 +60,8 @@ exports = module.exports = function (app) {
 	}));
 
 	// GraphQL
-	app.use('/api/graphql', graphqlHTTP({ schema: graphQLSchema, graphiql: true }));
-	app.use('/api/relay', graphqlHTTP({ schema: relaySchema, graphiql: true }));
+	app.use('/api/graphql', graphqlhttps({ schema: graphQLSchema, graphiql: true }));
+	app.use('/api/relay', graphqlhttps({ schema: relaySchema, graphiql: true }));
 
 	// Allow cross-domain requests (development only)
 	if (process.env.NODE_ENV !== 'production') {
@@ -80,9 +80,9 @@ exports = module.exports = function (app) {
 	app.get('/', routes.controller.index);
 	//app.get('/meetups', routes.controller.meetups);
 	//app.get('/meetups/:meetup', routes.controller.meetup);
-	//app.get('/members', routes.controller.members);
+	app.get('/members', routes.controller.members);
 	//app.get('/members/mentors', routes.controller.mentors);
-	//app.get('/member/:member', routes.controller.member);
+	app.get('/member/:member', routes.controller.member);
 	//app.get('/organisations', routes.controller.organisations);
 	//app.get('/links', routes.controller.links);
 	//app.get('/links/:tag?', routes.controller.links);
@@ -105,6 +105,7 @@ exports = module.exports = function (app) {
 	app.all('/payment', routes.controller.payment);
 
 	app.all('/classifieds', routes.controller.classifieds);
+	app.get('/classifieds/:tag?',routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
 
 	// Session

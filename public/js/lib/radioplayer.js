@@ -15,7 +15,7 @@ $(function(){
     
     audioElement.addEventListener("timeupdate",function(){
    		/*$.ajax({
-   			url: "http://majestic.wavestreamer.com:1831/currentsong?sid=1",
+   			url: "https://majestic.wavestreamer.com:1831/currentsong?sid=1",
    			type: "GET",
    			headers: {
             	'Access-Control-Allow-Origin': '*',

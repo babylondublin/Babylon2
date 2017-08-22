@@ -11,14 +11,24 @@ block intro
 		if !user
 			a(href='/join') Register to create classifieds
 		hr
-
 block content
 	.page-content: .container.blog
 		.row
-			div(class= !data.classifieds.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
-				if data.classifieds.length
-					.post-cards.row(itemscope itemtype="http://schema.org/Blog")
-						each classified in data.classifieds
-							+classified(classified)
+			if data.tags.length
+				.sub-menu
+					if data.tags.length
+						ul.list-unstyled.tags-list
+							each tag in data.tags
+								li: a(href='/classifieds/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+
+			div(class= data.tags.length || !data.classifieds.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+				if filters.tag && !data.tag
+					h3 Invalid Tag.
 				else
-					h3.text-muted There are no classifieds yet.
+					if data.classifieds.length
+						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
+							each classified in data.classifieds
+								+classified(classified)
+					else
+						h3.text-muted There are no Classifieds yet.
+			
