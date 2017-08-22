@@ -102,6 +102,34 @@ exports = module.exports = function(req, res) {
 				});
 			});
 	});
+
+	//Update a Comment
+	view.on('post', { action: 'update-comment' }, function(next) {
+
+		var contentHtml = '<p>' + req.body.content + '</p>\n';
+		
+		ArticleComment.model.findOneAndUpdate(
+			{_id: req.body.comment}, 
+			{$set: {"content.md": req.body.content, "content.html": contentHtml}
+		})
+		.exec(function(err, comment) {
+				if(err) {
+					return res.err(err);
+				}
+				if(!comment){
+					req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
+					return next();
+				}
+				if (comment.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a comment to modify it.');
+					return next();
+				}
+				req.flash('success', 'Your comment has been modified.');
+				return res.redirect('/places_to_go/article/' + locals.article.slug);
+		});
+
+	});
+
 	// Render the view
 	view.render(keystone.lang + '/site/places_to_goOne');
 

@@ -51,11 +51,21 @@ block content
 									.media-body
 										h6.mt-0
 											=comment.author.name.full
-											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 										!=comment.content.html
-							//-delete article comment
+							//-delete and update article comment
 							if user && user.id == comment.author.id
 								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
+								a(href='', class='modify', value='Modify', id=comment.id)  Edit
+								form(method='post' class="update-comment" style="display: none" id="form"+comment.id).comment-form.mt-5
+									input(type='hidden', name='action', value='update-comment')
+									input(type='hidden', name='comment', value=comment.id)
+									.media
+										.media-body
+											textarea(name='content').form-control 
+												=comment.content.md
+											.mv-1
+												button(type='submit').btn.btn-success Save changes
 				if user
 						//- Reply form
 						form(method='post').comment-form.mt-5
@@ -70,3 +80,11 @@ block content
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")
+	script.
+		$('.modify').click( function(e) {e.preventDefault(); var id=this.id; $('#form' + id).css("display", "block"); return false; } );
+		$("body").mouseup(function (e) {
+		    var container = $("form.update-comment");
+		    if (container.has(e.target).length === 0) {
+		        container.hide();
+		    }
+		});	

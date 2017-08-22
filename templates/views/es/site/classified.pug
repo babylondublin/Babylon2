@@ -42,8 +42,7 @@ block content
 									.media-body
 										h6.mt-0
 											=comment.author.name.full
-											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
-										!=comment.content.html
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 				if user
 						//- Reply form
 						form(method='post').comment-form.mt-5

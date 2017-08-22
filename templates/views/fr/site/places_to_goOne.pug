@@ -51,7 +51,7 @@ block content
 									.media-body
 										h6.mt-0
 											=comment.author.name.full
-											span.text-muted  &middot; #{moment(comment.publishedOn).fromNow()}
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 										!=comment.content.html
 				if user
 						//- Reply form
