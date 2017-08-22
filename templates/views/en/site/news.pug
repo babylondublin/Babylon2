@@ -5,7 +5,7 @@ include ../../../mixins/post
 block intro
 	.page-intro: .container
 		h1.page-title=data.tag ? data.tag.name : 'News'
-		if user.isJournalist || user.isAdmin
+		if user && (user.isJournalist || user.isAdmin)
 			a(href='/me/create/post') create New
 		hr
 
