@@ -35,6 +35,7 @@ exports = module.exports = function(req, res) {
 		if (locals.member) {
 			locals.page.title = locals.member.name.full + ' - Babylon';
 		}
+		next();
 	});
 	
 	view.render(keystone.lang + '/site/member');

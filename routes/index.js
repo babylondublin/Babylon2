@@ -27,7 +27,7 @@ keystone.set('500', function (err, req, res, next) {
 		message = err.message;
 		err = err.stack;
 	}
-	res.status(500).render('errors/500', {
+	res.status(500).render('en/errors/500', {
 		err: err,
 		errorTitle: title,
 		errorMsg: message
