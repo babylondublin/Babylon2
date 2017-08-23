@@ -107,34 +107,29 @@ exports = module.exports = function(req, res) {
 				});
 			});
 	});
+
 	//Update a Classified
 	view.on('post', { action: 'update-classified' }, function(next) {
+		
+		if(!req.body.title || !req.body.title.trim()){
+			req.flash('error', 'You need to provide a title.');
+			return res.redirect('/classifieds/classified/' + locals.classified.slug);
+		}
 
-		Classified.model.findOneAndUpdate(
-			{_id: req.body.classified}, 
-			{$set: {
-				"title": req.body.title,
-				"tag": req.body.tag/*,
-				FIX:
-				"image": req.body.image,
-				"content.extended": req.body.content.extended
-				*/
-				}
-		})
-		.exec(function(err, classified) {
-				if(err) {
-					return res.err(err);
-				}
-				if(!classified){
-					req.flash('error', 'The classified ' + req.query.classified + ' could not be found.');
-					return next();
-				}
-				if (classified.author != req.user.id) {
-					req.flash('error', 'Sorry, you must be the author of a classified to modify it.');
-					return next();
-				}
-				req.flash('success', 'Your classified has been modified.');
-				res.redirect('/classifieds/classified/' + locals.classified.slug);
+		//Image issue fixed, see : https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean
+		//In pug : When you are writing client-side code, all you need to know is use multipart/form-data when your form includes any <input type="file"> elements.
+		locals.classified.getUpdateHandler(req).process(req.body, {
+			fields: 'title, tag, image, content.extended,',
+			flashErrors: true
+		}, function(err) {
+		
+			if (err) {
+				return res.err(err);
+			}
+
+			req.flash('success', 'Your changes have been saved.');
+			res.redirect('/classifieds/classified/' + locals.classified.slug);
+		
 		});
 
 	});

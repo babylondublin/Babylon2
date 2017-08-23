@@ -35,14 +35,14 @@ block content
 					if user && user.id == classified.author.id
 						a(href='?remove=classified&classified=' + classified.id, title='Delete this classified', rel='tooltip', data-placement='left') Delete
 						a(href='', class='modify', value='Modify', id=classified.id)  Edit
-						form(method='post' class="update-classified" style="display: none" id="form"+classified.id).form-horizontal.create-form.profile-form
+						form(method='post', enctype='multipart/form-data', class="update-classified" style="display: none" id="form"+classified.id).form-horizontal.create-form.profile-form
 							input(type='hidden', name='action', value='update-classified')
 							input(type='hidden', name='classified', value=classified.id)
 							.row: .col-sm-8.col-sm-offset-2
 								//- Title
 								.form-group
 									h1 Edit
-									input(type='text', id='post-title', name='title', placeholder='Classified title').input.input-xl.input-faded
+									input(type='text', id='post-title', name='title', placeholder='Classified title' value=classified.title).input.input-xl.input-faded
 								//-Tag (clean this up, for each tag get the tag.id as a value and display its tag.name)
 								.form.group
 									label Tag
@@ -65,6 +65,7 @@ block content
 								.form-group
 									label Classified content
 									textarea(name='content.extended', class='wysiwyg').input.input-faded
+										=classified.content.full
 
 											
 								//- Submit
