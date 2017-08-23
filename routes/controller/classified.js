@@ -2,6 +2,7 @@ var keystone = require('keystone');
 
 var Classified = keystone.list('Classified');
 var ClassifiedComment = keystone.list('ClassifiedComment');
+var ClassifiedTag = keystone.list('ClassifiedTag');
 
 exports = module.exports = function(req, res) {
 
@@ -35,6 +36,17 @@ exports = module.exports = function(req, res) {
 
 			});
 
+	});
+
+	// Load ClassifiedTags
+	view.on('init', function(next) {
+		ClassifiedTag.model.find()
+		.sort('name')		
+		.exec(function(err, tagsList) {
+			if (err) res.err(err);
+			locals.tags = tagsList;
+			next();
+		});
 	});
 
 	// Load recent classifieds

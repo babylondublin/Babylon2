@@ -1,5 +1,6 @@
 var keystone = require('keystone'),
-	Classified = keystone.list('Classified');
+	Classified = keystone.list('Classified'),
+	ClassifiedTag = keystone.list('ClassifiedTag');
 
 exports = module.exports = function(req, res) {
 	
@@ -9,6 +10,17 @@ exports = module.exports = function(req, res) {
 	locals.section = 'me';
 	locals.page.title = 'Create a Classified - Babylon';
 	
+	// Load ClassifiedTags
+	view.on('init', function(next) {
+		ClassifiedTag.model.find()
+		.sort('name')		
+		.exec(function(err, tagsList) {
+			if (err) res.err(err);
+			locals.tags = tagsList;
+			next();
+		});
+	});
+
 	view.on('post', { action: 'create-classified' }, function(next) {
 		
 		var cookie = req.cookies.country;
