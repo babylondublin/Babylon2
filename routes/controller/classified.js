@@ -107,7 +107,38 @@ exports = module.exports = function(req, res) {
 				});
 			});
 	});
-	
+	//Update a Classified
+	view.on('post', { action: 'update-classified' }, function(next) {
+
+		Classified.model.findOneAndUpdate(
+			{_id: req.body.classified}, 
+			{$set: {
+				"title": req.body.title,
+				"tag": req.body.tag/*,
+				FIX:
+				"image": req.body.image,
+				"content.extended": req.body.content.extended
+				*/
+				}
+		})
+		.exec(function(err, classified) {
+				if(err) {
+					return res.err(err);
+				}
+				if(!classified){
+					req.flash('error', 'The classified ' + req.query.classified + ' could not be found.');
+					return next();
+				}
+				if (classified.author != req.user.id) {
+					req.flash('error', 'Sorry, you must be the author of a classified to modify it.');
+					return next();
+				}
+				req.flash('success', 'Your classified has been modified.');
+				res.redirect('/classifieds/classified/' + locals.classified.slug);
+		});
+
+	});
+
 	//Delete Comment
 	view.on('get', { remove: 'comment' }, function(next) {
 

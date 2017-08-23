@@ -19,9 +19,9 @@ block content
 							|  by #{classified.author.name.full}
 						if classified.publishedDate
 							|  on #{classified._.publishedDate.format('MMMM D, YYYY')}
-					//- delete classified
-					if user && user.id == classified.author.id
-						a(href='?remove=classified&classified=' + classified.id, title='Delete this classified', rel='tooltip', data-placement='left') Delete
+					if classified.image.exists
+						.post-image.mv-3: img(src=classified._.image.fit(720,420)).img-responsive.img-thumbnail
+						!= classified.content.full
 					//- sharing buttons
 					.share-buttons
 						span.share-button
@@ -30,9 +30,45 @@ block content
 							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
 						span.share-button
 							.g-plusone(data-size="medium")
-				if classified.image.exists
-					.post-image.mv-3: img(src=classified._.image.fit(720,420)).img-responsive.img-thumbnail
-				!= classified.content.full
+					//- delete classified
+					if user && user.id == classified.author.id
+						a(href='?remove=classified&classified=' + classified.id, title='Delete this classified', rel='tooltip', data-placement='left') Delete
+						a(href='', class='modify', value='Modify', id=classified.id)  Edit
+						form(method='post' class="update-classified" style="display: none" id="form"+classified.id).form-horizontal.create-form.profile-form
+							input(type='hidden', name='action', value='update-classified')
+							input(type='hidden', name='classified', value=classified.id)
+							.row: .col-sm-8.col-sm-offset-2
+								//- Title
+								.form-group
+									h1 Edit
+									input(type='text', id='post-title', name='title', placeholder='Classified title').input.input-xl.input-faded
+								//-Tag (clean this up, for each tag get the tag.id as a value and display its tag.name)
+								.form.group
+									label Tag
+									select(name='tag')
+										option(value='599b7a517475831633aa1222') Books, CDs, DVDs
+										option(value='599b79d57475831633aa121d') Cars and Vehicles
+										option(value='599b7a037475831633aa1221') Clothes
+										option(value='599b79f17475831633aa1220') Electronics
+										option(value='599b79dd7475831633aa121e') Home
+										option(value='599b7a7b7475831633aa1224') Random Stuff
+										option(value='599b79e37475831633aa121f') Sports
+										option(value='599b7a617475831633aa1223') Swap
+
+								//- Image
+								.form-group
+									label Upload image
+									input(type='file', name='image_upload')
+								
+								//- Content
+								.form-group
+									label Classified content
+									textarea(name='content.extended', class='wysiwyg').input.input-faded
+
+											
+								//- Submit
+								.form-group
+									button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Save changes
 
 				//- Comment
 				.comments
@@ -71,7 +107,6 @@ block content
 									textarea(placeholder='Add your comment...', name='content').form-control
 									.mv-1
 										button(type='submit').btn.btn-success Submit
-												//- Reply form
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")
@@ -82,5 +117,20 @@ block js
 		    if (container.has(e.target).length === 0) {
 		        container.hide();
 		    }
+		});
+	script(src='/js/lib/bootstrap/button.js')
+	script(src='/js/lib/tinymce/tinymce.min.js')
+	script(src='/js/lib/tinymce/jquery.tinymce.min.js')
+	script.
+		jQuery(function($) {
+			$( "#post-title" ).focus();
+			tinymce.init({
+				selector: 'textarea.wysiwyg',
+				menubar: false,
+				height: 400,
+				plugins: [ 'code', 'link' ],
+				toolbar: 'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+				skin: 'keystone'
+			});
 		});
 
