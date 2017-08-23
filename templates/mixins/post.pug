@@ -9,7 +9,7 @@ mixin post(post)
 			.post-summary
 				.post-byline
 					if post.author
-						.post-author: p()=post.author.name.full
+						.post-author: a(href='/member/'+ post.author.key, rel='author')=post.author.name.full
 					else
 						.post-author: p() Unknown
 					.date-stamp: em=moment(post.publishedDate).fromNow()

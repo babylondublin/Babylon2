@@ -6,8 +6,8 @@ mixin article(article)
 			.post-summary
 				.post-byline
 					if article.author.name.full.length
-						.post-author: p()=article.author.name.full
-					//- .date-stamp: em=moment(post.publishedDate).fromNow()
+						.post-author: a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
+						.date-stamp: em=moment(article.publishedDate).fromNow()
 
 				h4(itemprop='name').post-title.mv-1
 					a(href='/'+ locals.section +'/article/' + article.slug, itemprop='url')=article.title

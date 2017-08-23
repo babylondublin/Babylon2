@@ -16,7 +16,8 @@ block content
 					h1.blog-article__title= article.title
 					p.blog-article__byline Posted
 						if article.author
-							|  by #{article.author.name.full}
+							|	by&nbsp;
+							a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
 						if article.publishedDate
 							|  on #{article._.publishedDate.format('MMMM D, YYYY')}
 						if article.tags && article.tags.length
@@ -50,7 +51,7 @@ block content
 										img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=comment.author.name.full, width=40, height=40).media-object.img-circle
 									.media-body
 										h6.mt-0
-											=comment.author.name.full
+											a(href='/member/'+ comment.author.key, rel='author')=comment.author.name.full
 											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 										!=comment.content.html
 							//-delete and modify article comment
