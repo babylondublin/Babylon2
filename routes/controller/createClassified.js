@@ -6,6 +6,9 @@ exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res),
 		locals = res.locals;
+
+	//if not User
+	if(!locals.user) res.redirect('/');
 	
 	locals.section = 'me';
 	locals.page.title = 'Create a Classified - Babylon';

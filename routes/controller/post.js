@@ -2,6 +2,7 @@ var keystone = require('keystone');
 
 var Post = keystone.list('Post');
 var PostComment = keystone.list('PostComment');
+var PostTag = keystone.list('PostTag');
 
 exports = module.exports = function(req, res) {
 
@@ -35,6 +36,17 @@ exports = module.exports = function(req, res) {
 
 			});
 
+	});
+
+	// Load PostTags
+	view.on('init', function(next) {
+		PostTag.model.find()
+		.sort('name')		
+		.exec(function(err, tagsList) {
+			if (err) res.err(err);
+			locals.tags = tagsList;
+			next();
+		});
 	});
 
 	// Load recent posts
@@ -102,11 +114,36 @@ exports = module.exports = function(req, res) {
 				});
 			});
 	});
+	//Update a Post
+	view.on('post', { action: 'update-post' }, function(next) {
+		
+		if(!req.body.title || !req.body.title.trim()){
+			req.flash('error', 'You need to provide a title.');
+			return res.redirect('/news/post/' + locals.post.slug);
+		}
+
+		//Image issue fixed, see : https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean
+		//In pug : When you are writing client-side code, all you need to know is use multipart/form-data when your form includes any <input type="file"> elements.
+		locals.post.getUpdateHandler(req).process(req.body, {
+			fields: 'title, tag, image, content.extended,',
+			flashErrors: true
+		}, function(err) {
+		
+			if (err) {
+				return res.err(err);
+			}
+
+			req.flash('success', 'Your changes have been saved.');
+			res.redirect('/news/post/' + locals.post.slug);
+		
+		});
+
+	});
 	// Delete New (post)
 	// inspired by: https://gist.github.com/wuhaixing/e90b8497f925ff9c7bfc
 	view.on('get', { remove: 'post' }, function(next) {
 			if (!req.user) {
-				req.flash('error', 'You must be signed in to delete a classified.');
+				req.flash('error', 'You must be signed in to delete a Post.');
 				return next();
 			}
 		Post.model.findOne({

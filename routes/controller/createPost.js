@@ -1,5 +1,7 @@
 var keystone = require('keystone'),
-	Post = keystone.list('Post');
+	Post = keystone.list('Post'),
+	PostTag = keystone.list('PostTag');
+
 
 exports = module.exports = function(req, res) {
 	
@@ -11,7 +13,18 @@ exports = module.exports = function(req, res) {
 	
 	locals.section = 'me';
 	locals.page.title = 'Create a Post - Babylon';
-	
+
+	// Load PostTags
+	view.on('init', function(next) {
+		PostTag.model.find()
+		.sort('name')		
+		.exec(function(err, tagsList) {
+			if (err) res.err(err);
+			locals.tags = tagsList;
+			next();
+		});
+	});
+
 	view.on('post', { action: 'create-post' }, function(next) {
 		
 		var cookie = req.cookies.country;
@@ -34,7 +47,7 @@ exports = module.exports = function(req, res) {
 		updater.process(req.body, {
 			flashErrors: true,
 			logErrors: true,
-			fields: 'title, image, content.extended'
+			fields: 'title, tag, image, content.extended'
 		}, function(err) {
 			if (err) {
 				locals.validationErrors = err.errors;

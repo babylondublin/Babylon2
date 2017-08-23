@@ -28,9 +28,10 @@ block content
 									| ,&nbsp;
 								else
 									|&nbsp;
-					//- delete classified
-					if  user && user.id == post.author.id
-						a(href='?remove=post&post=' + post.id, title='Delete this Post', rel='tooltip', data-placement='left') Delete
+					//- Image
+					if post.image.exists
+						.post-image.mv-3: img(src=post._.image.fit(720,420)).img-responsive.img-thumbnail
+						!= post.content.full
 					//- sharing buttons
 					.share-buttons
 						span.share-button
@@ -39,9 +40,45 @@ block content
 							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
 						span.share-button
 							.g-plusone(data-size="medium")
-				if post.image.exists
-					.post-image.mv-3: img(src=post._.image.fit(720,420)).img-responsive.img-thumbnail
-				!= post.content.full
+					//- delete & update post
+					if  user && user.id == post.author.id
+						a(href='?remove=post&post=' + post.id, title='Delete this Post', rel='tooltip', data-placement='left') Delete
+						a(href='', class='modify', value='Modify', id=post.id)  Edit
+						form(method='post', enctype='multipart/form-data', class="update-post" style="display: none" id="form"+post.id).form-horizontal.create-form.profile-form
+							input(type='hidden', name='action', value='update-post')
+							input(type='hidden', name='post', value=post.id)
+							.row: .col-sm-8.col-sm-offset-2
+								//- Title
+								.form-group
+									h1 Edit
+									input(type='text', id='post-title', name='title', placeholder='Post title' value=post.title).input.input-xl.input-faded
+								//- Tag
+								if tags && tags.length
+									.form.group
+										label Tag
+										select(name='tag')
+											each tag in tags
+												option(value=tag.id) 
+													= tag.name
+								else
+									p.
+										Sorry, tags cannot be loaded.
+										
+								//- Image
+								.form-group
+									label Upload image
+									input(type='file', name='image_upload')
+								
+								//- Content
+								.form-group
+									label Post content
+									textarea(name='content.extended', class='wysiwyg').input.input-faded
+										=post.content.full
+
+											
+								//- Submit
+								.form-group
+									button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Save changes
 
 				//- Comment
 				.comments
@@ -90,4 +127,19 @@ block js
 		    if (container.has(e.target).length === 0) {
 		        container.hide();
 		    }
+		});
+	script(src='/js/lib/bootstrap/button.js')
+	script(src='/js/lib/tinymce/tinymce.min.js')
+	script(src='/js/lib/tinymce/jquery.tinymce.min.js')
+	script.
+		jQuery(function($) {
+			$( "#post-title" ).focus();
+			tinymce.init({
+				selector: 'textarea.wysiwyg',
+				menubar: false,
+				height: 400,
+				plugins: [ 'code', 'link' ],
+				toolbar: 'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+				skin: 'keystone'
+			});
 		});
