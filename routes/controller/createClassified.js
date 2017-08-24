@@ -10,6 +10,11 @@ exports = module.exports = function(req, res) {
 	//if not User
 	if(!locals.user) res.redirect('/');
 	
+	//if no Cookie
+	if(!req.cookies.country){
+		return res.redirect('/classifieds');
+	};
+	
 	locals.section = 'me';
 	locals.page.title = 'Create a Classified - Babylon';
 	

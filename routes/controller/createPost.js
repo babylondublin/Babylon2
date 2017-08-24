@@ -10,6 +10,11 @@ exports = module.exports = function(req, res) {
 
 	//if not admin or jurnalist
 	if(!locals.user.isAdmin && !locals.user.isJournalist) res.redirect('/');
+
+	//if no Cookie
+	if(!req.cookies.country){
+		return res.redirect('/news');
+	};
 	
 	locals.section = 'me';
 	locals.page.title = 'Create a Post - Babylon';

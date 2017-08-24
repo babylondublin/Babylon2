@@ -16,10 +16,20 @@ exports = module.exports = function(req, res) {
 		posts: [],
 		tags: []
 	};
-	
+
+	//if no Cookie
+	if(!req.cookies.country || (req.cookies.country == '')){
+		req.flash('error', 'Search a country first please.');
+	};
+
 	// Load all tags
 	view.on('init', function(next) {
-		
+
+		//if no Cookie
+		if(!req.cookies.country || (req.cookies.country == '')){
+		return next();
+		};
+
 		keystone.list('PostTag').model.find().sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
@@ -46,7 +56,12 @@ exports = module.exports = function(req, res) {
 	
 	// Load the current tag filter
 	view.on('init', function(next) {
-		
+
+		//if no Cookie
+		if(!req.cookies.country || (req.cookies.country == '')){
+		return next();
+		};
+
 		if (req.params.tag) {
 			keystone.list('PostTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
 				locals.data.tag = result;
@@ -61,6 +76,11 @@ exports = module.exports = function(req, res) {
 	// Load the posts
 	view.on('init', function(next) {
 		var cookie = req.cookies.country;
+		//if no Cookie
+		if(!cookie || (cookie == '')){
+		return next();
+		};
+
 		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
 		
 		if (locals.data.tag) {

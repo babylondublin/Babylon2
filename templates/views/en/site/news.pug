@@ -5,10 +5,11 @@ include ../../../mixins/post
 block intro
 	.page-intro: .container
 		h1.page-title=data.tag ? data.tag.name : 'News'
-		if user && (user.isJournalist || user.isAdmin)
-			a(href='/me/create/post') create New
-		hr
-
+		if country
+			if user && (user.isJournalist || user.isAdmin)
+				a(href='/me/create/post') create New
+			hr
+		else
 block content
 	.page-content: .container.blog
 		.row
@@ -20,7 +21,10 @@ block content
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each post in data.posts
 								+post(post)
-					
+					else
+						if country
+							h3.text-muted There are no Posts yet.
+						else
 			if data.tags.length
 				.col-md-2
 					if data.tags.length

@@ -17,7 +17,9 @@ exports = module.exports = function(req, res) {
 
 
 	// Decide which to render
-	
+	if(!req.cookies.country || (req.cookies.country == '')){
+		req.flash('error', 'Search a country first please.');
+	};
 
 	
 	view.render(keystone.lang + '/site/index');

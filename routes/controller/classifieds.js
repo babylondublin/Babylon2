@@ -17,9 +17,19 @@ exports = module.exports = function(req, res) {
 		tags: []
 	};
 
+	//if no Cookie
+	if(!req.cookies.country || (req.cookies.country == '')){
+		req.flash('error', 'Search a country first please.');
+	};
+
 	// Load all tags
 	view.on('init', function(next) {
-		//filter what tags you wanna show
+		
+		//if no Cookie
+		if(!req.cookies.country || (req.cookies.country == '')){
+		return next();
+		};
+
 		keystone.list('ClassifiedTag').model.find().sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
@@ -46,7 +56,12 @@ exports = module.exports = function(req, res) {
 	
 	// Load the current tagfilter
 	view.on('init', function(next) {
-		
+
+		//if no Cookie
+		if(!req.cookies.country || (req.cookies.country == '')){
+		return next();
+		};
+
 		if (req.params.tag) {
 			keystone.list('ClassifiedTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
 				locals.data.tag = result;
@@ -61,6 +76,10 @@ exports = module.exports = function(req, res) {
 	// Load the classifieds
 	view.on('init', function(next) {
 		var cookie = req.cookies.country;
+		//if no Cookie
+		if(!cookie || (cookie == '')){
+		return next();
+		};
 
 		var q = keystone.list('Classified').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag');
 		

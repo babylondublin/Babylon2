@@ -23,4 +23,8 @@ block content
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each article in data.articles
 								+article(article)
+					else
+						if country
+							h3.text-muted There are no Classifieds yet.
+						else
 			

@@ -6,11 +6,13 @@ block intro
 	.page-intro: .container
 		h1.page-title Classifieds
 		hr
-		if user
-			a(href='/me/create/classified') create classified
-		if !user
-			a(href='/join') Register to create classifieds
-		hr
+		if country
+			if user
+				a(href='/me/create/classified') create classified
+			if !user
+				a(href='/join') Register to create classifieds
+			hr
+		else
 block content
 	.page-content: .container.blog
 		.row
@@ -30,5 +32,7 @@ block content
 							each classified in data.classifieds
 								+classified(classified)
 					else
-						h3.text-muted There are no Classifieds yet.
+						if country
+							h3.text-muted There are no Classifieds yet.
+						else
 			
