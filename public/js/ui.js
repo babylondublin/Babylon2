@@ -9,6 +9,10 @@ $(function() {
 		$('#app-alert').removeClass('hidden-md hidden-lg');
 	}
 
+	// If we are on News page, right grey panel hidden
+	if ($(document).find('.news-panel').length == 0) { 
+		$('.site-body').css({"margin-right":"0"});
+	}
 
 
 	// Nav
