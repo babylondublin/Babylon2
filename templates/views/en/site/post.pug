@@ -31,7 +31,9 @@ block content
 					//- Image
 					if post.image.exists
 						.post-image.mv-3: img(src=post._.image.fit(720,420)).img-responsive.img-thumbnail
-						!= post.content.full
+					//- Post content
+					!= post.content.full
+					
 					//- sharing buttons
 					.share-buttons
 						span.share-button
