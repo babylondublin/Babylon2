@@ -162,6 +162,12 @@ nav {
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	     /* IE10+ CSS styles go here */
+	     height: 29px; // Need to be bigger for IE
+	}
+
 	}
 	.searcher:focus{
 		width: 200px;
