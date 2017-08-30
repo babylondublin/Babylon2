@@ -21,7 +21,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					div#play ▶
 				ul
 					form(action='/search', method='post', autocomplete='off', novalidate)
-						input(list='countries', name='query', placeholder="Search a country..").searcher 
+						input(id="searchInput" list='countries', name='query', placeholder="Search a country..").searcher 
 						datalist(id='countries')
 							option(value='Ireland')
 							option(value='Spain')
@@ -47,3 +47,18 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					li: a(href="/living") Living
 					li: a(href="/about") About Us
 //-.header-placeholder
+
+script(src='/js/lib/awesomplete.js')
+script.
+		var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			
+		if(isSafari){
+			var input = document.getElementById("searchInput");
+			
+			var awesomplete = new Awesomplete(input, {
+				minChars: 0,
+			});
+			awesomplete.list = ["Ireland", "Spain", "France", "Brazil"];
+			document.getElementById('searchInput').className = "searcher-safari";
+
+		}
