@@ -4,6 +4,7 @@ include ../../../mixins/post
 
 block intro
 	.page-intro: .container
+		
 		h1.page-title=data.tag ? data.tag.name : 'News'
 		if country
 			if user && (user.isJournalist || user.isAdmin)
@@ -17,15 +18,27 @@ block content
 				if filters.tag && !data.tag
 					h3 Invalid tag.
 				else
-					if data.posts.length
+					if data.posts && data.posts.length
+						if data.searchWord
+							h5.text-muted The 10 latest results for your search "
+								!=data.searchWord + '" :' 
+
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each post in data.posts
 								+post(post)
 					else
-						if country
+						if data.searchWord	
+							h3.text-muted No result found for your search "
+								!=data.searchWord + '".' 
+						else if country
 							h3.text-muted There are no Posts yet.
 						else
 			if data.tags.length
+				.col-md-2
+					form().comment-form.mt-5
+						input(id="search", name='search', placeholder="Search...").searchNew
+						input(type='submit', value='').btn.search-news
+
 				.col-md-2
 					if data.tags.length
 						h5.text-muted Filter by tag

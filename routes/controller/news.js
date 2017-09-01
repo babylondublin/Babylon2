@@ -14,7 +14,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		posts: [],
-		tags: []
+		tags: [],
+		searchWord: '',
 	};
 
 	//if no Cookie
@@ -81,19 +82,30 @@ exports = module.exports = function(req, res) {
 		return next();
 		};
 
-		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
-		
-		if (locals.data.tag) {
-			q.where('tag').in([locals.data.tag]);
+		if(req.query.search){ // if the URL contains ?search=something : load the specific news 
+			locals.data.searchWord = req.query.search;
+			var q = keystone.list('Post').model.find({lang: keystone.lang, $text: {$search: req.query.search}}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(10);
+			
+			q.exec(function(err, results) {
+				locals.data.posts = results;
+				next(err);
+			});
 		}
-		
-		q.exec(function(err, results) {
-			locals.data.posts = results;
-			next(err);
-		});
-		
+		else{
+
+			var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
+			
+			if (locals.data.tag) {
+				q.where('tag').in([locals.data.tag]);
+			}
+			
+			q.exec(function(err, results) {
+				locals.data.posts = results;
+				next(err);
+			});
+		}
 	});
-	
+
 	// Render the view
 	view.render(keystone.lang + '/site/news');
 

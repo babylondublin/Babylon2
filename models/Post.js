@@ -28,6 +28,9 @@ Post.add({
 	tag: { type: Types.Relationship, ref: 'PostTag', many: true }
 });
 
+
+Post.schema.index({title: 'text', 'content.brief': 'text', 'content.extended': 'text'});
+
 /**
  * Virtuals
  * ========
