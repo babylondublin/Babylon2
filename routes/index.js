@@ -57,7 +57,10 @@ exports = module.exports = function (app) {
 				presets: ['es2015', 'react']
 			}),
 		],
-	}));
+    }));
+ 
+	// load the countries for the search bar
+	app.use('*', middleware.initCountries);
 
 	// GraphQL
 	app.use('/api/graphql', graphqlhttps({ schema: graphQLSchema, graphiql: true }));

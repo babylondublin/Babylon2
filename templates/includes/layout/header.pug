@@ -23,10 +23,9 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					form(action='/search', method='post', autocomplete='off', novalidate)
 						input(id="searchInput" list='countries', name='query', placeholder="Search a country..", required).searcher 
 						datalist(id='countries')
-							option(value='Ireland')
-							option(value='Spain')
-							option(value='France')
-							option(value='Brazil')
+							if countries && countries.length
+								each country in countries
+									option(value=country.name) 
 						input(type='submit', value='Search').btn.submit-search
 				ul.navbar-nav.navbar-nav--right
 					if user
@@ -49,16 +48,23 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 //-.header-placeholder
 
 script(src='/js/lib/awesomplete.js')
-script.
-		var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-			
-		if(isSafari){
-			var input = document.getElementById("searchInput");
-			
-			var awesomplete = new Awesomplete(input, {
-				minChars: 0,
-			});
-			awesomplete.list = ["Ireland", "Spain", "France", "Brazil"];
-			document.getElementById('searchInput').className = "searcher-safari";
+script(src='/js/lib/jquery/jquery-1.10.2.min.js')
 
-		}
+script.
+		$( document ).ready(function() {
+			var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+			if(isSafari){
+				var input = document.getElementById("searchInput");
+				
+				var awesomplete = new Awesomplete(input, {
+					minChars: 0,
+				});
+				awesomplete.list = [];
+				$('#countries option').each(function(){
+					awesomplete._list.push(this.value);
+				});
+				document.getElementById('searchInput').className = "searcher-safari";
+
+			}
+		});

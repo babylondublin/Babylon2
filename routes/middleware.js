@@ -131,3 +131,14 @@ var qs_set = exports.qs_set = function(req, res) {
 		return req.path + (qs ? '?' + qs : '');
 	}
 }
+
+/**
+	Load all the countries for the search bar in the header
+*/
+exports.initCountries = function(req, res, next){
+	keystone.list('Country').model.find().exec(function(err, countries) {
+			if (err) res.err(err);
+			res.locals.countries = countries;
+			next();
+		});
+}
