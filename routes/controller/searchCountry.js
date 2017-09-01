@@ -1,15 +1,19 @@
 var keystone = require('keystone');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function(req, res, next) {
 
 	var view = new keystone.View(req, res),
 		query = req.body.query;
-
+	if(query == '' || query == null){
+		req.flash('error','Search some country.');
+		console.log('Search some country');
+		return next();
+	}
 	// https://docs.mongodb.com/manual/reference/operator/query/regex/
 	var q = keystone.list("Country").model.find({'name': {$regex: '.*' + query + '.*', $options: 'i'}});
 
 	q.exec(function(err, result){
-		if(result == '' || err){
+		if(result == '' || result == null || err){
 		req.flash('error', 'The country you have searched doesn not exist in our database yet...');
 		view.render(keystone.lang + '/errors/404');
 		}
