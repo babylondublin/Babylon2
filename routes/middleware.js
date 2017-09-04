@@ -133,6 +133,23 @@ var qs_set = exports.qs_set = function(req, res) {
 }
 
 /**
+	Load the 5 latest news for the news side panel on every pages except the News page.
+*/
+exports.loadLatestNews = function(req, res, next){
+	    var cookie = req.cookies.country;
+		//if no Cookie
+		if(!cookie || (cookie == '')){
+			return next();
+		};
+		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author').limit(5);	
+		q.exec(function(err, results) {
+	        if (err) return res.err(err);
+	   		 res.locals.lastPosts = results;
+	   		 next();
+		});
+}
+
+/**
 	Load all the countries for the search bar in the header
 */
 exports.initCountries = function(req, res, next){

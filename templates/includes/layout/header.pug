@@ -21,8 +21,8 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					div#play ▶
 				ul
 					form(action='/search', method='post', autocomplete='off', novalidate)
-						input(id="searchInput" list='countries', name='query', placeholder="Search a country..", required).searcher 
-						datalist(id='countries')
+						input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+						datalist(id='countriesList')
 							if countries && countries.length
 								each country in countries
 									option(value=country.name) 
@@ -61,7 +61,7 @@ script.
 					minChars: 0,
 				});
 				awesomplete.list = [];
-				$('#countries option').each(function(){
+				$('#countriesList option').each(function(){
 					awesomplete._list.push(this.value);
 				});
 				document.getElementById('searchInput').className = "searcher-safari";

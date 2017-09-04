@@ -59,6 +59,8 @@ exports = module.exports = function (app) {
 		],
     }));
  
+	// Load the 5 latest news for the news side panel	
+	app.use('*', middleware.loadLatestNews);
 	// load the countries for the search bar
 	app.use('*', middleware.initCountries);
 
