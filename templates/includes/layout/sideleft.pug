@@ -8,6 +8,14 @@ div
                 path(d='M0,23 30,23', stroke='#333', stroke-width='5')
     #toggle.toggle
         a#btn-close.btn-close(href='#') ×
+        ul
+            form(action='/search', method='post', autocomplete='off', novalidate)
+                input(id="searchInput" list='countries', name='query', placeholder="Search a country..", required)
+                datalist(id='countries')
+                    if countries && countries.length
+                        each country in countries
+                            option(value=country.name) 
+                input(type='submit', value='Search')
         a.menu-item(href="/news") News
         a.menu-item(href="/places_to_go") Places to Go
         a.menu-item(href="/things_to_do") Things to Do
