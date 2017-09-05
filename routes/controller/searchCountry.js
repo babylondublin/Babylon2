@@ -1,5 +1,8 @@
 var keystone = require('keystone');
 
+/**
+	Now this function is available in middleware
+*/
 exports = module.exports = function(req, res, next) {
 
 	var view = new keystone.View(req, res),

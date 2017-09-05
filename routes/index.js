@@ -9,6 +9,7 @@ var graphQLSchema = require('../graphql/basicSchema').default;
 var relaySchema = require('../graphql/relaySchema').default;
 
 var importRoutes = keystone.importer(__dirname);
+var bodyParser = require('body-parser');
 
 // Common Middleware
 keystone.pre('routes', middleware.initErrorHandlers);
@@ -59,6 +60,11 @@ exports = module.exports = function (app) {
 		],
     }));
  
+ 	//http://expressjs.com/tr/api.html#req.body
+ 	app.use(bodyParser.json());
+ 	// change language
+ 	app.use("*", middleware.initLanguage);	
+
 	// Load the 5 latest news for the news side panel	
 	app.use('*', middleware.loadLatestNews);
 	// load the countries for the search bar

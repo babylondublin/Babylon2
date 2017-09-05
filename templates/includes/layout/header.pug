@@ -20,7 +20,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 				ul.navbar-nav.navbar-nav--left
 					div#play ▶
 				ul
-					form(action='/search', method='post', autocomplete='off', novalidate)
+					form(method='post', autocomplete='off', novalidate)
 						input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
 						datalist(id='countriesList')
 							if countries && countries.length
