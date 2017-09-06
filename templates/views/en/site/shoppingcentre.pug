@@ -1,98 +1,98 @@
 extends ../../../layouts/default
 
 block content
-.wrapper
-  .col-lg-9
-    .container
-      h1.pageHeading Shopping Centre
-      .row
-        .col-lg-12
-          .col-lg-11.col-lg-offset-1
-            #myCarousel.carousel.slide(data-ride='carousel')
-              // Indicators
-              ol.carousel-indicators
-                li.active(data-target='#myCarousel', data-slide-to='0')
-                li(data-target='#myCarousel', data-slide-to='1')
-                li(data-target='#myCarousel', data-slide-to='2')
-              // Wrapper for slides
-              .carousel-inner
-                .item.active
-                  img(src='http://i4.dublinlive.ie/incoming/article12266076.ece/ALTERNATES/s1200/Dundrum.jpg', alt='Dublin')
-                .item
-                  img(src='http://www.johnsiskandson.com/sites/default/files/project/191/408-dundrum-town-centre-dublin.jpg', alt='Dublin')
-                .item
-                  img(src='http://babylonradio.com/wp-content/uploads/2016/10/White-Hotel-Group-Midland-Lakelands-Tour-2015-Kildare-Village.jpg', alt='Dublin')
-              // Left and right controls
-              a.left.carousel-control(href='#myCarousel', data-slide='prev')
-                span.glyphicon.glyphicon-chevron-left
-                span.sr-only Previous
-              a.right.carousel-control(href='#myCarousel', data-slide='next')
-                span.glyphicon.glyphicon-chevron-right
-                span.sr-only Next
-    br
-    .container
-      .row
-        .col-lg-12
-          .col-lg-9.col-lg-offset-2
-            p.info
-              | Lorem ipsum dolor sit amet, mei viris congue dissentias in, ius no unum saperet minimum. Pro in ullum paulo sententiae. Ei assum utinam scriptorem vim, augue consulatu ei per, est tempor abhorreant ea. Mea no viris everti, nam illum corpora partiendo no. Eum te unum dicam voluptaria, ius feugait appellantur comprehensam ne. Dicta accumsan erroribus no per, ex soluta petentium est.
-              | Ea vix quod alii graeci, vidit aeque aperiri ad nec. Eos elit intellegebat et. Forensibus adolescens duo ad, unum mentitum delectus te pri, in pro omittam quaestio qualisque. An vis dicit molestie. Scripta nusquam efficiendi cu qui.
-    br
-    br
-    .container
-      .row
-        .col-lg-8.col-lg-offset-1
-          .contactinfo
-            h3 Contact Information:
-            .row
-              .col-lg-4
-                .contactBlock
-                  i.fa.fa-map-marker.contactIcon(aria-hidden='true')
-                  br
-                  p.contactDetail
-                    | Address Line 1,
-                    br
-                    | Address Line 2, 
-                    br
-                    | Address Line 3
-              .col-lg-4
-                .contactBlock
-                  i.fa.fa-link.contactIcon(aria-hidden='true')
-                  br
-                  a.contactDetail2(href='#', style='color:black') Visit Website
-                  br
-                  i.fa.fa-phone.contactIcon(aria-hidden='true')
-                  br
-                  p.contactDetail2 567892342
-              .col-lg-4
-                .contactBlock
-                  i.fa.fa-clock-o.contactIcon(aria-hidden='true')
-                  br
-                  p.contactDetail2
-                    | Mon-Fri
-                    br
-                    | 9am - 18pm
-    br
-    .container
-      .row
-        .col-lg-12
-          h2(style='text-align:center') @KildareVillage
-          .col-lg-4
-            .instaImageWrapper
-              a(href='#', target='_blank')
-                img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
-                i.fa.fa-instagram.instaIcon(aria-hidden='true')
-          .col-lg-4
-            .instaImageWrapper
-              a(href='#', target='_blank')
-                img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
-                i.fa.fa-instagram.instaIcon(aria-hidden='true')
-          .col-lg-4
-            .instaImageWrapper
-              a(href='#', target='_blank')
-                img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
-                i.fa.fa-instagram.instaIcon(aria-hidden='true')
-  .container
-    .row
-      .col-lg-2.col-lg-offset-1(style='background-color:blue')
-        | AD
+	.wrapper
+		.col-lg-9
+			.container
+				h1.pageHeading Shopping Centre
+				.row
+					.col-lg-12
+						.col-lg-11.col-lg-offset-1
+							#myCarousel.carousel.slide(data-ride='carousel')
+								// Indicators
+								ol.carousel-indicators
+									li.active(data-target='#myCarousel', data-slide-to='0')
+									li(data-target='#myCarousel', data-slide-to='1')
+									li(data-target='#myCarousel', data-slide-to='2')
+								// Wrapper for slides
+								.carousel-inner
+									.item.active
+										img(src='http://i4.dublinlive.ie/incoming/article12266076.ece/ALTERNATES/s1200/Dundrum.jpg', alt='Dublin')
+									.item
+										img(src='http://www.johnsiskandson.com/sites/default/files/project/191/408-dundrum-town-centre-dublin.jpg', alt='Dublin')
+									.item
+										img(src='http://babylonradio.com/wp-content/uploads/2016/10/White-Hotel-Group-Midland-Lakelands-Tour-2015-Kildare-Village.jpg', alt='Dublin')
+								// Left and right controls
+								a.left.carousel-control(href='#myCarousel', data-slide='prev')
+									span.glyphicon.glyphicon-chevron-left
+									span.sr-only Previous
+								a.right.carousel-control(href='#myCarousel', data-slide='next')
+									span.glyphicon.glyphicon-chevron-right
+									span.sr-only Next
+			br
+			.container
+				.row
+					.col-lg-12
+						.col-lg-9.col-lg-offset-2
+							p.info
+								| Lorem ipsum dolor sit amet, mei viris congue dissentias in, ius no unum saperet minimum. Pro in ullum paulo sententiae. Ei assum utinam scriptorem vim, augue consulatu ei per, est tempor abhorreant ea. Mea no viris everti, nam illum corpora partiendo no. Eum te unum dicam voluptaria, ius feugait appellantur comprehensam ne. Dicta accumsan erroribus no per, ex soluta petentium est.
+								| Ea vix quod alii graeci, vidit aeque aperiri ad nec. Eos elit intellegebat et. Forensibus adolescens duo ad, unum mentitum delectus te pri, in pro omittam quaestio qualisque. An vis dicit molestie. Scripta nusquam efficiendi cu qui.
+			br
+			br
+			.container
+				.row
+					.col-lg-8.col-lg-offset-1
+						.contactinfo
+							h3 Contact Information:
+							.row
+								.col-lg-4
+									.contactBlock
+										i.fa.fa-map-marker.contactIcon(aria-hidden='true')
+										br
+										p.contactDetail
+											| Address Line 1,
+											br
+											| Address Line 2, 
+											br
+											| Address Line 3
+								.col-lg-4
+									.contactBlock
+										i.fa.fa-link.contactIcon(aria-hidden='true')
+										br
+										a.contactDetail2(href='#', style='color:black') Visit Website
+										br
+										i.fa.fa-phone.contactIcon(aria-hidden='true')
+										br
+										p.contactDetail2 567892342
+								.col-lg-4
+									.contactBlock
+										i.fa.fa-clock-o.contactIcon(aria-hidden='true')
+										br
+										p.contactDetail2
+											| Mon-Fri
+											br
+											| 9am - 18pm
+			br
+			.container
+				.row
+					.col-lg-12
+						h2(style='text-align:center') @KildareVillage
+						.col-lg-4
+							.instaImageWrapper
+								a(href='#', target='_blank')
+									img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
+									i.fa.fa-instagram.instaIcon(aria-hidden='true')
+						.col-lg-4
+							.instaImageWrapper
+								a(href='#', target='_blank')
+									img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
+									i.fa.fa-instagram.instaIcon(aria-hidden='true')
+						.col-lg-4
+							.instaImageWrapper
+								a(href='#', target='_blank')
+									img.instaPics(src='https://media-cdn.tripadvisor.com/media/photo-s/06/03/84/2c/kildare-village.jpg', alt='Dublin')
+									i.fa.fa-instagram.instaIcon(aria-hidden='true')
+		.container
+			.row
+				.col-lg-2.col-lg-offset-1(style='background-color:blue')
+					| AD

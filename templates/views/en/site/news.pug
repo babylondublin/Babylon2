@@ -1,29 +1,187 @@
 extends ../../../layouts/default
 
-include ../../../mixins/post
-
-block intro
-	.page-intro: .container
-		h1.page-title=data.tag ? data.tag.name : 'News'
-
-
 block content
-	.page-content: .container.blog
-		.row
-			div(class= data.tags.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
-				if filters.tag && !data.tag
-					h3 Invalid tag.
-				else
-					if data.posts.length
-						.post-cards.row(itemscope itemtype="http://schema.org/Blog")
-							each post in data.posts
-								+post(post)
-					
-			if data.tags.length
-				.col-md-2
-					if data.tags.length
-						h5.text-muted Filter by tag
-						ul.list-unstyled.tags-list
-							li: a(href='/News', class=!data.tags ? 'active' : false) All
-							each tag in data.tags
-								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+	.wrapper
+		.col-lg-10
+			.container(style='margin-top:60px;')
+				.row
+					.col-lg-7.col-md-7.col-sm-7.col-xs-12
+						.row
+							img.headlineImg(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+							h2.headlineTitle
+								a.headlineLink(href='article.html') Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.
+							p.headlineTag.culture
+								i.fa.fa-tag(aria-hidden='true')
+								a(href='tags.html')  CULTURE
+						// row
+					// col-lg-7
+					.col-lg-5.col-md-5.col-sm-5.col-xs-12
+						.row
+							img.headline2Img(src='http://ecdn.eu/wp-content/uploads/2017/07/news-3.jpg')
+							h2.headline2Title
+								a.headlineLink(href='article.html') Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.
+							p.headline2Tag.entertainment
+								i.fa.fa-tag(aria-hidden='true')
+								a(href='tags.html')  ENTERTAINMENT
+						// row
+						.row
+							.col-lg-6.col-md-6.col-sm-6.col-xs-12.noPaddingMargin
+								img.headline3Img(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+								h2.headline3Title
+									a.headlineLink(href='article.html') Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.
+								p.headline3Tag.lifestyle
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  LIFESTYLE
+							// col-lg-6
+							.col-lg-6.col-md-6.col-sm-6.col-xs-12.noPaddingMargin
+								img.headline3Img(style='margin-left:5% !important', src='http://ecdn.eu/wp-content/uploads/2017/07/news-3.jpg')
+								h2.headline3Title2
+									a.headlineLink(href='article.html') Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.
+								p.headline3Tag2.lifestyle
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  LIFESTYLE
+							// col-lg-6
+						// row
+					// col-lg-5
+				// row
+				.clear
+				br
+				.row
+					.col-lg-8.col-md-7.col-sm-10.col-xs-12.noPaddingMargin
+						.row
+							a(href='tags.html')
+								.col-lg-2.col-md-2.col-sm-2.col-xs-2.tags.cultureBackground
+									h4.tagTitle Culture
+							a(href='tags.html')
+								.col-lg-3.col-md-3.col-sm-3.col-xs-3.tags.lifestyleBackground
+									h4.tagTitle Lifestyle
+							a(href='tags.html')
+								.col-lg-3.col-md-3.col-sm-3.col-xs-3.tags.entertainmentBackground
+									h4.tagTitle Entertainment
+							a(href='tags.html')
+								.col-lg-2.col-md-2.col-sm-2.col-xs-2.tags.otherBackground
+									h4.tagTitle Other
+						// row
+						.clear
+						br
+						.row
+							.col-lg-6
+								img.headline4Img(src='http://ecdn.eu/wp-content/uploads/2017/07/news-3.jpg')
+								.col-lg-11.noPaddingMargin
+									h3.headline4Title
+										a(href='article.html') Title
+									p
+										| Lorem ipsum dolor sit amet, usu at equidem vituperatoribus. Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.....
+									p.headline4Tag.culture
+										i.fa.fa-tag(aria-hidden='true')
+										a(href='tags.html')  Culture
+								// col-lg-11
+							// col-lg-6
+							.col-lg-6
+								img.headline4Img(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+								.col-lg-11.noPaddingMargin
+									h3.headline4Title
+										a(href='article.html') Title
+									p
+										| Lorem ipsum dolor sit amet, usu at equidem vituperatoribus. Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.....
+									p.headline4Tag.entertainment
+										i.fa.fa-tag(aria-hidden='true')
+										a(href='tags.html')  Entertainment
+								// col-lg-11
+							// col-lg-6
+						// row
+						.row
+							.col-lg-6
+								img.headline4Img(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+								.col-lg-11.noPaddingMargin
+									h3.headline4Title
+										a(href='article.html') Title
+									p
+										| Lorem ipsum dolor sit amet, usu at equidem vituperatoribus. Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.....
+									p.headline4Tag.lifestyle
+										i.fa.fa-tag(aria-hidden='true')
+										a(href='tags.html')  Lifestyle
+								// col-lg-11
+							// col-lg-6
+							.col-lg-6
+								img.headline4Img(src='http://ecdn.eu/wp-content/uploads/2017/07/news-3.jpg')
+								.col-lg-11.noPaddingMargin
+									h3.headline4Title
+										a(href='article.html') Title
+									p
+										| Lorem ipsum dolor sit amet, usu at equidem vituperatoribus. Lorem ipsum dolor sit amet, usu at equidem vituperatoribus.....
+									p.headline4Tag.other
+										i.fa.fa-tag(aria-hidden='true')
+										a(href='tags.html')  Other
+								// col-lg-11
+							// col-lg-6
+						// row
+					// col-lg-8
+					.col-lg-4.col-md-4.col-sm-10.col-xs-12.noPaddingMargin.greyBackground
+						.row.topPicks
+							h3.topPicksHeading Top Picks
+						// row
+						br
+						.row
+							.col-lg-4.col-md-4.col-sm-4.col-xs-4.noPaddingMargin
+								img.topPicksImg(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+							// col-lg-4
+							.col-lg-8.col-md-8.col-sm-8.col-xs-8
+								h3.topPicksTitle
+									a(href='article.html') Title
+								p.topPicksTag.culture
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  Culture
+							// col-lg-8
+						// row
+						br
+						.row
+							.col-lg-4.col-md-4.col-sm-4.col-xs-4.noPaddingMargin
+								img.topPicksImg(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+							// col-lg-4
+							.col-lg-8.col-md-8.col-sm-8.col-xs-8
+								h3.topPicksTitle
+									a(href='article.html') Title
+								p.topPicksTag.lifestyle
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  Lifestyle
+							// col-lg-8
+						// row
+						br
+						.row
+							.col-lg-4.col-md-4.col-sm-4.col-xs-4.noPaddingMargin
+								img.topPicksImg(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+							// col-lg-4
+							.col-lg-8.col-md-8.col-sm-8.col-xs-8
+								h3.topPicksTitle
+									a(href='article.html') Title
+								p.topPicksTag.entertainment
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  Entertainment
+							// col-lg-8
+						// row
+						br
+						.row.articlePaddingBottom
+							.col-lg-4.col-md-4.col-sm-4.col-xs-4.noPaddingMargin
+								img.topPicksImg(src='http://s3.amazonaws.com/digitaltrends-uploads-prod/2016/01/News-Apps-Header.jpg')
+							// col-lg-4
+							.col-lg-8.col-md-8.col-sm-8.col-xs-8
+								h3.topPicksTitle
+									a(href='article.html') Title
+								p.topPicksTag.other
+									i.fa.fa-tag(aria-hidden='true')
+									a(href='tags.html')  Other
+							// col-lg-8
+						// row
+					// col-lg-4
+				// row
+			// container
+		// lg-col-10
+		.container
+			.row
+				.col-lg-2(style='background-color:blue')
+					| AD
+				// col-lg-2
+			// row
+		// container
+	// wrapper

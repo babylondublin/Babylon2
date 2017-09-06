@@ -96,7 +96,15 @@ exports = module.exports = function (app) {
 	app.all('/places_to_go/article/:article', routes.controller.places_to_goOne);
 	
 	app.all('/living', routes.controller.living);
-	app.all('/things_to_do', routes.controller.things_to_do);
+    app.all('/things_to_do', routes.controller.things_to_do);
+    app.all('/news', routes.controller.news);
+    app.all('/city', routes.controller.city);
+    app.all('/atraction', routes.controller.atraction);
+    app.all('/article', routes.controller.article);
+    app.all('/shoppingcentre', routes.controller.shoppingcentre);
+    app.all('/otherthingstodo', routes.controller.other_things_to_do);
+    app.all('/tags', routes.controller.tags);
+    app.all('/festivalparkmuseum', routes.controller.festivalparkmuseum);
 
 	app.all('/classifieds', routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
