@@ -9,10 +9,14 @@ include ../../../mixins/advertisement
 //- INTRO
 block intro
 		if country
-			h2.text-center= 'Welcome to Babylon  ' + country.name
+			h1.text-center= 'Welcome to Babylon  ' + country.name
 				if country.image
-					img(src=country.image.secure_url, alt=country.name).home-image
+					img(src=country.image.secure_url, height=350).home-image
+				else
 		else
+		.page-intro: .container-sm
+			hr
+			p.text-center= 'Enjoy your experience in ' + country.name 			
 
 //- JS
 block js
