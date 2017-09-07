@@ -319,7 +319,7 @@
       }
     }();
     
-    !function() {
+    /*!function() {
     //var data = locals.events;
       var data = [
         { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
@@ -351,5 +351,5 @@
     
       var calendar = new Calendar('#calendar', data);
     
-    }();
+    }();*/
     

@@ -1,10 +1,18 @@
 extends ../../../layouts/default
 
+block intro 
+	//-https://codepen.io/peanav/pen/ulkof
+	div.calendar-container
+		div#calendar
 
-block intro
-        //-https://codepen.io/peanav/pen/ulkof
-        div.calendar-container
-             div#calendar
 block js
-    script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js")
-    script(src="js/views/calendar.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js")
+	script(src="js/views/calendar.js")
+	script.
+		var events_data = !{JSON.stringify(events)};
+		events_data = events_data.substring(1,events_data.length);
+		events_data = events_data.substring(0,events_data.length-1);
+		console.log(events_data);
+		var data = [];
+		data.push(events_data);
+		var calendar = new Calendar('#calendar', data);
