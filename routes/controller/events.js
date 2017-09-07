@@ -10,16 +10,15 @@ locals = res.locals;
 locals.section = 'events';
 locals.page.title = 'Events - Babylon';
 
-
-
-locals.user = req.user;
-
-
-// Decide which to render
-if(!req.cookies.country || (req.cookies.country == '')){
-    req.flash('error', 'Search a country first please.');
-};
-
+//load all events
+view.on('init', function(next) {
+    keystone.list('Event').model.find()
+    .exec(function(err, events) {
+        if (err) res.err(err);
+        locals.events = events;
+        next();
+    });
+});
 
 view.render(keystone.lang + '/site/events');
 
