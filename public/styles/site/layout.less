@@ -115,9 +115,9 @@ li{
 // ------------------------------
 .site-body {
 	background: white;
-	min-height: 700px;
+	min-height: 1200px;
 	height: 100%;
-	top: 106px;
+	top: 74px;
 	margin-right: 16.666667%; // only for the News panel
     overflow: hidden;
 	.floor;
@@ -319,6 +319,7 @@ li{
 .page-intro {
 	padding-bottom: @page-padding;
 	text-align: center;
+	margin-top: 30px;
 	h1 {
 		margin-bottom: 0.020em;
  
@@ -536,7 +537,7 @@ top: 106px;
 @media (min-width: 992px){
 .news-panel {
     width: 16.66666667%;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     right: 0;
     top: 106px;
@@ -561,4 +562,18 @@ top: 106px;
     background-size: 22px;
     background-position: 6px 3px;
     background-repeat: no-repeat;
+}
+//- Home page
+.home-image{
+		min-height: 500px; 
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+.home-image-title{
+	color: white;
+    position: relative;
+    top: -250px;
+    text-align: center;
 }
