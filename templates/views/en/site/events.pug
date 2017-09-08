@@ -10,9 +10,4 @@ block js
 	script(src="js/views/calendar.js")
 	script.
 		var events_data = !{JSON.stringify(events)};
-		events_data = events_data.substring(1,events_data.length);
-		events_data = events_data.substring(0,events_data.length-1);
-		console.log(events_data);
-		var data = [];
-		data.push(events_data);
-		var calendar = new Calendar('#calendar', data);
+		var calendar = new Calendar('#calendar', events_data);

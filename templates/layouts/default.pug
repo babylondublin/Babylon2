@@ -38,16 +38,21 @@ html
 			include ../includes/layout/sideleft
 
 			//-NEWS RIGHT SIDE
-			include ../includes/layout/news-side
+			//-include ../includes/layout/news-side
 			
 			//- SITE BODY
 			block body
 				main.site-body(role='main')#main
+					if locals.section !== 'news' && locals.section !== 'News' && locals.section !== 'home' 
+						include ../includes/layout/latest-news
 
 					block intro
 
 					block flash-messages
 						+flash-messages(messages)
+
+					if locals.section === 'home'
+						include ../includes/layout/latest-news
 
 					block content
 						

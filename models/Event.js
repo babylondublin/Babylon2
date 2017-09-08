@@ -17,7 +17,8 @@ Event.add({
     title: { type: String, required: true },
     date: Date,
     image: { type: Types.CloudinaryImage },
-    content :{ type: Types.Html, wysiwyg: true, height: 400 }
+    content :{ type: Types.Html, wysiwyg: true, height: 400 },
+    color: { type: Types.Select, options: 'orange, red, blue, green, yellow', default: 'orange'}
 });
 
 

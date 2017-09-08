@@ -23,7 +23,7 @@
         //Draw Month
         this.drawMonth();
     
-        this.drawLegend();
+        //this.drawLegend();
       }
     
       Calendar.prototype.drawHeader = function() {
@@ -53,11 +53,6 @@
     
       Calendar.prototype.drawMonth = function() {
         var self = this;
-        
-        this.events.forEach(function(ev) {
-         ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
-        });
-        
         
         if(this.month) {
           this.oldMonth = this.month;
@@ -150,12 +145,22 @@
         this.week.appendChild(outer);
       }
     
+    Date.prototype.withoutTime = function () {
+        var d = new Date(this);
+        d.setHours(0, 0, 0, 0);
+        return d;
+    }
+
       Calendar.prototype.drawEvents = function(day, element) {
+        
         if(day.month() === this.current.month()) {
           var todaysEvents = this.events.reduce(function(memo, ev) {
-            if(ev.date.isSame(day, 'day')) {
-              memo.push(ev);
+            todayDate = day._d.toISOString().substring(0, 10);
+
+            if(todayDate == ev.date.substring(0, 10)){
+               memo.push(ev);
             }
+           
             return memo;
           }, []);
     
@@ -219,9 +224,9 @@
         }
     
         var todaysEvents = this.events.reduce(function(memo, ev) {
-          if(ev.date.isSame(day, 'day')) {
-            memo.push(ev);
-          }
+            if(day._d.toISOString().substring(0, 10) === ev.date.substring(0, 10)){
+                  memo.push(ev);
+            }
           return memo;
         }, []);
     
@@ -238,7 +243,7 @@
         events.forEach(function(ev) {
           var div = createElement('div', 'event');
           var square = createElement('div', 'event-category ' + ev.color);
-          var span = createElement('span', '', ev.eventName);
+          var span = createElement('span', '', ev.title);
     
           div.appendChild(square);
           div.appendChild(span);

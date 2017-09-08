@@ -1,0 +1,59 @@
+if lastPosts && lastPosts.length > 3
+	.main-featured
+		//-a(href='/news').text-muted Latest News
+		.wrap.cf
+			.featured-grid.featured-grid-b(data-animation='fade', data-animation-speed='600', data-slide-delay='5000')
+				ul.grid
+					li.first
+						.item.large-item
+							a.image-link(href='/news/post/' + lastPosts[0].slug)
+								img.attachment-grid-slider-b-large.size-grid-slider-b-large.wp-post-image(src=lastPosts[0]._.image.thumbnail(600,480), alt=lastPosts[0].title, title='')
+							.caption.caption-large
+								//-span.cat-title.cat-13
+									a(href='/news/post/' + lastPosts[0].tag.key, title=lastPosts[0].tag.name) Test tag
+								h3
+									a.item-heading(href='/news/post/' + lastPosts[0].slug) 
+										= lastPosts[0].title
+								time.the-date(datetime= em=moment(lastPosts[0].publishedDate.publishedDate).fromNow()) 
+									em=moment(lastPosts[0].publishedDate).fromNow()
+					li.second
+						.item.medium-item
+							if lastPosts[1]
+								a.image-link(href='/news/post/' + lastPosts[1].slug)
+									img.attachment-grid-slider-b-med.size-grid-slider-b-med.wp-post-image(src=lastPosts[1]._.image.thumbnail(474,250), alt=lastPosts[1].title)
+								.caption.caption-small
+									//-span.cat-title.cat-13
+										//-a(href='/news/post/' + lastPosts[1].tag.key, title=lastPosts[1].tag.name) 
+											= lastPosts[1].tag.name
+									h3
+										a.item-heading.heading-small(href='/news/post/' + lastPosts[1].slug)
+											= lastPosts[1].title
+										time.the-date(datetime= em=moment(lastPosts[1].publishedDate.publishedDate).fromNow()) 
+											em=moment(lastPosts[1].publishedDate).fromNow()
+													
+						.col-6.item.small-item
+							if lastPosts[2]
+								a.image-link(href='/news/post/' + lastPosts[2].slug)
+									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[2]._.image.thumbnail(235,226), alt=lastPosts[2].title, title='')
+								.caption.caption-small
+									//-span.cat-title.cat-13
+										//-a(href='/news/post/' + lastPosts[2].tag.key, title=lastPosts[2].tag.name) 
+											= lastPosts[2].tag.name
+									h3
+										a.item-heading.heading-small(href='/news/post/' + lastPosts[2].slug) 
+											= lastPosts[2].title
+										time.the-date(datetime= em=moment(lastPosts[2].publishedDate.publishedDate).fromNow()) 
+											em=moment(lastPosts[2].publishedDate).fromNow()
+						.col-6.item.small-item
+							if lastPosts[3]
+								a.image-link(href='/news/post/' + lastPosts[3].slug)
+									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[3]._.image.thumbnail(235,226), alt=lastPosts[3].title, title='')
+								.caption.caption-small
+									//-span.cat-title.cat-13
+										//-a(href='/news/post/' + lastPosts[3].tag.key, title=lastPosts[3].tag.name) 
+											= lastPosts[3].tag.name
+									h3
+										a.item-heading.heading-small(href='/news/post/' + lastPosts[3].slug)
+											= lastPosts[3].title
+									time.the-date(datetime= em=moment(lastPosts[3].publishedDate.publishedDate).fromNow()) 
+											em=moment(lastPosts[3].publishedDate).fromNow()
