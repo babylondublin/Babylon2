@@ -119,6 +119,7 @@ exports = module.exports = function (app) {
 	app.get('/classifieds/:tag?',routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
 	app.get('/events',routes.controller.events);
+	app.get('/events/event/:event',routes.controller.event);
 	
 	// Session
 	app.all('/join', routes.controller.session.join);

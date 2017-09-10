@@ -243,7 +243,11 @@
         events.forEach(function(ev) {
           var div = createElement('div', 'event');
           var square = createElement('div', 'event-category ' + ev.color);
-          var span = createElement('span', '', ev.title);
+          var span = createElement('a');
+          var linkText = document.createTextNode(""+ev.title+"");
+          span.appendChild(linkText);
+          span.href='/events/event/' + ev.slug;
+    
     
           div.appendChild(square);
           div.appendChild(span);
