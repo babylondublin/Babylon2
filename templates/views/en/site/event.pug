@@ -20,7 +20,7 @@ block content
 							.g-plusone(data-size="medium")
 				if event.image.exists
 					.article-image.mv-3: img(src=event._.image.fit(720,420)).img-responsive.img-thumbnail
-				!= event.content.full
+				!= event.content
 
 
 block js
