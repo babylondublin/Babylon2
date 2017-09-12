@@ -1,0 +1,616 @@
+extends ../../../../layouts/default
+
+block content
+    .wrapper
+      .col-lg-10.col-md-10.col-sm-12.col-xs-12
+        .container
+          h1.pageHeading Health Agencies
+          |    
+          |          
+          .row
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+              img.pageImg(src='http://babylonradio.com/wp-content/uploads/2015/05/health-agencies.jpg')
+            // col-lg-10
+          // row
+          br
+          |          
+          |          
+          .row
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+              p
+                | There are a number of health agencies and bodies that have a role in delivering health services in Ireland. Some are involved in delivering services while others are regulatory and/or advisory. Most of these agencies have been established on a statutory basis (in other words, they have been established by law).
+            // col-lg-8
+          // row
+          br
+          |        
+          br
+          |        
+          |        
+          |        
+          div(role='tabpanel')
+            // Nav tabs
+            ul.nav.nav-tabs(role='tablist')
+              li.active(role='presentation')
+                a(href='#panel-1', aria-controls='panel-1', role='tab', data-toggle='tab') A-D
+              |     
+              li(role='presentation')
+                a(href='#panel-2', aria-controls='panel-2', role='tab', data-toggle='tab') E-I
+              |     
+              li(role='presentation')
+                a(href='#panel-3', aria-controls='panel-3', role='tab', data-toggle='tab') J-N
+              |     
+              li(role='presentation')
+                a(href='#panel-4', aria-controls='panel-4', role='tab', data-toggle='tab') O-R
+              |     
+              li(role='presentation')
+                a(href='#panel-5', aria-controls='panel-5', role='tab', data-toggle='tab') S-Z
+            // Tab panels
+            .tab-content
+              #panel-1.tab-pane.active(role='tabpanel')
+                .row.masonry-container
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite An Bord Altranais (The Nursing Board)
+                      |             
+                      |                   
+                      .caption.row
+                        p
+                          | The Nursing Board regulates the nursing profession. It maintains a register of qualified nurses and organises the education and training of nurses.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite An Bord Ucht&aacute;la (The Adoption Board)
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Adoption Board is responsible for making adoption orders. Voluntary adoption societies must be registered with the Board.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Board for the Employment of the Blind
+                      |             
+                      |                   
+                      .caption.row
+                        p
+                          | This Board provides employment for a number of blind and visually impaired people.
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Board for the Employment of the Blind, Davitt Road, Goldenbridge, Dublin 12.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 455 9570
+                        |                     
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 455 794
+                        |                      
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Bord na Radharcmhast&oacute;ir&iacute; (The Opticians Board)
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Opticians Board is the regulatory body for opticians. The board&rsquo;s main functions include the training and registration of ophthalmic and dispensing opticians and regulating the practice of optics.
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Bord na Radharcmhast&oacute;ir&iacute; (The Opticians Board), 18 Fitzwilliam Square, Dublin 2.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 676 7416
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 662 1051
+                        |                      
+                        br
+                        br
+                        |                      
+                        b National Cancer Screening Service
+                        |                      
+                        br
+                        br
+                        |                      
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  King&rsquo;s Inns House, 200 Parnell Street, Dublin 1.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 865 9300
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 865 9333
+                        |                      
+                        p
+                          span.fa.fa-envelope-o.listsContactIcon(aria-hidden='true')
+                          |  info@cancerscreening.ie
+                        |                     
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Comhairle na Nimheanna (Poisons Council)
+                      |             
+                      |                   
+                      .caption.row
+                        p
+                          | The Poisons Council advises the Minister for Health and Children on the control of poisons.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Hospitals Office (formerly known as Comhairle na nOispideal)
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This is the statutory body responsible for regulating the number and type of consultant and senior registrar appointments in public hospitals, specifying the necessary qualifications for these posts, advising the Minister for Health and Children on the organisation and operation of hospital services and publishing reports on such services.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Crisis Pregnancy Agency
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Crisis Pregnancy Agency is responsible for preparing a strategy to address the problem of crisis pregnancy in Ireland.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Dental Council
+                      |             
+                      |                   
+                      .caption.row
+                        p
+                          | This is the regulatory body for the dental profession. Its functions include maintaining a register of dentists and dental specialists, ensuring that the standards of dental training are maintained and inquiring into the fitness of a dentist to practice on specific grounds.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  57 Merrion Square, Dublin 2.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 676 2069
+                        |                     
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 676 2076
+                        |                      
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Drug Treatment Centre Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | Aims are the prevention, treatment, rehabilitation and aftercare programmes for out-patients and in-patients in order to minimise the harmful effects of drug addiction and prevent the spread of HIV and other infectious diseases.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Trinity Court, 30-31 Pearse Street, Dublin 2.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 6488 600
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 6488 700
+                        |                     
+                        p
+                  // /.item
+                // masonry-container
+              // End panel-1
+              #panel-2.tab-pane(role='tabpanel')
+                .row.masonry-container
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Food Safety Authority of Ireland
+                      |             
+                      |                   
+                      .caption.row
+                        p
+                          | The Food Safety Authority of Ireland co-ordinates the different food safety control activities and provides advice on issues relating to safety, nutrition, food law and other matters regarding the processing and sale of food.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Safefood &ndash; the Food Safety Promotion Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | Safefood is a North/South institution that promotes food safety awareness.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Primary Care Re-imbursement Service (formerly known as the GMS Payments Board)
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Primary Care Re-imbursement Service (PCRS) administers payments to doctors, pharmacists and dentists under the Primary Care Re-imbursement scheme.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Health Service Executive
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Health Service Executive is a statutory body, which assumed full operational responsibility for running the Ireland&rsquo;s health and personal social services in 2005.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Health Research Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Health Research Board promotes health research.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Health Services Executive (HSE) Employers Employers Representative Division
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The HSE Employers Representative Division is the representative body for health service employers. It deals with industrial relations issues that arise.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Hospital Bodies Administrative Bureau
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Hospital Bodies Administrative Bureau provides administrative, analytical, clerical and ancillary services and other facilities for Comhairle na nOspid&eacute;al.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Comhairle na nOspid&eacute;al, Corrigan House, Fenian Street, Dublin 2.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 676 3474
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 676 1432
+                        |                      
+                        br
+                        br
+                        |                      
+                        b Hospitals Trust Board
+                        |                      The Hospitals Trust Board administers the Hospitals Trust Fund.
+                        |                      
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Hospitals Trust Board, Bank of Ireland, Head Office, Lower Baggot Street, Dublin 2.
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 604 3629
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 661 5992
+                        |                     
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Institute of Public Health in Ireland
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Institute of Public Health in Ireland has been set up to promote North/South co-operation for health.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Irish Blood Transfusion Service
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Irish Blood Transfusion Service organises and administers the national blood transfusion service, including the processing and supply of blood and blood products to hospitals. It also operates the National Haemovigilance Office, the Irish Unrelated Bone Marrow Registry and the National Tissue Bank.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Irish Medicines Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Irish Medicines Board is the authority responsible for the licensing of human and veterinary medicines and the approval of clinical trials. It also acts as an advisory body to the Minister for Health and Children in relation to safety, control and regulation of medicines generally.
+                  // /.item
+                // masonry-container
+              // End panel-3
+              #panel-3.tab-pane(role='tabpanel')
+                .row.masonry-container
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Mental Health Commission
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Mental Health Commission was established in March 2002. The Commission&rsquo;s main purpose is to promote, encourage and foster the establishment and maintenance of high standards and good practices in the delivery of mental health services and to take all reasonable steps to protect the interests of people who are detained in approved psychiatric centres.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Medical Council
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Medical Council is the statutory body that regulates the medical profession. Its functions include administering the General Register of Medical Practitioners, ensuring that the standards of medical training are maintained and inquiring into the fitness of a doctor to practise on specific grounds.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Cancer Registry Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The National Cancer Registry Board collects and analyses data and reports on cancer incidence and mortality in Ireland.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  National Cancer Registry Board, Elm Court, Boreenmanna Road, Cork
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (021) 431 8014
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (021) 431 8016
+                        |  
+                        |                     
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Children&rsquo;s Advisory Council
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This Council advises the Minister for Health and Children on all aspects of children&rsquo;s lives and on better delivery and co-ordination of services to children, contributes to monitoring and evaluation of the implementation of the National Children&rsquo;s Strategy, undertakes and advises on research and advises on the development of mechanisms to consult with children.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  National Children&rsquo;s Advisory Council, 3rd Floor, 94 St. Stephen&rsquo;s Green, Dublin 2
+                        |                      
+                        p
+                          span.fa.fa-phone.listsContactIcon(aria-hidden='true')
+                          |  (01) 418 0582
+                        |                      
+                        p
+                          span.fa.fa-fax.listsContactIcon(aria-hidden='true')
+                          |  (01) 418 0819
+                        |  
+                        |                     
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Council for the Professional Development of Nursing and Midwifery
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This is the body responsible for the continuing education and professional development of nurses and midwives.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Council on Ageing and Older People
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The National Council on Ageing and Older People advises the Minister for Health and Children on all aspects of ageing and older people.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite
+                          | Health Promotion Surveillance Centre (previously known as the National Disease Surveillance Centre)
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Health Promotion Surveillance Centre is the specialist centre for the surveillance of communicable diseases.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Social Work Qualifications Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This is the body that assesses the suitability of social work education and training and advises the Minister for Health and Children on standards that should apply.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite National Treatment Purchase Fund
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The National Treatment Purchase Fund was appointed in 2002. Its function is to buy treatment for public patients from private facilities in Ireland and abroad if public treatment in Ireland cannot be arranged within a reasonable time. A special fund has been earmarked for this purpose. The Team is being asked to concentrate initially on adults who have been on waiting lists for a year and children who have been waiting for 6 months.
+                  // /.item
+                // masonry-container
+              // End panel-3
+              #panel-4.tab-pane(role='tabpanel')
+                .row.masonry-container
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Office for Health Management
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Office for Health Management was established to implement the national strategy for management development for the health and personal and social services. Its main function is to facilitate management development for the health services by acting as a central resource and commissioning body.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Office of Tobacco Control
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Office of Tobacco Control is a statutory body responsible for the control and regulation of tobacco products in Ireland.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Pharmaceutical Society of Ireland
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This is the professional body for the pharmaceutical profession. Its main functions relate to the education, examination and registration of pharmaceutical chemists.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Postgraduate Medical and Dental Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This Board promotes and co-ordinates postgraduate medical and dental education and advises the Minister for Health and Children on all matters relating to such education.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Pre-hospital Emergency Care Council
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This Council is responsible for the recognition of institutions for the education and training of emergency medical technicians.
+                  // /.item
+                // masonry-container
+              // End panel-4
+              #panel-5.tab-pane(role='tabpanel')
+                .row.masonry-container
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Social Services Inspectorate
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | This was established in 1999 as an independent body to inspect social services provided by health boards. To date the Social Services Inspectorate has focused on child care services. It is expected to be put on a statutory basis and have its remit extended to residential services for older people and people with disabilities.
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Special Residential Services Board
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Special Residential Services Board will be the statutory body dealing with children&rsquo;s detention centres and children for whom special care orders have been made when the Children&rsquo;s Act, 2001 comes fully into effect. The Board has been established on an interim basis.
+                          br
+                          br
+                        p
+                          span.fa.fa-map-marker.listsContactIcon(aria-hidden='true')
+                          |  Special Residential Services Board, Floor 11, Hawkins House, Dublin 2
+                        |                    
+                        p
+                  // /.item
+                  .col-lg-4.col-md-4.col-sm-6.col-xs-12.item
+                    .thumbnail
+                      .row.greenBackground
+                        h3.padding5pxWhite Women&rsquo;s Health Council
+                      |                  
+                      |                  
+                      .caption.row
+                        p
+                          | The Women&rsquo;s Health Council advises the Minister for Health and Children on all aspects of women&rsquo;s health.
+                  // /.item
+                // masonry-container
+              // End panel-5
+            // End tab-content
+          // End tabpanel
+        // container
+      // col-lg-10
+      .container
+        .row
+          .col-lg-2.col-md-2.col-sm-12.col-xs-12(style='background-color:blue')
+            | AD
+          // col-lg-2
+        // row
+      // container
+    // wrapper
+    script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+    script.
+      (function( $ ) {
+      var $container = $('.masonry-container');
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      //Reinitialize masonry inside each panel after the relative tab link is clicked -
+      $('a[data-toggle=tab]').each(function () {
+      var $this = $(this);
+      $this.on('shown.bs.tab', function () {
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      }); //end shown
+      });  //end each
+      })(jQuery);

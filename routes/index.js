@@ -27,7 +27,7 @@ keystone.set('500', function (err, req, res, next) {
 		message = err.message;
 		err = err.stack;
 	}
-	res.status(500).render('errors/500', {
+	res.status(500).render(keystone.lang + '/errors/500', {
 		err: err,
 		errorTitle: title,
 		errorMsg: message
@@ -108,6 +108,17 @@ exports = module.exports = function (app) {
 
 	app.all('/classifieds', routes.controller.classifieds);
 	app.all('/classifieds/classified/:classified', routes.controller.classified);
+
+	//Static pages
+		//Living section
+	app.get("/emergency-numbers", (req, res) => { res.render(keystone.lang + '/site/living/emergency-numbers'); });
+	app.get("/emergency", (req, res) => { res.render(keystone.lang + '/site/living/emergency'); });
+	app.get("/health-agencies", (req, res) => { res.render(keystone.lang + '/site/living/health-agencies'); });
+	app.get("/health-insurance", (req, res) => { res.render(keystone.lang + '/site/living/health-insurance'); });
+	app.get("/health-services", (req, res) => { res.render(keystone.lang + '/site/living/health-services'); });
+	app.get("/general-practitioners", (req, res) => { res.render(keystone.lang + '/site/living/general-practitioners'); });
+	app.get("/health-system", (req, res) => { res.render(keystone.lang + '/site/living/health-system'); });
+	app.get("/hospitals", (req, res) => { res.render(keystone.lang + '/site/living/hospitals'); });
 
 	// Session
 	app.all('/join', routes.controller.session.join);
