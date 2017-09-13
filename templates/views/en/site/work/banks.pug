@@ -1,0 +1,175 @@
+extends ../../../../layouts/default
+
+block intro
+    .wrapper
+      .col-lg-10.col-md-10.col-sm-12.col-xs-12.noPaddingMargin
+        .container
+          h1.pageHeading Banks
+          |    
+          |           
+          .row
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+              img.pageImg(src='http://babylonradio.com/wp-content/uploads/2015/05/bank.jpg')
+            // col-lg-10
+          // row
+          br
+          |       
+          |       
+          .main-container.noPaddingMargin
+            .row.masonry-container
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://aib.ie', target='_blank')
+                  .thumbnail
+                    img(src='data:image/png;base64,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')
+                    |                   
+                    .row.greenBackground
+                      h3.padding5pxWhite AIB
+                    |   
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland, UK, Europe, US and Asia
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://www.bankofireland.com', target='_blank')
+                  .thumbnail
+                    img(src='http://it.ie/wp-content/uploads/2013/01/bank-of-irelandpng.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite Bank of Ireland
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland, UK and Europe
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://www.permanenttsb.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.nenaghltc.ie/wp-content/uploads/2014/04/Permanent-TSB-Logo.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite Permanent tsb
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland and UK
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='http://digital.ulsterbank.ie', target='_blank')
+                  .thumbnail
+                    img(src='https://media.balls.ie/uploads/2014/02/New-logo-white-bkground1.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite Ulster Bank
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='http://www.accloanmanagement.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.irishexaminer.com/remote/media.central.ie/media/images/a/ACCBank_large.jpg?width=648&s=ie-235247')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite ACCBank
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland and Rabobank Worldwide
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='http://www.icsmortgages.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.icsmortgages.ie/assets/images/design/logo.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite ICS Mortgages
+                    |                   
+                    .caption.row
+                      p
+                        | Bank of Ireland Home Loan Subsidiary
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='http://danskebank.ie/en-ie/Corporate/Pages/ci.aspx', target='_blank')
+                  .thumbnail
+                    img(src='http://www.concisehr.ie/wp-content/uploads/2011/02/NIB.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite National Irish Bank
+                    |                   
+                    .caption.row
+                      p
+                        | Member of Denmark&rsquo;s Danske Banks Group
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://www.kbc.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://images.all-free-download.com/images/graphiclarge/iib_bank_125920.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite IIB Bank
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland and KBC Worldwide
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://www.bankofscotland.co.uk', target='_blank')
+                  .thumbnail
+                    img(src='http://www.lloydsbankinggroup.com/globalassets/images/logos/645-x/bos-645x339.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite Bank of Scotland Ireland
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland, UK Business Bank
+              // /.item
+              .col-lg-4.col-md-4.col-sm-6.col-xs-6.item.noHoverUnderline
+                a(href='https://www.ebs.ie', target='_blank')
+                  .thumbnail
+                    img(src='https://www.ebs.ie/etc/designs/designtemplate/ebs/_jcr_content/basepage/headercomponent/mainnavigation/logocomponent.img.png/1487179802867.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite EBS
+                    |                   
+                    .caption.row
+                      p
+                        | Ireland, UK
+              // /.item
+            // masonry-container
+          // main-container
+        // container
+      // col-lg-10
+      .container
+        .row
+          .col-lg-2.col-md-2.col-sm-12.col-xs-12(style='background-color:blue')
+            | AD
+          // col-lg-2
+        // row
+      // container
+    // wrapper
+    script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+    script.
+      (function( $ ) {
+      var $container = $('.masonry-container');
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      //Reinitialize masonry inside each panel after the relative tab link is clicked -
+      $('a[data-toggle=tab]').each(function () {
+      var $this = $(this);
+      $this.on('shown.bs.tab', function () {
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      }); //end shown
+      });  //end each
+      })(jQuery);

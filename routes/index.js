@@ -119,6 +119,26 @@ exports = module.exports = function (app) {
 	app.get("/general-practitioners", (req, res) => { res.render(keystone.lang + '/site/living/general-practitioners'); });
 	app.get("/health-system", (req, res) => { res.render(keystone.lang + '/site/living/health-system'); });
 	app.get("/hospitals", (req, res) => { res.render(keystone.lang + '/site/living/hospitals'); });
+		//education section
+	app.get("/universities-colleges", (req, res) => { res.render(keystone.lang + '/site/education/universities-colleges'); });
+	app.get("/come-to-study", (req, res) => { res.render(keystone.lang + '/site/education/come-to-study'); });
+	app.get("/diplomas-recognition", (req, res) => { res.render(keystone.lang + '/site/education/diplomas-recognition'); });
+	app.get("/irish-education-system", (req, res) => { res.render(keystone.lang + '/site/education/irish-education-system'); });
+	app.get("/primary-post-primary-education", (req, res) => { res.render(keystone.lang + '/site/education/primary-post-primary-education'); });
+	app.get("/librairies", (req, res) => { res.render(keystone.lang + '/site/education/librairies'); });
+	app.get("/language", (req, res) => { res.render(keystone.lang + '/site/education/language'); });
+	app.get("/3rd-level-education", (req, res) => { res.render(keystone.lang + '/site/education/3rd-level-education'); });
+	app.get("/pre-school-childcare", (req, res) => { res.render(keystone.lang + '/site/education/pre-school-childcare'); });
+		//work section
+	app.get("/bank-account", (req, res) => { res.render(keystone.lang + '/site/work/bank-account'); });
+	app.get("/banks", (req, res) => { res.render(keystone.lang + '/site/work/banks'); });
+	app.get("/CV-and-cover-letter", (req, res) => { res.render(keystone.lang + '/site/work/CV-and-cover-letter'); });
+	app.get("/recruitment-websites", (req, res) => { res.render(keystone.lang + '/site/work/recruitment-websites'); });
+	app.get("/PPS-number", (req, res) => { res.render(keystone.lang + '/site/work/PPS-number'); });
+	app.get("/recruitment-companies", (req, res) => { res.render(keystone.lang + '/site/work/recruitment-companies'); });
+	app.get("/FAS-training", (req, res) => { res.render(keystone.lang + '/site/work/FAS-training'); });
+	app.get("/volunteer-work", (req, res) => { res.render(keystone.lang + '/site/work/volunteer-work'); });
+
 
 	// Session
 	app.all('/join', routes.controller.session.join);

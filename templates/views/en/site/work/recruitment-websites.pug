@@ -1,0 +1,142 @@
+extends ../../../../layouts/default
+
+block intro
+    .wrapper
+      .col-lg-10.col-md-10.col-sm-12.col-xs-12.noPaddingMargin
+        .container
+          h1.pageHeading Recruitment Websites
+          |    
+          |           
+          .row
+            .col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+              img.pageImg(src='http://babylonradio.com/wp-content/uploads/2015/05/recruitment-websites.jpg')
+            // col-lg-10
+          // row
+          br
+          |       
+          |       
+          .main-container.noPaddingMargin
+            .row.masonry-container
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.jobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.jobs.ie/Jobs-ie/logos/jobs-ie-1113.png')
+                    |                   
+                    .row.greenBackground
+                      h3.padding5pxWhite jobs.ie
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.irishjobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.irishjobs.ie/img/logos/irishjobs-logo.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite irishjobs.ie
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='https://www.recruitireland.com', target='_blank')
+                  .thumbnail
+                    img(src='http://www.nrf.ie/wp-content/uploads/2015/03/recruit-ireland.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite recruitireland
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='https://www.bestjobs.eu', target='_blank')
+                  .thumbnail
+                    img(src='http://mures.startupweekend.org/files/2014/02/logo_best-jobs.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite bestjobs
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='https://www.monster.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://logos-download.com/wp-content/uploads/2016/05/Monster_Jobs_logo_logotype.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite monster
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='https://www.salesjobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='https://www.salesjobs.ie/images/logo.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite salesjobs
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.fas.ie/en/', target='_blank')
+                  .thumbnail
+                    img(src='http://3.bp.blogspot.com/-7qAyOwzlqdU/UBqD_nHpLKI/AAAAAAAAADU/9WqSVyxqWkE/s1600/fas-logo2.gif')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite fas.ie
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.jobsearch.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.jobsearch.ie/_d/logo.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite jobsearch
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='https://www.computerjobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='https://www.computerjobs.ie/images/logo.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite computerjobs
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.hoteljobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.hoteljobs.ie/library/logo/logo_hoteljobs.jpg')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite hoteljobs
+              // /.item
+              .col-lg-3.col-md-3.col-sm-4.col-xs-6.item.noHoverUnderline
+                a(href='http://www.construction-jobs.ie', target='_blank')
+                  .thumbnail
+                    img(src='http://www.construction-jobs.ie/design/newlogo.png')
+                    |                  
+                    .row.greenBackground
+                      h3.padding5pxWhite construction-jobs
+              // /.item
+            // masonry-container
+          // main-container
+        // container
+      // col-lg-10
+      .container
+        .row
+          .col-lg-2.col-md-2.col-sm-12.col-xs-12(style='background-color:blue')
+            | AD
+          // col-lg-2
+        // row
+      // container
+    // wrapper
+    script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+    script.
+      (function( $ ) {
+      var $container = $('.masonry-container');
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      //Reinitialize masonry inside each panel after the relative tab link is clicked -
+      $('a[data-toggle=tab]').each(function () {
+      var $this = $(this);
+      $this.on('shown.bs.tab', function () {
+      $container.imagesLoaded( function () {
+      $container.masonry({
+      columnWidth: '.item',
+      itemSelector: '.item'
+      });
+      });
+      }); //end shown
+      });  //end each
+      })(jQuery);
