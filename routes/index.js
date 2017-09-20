@@ -7,13 +7,14 @@ var middleware = require('./middleware');
 var graphqlHTTP = require('express-graphql');
 var graphQLSchema = require('../graphql/basicSchema').default;
 var relaySchema = require('../graphql/relaySchema').default;
+var bodyParser = require('body-parser');
 
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
 keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
-keystone.pre('render', middleware.flashMessages);
+keystone.pre('routes', middleware.flashMessages);
 
 // Handle 404 errors
 keystone.set('404', function (req, res, next) {
@@ -59,6 +60,14 @@ exports = module.exports = function (app) {
 		],
 	}));
 
+   	//http://expressjs.com/tr/api.html#req.body
+ 	app.use(bodyParser.json());
+ 	// change language
+ 	app.use("*", middleware.initLanguage);
+
+  // load the countries for the search bar
+   app.use('*', middleware.initCountries);
+
 	// GraphQL
 	app.use('/api/graphql', graphqlHTTP({ schema: graphQLSchema, graphiql: true }));
 	app.use('/api/relay', graphqlHTTP({ schema: relaySchema, graphiql: true }));
@@ -94,7 +103,7 @@ exports = module.exports = function (app) {
 	app.all('/about', routes.controller.about);
 	app.get('/places_to_go/:tag?', routes.controller.places_to_go);
 	app.all('/places_to_go/article/:article', routes.controller.places_to_goOne);
-	
+
 	app.all('/living', routes.controller.living);
     app.all('/things_to_do', routes.controller.things_to_do);
     app.all('/news', routes.controller.news);

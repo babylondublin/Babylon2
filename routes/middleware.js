@@ -10,7 +10,7 @@ var keystone = require('keystone');
 exports.initLocals = function(req, res, next) {
 
 	var locals = res.locals;
-	
+
 
 	locals.navLinks = [
 		{ label: 'Home',			key: 'home',		   href: '/' },
@@ -59,7 +59,7 @@ exports.initLocals = function(req, res, next) {
 exports.initErrorHandlers = function(req, res, next) {
 	/*get nav language*/
 	if(keystone.lang == undefined){
-		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];		
+		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];
 		//if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
 			keystone.lang = "en";
 		//}
@@ -127,4 +127,47 @@ var qs_set = exports.qs_set = function(req, res) {
 		var qs = querystring.stringify(params);
 		return req.path + (qs ? '?' + qs : '');
 	}
+}
+
+/**
+ 	Load all the countries for the search bar in the header
+*/
+exports.initCountries = function(req, res, next){
+	keystone.list('Country').model.find().exec(function(err, countries) {
+			if (err) res.err(err);
+			res.locals.countries = countries;
+			next();
+		});
+}
+
+exports.initLanguage = function(req, res, next){
+	var query = req.body.query;
+
+		if(query && query != ''){
+			// https://docs.mongodb.com/manual/reference/operator/query/regex/
+			var q = keystone.list("Country").model.find({'name': {$regex: '.*' + query + '.*', $options: 'i'}});
+
+			q.exec(function(err, result){
+				if(result == '' || result == null || err){
+				req.flash('error', 'The country you have searched doesn not exist in our database yet...');
+				view.render(keystone.lang + '/errors/404');
+				}
+				else{
+
+				// if more than 1 result : we take the first one by default
+				var result = JSON.stringify(result[0]);
+			/*	result = result.substring(1,result.length);
+				result = result.substring(0,result.length-1); */
+				country = JSON.parse(result);
+
+				//Temporary alert
+				req.flash('info','You are in Babylon <strong>' + country.name +'</strong>');
+
+				//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
+				res.cookie('country', country._id).redirect('/');
+				}
+			});
+
+		}
+		next();
 }

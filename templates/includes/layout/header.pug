@@ -43,16 +43,40 @@ body
             a(href='#') About Us
         .nav.navbar-nav.col-lg-2
           #custom-search-input
-            .input-group
-              input.form-control.input-lg(type='text', placeholder='Search')
-              span.input-group-btn
-                button.btn.btn-info.btn-lg(type='button')
-                  i.glyphicon.glyphicon-search
+            form(method='post', autocomplete='off', novalidate)
+              .input-group
+                input.form-control.input-lg(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required)
+                datalist(id='countriesList')
+                  if countries && countries.length
+                    each country in countries
+                      option(value=country.name)
+                span.input-group-btn
+                  button.btn.btn-info.btn-lg(type='submit', value='Search')
+                    i.glyphicon.glyphicon-search
         #memberplayNav.nav.navbar-nav
           span.fa.fa-user-circle(aria-hidden='true')
       // /.navbar-collapse
     // /.container-fluid
-  script.
+
+script(src='/js/lib/awesomplete.js')
+script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+script.
+    $( document ).ready(function() {
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if(isSafari){
+      var input = document.getElementById("searchInput");
+
+      var awesomplete = new Awesomplete(input, {
+        minChars: 0,
+      });
+      awesomplete.list = [];
+      $('#countriesList option').each(function(){
+        awesomplete._list.push(this.value);
+      });
+      document.getElementById('searchInput').className = "searcher-safari";
+
+      }
+    });
     $(".dropdown-menu").css('height', $(window).height()-$('#mainHeader').height()-$('#mainNav').height());
     $(document).ready(function(){
     $(window).scroll(function(){
