@@ -91,3 +91,8 @@ var LivingArticle = new keystone.List('LivingArticle', { inherits: Article });
 LivingArticle.add({tags:{type: Types.Relationship, ref: 'LivingArticleTag', many: false}});
 LivingArticle.relationship({ ref: 'LivingArticleComment', refPath: 'article', path: 'comments'});
 LivingArticle.register();
+
+var PlanYourTrip = new keystone.List('PlanYourTripArticle', { inherits: Article });
+PlanYourTrip.add({tags:{type: Types.Relationship, ref: 'PlanYourTripArticleTag', many: false}});
+PlanYourTrip.relationship({ ref: 'PlanYourTripArticleComment', refPath: 'article', path: 'comments'});
+PlanYourTrip.register();

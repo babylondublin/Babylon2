@@ -39,3 +39,7 @@ PlacesToGoArticleComment.register();
 var LivingArticleComment = new keystone.List('LivingArticleComment', { inherits: ArticleComment });
 LivingArticleComment.add({article:{type: Types.Relationship, ref: 'LivingArticle', index:true, noedit:true}});
 LivingArticleComment.register();
+
+var PlanYourTripArticleComment = new keystone.List('PlanYourTripArticleComment', { inherits: ArticleComment });
+PlanYourTripArticleComment.add({article:{type: Types.Relationship, ref: 'PlanYourTripArticle', index:true, noedit:true}});
+PlanYourTripArticleComment.register();
