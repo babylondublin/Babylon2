@@ -43,3 +43,7 @@ PlacesToGoArticleTag.register();
 var LivingArticleTag = new keystone.List('LivingArticleTag', { inherits: ArticleTag });
 LivingArticleTag.relationship({ ref: 'LivingArticle', refPath: 'tags', path: 'articles'});
 LivingArticleTag.register();
+
+var PlanYourTripArticleTag = new keystone.List('PlanYourTripArticleTag', { inherits: ArticleTag });
+PlanYourTripArticleTag.relationship({ ref: 'PlanYourTripArticle', refPath: 'tags', path: 'articles'});
+PlanYourTripArticleTag.register();

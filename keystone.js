@@ -108,6 +108,7 @@ keystone.set('nav', {
 	'places-to-go':['places-to-go-articles','places-to-go-article-tags','places-to-go-article-comments'],
 	'things-to-do':['things-to-do-articles','things-to-do-article-tags','things-to-do-article-comments'],
 	'living':['living-articles','living-article-tags','living-article-comments'],
+	'plan-your-trip':['plan-your-trip-articles','plan-your-trip-article-tags','plan-your-trip-article-comments'],
 	'news': ['posts', 'post-tags', 'post-comments'],
 	'events': 'events',
 	'classifieds':['classifieds', 'classified-tags','classified-comments'],
