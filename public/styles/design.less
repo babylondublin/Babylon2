@@ -1,0 +1,892 @@
+
+/*About Ireland*/
+.cityBlock {
+  position: relative;
+    
+}
+
+.cityImg {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  height:250px;
+}
+
+.middle {
+  transition: .3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.middle a{
+  text-decoration:none;
+  color:white;
+}
+
+.cityBlock:hover .cityImg {
+   filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+}
+
+.cityBlock:hover .middle {
+  opacity: 1;
+}
+
+.cityName {
+  background-color: #0f9e6d;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  font-weight:bold;
+}
+
+.maps{
+  border:2px solid black;
+  width:100%; 
+  height:400px;
+}
+
+/*End of About Ireland*/
+
+/*Table*/
+.table-inverse{
+  background-color: #0f9e6d;
+  color:white;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: white;
+   color:black;
+}
+/*End of Table*/
+
+/*Masonry*/
+.main-container {
+  padding: 40px 15px;
+}
+
+.thumbnail{
+  border: 4px solid  #0f9e6d;
+  color:black;
+}
+/*End of Masonry*/
+
+/*FAQ*/
+.visaButton{
+  border-radius:6px; 
+  border: 4px solid #0f9e6d;
+  background: #0f9e6d;
+  color:white;
+}
+/*End of FAQ*/
+
+.smallIconImg{
+  padding-top:10px;
+  width:100px;
+  height:100px;
+}
+
+.largeIconImg{
+  width:200px;
+  height:200px;
+  padding-top:10px;
+
+  
+}
+.flexImgWrapper{
+  background:#0f9e6d;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction:column;
+  color:white;
+}
+
+.flexRow{
+  background:white; 
+  border:2px solid #0f9e6d; 
+  display: flex;
+  /* align vertical */
+  align-items: center;
+}
+
+.flexRow2{
+  background:white; 
+  border:6px solid white; 
+  display: flex;
+  align-items: flex-start;
+}
+
+/*Air Travel*/
+.airTitle{
+  width:100%;
+  background:#0f9e6d;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.airTitleText{
+  padding:2px;
+  font-size:1.4em;
+  color:white;
+}
+
+.airP{
+  padding:5px;
+}
+
+.airLink{
+  padding-left:5px;
+}
+
+.airBorder{
+  height: auto;
+  border-right: 2px solid #0f9e6d; 
+  border-bottom: 2px solid #0f9e6d;
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+}
+/*End of Air Travel*/
+
+.completeFlexRow{
+  display: flex;
+}
+
+@media (max-width:576px){
+ .flexRow, .accomodationsRow, .flexRow2, .completeFlexRow{
+   display: block !important;
+  }
+  
+  .airBorder{
+   border-left: 2px solid #0f9e6d; 
+   }
+   
+   .row2{
+    margin-bottom:10px;;
+   }
+   
+   .airTitleText{
+     text-align:center;
+   }
+
+  .embassyBlock:after{
+    bottom:215px !important;
+    left: 43% !important;
+    border-top:0px !important;
+    border-left: 25px solid transparent !important;
+    border-bottom: 25px solid #0f9e6d !important; 
+    border-right:25px solid transparent !important; 
+  } 
+}
+
+
+
+/*Embassies*/
+.embassyBlock{
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  background: #0f9e6d;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top:30px;
+  color:white !important;
+}
+
+.embassyBlock:after{
+  content: "";
+  position: absolute;
+  left:-25px;
+  bottom:70px;
+  border-style: solid;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent; 
+  border-right:25px solid #0f9e6d; 
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+
+
+.embassyContactIcon{
+  color:white;
+  font-size:1.5em;
+}
+
+#australia, #brazil{
+  display:none;
+}
+
+.embassyImg{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width:250px;
+  height:250px
+}
+
+.embassyMarginTop{
+  margin-top:50px;
+}
+
+.embassyName{
+  color:white; 
+  border-bottom:1px solid white; 
+  width:100%; 
+  padding:10px;
+}
+
+/*End of Embassies*/
+.noTextBlueWhite, .noTextBlueWhite:hover{
+  color:white;
+}
+
+.brandButton{
+  background:white; 
+  border-radius:6px; 
+  border: 4px solid #0f9e6d;
+  color:white;
+}
+
+.brandButtonImg{
+  width:100%;
+  height:70px;
+  padding:5px;
+}
+
+/*All Other Accomodations*/
+.accomodationsImg{
+  max-width:100%; 
+}
+
+.accomodationsImgWrapper{
+  background:#0f9e6d;
+  align-self:stretch;
+  display:flex;
+  color:white;
+}
+
+.accomodationsRow{
+  background:white; 
+  border:4px solid #0f9e6d; 
+  display: flex;
+  /* align vertical */
+  align-items:flex-start;
+}
+/*End of All Other Accomodations*/
+
+
+
+.pageImg{
+  width:100%; 
+  border:6px solid #0f9e6d;
+}
+
+/*Bus Services*/
+.busEireann, .busEireannBlock{
+  display:none;
+}
+.dublinBusButton{
+  background:rgba(15,158,109, 0.5);
+}
+
+.busDescription{
+  background:#0f9e6d;
+  border-radius:6px;
+}/*End of Bus Service*/
+
+.padding5pxWhite{
+  padding:5px;
+  color:white;
+}
+
+.greenBackground{
+  background:#0f9e6d;
+}
+
+.smallContactFont{
+  font-size:1em;
+}
+
+.marginLeft20px{
+  margin-left:20px;
+}
+
+/*Remove blue text for <a> tag*/
+.noTextBlue{
+  color:black;
+}
+
+.noTextBlue:hover{
+  color:black;
+}
+/*End of remove blue text for <a> tag*/
+
+/*Remove Padding and Margin*/
+.noPaddingMargin{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+/*Lists Wrapper*/
+.listsWrapper{
+  height: 100%;
+  padding: 0 !important;
+  width:100%;
+  color:black;
+  background: #0f9e6d;
+  overflow:hidden !important;
+}
+
+.listsImg{
+  width:100%;
+  height:100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.listsHeading{
+  margin-top:5px !important;
+}
+
+.listsContactIcon{
+ color:black;
+ font-size:1.5em;
+}
+
+@media (max-width:576px){
+ .listsImg{
+    height:200px;
+   }
+}
+/*End of Lists Wrapper*/
+
+.clear{
+  clear:both;
+}
+
+.headlineLink, .headlineLink:hover{
+  color:white;
+  font-weight:bold;
+}
+/*Headline1 - News*/
+.headlineImg{
+  width:100%;
+  height:300px;
+  position:relative;
+  filter: brightness(60%);
+  -webkit-filter: brightness(60%);
+  -moz-filter: brightness(60%);
+}
+
+.headlineTitle{
+  color:white;
+  font-weight:bold;
+  font-size:25px;
+  position:absolute;
+  top:200px;
+  left:25px;
+}
+
+.headlineTag{
+  position:absolute;
+  top:273px;
+  left:25px;
+  font-size:15px;
+}
+/*End of Headline1-News*/
+
+/*Headline2 - News*/
+.headline2Img{
+  width:100%;
+  height:160px;
+  position:relative;
+  filter: brightness(60%);
+  -webkit-filter: brightness(60%);
+  -moz-filter: brightness(60%);
+}
+
+.headline2Title{
+  font-size:15px;
+  position:absolute;
+  top:90px;
+  left:25px;
+}
+
+.headline2Tag{
+  position:absolute;
+  top:143px;
+  left:25px;
+  font-size:12px;
+}
+/*End of Headline2-News*/
+
+/*Headline3 - News*/
+.headline3Img{
+  width:95%;
+  height:130px;
+  margin-top:10px;
+  position:relative;
+  filter: brightness(60%);
+  -webkit-filter: brightness(60%);
+  -moz-filter: brightness(60%);
+}
+
+.headline3Title{
+  font-size:10px;
+  position:absolute;
+  top:80px;
+  left:10px;
+}
+
+.headline3Tag{
+  position:absolute;
+  top:125px;
+  left:10px;
+  font-size:9px;
+}
+
+.headline3Title2{
+  font-size:10px;
+  position:absolute;
+  top:80px;
+  left:20px;
+}
+
+.headline3Tag2{
+  position:absolute;
+  top:125px;
+  left:20px;
+  font-size:9px;
+}
+/*End of Headline3-News*/
+
+/*Tags Wrapper*/
+.tags{
+  height:35px;
+  border-radius:2px;
+  margin-left:15px;
+  display: table;
+}
+
+.tagTitle{
+  color:white;
+  text-align:center;
+  vertical-align:middle;
+  display: table-cell;
+}
+/*End of Tags Wrapper*/
+
+/*Background Color of Tags*/
+.cultureBackground{
+  background:#9c27b0 !important;
+}
+
+.entertainmentBackground{
+  background:#e91e63 !important;
+}
+
+.lifestyleBackground{
+  background:#ff9800 !important;
+}
+
+.otherBackground{
+  background:#009688 !important;
+}
+
+.other2Background{
+  background:#3f51b5 !important;
+}
+
+.other3Background{
+  background:#db4437 !important;
+}
+
+.other4Background{
+  background:#FF3232 !important;
+}
+
+.other5Background{
+  background:#08457E!important;
+}
+/*End of Background Color of Tags*/
+
+/*Color Text of Tags*/
+.culture, .culture a{
+  color:#9c27b0;
+}
+
+.entertainment, .entertainment a{
+  color:#e91e63;
+}
+
+.lifestyle, .lifestyle a{
+  color:#ff9800;
+}
+
+.other, .other a{
+  color:#009688;
+}
+/*End of Color Text of Tags*/
+
+/*Top Picks*/
+.topPicks{
+  background:black; 
+  height:35px;
+  display: table;
+}
+
+.topPicksHeading{
+  color:white;
+  vertical-align:middle;
+  display: table-cell;
+  padding-left:10px !important;
+}
+
+.topPicksImg{
+  width:100%;
+  height:100px;  
+}
+
+.topPicksTitle{
+  font-weight:bold;
+  color:black;
+}
+
+.topPicksTitle a, .topPicksTitle a:hover{
+ color:black;
+}
+
+.topPicksTag{
+  font-size:15px;
+}
+/*End of Top Picks*/
+
+/*Headline4-News*/
+.headline4Img{
+  width:95%;
+  height:200px;
+}
+
+.headline4Title{
+  font-weight:bold;
+  color:black;
+}
+
+.headline4Title a, .headline4Title a:hover{
+ color:black;
+}
+
+.headline4Tag{
+  font-size:15px;
+}
+/*End of Headline4-News*/
+
+
+/*Article Content*/
+.articleImg{
+  width:100%;
+  height:400px;
+}
+
+.articleDetail{
+  border-bottom: 1px solid #cccccc;  
+}
+
+.articleDetail, .articleTags{
+  width: 100%;
+  color:black;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.articleDetail h5, .articleDetail p, .articleTags li{
+  display: inline-block;
+  margin-right:15px;
+}
+
+.tagHeading{
+  margin-left:20px;
+}
+/*End of Article Content*/
+
+
+/*Top Picks - Article and Tags*/
+.topPicksImg2{
+  width:100%;
+  height:75px;
+  margin-left:10px;
+}
+
+.headline5Title{
+  margin:0;
+  font-size:15px;
+  color:black;
+  margin-top:10px;
+}
+
+.headline5Title a, .headline5Title a:hover, .headline6Title a, .headline6Title a:hover{
+  color:black;
+}
+
+.headline5Tag{
+  font-size:12px;
+}
+/*End of Top Picks - Article and Tags*/
+
+/*Author Pics*/
+.authorPic{
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  border:2px solid black;
+  display: block;
+  margin: 0 auto;
+  margin-top:20px;
+}
+
+.authorPic img {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+  
+}
+/*End of Author Pics*/
+
+.textCenter{
+  text-align:center;
+}
+
+#articleMarginTop{
+  margin-top:80px !important;
+}
+
+.articlePaddingBottom{
+  padding-bottom:15px;
+}
+
+.greyBackground{
+  background:#dbdbdb;
+}
+
+hr{
+  border-top: 1px solid #dbdbdb;
+}
+
+.articleTags li{
+  color:white;
+  background: #0f9e6d;
+  padding:10px;
+  border-radius:4px;
+}
+
+/*Social Article*/
+#socialArticle i{
+  font-size:1.8em;
+  padding:5px;
+  width:50px;
+  color:white;
+  text-align:center;
+  margin-right:5px;
+}
+
+#socialArticle .fa-facebook{
+  background: #3b5998;
+}
+
+#socialArticle .fa-twitter{
+  background:#00aced;
+}
+
+#socialArticle .fa-google-plus{
+  background: #dd4b39;
+}
+
+#socialArticle .fa-pinterest{
+  background:#cb2027;
+}
+
+#socialArticle .fa-linkedin{
+  background: #007bb6;
+}
+
+#socialArticle .fa-tumblr{
+  background:#32506d;
+}
+
+#socialArticle .fa-envelope{
+  background:black;
+}
+/*End of Social Article*/
+
+/*Related Posts*/
+.relatedPostImg{
+  width:100%;
+  height:130px;
+}
+
+.headline6Title{
+  font-size:18px;
+  color:black;
+}
+/*End of Related Posts*/
+
+/*Leave Comment Div*/
+.btn-primary, .btn-primary:hover{
+  background:#0f9e6d;
+  border:#0f9e6d;
+  margin:0 auto;
+  display:block;
+}
+
+.input-group{
+  z-index:0
+}
+/*End of Leave Comment Div*/
+
+/*Pagination*/
+.pagination>.active>a, .pagination>.active>a:hover,.pagination>li>a:hover{
+  background:#0f9e6d;
+  color:white;
+  border: 1px solid #0f9e6d;
+}
+
+.pagination>li>a, .pagination>.disabled>a, .pagination>.disabled>a:hover{
+  color:#0f9e6d;
+  border: 1px solid #0f9e6d;
+}
+/*End of Pagination*/
+
+.wrapper{
+  color:black;
+}
+
+/*Tags Div - Tags*/
+.TagsWrapper{
+  margin-left:15px;
+  color:white;
+  margin: 0;
+  padding: 0;
+  border: 2px dashed black;
+}
+
+.tagBlock{
+  display: inline-table;
+  margin-right:10px;
+  text-align:center;
+  border-radius:2px;
+  margin-bottom:10px;
+  height:35px;  
+}
+
+.innerTags{
+  margin-top:10px;
+  margin-left:10px;
+}
+
+.tagName{
+  padding:10px !important;
+  color:white;
+  vertical-align:middle;
+  display: table-cell;
+}
+/*End of Tags Div - Tags*/
+
+/*Popover*/
+.popover{
+  background: #0f9e6d;
+  display:block;
+  color:white;
+}
+
+.popover-title{ 
+  background: #0f9e6d;
+  color:white;
+}
+
+.popover.bottom .arrow:after {
+  border-bottom-color: #0f9e6d;
+}
+
+.popover.right .arrow:after {
+  border-right-color: #0f9e6d;
+}
+/*End of Popover*/
+
+.cursorPointer{
+  cursor:pointer;
+}
+
+/*Tabs Panel*/
+.tab-content{
+  padding-top:30px;
+}
+.nav-tabs{
+  border-bottom:2px solid #0f9e6d;
+}
+.nav-tabs>li>a {
+  color:black;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus, .nav-tabs>li>a:hover {
+  color: white;
+  background-color: #0f9e6d;
+  border-bottom:2px solid #0f9e6d;
+}
+/*End of Tabs Panel*/
+
+.noHoverUnderline a:hover{
+  text-decoration:none;
+}
+
+/* Added to resolve conflicts with old css*/
+.col-lg-10.col-md-10.col-sm-12.col-xs-12 {
+	margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    li {
+    list-style-type: square;
+    }
+
+    .row {
+    	margin-left: 0;
+    	margin-right: 0;
+    }
+
+    .container{
+    	padding-left: 0;
+    	padding-right: 0;
+    }
+}
+
+.article-image.mv-3 {
+	text-align: center;
+}
+
+.container-sm.width-auto {
+    width: auto;
+}
+
+.thumbnail img {
+  width: 100%;
+  }
