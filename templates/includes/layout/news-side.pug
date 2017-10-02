@@ -1,20 +1,5 @@
 include ../../mixins/post
 
-if locals.section !== 'news'
-	.news-panel
-		//-a(href='/news').text-muted Latest News
-		if lastPosts && lastPosts.length
-			each post in lastPosts
-					article(role="article", itemscope itemtype="https://schema.org/BlogPosting").post-card-news
-						a(href='/news/post/' + post.slug)
-							.post-container-image
-								if post.image.exists
-									.post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
-									.post-content-brief!= post.content.brief
-						.post-summary
-							.post-byline
-							h6(itemprop='name').post-title.mv-1
-								a(href='/news/post/' + post.slug, itemprop='url')=post.title
-		else
-			p.
-				No recent posts
+.news-panel
+	p.
+		Ads side
