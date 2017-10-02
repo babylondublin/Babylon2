@@ -7,7 +7,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'about';
+	locals.section = 'jointheteam';
 	
-	view.render(keystone.lang + '/site/about');
+	view.render(keystone.lang + '/site/joinTheTeam');
 };

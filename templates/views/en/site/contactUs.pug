@@ -1,0 +1,110 @@
+extends ../../../layouts/default
+	
+block content
+	.wrapper
+		.col-lg-10.col-md-10.col-sm-12.col-xs-12
+			.container
+				h1.pageHeading Contact Us
+				|       
+				|         
+				.row.aboutUs
+					.col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='about')
+								button#ourConceptBtn.aboutUSbtn Our Concept
+						// col-lg-4
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='joinTheTeam')
+								button#joinTheTeamBtn.aboutUSbtn Join the team
+						// col-lg-4
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='#')
+								button#contactUsBtn.aboutUSbtn.active Contact Us
+						// col-lg-4
+					// col-lg-8
+				// row
+				br
+				|        
+				|        
+				#contactUs.row
+					.col-lg-6.col-md-6.col-sm-6.col-xs-12
+						p
+							| Babylon Radio is here to give useful information and help to anyone who is new to life in Ireland.
+							br
+							br
+							|                We are always interested in your opinion so please feel free to get in touch with us! We can provide advice on all areas of Irish life and if there is any information that you need, that you can not find on our website please send us an email.
+						|              
+						|              
+						h4 Presenting For Babylon Radio
+						|              
+						p
+							| If you enjoy music and you would like the chance to present your own radio show then email us at 
+							a(href='mailto:info@babylonradio.com') info@babylonradio.com
+							|  or simply fill in the form on the right.
+						|             
+						|              
+						h4 Babylon Radio Events
+						|              
+						p
+							| We are always promoting multicultural events and live shows. Check our 
+							a(href='https://www.facebook.com/babylon.webradio/', target='_blank') Facebook Page
+							|  or contact us at: 
+							a(href='mailto:info@babylonradio.com') info@babylonradio.com
+					// col-lg-6
+					.col-lg-6.col-md-6.col-sm-6.col-xs-12
+						h4 We look forward to hearing from you!
+						|             
+						p
+							| Please fill out the form below and click &ldquo;Send.&rdquo; We will get back to you as soon as possible!
+						|
+						form(method='post')
+							input(type='hidden', name='action', value='contact')             
+							.input-group.input-group-md
+								span#sizing-addon1.input-group-addon Name
+								|                 
+								input.form-control(type='text', name='name.full', placeholder='John Smith (required)', aria-label='Name', aria-describedby='sizing-addon1', required)
+							// input-group
+							br
+							|              
+							|              
+							.input-group.input-group-md
+								span#sizing-addon1.input-group-addon Email
+								|                  
+								input.form-control(type='email', name='email', placeholder='user@example.com (required)', aria-label='Email', aria-describedby='sizing-addon1', required)
+							// input-group
+							br
+							|                         
+							|
+							.input-group.input-group-md
+								span#sizing-addon1.input-group-addon Phone
+								|                  
+								input.form-control(type='text', name='phone', placeholder='(0xx) xxx xxxx (optional)', aria-label='Phone', aria-describedby='sizing-addon1')
+							// input-group
+							br
+							|                         
+							|                         
+							.input-group.input-group-md
+								span#sizing-addon1.input-group-addon Subject
+								|                  
+								select(name='enquiryType', required).form-control
+									each type in enquiryTypes
+										option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+							// input-group
+							.form-group
+								label(for='exampleFormControlTextarea1')
+								|                  
+								textarea#exampleFormControlTextarea1.form-control(name='message', rows='5', placeholder='Enter your message here', required)
+							// form-group
+							button.btn.btn-primary.btn-lg(type='submit') Send
+					// col-lg-6
+				// row
+			// container
+		// col-lg-10
+		.container
+			.row
+				.col-lg-2.col-md-2.col-sm-12.col-xs-12(style='background-color:blue')
+					| AD
+				// col-lg-2
+			// row
+		// container
+	// wrapper
