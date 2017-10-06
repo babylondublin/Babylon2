@@ -171,6 +171,7 @@ exports.initLanguage = function(req, res, next){
 				if(result == '' || result == null || err){
 				req.flash('error', 'The country you have searched doesn not exist in our database yet...');
 				view.render(keystone.lang + '/errors/404');
+				next(err);
 				}
 				else{
 
@@ -188,6 +189,8 @@ exports.initLanguage = function(req, res, next){
 				}
 			});
 			
+		}else{
+			next();
 		}
-		next();
+	
 }
