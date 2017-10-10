@@ -4,16 +4,16 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/JedWatson/sydjs-site.git"
+    "url": "https://github.com/babylondublin/Babylon2.git"
   },
   "dependencies": {
     "async": "1.5.2",
-    "babel-core": "6.7.7",
+    "babel-core": "^6.7.7",
     "babel-plugin-syntax-object-rest-spread": "6.5.0",
     "babel-plugin-transform-object-rest-spread": "6.6.5",
-    "babel-preset-es2015": "6.6.0",
+    "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "6.5.0",
-    "babel-register": "6.7.2",
+    "babel-register": "^6.26.0",
     "babelify": "7.2.0",
     "body-parser": "1.15.2",
     "browserify-middleware": "7.0.0",

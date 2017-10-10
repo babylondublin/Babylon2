@@ -1,6 +1,6 @@
 // Load the babel-register plugin for the graphql directory
 // Note this checks the regex against an absoloute path
-require('babel-register')({ only: /\/graphql\/.*/ });
+require('babel-register');
 
 // Load .env config for development environments
 require('dotenv').config({ silent: true });
