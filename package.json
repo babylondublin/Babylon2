@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/JedWatson/sydjs-site.git"
+    "url": "https://github.com/babylondublin/Babylon2.git"
   },
   "dependencies": {
     "async": "1.5.2",
