@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-				return res.redirect('/living/article/' + locals.article.slug);
+				return res.redirect('/living/' + locals.article.tags.key + '/' + locals.article.slug);
 			}
 			next();
 		});
@@ -98,7 +98,7 @@ exports = module.exports = function(req, res) {
 				comment.remove(function(err) {
 					if (err) return res.err(err);
 					req.flash('success', 'Your comment has been deleted.');
-					return res.redirect('/living/article/' + locals.article.slug);
+					return res.redirect('/living' + locals.article.tags.key + '/' + locals.article.slug);
 				});
 			});
 	});
@@ -125,7 +125,7 @@ exports = module.exports = function(req, res) {
 					return next();
 				}
 				req.flash('success', 'Your comment has been modified.');
-				return res.redirect('/living/article/' + locals.article.slug);
+				return res.redirect('/living' + locals.article.tags.key + '/' + locals.article.slug);
 		});
 
 	});

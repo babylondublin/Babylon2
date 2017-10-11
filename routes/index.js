@@ -109,11 +109,11 @@ exports = module.exports = function (app) {
 	app.all('/joinTheTeam', routes.controller.joinTheTeam);
 
 	app.get('/places_to_go/:tag?', routes.controller.places_to_go);
-	app.all('/places_to_go/article/:article', routes.controller.places_to_goOne);
+	app.all('/places_to_go/:tag/:article', routes.controller.places_to_goOne);
 	app.get('/things_to_do/:tag?', routes.controller.things_to_do);
-	app.all('/things_to_do/article/:article', routes.controller.things_to_doOne);
+	app.all('/things_to_do/:tag/:article', routes.controller.things_to_doOne);
 	app.get('/living/:tag?', routes.controller.living);
-	app.all('/living/article/:article', routes.controller.livingOne);
+	app.all('/living/:tag/:article', routes.controller.livingOne);
 
 	app.get('/plan_your_trip/:tag?', routes.controller.plan_your_trip);
  	app.all('/plan_your_trip/article/:article', routes.controller.plan_your_tripOne);

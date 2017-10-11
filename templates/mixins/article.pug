@@ -2,7 +2,10 @@ mixin article(article)
 	.col-sm-4
 		article(role="article", itemscope itemtype="https://schema.org/BlogPosting").post-card
 			if article.image.exists
-				a(href='/'+ locals.section +'/article/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
+				if article.tags
+					a(href='/'+ locals.section +'/' + article.tags.key + '/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
+				else
+					a(href='/'+ locals.section +'/article/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
 			.post-summary
 				.post-byline
 					if article.author.name.full.length
@@ -10,5 +13,8 @@ mixin article(article)
 						.date-stamp: em=moment(article.publishedDate).fromNow()
 
 				h4(itemprop='name').post-title.mv-1
-					a(href='/'+ locals.section +'/article/' + article.slug, itemprop='url')=article.title
+					if article.tags
+						a(href='/'+ locals.section +'/' + article.tags.key + '/'  + article.slug, itemprop='url')=article.title
+					else
+						a(href='/'+ locals.section +'/article/'  + article.slug, itemprop='url')=article.title
 				.post-content-brief(itemprop='description')!= article.content.brief
