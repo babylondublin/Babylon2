@@ -1,20 +1,55 @@
-include ../../mixins/post
-
-if locals.section !== 'news'
-	.news-panel
-		//-a(href='/news').text-muted Latest News
-		if lastPosts && lastPosts.length
-			each post in lastPosts
-					article(role="article", itemscope itemtype="https://schema.org/BlogPosting").post-card-news
-						a(href='/news/post/' + post.slug)
-							.post-container-image
-								if post.image.exists
-									.post-image: img(src=post._.image.thumbnail(600,320), alt=post.title).img-responsive
-									.post-content-brief!= post.content.brief
-						.post-summary
-							.post-byline
-							h6(itemprop='name').post-title.mv-1
-								a(href='/news/post/' + post.slug, itemprop='url')=post.title
-		else
-			p.
-				No recent posts
+.news-panel
+	.facebook-widget
+		iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbabylon.webradio%2F&tabs&width=300&height=220&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId', width='300', height='220', style='border:none;overflow:hidden', scrolling='no', frameborder='0', allowtransparency='true')
+	if lastPosts && lastPosts.length
+		h4.populartitle
+			= "Most popular"
+		ul.wpp-list.wpp-list-with-thumbnails
+			li
+				if lastPosts.length >= 1
+					a(href='/news/post/' + lastPosts[0].slug, title=lastPosts[0].title, target='_self')
+						img.wpp-thumbnail.wpp_featured_stock.wp-post-image.no-display.appear(width='110', height='96', src=lastPosts[0].image.url, alt='')
+					a.wpp-post-title(href='/news/post/' + lastPosts[0].slug, title=lastPosts[0].title, target='_self') 
+						= lastPosts[0].title
+					|  
+					span.wpp-excerpt
+						!= lastPosts[0].content.full
+					|  
+					span.wpp-meta.post-stats
+						span.wpp-author
+							| by 
+							a(href='/member/'+ lastPosts[0].author.key, rel='author') 
+								=lastPosts[0].author.name.full
+			if lastPosts.length >= 3
+				li
+					if lastPosts.length >= 2
+						a(href='/news/post/' + lastPosts[1].slug, title=lastPosts[1].title, target='_self')
+							img.wpp-thumbnail.wpp_featured_stock.wp-post-image.no-display.appear(width='110', height='96', src=lastPosts[1].image.url, alt='')
+						a.wpp-post-title(href='/news/post/' + lastPosts[1].slug, title=lastPosts[1].title, target='_self')
+							= lastPosts[1].title
+						|  
+						span.wpp-excerpt
+							!= lastPosts[1].content.full
+						|  
+						span.wpp-meta.post-stats
+							span.wpp-author
+								| by 
+								a(href='/member/'+ lastPosts[1].author.key)
+									=lastPosts[1].author.name.full
+			if lastPosts.length >= 3
+				li
+					a(href='/news/post/' + lastPosts[2].slug, title=lastPosts[2].title, target='_self')
+						img.wpp-thumbnail.wpp_featured_stock.wp-post-image.no-display.appear(width='110', height='96', src=lastPosts[2].image.url, alt='')
+					a.wpp-post-title(href='/news/post/' + lastPosts[2].slug, title=lastPosts[1].title, target='_self')
+						= lastPosts[2].title
+					|  
+					span.wpp-excerpt
+						!= lastPosts[2].content.full
+					|  
+					span.wpp-meta.post-stats
+						span.wpp-author
+							| by 
+							a(href='/member/'+ lastPosts[2].author.key)
+								=lastPosts[1].author.name.full
+	.youtube-video
+		iframe.noPaddingMargin(width='100%', height='100%', src='https://www.youtube.com/embed/L9aTVHsAs0k', frameborder='0', allowfullscreen='')

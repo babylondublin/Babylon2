@@ -118,7 +118,8 @@ li{
 	min-height: 1200px;
 	height: 100%;
 	top: 74px;
-	margin-right: 16.666667%; // only for the News panel
+	//margin-right: 16.666667%; // only for the News panel
+    margin-right: 300px;
     overflow: hidden;
 	.floor;
 	.floor-1;
@@ -537,11 +538,13 @@ top: 106px;
 @media (min-width: 992px){
 .news-panel {
     width: 16.66666667%;
-    position: fixed;
+    min-width: 300px;
+//position: fixed;
+    position: absolute;
     z-index: 2;
     right: 0;
     top: 106px;
-    padding: 20px;
+    padding: 5px;
     overflow: hidden;
 	height: 80%;
 }
