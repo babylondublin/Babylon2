@@ -37,7 +37,6 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					else
 						li: a(href='/signin', data-from=page.path, data-initial='signin').js-auth-trigger Sign in
 						li: a(href='/join', data-from=page.path).js-auth-trigger Join
-				.top-menu
 					//-li: a(href="/news") News
 					//-li: a(href="/places_to_go") Places to Go
 					//-li: a(href="/things_to_do") Things to Do
@@ -46,176 +45,106 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					//-li: a(href="/living") Living
 					//-li: a(href="/events") Events
 					//-li: a(href="/about") About Us
+		.megamenu
+			.ddown
+				button.dropbtn Living
+					i.fa.fa-caret-down
+				.dropdown-content
+					.row
+						.column
+							h3 Tag.name
+							a(href="") Link article
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 2
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 3
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+			.ddown
+				button.dropbtn Places to go
+					i.fa.fa-caret-down
+				.dropdown-content
+					.row
+						.column
+							h3 Tag 1
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 2
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 3
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+			.ddown
+				button.dropbtn Things to Do
+					i.fa.fa-caret-down
+				.dropdown-content
+					.row
+						.column
+							h3 Tag 1
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 2
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h3 Tag 3
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+			.ddown
+				button.dropbtn Plan your trip
+					i.fa.fa-caret-down
+				.dropdown-content
+					.row
+						.column
+							h4 Tag 1
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+							h4 Tag 4
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h4 Tag 2
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+							h4 Tag 5
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+						.column
+							h4 Tag 3
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
+							h4 Tag 6
+							a(href="") Link 1
+							a(href="") Link 2
+							a(href="") Link 3
 
-					.contain-to-grid
-						nav.top-bar(data-topbar="", role="navigation")
-							section.top-bar-section
-								ul
-									li.divider
-									li
-										a(href="#") University
-									li.divider
-									li.has-dropdown
-										a(href="#") Programs
-										ul.dropdown.m-menu
-											li
-												.row
-													.medium-4.column
-														h3 Undergraduate
-														ul
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Admissions
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Academics
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Fields of Study
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Fees and Finance
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Useful Contacts
-													// end of .column
-													.medium-4.column
-														h3 Graduate
-														ul
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Admissions
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Academics
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Fields of Study
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Fees and Finance
-													// end of .column
-													.medium-4.column
-														h3 Online Learning
-														ul
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Why e-learning?
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Studies
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Date Deadlines
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Fees and Finance
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Contact
-													// end of .column
-												// end of .row
-												.row
-													.medium-4.column
-														h3 Read
-														a.intro(href="#")
-															i.icon-play
-															img(src="https://unsplash.it/400/280?image=532")
-													// end of .column
-													.medium-4.column
-														h3 Build
-														a.intro(href="#")
-															i.icon-play
-															img(src="https://unsplash.it/400/280?image=534")
-													// end of .column
-													.medium-4.column
-														h3 Enjoy
-														a.intro(href="#")
-															i.icon-play
-															img(src="https://unsplash.it/400/280?image=452")
-													// end of .column
-												// end of .row
-									li.divider
-									li
-										a(href="#") Research
-									li.divider
-									li.has-dropdown
-										a(href="#") Studies
-										ul.dropdown.m-menu
-											li
-												.row
-													.medium-6.column.show-for-medium-up
-														img(src="https://unsplash.it/380/220?image=668")
-														.info-wrap
-															.info.info-visible
-																h3 Select your program...
-																p More info...
-															.info
-																h3 Undergraduate Studies
-																p At vero eos
-															.info
-																h3 Graduate Studies
-																p
-																	| Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.
-															.info
-																h3 Internships
-																p
-																	| Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae adipisci velit, sed quia non numquam eius.
-															.info
-																h3 Other Studies
-																p
-																	| Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-															.info
-																h3 Useful Contacts
-																p
-																	| Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat adipisci velit, sed quia non numquam eius.
-														// .info-wrap
-													// end of .column
-													.medium-6.column
-														h3 Programs
-														ul.is-hover
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Undergraduate
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Graduate
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Internships
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Other
-															li
-																a(href="#")
-																	i.icon-circle-right
-																	| Contact
-													// end of .column
-												// end of .row
-									li.divider
-									li
-										a(href="#") Student Life
-									li.divider
-			
+			a(href="/news") News
+			a(href="/classifieds") Classifieds
+			a(href="/events") Events
+			a(href="/about") About Us
 
+					
 //-.header-placeholder
 
 script(src='/js/lib/awesomplete.js')
@@ -238,19 +167,4 @@ script.
 				document.getElementById('searchInput').className = "searcher-safari";
 
 			}
-		});
-script(src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
-script.
-		$(document).foundation();
-
-		// below does the "Programs" info switch
-		$('.is-hover a').on('mouseover', function () {
-		var idx = $(this).parent().index() + 2;
-		$('.info:nth-child(' + idx + ')').addClass('info-visible');
-		$('.info:nth-child(' + idx + ')').siblings().removeClass('info-visible');
-		});
-
-		$('.dropdown').on('mouseout', function () {
-		$('.info:nth-child(1)').addClass('info-visible').siblings().removeClass('info-visible');
 		});

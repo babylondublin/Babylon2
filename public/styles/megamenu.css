@@ -1,152 +1,92 @@
-@charset "UTF-8";
-/* ICOMOON STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-@font-face {
-  font-family: "icomoon";
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/icomoon_copy.eot");
-  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/icomoon_copy.eot") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/icomoon_copy.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/icomoon_copy.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/icomoon_copy.svg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="icon-"],
-[class*=" icon-"] {
-  font-family: "icomoon";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  position: absolute;
-  top: 50%;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.megamenu {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+  height: 62px;
 }
 
-[class^="icon-"]:not(.icon-play),
-[class*=" icon-"]:not(.icon-play) {
-  margin-top: -6.5px;
-  right: 0;
+.megamenu a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.ddown {
+  float: left;
+  overflow: hidden;
 }
 
-.icon-play:before {
-  content: "\ea15";
+.ddown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
 }
 
-.icon-circle-right:before {
-  content: "\ea42";
+.ddown:hover .dropbtn {
+  background-color: #4A4A4A;
 }
 
-/* GENERAL STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-
-
-/* MEGA MENU POSITIONING STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.top-bar{
-    max-width: 100% !important;
-}
-.top-bar-section .has-dropdown {
-  position: static;
-}
-.top-bar-section .has-dropdown a {
-  position: relative;
-}
-
-.top-bar-section .has-dropdown.moved {
-  position: static;
-}
-.top-bar-section .has-dropdown.moved > a:after {
-  display: block;
-}
-
-/* DROPDOWN GENERAL STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.m-menu {
-  border-top: 1px solid #4e4e4e;
-}
-.m-menu a {
-  display: block;
-  opacity: 0.5;
-  -webkit-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
-}
-.m-menu a:hover {
-  opacity: 1;
-}
-
-.m-menu{
-    position: absolute;
-    z-index:5;
-    left: -200px !important;
-    top: 50px !important;
-    background: transparent;
-    min-width: 100%;
-    width: 700px !important;
-}
-/* TOP LINKS INSIDE DROPDOWN STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.column li:not(:first-child) a {
-  border-top: 1px solid #262626;
-}
-.column li:not(:last-child) a {
-  border-bottom: 1px solid #4e4e4e;
-}
-.column li a:hover i {
-  right: 3px;
-}
-
-/* BOTTOM LINKS INSIDE FIRST DROPDOWN STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.intro .icon-play {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 2.5em;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-}
-.intro:hover .icon-play {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/* TARGET DIV INSIDE SECOND DROPDOWN STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.column > img {
-  margin: 1em 0;
-}
-
-.info-wrap h3 {
-  width: 50%;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #4e4e4e;
-}
-
-.info {
+.dropdown-content {
   display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  top: 117px;
 }
 
-.info-visible {
+
+
+.ddown:hover .dropdown-content {
   display: block;
 }
 
-.dt {
-  margin-top: 50px;
-  text-align: center;
-  font-size: 2em;
-  padding: 0 20px;
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 40px;
+  background-color: #ccc;
+  height: 100%;
 }
 
-.p {
+.column a {
+  float: none;
   color: black;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media(max-width: 775px){
+  .megamenu{
+    display:none;
+  }
 }

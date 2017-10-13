@@ -38,7 +38,7 @@ User.add({
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can Admin Babylon' },
 	isVerified: { type: Boolean, label: 'Has a verified email address' },
-	isJournalist: {type: Boolean, label: 'Can CRUD only News'},
+	isJournalist: {type: Boolean, label: 'Is Journalist'},
 	isPremium: {type: Boolean, label: 'Has paid'}
 }, 'Services', {
 	services: {
