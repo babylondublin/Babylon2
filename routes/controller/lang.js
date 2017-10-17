@@ -14,6 +14,7 @@ exports = module.exports = function(req, res) {
 			lang = "en";
 		}
 		keystone.lang = lang;
+		res.cookie('lang', keystone.lang);
 	}
 	res.redirect("/");
 }

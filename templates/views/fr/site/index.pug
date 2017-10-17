@@ -8,9 +8,17 @@ include ../../../mixins/advertisement
 
 //- INTRO
 block intro
+		if country
+			if country.image
+				div(style={'background-image':'url('+country.image.secure_url+')'}).home-image
+				h1.home-image-title= 'Bienvenue sur Babylon  ' + country.name
+			else
+		else
+		.page-intro: .container-sm
+			hr
+			if country
+				p.text-center= 'Profitez de votre expérience en ' + country.name 			
 
-		h2.text-center Welcome to Babylon FR
-	
 //- JS
 block js
 

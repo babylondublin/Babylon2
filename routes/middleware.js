@@ -61,11 +61,13 @@ exports.initErrorHandlers = function(req, res, next) {
 	/*get nav language*/
 	if(keystone.lang == undefined){
 		keystone.lang = req.headers["accept-language"].split(',')[0].split("-")[0];		
-		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "br"){
+		if(keystone.lang != "fr" && keystone.lang != "en" && keystone.lang != "pl" && keystone.lang != "it" && keystone.lang != "es" && keystone.lang != "pt"){
 			keystone.lang = "en";
 		}
 		// let it
-		keystone.lang = "en";
+		// uncomment to set the default value 'en'
+		//keystone.lang = "en";
+		res.cookie('lang', keystone.lang);
 	}
 	res.err = function(err, title, message) {
 		res.status(500).render(keystone.lang + '/errors/500', {
