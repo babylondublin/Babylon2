@@ -90,3 +90,28 @@ block js
 		    }
 		});	
 		document.getElementsByClassName("container")[0].style.width = "100%";
+	script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+	script(src='https://unpkg.com/masonry-layout@4.2.0/dist/masonry.pkgd.min.js')
+	script(src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js')
+	script.
+		(function( $ ) {
+		var $container = $('.masonry-container');
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		//Reinitialize masonry inside each panel after the relative tab link is clicked -
+		$('a[data-toggle=tab]').each(function () {
+		var $this = $(this);
+		$this.on('shown.bs.tab', function () {
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		}); //end shown
+		});  //end each
+		})(jQuery);
