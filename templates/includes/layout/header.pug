@@ -27,50 +27,25 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 								each country in countries
 									option(value=country.name) 
 						input(type='submit', value='Search').btn.submit-search
-				ul.navbar-nav.navbar-nav--right
-					li.dropdown
-							a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-								img#imgNavSel.img-thumbnail.icon-small(src='', alt'')
-								| &nbsp;&nbsp;
-								span#lanNavSel 
-								|  
-								span.caret
-							|                     
-							ul.dropdown-menu(role='menu')
-								li
-									a#navSpa.language(href='/lang/es')
-										img#imgNavSpa.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavSpa Español
-								|                         
-								li
-									a#navIta.language(href='/lang/it')
-										img#imgNavIta.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavIta Italiano
-								|         &#x9;&#x9;&#x9;    
-								li
-									a#navFra.language(href='/lang/fr')
-										img#imgNavFra.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavFra Francais
-								|         &#x9;&#x9;&#x9;    
-								li
-									a#navEng.language(href='/lang/en')
-										img#imgNavEng.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavEng English
-								li
-									a#navPol.language(href='/lang/pl')
-										img#imgNavPol.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavPol Polski
-								li
-									a#navPor.language(href='/lang/pt')
-										img#imgNavPor.img-thumbnail.icon-small(src='', alt='...')
-										| &nbsp;&nbsp;
-										span#lanNavPor Português
-					if user
+				ul.navbar-nav.navbar-nav--right.listlang                  
+					li
+						a#navSpa.language(href='/lang/es')
+							img#imgNavSpa.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/es.png', alt='')                      
+					li
+						a#navIta.language(href='/lang/it')
+							img#imgNavIta.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/it.png', alt='')  
+					li
+						a#navFra.language(href='/lang/fr')
+							img#imgNavFra.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/fr.png', alt='')   
+					li
+						a#navEng.language(href='/lang/en')
+							img#imgNavEng.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/en.png', alt='')
+					li
+						a#navPol.language(href='/lang/pl')
+							img#imgNavPol.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/pl.png', alt='')
+					li
+						a#navPor.language(href='/lang/pt')
+							img#imgNavPor.img-thumbnail.icon-small(src='http://babylonradio.com/wp-content/plugins/wpglobus/flags/pt.png', alt='')
 					if user
 						li: a(href='/me').user
 								img(src=(user.photo.exists ? user._.photo.thumbnail(27,27) : user.avatarUrl || '/images/avatar.png'), width=27).img-circle
@@ -210,123 +185,4 @@ script.
 				document.getElementById('searchInput').className = "searcher-safari";
 
 			}
-		});
-		$(document).ready(function(){
-		        var spaImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/es.png";
-		    	var engImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/uk.png";
-				var itaImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/it.png";
-				var fraImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/fr.png";
-				var polImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/pl.png";
-				var porImgLink = "http://babylonradio.com/wp-content/plugins/wpglobus/flags/pt.png";
-
-				var imgBtnSel = $('#imgBtnSel');
-				var imgBtnSpa = $('#imgBtnSpa');
-				var imgBtnEng = $('#imgBtnEng');
-				var imgBtnIta = $('#imgBtnIta');
-				var imgBtnFra = $('#imgBtnFra');
-				var imgBtnPol = $('#imgBtnPol');
-				var imgBtnPor = $('#imgBtnPor');
-
-				var imgNavSel = $('#imgNavSel');
-				var imgNavSpa = $('#imgNavSpa');
-				var imgNavEng = $('#imgNavEng');
-				var imgNavIta = $('#imgNavIta');
-				var imgNavFra = $('#imgNavFra');
-				var imgNavPol = $('#imgNavPol');
-				var imgNavPor = $('#imgNavPor');
-
-				var spanNavSel = $('#lanNavSel');
-				var spanBtnSel = $('#lanBtnSel');
-
-				var currLang = $.cookie("lang");
-				if(currLang === 'es'){
-					imgNavSel.attr("src",spaImgLink);
-					spanNavSel.text("ESP");
-					imgBtnSel.attr("src",spaImgLink);
-					spanBtnSel.text("ESP");
-				}else if(currLang === 'it'){
-					imgNavSel.attr("src",itaImgLink);
-					spanNavSel.text("ITA");
-					imgBtnSel.attr("src",itaImgLink);
-					spanBtnSel.text("ITA");
-				}else if(currLang === 'fr'){
-					imgNavSel.attr("src",fraImgLink);
-					spanNavSel.text("FRA");
-					imgBtnSel.attr("src",fraImgLink);
-					spanBtnSel.text("FRA");
-				}else if(currLang === 'pl'){
-					imgNavSel.attr("src",polImgLink);
-					spanNavSel.text("POL");
-					imgBtnSel.attr("src",polImgLink);
-					spanBtnSel.text("POL");
-				}else if(currLang === 'pt'){
-					imgNavSel.attr("src",porImgLink);
-					spanNavSel.text("POR");
-					imgBtnSel.attr("src",porImgLink);
-					spanBtnSel.text("POR");
-				}else{
-					imgNavSel.attr("src",engImgLink);
-					spanNavSel.text("ENG");
-					imgBtnSel.attr("src",engImgLink);
-					spanBtnSel.text("ENG");
-				} 
-
-				imgBtnSpa.attr("src",spaImgLink);
-				imgBtnEng.attr("src",engImgLink);
-				imgBtnIta.attr("src",itaImgLink);
-				imgBtnFra.attr("src",fraImgLink);
-				imgBtnPol.attr("src",polImgLink);
-				imgBtnPor.attr("src",porImgLink);
-
-				imgNavSpa.attr("src",spaImgLink);
-				imgNavEng.attr("src",engImgLink);
-				imgNavIta.attr("src",itaImgLink);
-				imgNavFra.attr("src",fraImgLink);
-				imgNavPol.attr("src",polImgLink);
-				imgNavPor.attr("src",porImgLink);
-
-				$( ".language" ).on( "click", function( event ) {
-					var currentId = $(this).attr('id');
-
-					if(currentId == "navSpa") {
-						imgNavSel.attr("src",spaImgLink);
-						spanNavSel.text("ESP");
-					} else if (currentId == "navEng") {
-						imgNavSel.attr("src",engImgLink);
-						spanNavSel.text("ENG");
-					} else if (currentId == "navIta") {
-						imgNavSel.attr("src",itaImgLink);
-						spanNavSel.text("ITA");
-					} else if (currentId == "navFra") {
-						imgNavSel.attr("src",fraImgLink);
-						spanNavSel.text("FRA");
-					} else if (currentId == "navPol") {
-						imgNavSel.attr("src",polImgLink);
-						spanNavSel.text("POL");
-					} else if (currentId == "navPor") {
-						imgNavSel.attr("src",porImgLink);
-						spanNavSel.text("POR");
-					}
-
-					if(currentId == "btnIta") {
-						imgBtnSel.attr("src",spaImgLink);
-						spanBtnSel.text("ESP");
-					} else if (currentId == "btnEng") {
-						imgBtnSel.attr("src",engImgLink);
-						spanBtnSel.text("ENG");
-					} else if (currentId == "btnIta") {
-						imgBtnSel.attr("src",itaImgLink);
-						spanBtnSel.text("ITA");
-					} else if (currentId == "btnFra") {
-						imgBtnSel.attr("src",fraImgLink);
-						spanBtnSel.text("FRA");
-					} else if (currentId == "btnPol") {
-						imgBtnSel.attr("src",polImgLink);
-						spanBtnSel.text("POL");
-					} else if (currentId == "btnPor") {
-						imgBtnSel.attr("src",porImgLink);
-						spanBtnSel.text("POR");
-					}
-					
-				});
 		});
