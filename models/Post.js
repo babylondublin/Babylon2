@@ -25,7 +25,8 @@ Post.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	tag: { type: Types.Relationship, ref: 'PostTag', many: true }
+	tag: { type: Types.Relationship, ref: 'PostTag', many: true },
+	views: { type: Number, default: 0} 
 });
 
 

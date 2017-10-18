@@ -24,7 +24,8 @@ exports = module.exports = function(req, res) {
 
 				if (err) return res.err(err);
 				if (!post) return res.notfound('Post not found');
-
+				post.views += 1; 
+           		post.save(); 
 				// Allow admins or the author to see draft posts
 				if (post.state == 'published' || (req.user && req.user.isAdmin) || (req.user && post.author && (req.user.id == post.author.id))) {
 					locals.post = post;

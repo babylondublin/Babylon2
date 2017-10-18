@@ -152,6 +152,23 @@ exports.loadLatestNews = function(req, res, next){
 }
 
 /**
+	Load the 3 most popular articles
+*/
+exports.loadPopularNews = function(req, res, next){
+	    var cookie = req.cookies.country;
+		//if no Cookie
+		if(!cookie || (cookie == '')){
+			return next();
+		};
+		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-views').populate('author').limit(3);	
+		q.exec(function(err, results) {
+	        if (err) return res.err(err);
+	   		 res.locals.popularPosts = results;
+	   		 next();
+		});
+}
+
+/**
 	Load all the countries for the search bar in the header
 */
 exports.initCountries = function(req, res, next){
