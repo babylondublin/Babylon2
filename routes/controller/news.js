@@ -86,7 +86,7 @@ exports = module.exports = function(req, res) {
 			locals.data.searchWord = req.query.search;
 			//var q = keystone.list('Post').model.find({lang: keystone.lang, $text: {$search: req.query.search,  $caseSensitive: false}}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(10);
 			//https://stackoverflow.com/questions/24343156/mongodb-prefix-wildcard-fulltext-search-text-find-part-with-search-string
-			var q = keystone.list('Post').model.find({'lang': keystone.lang, $or: [ {title: {$regex: '.*' + req.query.search + '.*', $options: 'i'}},{'content.extended': {$regex: '.*' + req.query.search + '.*', $options: 'i'}}]}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(10);
+			var q = keystone.list('Post').model.find({$or: [ {title: {$regex: '.*' + req.query.search + '.*', $options: 'i'}},{'content.extended': {$regex: '.*' + req.query.search + '.*', $options: 'i'}}]}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(10);
 			q.exec(function(err, results) {
 				locals.data.posts = results;
 				next(err);
@@ -94,7 +94,7 @@ exports = module.exports = function(req, res) {
 		}
 		else{
 
-			var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
+			var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag').limit(6);
 			
 			if (locals.data.tag) {
 				q.where('tag').in([locals.data.tag]);

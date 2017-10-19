@@ -143,7 +143,7 @@ exports.loadLatestNews = function(req, res, next){
 		if(!cookie || (cookie == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author').limit(5);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author').limit(5);	
 		q.exec(function(err, results) {
 	        if (err) return res.err(err);
 	   		 res.locals.lastPosts = results;
@@ -160,7 +160,7 @@ exports.loadPopularNews = function(req, res, next){
 		if(!cookie || (cookie == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find({lang: keystone.lang}).where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-views').populate('author').limit(3);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-views').populate('author').limit(3);	
 		q.exec(function(err, results) {
 	        if (err) return res.err(err);
 	   		 res.locals.popularPosts = results;
