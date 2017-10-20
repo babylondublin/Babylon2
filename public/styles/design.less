@@ -1,327 +1,508 @@
-
-/*About Ireland*/
-.cityBlock {
-  position: relative;
-    
+body, html{
+  width:100%;
+  height:100%;
+  padding:0;
+  margin:0;
+  font-family: Century Gothic, Helvetica, sans-serif;
 }
 
-.cityImg {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-  height:250px;
+.container, .row{
+  padding:0;
+  margin:0;
+  width:100%;
 }
 
-.middle {
-  transition: .3s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%)
+/* Jumbotron */
+.jumbotron {
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background:white;
+}
+       
+#playbuttons .fa-play-circle{
+  font-size:3.4em;
+  padding-top:20px;
+  color:#0f9e6d;
 }
 
-.middle a{
-  text-decoration:none;
-  color:white;
+#headerName{ 
+  text-align:center;
+  color:#0f9e6d;
+  font-weight:bold;
+  font-size:45px;
+}
+ 
+#memberbuttons .fa-user-circle{
+  font-size:3em;
+  padding-top:20px;
+  color:#0f9e6d;
 }
 
-.cityBlock:hover .cityImg {
-   filter: brightness(50%);
-  -webkit-filter: brightness(50%);
-  -moz-filter: brightness(50%);
+#flags{
+  padding-top:45px;
 }
 
-.cityBlock:hover .middle {
-  opacity: 1;
+#flags img{
+  width:25px;
+  height:15px;
+  margin-left:2%;
+}
+/*End of Jumboturn*/
+
+
+
+/* Navbar */
+.navbar-nav li a{
+  color:#0f9e6d !important;
+  font-weight:bold;
+  text-align:center;
+  font-size:0.9em;
 }
 
-.cityName {
-  background-color: #0f9e6d;
+.navbar-brand{
+  color:#0f9e6d !important;
+  font-size:2em;
+  margin:0;
+  display:none;
+}
+
+#custom-search-input{
+  border: solid 1px black;
+  border-radius: 6px;
+  height:35px;
+  width:180px;
+  margin-top:7px;
+  margin-left:15px;
+}
+
+#custom-search-input input{
+  border: white;
+  box-shadow: none;
+  height:33px;
+  background: none;
+  width:130px;
+}
+
+#custom-search-input button{
+  margin: 0px 0 0 0;
+  background: black;
+  box-shadow: none;
+  border: white;
   color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px white;
+  height:33px;
+  width:48px;
+}
+
+#custom-search-input button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px white;
+}
+
+#custom-search-input .glyphicon-search{
+  font-size: 23px;
+}
+
+.navbar-default{
+  background:white;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  margin:0;
+  padding:0;
+}
+
+.navbar-nav .active a{
+  color:black !important;
+  background:none !important;
+  box-shadow:none !important;
+}
+
+
+#memberplayNav{
+  margin-left:5px;
+}
+
+.navbar-header .fa-play-circle{
+  font-size:2.2em;
+  margin-left:3%;
+  margin-top:5%;
+  color:#0f9e6d;
+  display:none;
+}
+
+#memberplayNav .fa-user-circle{
+  font-size:2em;
+  margin-left:3%;
+  margin-top:33%;
+  color:#0f9e6d;
+  display:none;
+}
+
+.stick{
+  position:fixed;
+  top:0px;
+  width: 100%;
+  z-index: 1; 
+}
+
+.navbar-default{
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+  width:100%;
+}
+
+
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;  
+}
+
+.mega-dropdown {
+  position: static !important;
+  
+}
+
+.mega-dropdown-menu {
+  padding: 20px 0px;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  background:rgba(15,158,109,0.95);
+  
+}
+
+.mega-dropdown-menu:before {
+  content: "";
+  border-bottom: 15px solid rgba(15,158,109,0.95);
+  border-right: 17px solid transparent;
+  border-left: 17px solid transparent;
+  position: absolute;
+  top: -15px;
+ /* left: 285px;*/left: 50%;
+  z-index: 10;
+}
+
+.mega-dropdown-menu:after {
+  content: "";
+  border-bottom: 17px solid rgba(15,158,109,0.95);
+  border-right: 19px solid transparent;
+  border-left: 19px solid transparent;
+  position: absolute;
+  top: -17px;
+  /*left: 283px;*/left: 50%;
+  z-index: 8; 
+}
+
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+  
+}
+
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #999;
+  white-space: normal;
+}
+
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus {
+  text-decoration: none;
+  color: #444;
+  background-color: #f5f5f5;
+}
+
+.mega-dropdown-menu .dropdown-header {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;  
+}
+
+.mega-dropdown-menu form {
+  margin: 3px 20px;
+}
+
+.mega-dropdown-menu .form-group {
+  margin-bottom: 3px;
+}
+
+.menuimg{
+  margin: 0 auto;
+  width:100%;
+  height:80px;
+  border:2px solid black;
+  background-size: cover; 
+  background-repeat: no-repeat;
+}
+
+.menuimgHeading{
+  color:white;
+  font-weight:bold;
+  padding-left:2px;
+  margin-bottom:0;
+  background:black;
+}
+
+.menulist li, .menulist2 li {  
+  list-style: none;
+  
+}
+  
+.menulist li a{
+  font-size:15px;
+}
+
+.menulist2 li a{
+  font-size:12px;
+}
+/*End of Navbar*/
+
+/*Social Menu*/
+
+#socialMenu{
+  position:fixed;
+  bottom:0px;
+}
+
+#icons{
+  width:80%
+  bottom:0px;
+  width:280px;
+  z-index:100;
+  height:60px;
+  white-space: nowrap;
+  margin-left:10%;
+}
+
+
+#icons img{
+  width:54px;
+  /*width:16%;*/
+  height:50px;
+  z-index:100;
+}
+/*End of Social Menu*/
+
+/*Carousel*/
+#myCarousel{
+  /*border:4px solid black;*/
+}
+
+.carousel-inner .item img{
+  width:100%; 
+  height:350px;
+}
+/*End of Carousel*/
+
+/*Page info*/
+.info{
+  font-style:italic;
+  font-size:1.1em;
+}
+/*End of Page info*/
+
+/*City*/
+#cityIcons a .fa, #transportsIcons a .fa{
+  font-size:4em;
+  color:black;
+}
+
+#cityIcons button .fa, #transportsIcons button .fa{
+  font-size:3.3em;
+  color:#0f9e6d;
+}
+
+.btn-default{
+  display: table-cell;
+  height: 120px;
+  width: 120px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: none;
+  color:#0f9e6d;
+  border:4px solid #0f9e6d;
+  text-shadow:none;
   font-weight:bold;
 }
 
-.maps{
-  border:2px solid black;
-  width:100%; 
-  height:400px;
+#cityIcons button p, #transportsIcons button p{
+  font-size:15px;
+}
+ #cityIcons .active .fa{
+color:white;
+}
+.btn-default:hover .fa{
+color:white !important;
+}
+.btn-default:hover, .btn-default:focus, #cityIcons .active, #transportsIcons .active{
+  background: #0f9e6d;
+  /*border:4px solid black;*/
+  border:none;
+  color:white;/**/
 }
 
-/*End of About Ireland*/
+.hrpBlock img{
+  width:100%;
+  height:210px;/*180*/
+  padding:0;
+  margin:0;
+  /*border:2px solid black;*/ 
+}
 
-/*Table*/
-.table-inverse{
+
+#hotels, #restaurants, #pubs{
+  padding:0;
+  margin:0;
+}
+
+.hrpBlock {
+  position: relative;
+  width:100%;
+  padding:0;
+  margin:0;
+}
+
+.image {
+  display: block;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #0f9e6d;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.hrpBlock:hover .overlay {
+  height: 50%;
+}
+
+.text {
+ /* white-space: nowrap; 
+  color: black;
+  position: absolute;
+  overflow: hidden;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);*/
+  color:white;
+  position: absolute;
+  left:5%;
+}
+
+
+.text h3{
+  font-size: 20px;
+}
+
+#restaurants, #pubs{
+  display:none;
+}
+
+#restaurants .text{ 
+  left: 26% !important;
+}
+/*End of City*/
+
+/*Insta*/
+
+.instaPics{
+  width:250px;
+  height:250px;
+  position:relative;
+}
+
+.instaIcon{
+  position:absolute;
+  left:85%;
+  top:85%;
+  font-size:2.2em;
   color:white;
 }
 
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: white;
-   color:black;
+.instaImageWrapper{
+  position:relative;
+  width:250px;
+  height:250px;
 }
-/*End of Table*/
+/*End of Insta*/
 
-/*Masonry*/
-.main-container {
-  padding: 40px 15px;
+/*Page Heading*/
+.pageHeading{
+  font-size:45px;
+
+  margin-left:40px;
+  margin-bottom:15px;
+}
+/*End of Page Heading*/
+
+/*Contact Info*/
+.contactinfo{
+  background: #0f9e6d;
+  width:100%;
+  border-radius:6px
 }
 
-.thumbnail{
-  border: 4px solid  #0f9e6d;
+.contactinfo h3{
+  padding:15px;
+  font-size:25px;
+  font-weight:bold;
   color:black;
 }
-/*End of Masonry*/
 
-/*FAQ*/
-.visaButton{
-  border-radius:6px; 
-  border: 4px solid #0f9e6d;
-  background: #0f9e6d;
-  color:white;
-}
-/*End of FAQ*/
-
-.smallIconImg{
-  padding-top:10px;
-  width:100px;
-  height:100px;
-}
-
-.largeIconImg{
-  width:200px;
-  height:200px;
-  padding-top:10px;
-
-  
-}
-.flexImgWrapper{
-  background:#0f9e6d;
-  align-self:stretch;
-  display:flex;
-  align-items:center;
-  justify-content: center;
-  flex-direction:column;
-  color:white;
-}
-
-.flexRow{
-  background:white; 
-  border:2px solid #0f9e6d; 
-  display: flex;
-  /* align vertical */
-  align-items: center;
-}
-
-.flexRow2{
-  background:white; 
-  border:6px solid white; 
-  display: flex;
-  align-items: flex-start;
-}
-
-/*Air Travel*/
-.airTitle{
+.contactBlock{
   width:100%;
-  background:#0f9e6d;
-  margin:0 !important;
-  padding:0 !important;
+  text-align:center;
+  color:black;
 }
 
-.airTitleText{
-  padding:2px;
-  font-size:1.4em;
-  color:white;
+.contactIcon{
+  color:black;
+  font-size:1.8em;
 }
 
-.airP{
-  padding:5px;
+
+.contactDetail{
+  display: inline-block; 
+  text-align: left;
+  font-size:17px;
 }
 
-.airLink{
-  padding-left:5px;
+.contactDetail2{
+  font-size:17px;
 }
+/*End of Contact Info*/
 
-.airBorder{
-  height: auto;
-  border-right: 2px solid #0f9e6d; 
-  border-bottom: 2px solid #0f9e6d;
-  align-self:stretch;
-  display:flex;
-  flex-direction:column;
-}
-/*End of Air Travel*/
+.noPadding{
+padding:0 !important
 
-.completeFlexRow{
-  display: flex;
-}
-
-@media (max-width:576px){
- .flexRow, .accomodationsRow, .flexRow2, .completeFlexRow{
-   display: block !important;
-  }
-  
-  .airBorder{
-   border-left: 2px solid #0f9e6d; 
-   }
-   
-   .row2{
-    margin-bottom:10px;;
-   }
-   
-   .airTitleText{
-     text-align:center;
-   }
-
-  .embassyBlock:after{
-    bottom:215px !important;
-    left: 43% !important;
-    border-top:0px !important;
-    border-left: 25px solid transparent !important;
-    border-bottom: 25px solid #0f9e6d !important; 
-    border-right:25px solid transparent !important; 
-  } 
 }
 
 
 
-/*Embassies*/
-.embassyBlock{
-  position: relative;
-  width: 100%;
-  padding: 0px;
-  background: #0f9e6d;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  margin-top:30px;
-  color:white !important;
-}
-
-.embassyBlock:after{
-  content: "";
-  position: absolute;
-  left:-25px;
-  bottom:70px;
-  border-style: solid;
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent; 
-  border-right:25px solid #0f9e6d; 
-  display: block;
-  width: 0;
-  z-index: 1;
-}
-
-
-.embassyContactIcon{
-  color:white;
-  font-size:1.5em;
-}
-
-#australia, #brazil{
-  display:none;
-}
-
-.embassyImg{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width:250px;
-  height:250px
-}
-
-.embassyMarginTop{
-  margin-top:50px;
-}
-
-.embassyName{
-  color:white; 
-  border-bottom:1px solid white; 
-  width:100%; 
-  padding:10px;
-}
-
-/*End of Embassies*/
-.noTextBlueWhite, .noTextBlueWhite:hover{
-  color:white;
-}
-
-.brandButton{
-  background:white; 
-  border-radius:6px; 
-  border: 4px solid #0f9e6d;
-  color:white;
-}
-
-.brandButtonImg{
-  width:100%;
-  height:70px;
-  padding:5px;
-}
-
-/*All Other Accomodations*/
-.accomodationsImg{
-  max-width:100%; 
-}
-
-.accomodationsImgWrapper{
-  background:#0f9e6d;
-  align-self:stretch;
-  display:flex;
-  color:white;
-}
-
-.accomodationsRow{
-  background:white; 
-  border:4px solid #0f9e6d; 
-  display: flex;
-  /* align vertical */
-  align-items:flex-start;
-}
-/*End of All Other Accomodations*/
-
-
-
-.pageImg{
-  width:100%; 
-  border:6px solid #0f9e6d;
-}
-
-/*Bus Services*/
-.busEireann, .busEireannBlock{
-  display:none;
-}
-.dublinBusButton{
-  background:rgba(15,158,109, 0.5);
-}
-
-.busDescription{
-  background:#0f9e6d;
-  border-radius:6px;
-}/*End of Bus Service*/
-
-.padding5pxWhite{
-  padding:5px;
-  color:white;
-}
-
-.greenBackground{
-  background:#0f9e6d;
-}
-
-.smallContactFont{
-  font-size:1em;
-}
-
-.marginLeft20px{
-  margin-left:20px;
-}
 
 /*Remove blue text for <a> tag*/
 .noTextBlue{
@@ -809,6 +990,384 @@ hr{
 }
 /*End of Tags Div - Tags*/
 
+
+/*
+.cityBlock{
+  position: relative;
+ 
+}
+
+.cityImg{
+  width:100%;
+  height:250px;
+  display: block;
+}
+
+.cityImg:hover{
+  filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+
+}
+
+.cityBlock:hover .overlay {
+  height: 20%;
+}
+
+.cityName {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}*/
+
+
+
+
+
+
+
+
+
+
+/*About Ireland*/
+.cityBlock {
+  position: relative;
+    
+}
+
+.cityImg {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  height:250px;
+}
+
+.middle {
+  transition: .3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.middle a{
+  text-decoration:none;
+  color:white;
+}
+
+.cityBlock:hover .cityImg {
+   filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+}
+
+.cityBlock:hover .middle {
+  opacity: 1;
+}
+
+.cityName {
+  background-color: #0f9e6d;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  font-weight:bold;
+}
+
+.maps{
+  border:2px solid black;
+  width:100%; 
+  height:400px;
+}
+
+/*End of About Ireland*/
+
+/*Table*/
+.table-inverse{
+  background-color: #0f9e6d;
+  color:white;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: white;
+   color:black;
+}
+/*End of Table*/
+
+/*Masonry*/
+.main-container {
+  padding: 40px 15px;
+}
+
+.thumbnail{
+ border: 4px solid  #0f9e6d;
+ color:black;
+border-radius: 4px;
+}
+/*End of Masonry*/
+/*FAQ*/
+.visaButton{
+  border-radius:6px; 
+  border: 4px solid #0f9e6d;
+  background: #0f9e6d;
+  color:white;
+}
+/*End of FAQ*/
+
+.smallIconImg{
+  padding-top:10px;
+  width:100px;
+  height:100px;
+}
+
+.largeIconImg{
+  width:200px;
+  height:200px;
+  padding-top:10px;
+
+  
+}
+.flexImgWrapper{
+  background:#0f9e6d;
+  align-self:stretch;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction:column;
+  color:white;
+}
+
+.flexRow{
+  background:white; 
+  border:2px solid #0f9e6d; 
+  display: flex;
+  /* align vertical */
+  align-items: center;
+}
+
+.flexRow2{
+  background:white; 
+  border:6px solid white; 
+  display: flex;
+  align-items: flex-start;
+}
+
+/*Air Travel*/
+.airTitle{
+  width:100%;
+  background:#0f9e6d;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.airTitleText{
+  padding:2px;
+  font-size:1.4em;
+  color:white;
+}
+
+.airP{
+  padding:5px;
+}
+
+.airLink{
+  padding-left:5px;
+}
+
+.airBorder{
+  height: auto;
+  border-right: 2px solid #0f9e6d; 
+  border-bottom: 2px solid #0f9e6d;
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+}
+/*End of Air Travel*/
+
+.completeFlexRow{
+  display: flex;
+}
+
+@media (max-width:576px){
+ .flexRow, .accomodationsRow, .flexRow2, .completeFlexRow{
+   display: block !important;
+  }
+  
+  .airBorder{
+   border-left: 2px solid #0f9e6d; 
+   }
+   
+   .row2{
+    margin-bottom:10px;;
+   }
+   
+   .airTitleText{
+     text-align:center;
+   }
+
+  .embassyBlock:after{
+    bottom:215px !important;
+    left: 43% !important;
+    border-top:0px !important;
+    border-left: 25px solid transparent !important;
+    border-bottom: 25px solid #0f9e6d !important; 
+    border-right:25px solid transparent !important; 
+  } 
+}
+
+
+
+/*Embassies*/
+.embassyBlock{
+  position: relative;
+  width: 100%;
+  padding: 0px;
+  background: #0f9e6d;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  margin-top:30px;
+  color:white !important;
+}
+
+.embassyBlock:after{
+  content: "";
+  position: absolute;
+  left:-25px;
+  bottom:70px;
+  border-style: solid;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent; 
+  border-right:25px solid #0f9e6d; 
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+
+
+.embassyContactIcon{
+  color:white;
+  font-size:1.5em;
+}
+
+#australia, #brazil{
+  display:none;
+}
+
+.embassyImg{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width:250px;
+  height:250px
+}
+
+.embassyMarginTop{
+  margin-top:50px;
+}
+
+.embassyName{
+  color:white; 
+  border-bottom:1px solid white; 
+  width:100%; 
+  padding:10px;
+}
+/*End of Embassies*/
+.noTextBlueWhite, .noTextBlueWhite:hover{
+  color:white;
+}
+
+.brandButton{
+  background:white; 
+  border-radius:6px; 
+  border: 4px solid #0f9e6d;
+  color:white;
+}
+
+.brandButtonImg{
+  width:100%;
+  height:70px;
+  padding:5px;
+}
+
+/*All Other Accomodations*/
+.accomodationsImg{
+  max-width:100%; 
+}
+
+.accomodationsImgWrapper{
+  background:#0f9e6d;
+  align-self:stretch;
+  display:flex;
+  color:white;
+}
+
+.accomodationsRow{
+  background:white; 
+  border:4px solid #0f9e6d; 
+  display: flex;
+  /* align vertical */
+  align-items:flex-start;
+}
+/*End of All Other Accomodations*/
+
+
+
+.pageImg{
+width:100%; 
+border:6px solid #0f9e6d;
+}
+
+
+/*Bus Services*/
+.busEireann, .busEireannBlock{
+  display:none;
+}
+.dublinBusButton{
+  background:rgba(15,158,109, 0.5);
+}
+
+.busDescription{
+  background:#0f9e6d;
+  border-radius:6px;
+}/*End of Bus Service*/
+
+.padding5pxWhite{
+  padding:10px 5px;
+  color:white;
+}
+
+.greenBackground{
+  background:#0f9e6d;
+    margin:4px;
+    
+}
+
+.smallContactFont{
+  font-size:1em;
+}
+
+.marginLeft20px{
+  margin-left:20px;
+}
+
+
+
+
+
+
+
+
 /*Popover*/
 .popover{
   background: #0f9e6d;
@@ -856,26 +1415,97 @@ hr{
   text-decoration:none;
 }
 
+
+/*About Us*/
+.aboutUSbtn{
+  background:none; 
+  padding:10px; 
+  border:4px solid #0f9e6d; 
+  border-radius:6px; 
+  color:#0f9e6d; 
+  width:100%
+}
+
+.aboutUs .active{
+  background:#0f9e6d !important;
+  color: white !important; 
+}
+/*End of About Us*/
+
+/*Join The Team*/
+div.jobTab {
+  float: left;
+  background-color: white;
+  width: 30%;
+  height: 100%;
+}
+
+div.jobTab button {
+  display: block;
+  background-color: inherit;
+  color: #0f9e6d;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+div.jobTab button:hover {
+  background-color: #0f9e6d;
+  color:white;
+}
+
+div.jobTab button.active {
+  background-color: #0f9e6d;
+  color:white;
+}
+
+.jobTabContent {
+  float: left; 
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: 1px solid #ccc;
+  height: auto;
+}
+
+.applyBtn{
+  background:#0f9e6d; 
+  padding:10px; 
+  border-radius:6px; 
+  color:white; 
+  margin-bottom:10px;
+  box-shadow:none;
+  border:none;
+  width:100%;
+}
+/*End of Join The Team*/
+
 /* Added to resolve conflicts with old css*/
-.col-lg-10.col-md-10.col-sm-12.col-xs-12 {
-	margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12 {
+   // margin-left: auto;
+    //margin-right: auto;
+    //width: 100%;
+    //padding-left: 0;
+    //padding-right: 0;
 
     li {
-    list-style-type: square;
+    //list-style-type: square;
     }
 
-    .row {
+   /*.row {
     	margin-left: 0;
     	margin-right: 0;
-    }
+    }*/
 
     .container{
-    	padding-left: 0;
-    	padding-right: 0;
+    	//padding-left: 0;
+    	//padding-right: 0;
     }
 }
 
@@ -893,4 +1523,8 @@ hr{
 
 .item img{
   margin: auto;
+}
+
+.item{
+    margin-bottom: 10px;
 }
