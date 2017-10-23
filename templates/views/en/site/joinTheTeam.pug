@@ -2,7 +2,7 @@ extends ../../../layouts/default
 
 block content
     .wrapper
-      .col-lg-10.col-md-10.col-sm-12.col-xs-12
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
         .container
           h1.pageHeading Join The Team
           |       
@@ -63,7 +63,7 @@ block content
                   br
                   |                      
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Coordinate online publishing cycle and manage content areas
                   |                          
                   li(type='square') Set publication standards and establish goals and expectations
@@ -89,7 +89,7 @@ block content
                 |                     
                 b Requirements:
                 |                     
-                ul
+                ul.ulMargin
                   li(type='square') Some working experience as an editor
                   |                          
                   li(type='square') Strong writing/editing/proofreading skills and an excellent portfolio
@@ -124,7 +124,7 @@ block content
                   br
                   |                    
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Manage staff responsible for event coordination activities
                   |                       
                   li(type='square') Coordinate details of events
@@ -193,7 +193,7 @@ block content
                   br
                   |                
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square')
                     | Write well designed, testable, efficient code by using best software development practices
                   |                   
@@ -253,7 +253,7 @@ block content
                   br
                   |           
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Planning, researching and writing their own scripts before broadcast
                   |              
                   li(type='square')
@@ -311,7 +311,7 @@ block content
                   br
                   |           
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Participate in the entire project management process
                   |              
                   li(type='square') Provide supports to the other departments and functions
@@ -364,7 +364,7 @@ block content
                   br
                   |          
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Execute all visual design stages from concept to completion
                   |             
                   li(type='square') Conceptualize original ideas that bring simplicity and user friendliness
@@ -419,7 +419,7 @@ block content
                   br
                   |         
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Plan and manage marketing activities;
                   |            
                   li(type='square') Demonstrate marketing technical skills;
@@ -467,7 +467,7 @@ block content
                   br
                   |           
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Collect, verify and analyse newsworthy information
                   |              
                   li(type='square') Assemble findings into a stable story
@@ -515,7 +515,7 @@ block content
                   br
                   |           
                   b Responsibilities:
-                ul
+                ul.ulMargin
                   li(type='square') Prioritising important office tasks, and making sure they get done first.
                   |              
                   li(type='square') Recommending changes in office practices and procedures to improve processes.
@@ -556,13 +556,7 @@ block content
           // row
         // container
       // col-lg-10
-      .container
-        .row
-          .col-lg-2.col-md-2.col-sm-12.col-xs-12(style='background-color:blue')
-            | AD
-          // col-lg-2
-        // row
-      // container
+      
     // wrapper
     script.
       function openJob(evt, jobTitle) {
