@@ -8,7 +8,7 @@ mixin article(article)
 					a(href='/'+ locals.section +'/article/' + article.slug).article-image: img(src=article._.image.thumbnail(600,320), alt=article.title).img-responsive
 			.post-summary
 				.post-byline
-					if article.author.name.full.length
+					if article.author.name && article.author.name.full.length
 						.post-author: a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
 						.date-stamp: em=moment(article.publishedDate).fromNow()
 

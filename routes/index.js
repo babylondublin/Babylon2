@@ -118,7 +118,7 @@ exports = module.exports = function (app) {
 	app.all('/living/:tag/:article', routes.controller.livingOne);
 
 	app.get('/plan_your_trip/:tag?', routes.controller.plan_your_trip);
- 	app.all('/plan_your_trip/article/:article', routes.controller.plan_your_tripOne);
+ 	app.all('/plan_your_trip/:tag/:article', routes.controller.plan_your_tripOne);
   
 	app.all('/payment', routes.controller.payment);
 
