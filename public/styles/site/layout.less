@@ -319,6 +319,64 @@ li{
 		.btn-close{display: none;}
  	}
 }
+//Accordion
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+    margin-bottom: 0px !important;
+}
+#p1{
+  background-color:#fed6e2;
+}
+#p2{
+  background-color:#aaaaaa;
+}
+#p3{
+  background-color:#aaaaaa;
+}
+#p4{
+    background-color:#aaaaaa;
+  }
+
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+}
+
 // Page
 // ------------------------------
 

@@ -17,10 +17,76 @@ div
                             option(value=country.name) 
                 input(type='submit', value='Search')
         a.menu-item(href="/news") News
-        a.menu-item(href="/places_to_go") Places to Go
-        a.menu-item(href="/things_to_do") Things to Do
-        a.menu-item(href="/plan_your_trip") Plan your trip
+        button.accordion Places to Go
+        #p1.panel
+            ul
+                h4 Tag 1
+                    //-render articles for tag 1
+                li 
+                    a link to article 1
+                li
+                    a link 2
+                li
+                    a link 3
+                li
+                    a link 4
+        button.accordion Things to Do
+        #p2.panel 
+            ul
+                h4 Tag 1
+                li 
+                    a link 1
+                li
+                    a link 2
+                li
+                    a link 3
+                li
+                    a link 4
+
+                h4 Tag 2
+                li 
+                    a link 1
+                li
+                    a link 2
+                li
+                    a link 3
+                li
+                    a link 4
+ 
+        button.accordion Plan your trip
+        #p3.panel 
+            ul
+                h4 Tag 1
+                li 
+                    a link 1
+                li
+                    a link 2
+                li
+                    a link 3
+                li
+                    a link 4
+        button.accordion Living
+        #p4.panel
+            ul
+                h4 Tag 1
+                li 
+                    a link 1
+                li
+                    a link 2
+                li
+                    a link 3
+                li
+                    a link 4
         a.menu-item(href="/classifieds") Classifieds
-        a.menu-item(href="/living") Living
         a.menu-item(href="/events") Events
         a.menu-item(href="/about") About
+script.
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
+    }
