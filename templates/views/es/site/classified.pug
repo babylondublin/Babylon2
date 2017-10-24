@@ -2,19 +2,19 @@ extends ../../../layouts/default
 
 block content
 	.container-sm
-		a(href='/classifieds').text-muted &larr; Back to Classifieds
+		a(href='/classifieds').text-muted &larr; Atrás
 		article.full-post
 			if !classified
-				h2 Invalid Classified.
+				h2 Clasificado inválido.
 			else
 				header
 					if classified.state != 'published' && user.isAdmin
-						.mt-1: .alert.alert-danger This Classified has not been published yet. 
-							a(href='/keystone/classifieds/' + classified.id).alert-link Open Keystone
-							|  to publish it.
+						.mt-1: .alert.alert-danger Este clasificado aún no ha sido publicado. 
+							a(href='/keystone/classifieds/' + classified.id).alert-link Abre Keysrone
+							|  para publicarlo.
 					
 					h1.blog-post__title= classified.title
-					p.blog-post__byline Posted
+					p.blog-post__byline Posteado
 						if classified.author
 							|  by #{classified.author.name.full}
 						if classified.publishedDate

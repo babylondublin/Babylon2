@@ -55,14 +55,6 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 					else
 						li: a(href='/signin', data-from=page.path, data-initial='signin').js-auth-trigger Sign in
 						li: a(href='/join', data-from=page.path).js-auth-trigger Join
-					//-li: a(href="/news") News
-					//-li: a(href="/places_to_go") Places to Go
-					//-li: a(href="/things_to_do") Things to Do
-					//-li: a(href="/plan_your_trip") Plan your trip
-					//-li: a(href="/classifieds") Classifieds
-					//-li: a(href="/living") Living
-					//-li: a(href="/events") Events
-					//-li: a(href="/about") About Us
 		.megamenu
 			.ddown
 				button.dropbtn Living
@@ -70,7 +62,8 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 				.dropdown-content
 					.row
 						.column
-							h3 Tag.name
+							h3 Tag.name 
+								//-each tag in data.tags
 							a(href="") Link article
 							a(href="") Link 2
 							a(href="") Link 3

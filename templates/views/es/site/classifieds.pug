@@ -4,12 +4,12 @@ include ../../../mixins/classified
 
 block intro
 	.page-intro: .container
-		h1.page-title Classifieds
+		h1.page-title Clasificados
 		hr
 		if user
-			a(href='/me/create/classified') create classified
+			a(href='/me/create/classified') crear clasificado
 		if !user
-			a(href='/join') Register to create classifieds
+			a(href='/join') Regístrate para crear clasificado
 		hr
 
 block content
@@ -21,4 +21,4 @@ block content
 						each classified in data.classifieds
 							+classified(classified)
 				else
-					h3.text-muted There are no classifieds yet.
+					h3.text-muted No hay clasificados aún.

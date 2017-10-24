@@ -2,19 +2,19 @@ extends ../../../layouts/default
 
 block content
 	.container-sm
-		a(href='/news').text-muted &larr; Back to the news
+		a(href='/news').text-muted &larr; Atrás
 		article.full-post
 			if !post
-				h2 Invalid Post.
+				h2 Publicación inválida.
 			else
 				header
 					if post.state != 'published' && user.isAdmin
-						.mt-1: .alert.alert-danger This Post has not been published yet. 
-							a(href='/keystone/posts/' + post.id).alert-link Open Keystone
+						.mt-1: .alert.alert-danger Este post no ha sido publicado aún. 
+							a(href='/keystone/posts/' + post.id).alert-link Abre Keystone
 							|  to publish it.
 					
 					h1.blog-post__title= post.title
-					p.blog-post__byline Posted
+					p.blog-post__byline Publicado
 						if post.author
 							|  by #{post.author.name.full}
 						if post.publishedDate
@@ -63,7 +63,7 @@ block content
 								.media-body
 									textarea(placeholder='Add your comment...', name='content').form-control
 									.mv-1
-										button(type='submit').btn.btn-success Submit
+										button(type='submit').btn.btn-success Publicar
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")

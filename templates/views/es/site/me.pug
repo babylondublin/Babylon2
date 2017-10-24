@@ -7,8 +7,8 @@ block flash-messages
 block content
 	.container-sm
 		.page-intro
-			p.lead Hi #{user.name.first}, these are your settings and 
-				a(href=user.url) profile details
+			p.lead Hola #{user.name.first}, esta es tu configuración y 
+				a(href=user.url) detalles de perfil
 			//- if nextMeetup
 				.alert.alert-info 
 					span.entypo.entypo-calendar
@@ -20,7 +20,7 @@ block content
 				input(type='hidden', name='action', value='profile.details')
 				h3 Private Info
 				.form-group
-					label.col-sm-2.control-label Name
+					label.col-sm-2.control-label Nombre
 					.col-sm-10: .form-row
 						.col-xs-6: input(type='text', name='name.first' value=user.name.first).form-control
 						.col-xs-6: input(type='text', name='name.last' value=user.name.last).form-control
@@ -28,14 +28,14 @@ block content
 					label.col-sm-2.control-label Email
 					.col-sm-10: input(type='email', name='email' value=user.email).form-control
 				.form-group
-					strong.col-sm-2.control-label Notify me
+					strong.col-sm-2.control-label Notifícame
 					.col-sm-10
 						.checkbox: label
 							input(type='checkbox', name='notifications.posts' value='true' checked=user.notifications.posts)
-							|  When there is a new post
+							|  Cuando haya una nueva publicación
 				hr.mv-2
-				h3 Your Services
-				p.help-block.mb-2 You can authenticate yourself on the Babylon website with any of the services you connect. When connected, link to your Twitter will be displayed on your profile.
+				h3 Tus servicios
+				p.help-block.mb-2 Puedes autentificarte en la web de Babylon con cualquiera de los servicios que tu conectes. Cuando te conectes, el link de Twitter aparecerá en tu perfil.
 				
 				
 				//- Unconfigured Services
@@ -46,14 +46,14 @@ block content
 						.col-sm-10
 							a(href='/auth/twitter', title='Connect your Twitter account').btn.btn-twitter
 								span.entypo-social.entypo-twitter
-								|  Connect your Twitter account
+								|  Conectar a la cuenta de Twitter
 				if !user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
 						.col-sm-10
 							a(href='/auth/facebook', title='Connect your Google account').btn.btn-facebook
 								span.entypo-social.entypo-facebook
-								|  Connect your Facebook account
+								|  Connectar a la cuenta de Facebook
 				
 				
 				//- Configured Services
@@ -66,39 +66,39 @@ block content
 						label.col-sm-2.control-label Twitter
 						.col-sm-10.text-muted.faux-label
 							span.entypo-social.entypo-twitter
-							|  Your account is connected. 
-							a(href='?disconnect=twitter', title='Revoke authorization of your Twitter account') Disconnect
+							|  Tu cuenta está conectada. 
+							a(href='?disconnect=twitter', title='Revoke authorization of your Twitter account') Desconectar
 				if user.services.facebook.isConfigured
 					.form-group
 						label.col-sm-2.control-label Facebook
 						.col-sm-10.text-muted.faux-label
 							span.entypo-social.entypo-facebook
-							|  Your account is connected. 
-							a(href='?disconnect=facebook', title='Revoke authorization of your Facebook account') Disconnect
+							|  Tu cuenta está conectada. 
+							a(href='?disconnect=facebook', title='Revoke authorization of your Facebook account') Desconectar
 				
 
 				//- Public Info
 				
 				hr.mv-2
-				h3 Public Info
+				h3 Información Pública
 				.form-group
-					label.col-sm-2 Public
+					label.col-sm-2 Público
 					.col-sm-10
 						label.checkbox-inline
 							input(type='checkbox', name='isPublic', value='true', checked=user.isPublic ? 'true' : null)
-							|  Show my profile on the Babylon website
+							|  Mostrar mi perfil en la web de Babylon
 				.form-group
-					label.col-sm-2.control-label Website
+					label.col-sm-2.control-label Sitio Web
 					.col-sm-10: input(type='text', name='website' value=user.website).form-control
 				.form-group
-					label.col-sm-2.control-label Bio
+					label.col-sm-2.control-label Biografia
 						br
 						.text-muted (markdown)
 					.col-sm-10
 						textarea(name='bio', rows=5).form-control=user.bio.md
 				
 				.form-group
-					label.col-sm-2.control-label Photo
+					label.col-sm-2.control-label Foto
 					.col-sm-10
 						if user.photo.exists
 							.row
@@ -109,19 +109,19 @@ block content
 		
 		.ui-reveal
 			.ui-reveal__initial
-				button(type='button').btn.btn-link.ui-reveal__trigger Change Password
+				button(type='button').btn.btn-link.ui-reveal__trigger Cambiar Contraseña
 			.ui-reveal__hidden
 				form(method='post', autocomplete='off')
 					input(type='hidden', name='action', value='profile.password')
-					h3 Change password
+					h3 Cambia contraseña
 					.form-group
-						label(for='change-passwordNew').sr-only New Password
+						label(for='change-passwordNew').sr-only Nueva contraseña
 						input(type='password', name='password', placeholder='New Password', id='change-passwordNew').form-control
 					.form-group
-						label(for='change-passwordConfirm').sr-only Confirm Password
+						label(for='change-passwordConfirm').sr-only Confirmar Contraseña
 						input(type='password', name='password_confirm', placeholder='Confirm Password', id='signin-passwordConfirm').form-control
 					.form-group
-						button(type='submit', data-loading-text="Changing...").btn.btn-primary Change
+						button(type='submit', data-loading-text="Changing...").btn.btn-primary Cambiar
 							
 block js
 	script(src='/js/views/me.js')
