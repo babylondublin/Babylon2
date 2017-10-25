@@ -14,7 +14,8 @@ var Article = new keystone.List('Article', {
 });
 
 Article.add({
-	lang: {type: Types.Select, options: 'en, fr, pr, pl, sp, it', default: "en"},
+	//-lang: {type: Types.Select, options: 'en, fr, pr, pl, sp, it', default: "en"},
+	language: {type: Types.Relationship, ref: 'Language', index:true},
 	title: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	country: {type: Types.Relationship, ref: 'Country', index:true},
@@ -24,7 +25,7 @@ Article.add({
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
-	}
+	},
 });
 
 /**
@@ -72,7 +73,7 @@ Article.schema.methods.notifyAdmins = function(callback) {
  */
 
 Article.defaultSort = '-publishedDate';
-Article.defaultColumns = 'title, state|20%, country, tag, author|20%, publishedDate|20%';
+Article.defaultColumns = 'title, state|20%, language|20%, country, tag, author|20%, publishedDate|20%';
 Article.register();
 
 

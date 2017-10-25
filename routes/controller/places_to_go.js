@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 		return next();
 		};
 
-		keystone.list('PlacesToGoArticleTag').model.find().sort('name').exec(function(err, results) {
+		keystone.list('PlacesToGoArticleTag').model.find({'language': req.cookies.lang}).sort('name').exec(function(err, results) {
 			
 			if (err || !results.length) {
 				return next(err);
@@ -63,7 +63,7 @@ exports = module.exports = function(req, res) {
 		};
 
 		if (req.params.tag) {
-			keystone.list('PlacesToGoArticleTag').model.findOne({ key: locals.filters.tag }).exec(function(err, result) {
+			keystone.list('PlacesToGoArticleTag').model.findOne({$and:[{'language': req.cookies.lang}, { key: locals.filters.tag }]}).exec(function(err, result) {
 				locals.data.tag = result;
 				next(err);
 			});
@@ -80,8 +80,9 @@ exports = module.exports = function(req, res) {
 		if(!cookie || (cookie == '')){
 		return next();
 		};
-	
-		var q = keystone.list('PlacesToGoArticle').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tags');
+		var lang = req.cookies.lang;
+
+		var q = keystone.list('PlacesToGoArticle').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'language': lang}]}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);

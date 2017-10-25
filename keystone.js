@@ -113,7 +113,7 @@ keystone.set('nav', {
 	'events': 'events',
 	'classifieds':['classifieds', 'classified-tags','classified-comments'],
 	'enquiries': 'enquiries',
-
+	'languages': 'languages',
 });
 
 keystone.start();
