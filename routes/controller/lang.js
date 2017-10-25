@@ -16,5 +16,20 @@ exports = module.exports = function(req, res) {
 		keystone.lang = lang;
 		res.cookie('lang', keystone.lang);
 	}
-	res.redirect("/");
+
+	var q = keystone.list("Language").model.find({'key': lang});
+
+			q.exec(function(err, result){
+				if(result == '' || result == null || err){
+				next(err);
+				}
+				else{
+
+				var result = JSON.stringify(result[0]);
+				language = JSON.parse(result);
+
+				res.cookie('lang', language._id).redirect('/');
+			}
+		});
+	//res.redirect("/");
 }

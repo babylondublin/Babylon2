@@ -66,8 +66,8 @@ exports.initErrorHandlers = function(req, res, next) {
 		}
 		// let it
 		// uncomment to set the default value 'en'
-		//keystone.lang = "en";
-		res.cookie('lang', keystone.lang);
+		keystone.lang = "en";
+		res.cookie('lang', "59e8822877df3618184b7a91"); //default : english id
 	}
 	res.err = function(err, title, message) {
 		res.status(500).render(keystone.lang + '/errors/500', {
@@ -179,6 +179,62 @@ exports.initCountries = function(req, res, next){
 		});
 }
 
+exports.loadTags = function(req, res, next){
+		res.locals.livingTags = [];
+		res.locals.thingsToDoTags = [];
+		res.locals.placesToGoTags = [];
+		res.locals.planYourTripTags = [];
+		
+
+		var lang = req.cookies.lang;
+		if(!lang || lang == ''){
+			lang = '59e8822877df3618184b7a91';  //by default : english
+		}
+		
+		keystone.list('ArticleTag').model.find({'language': lang}).exec(function(err, tags) {
+			if (err || !tags.length) {
+				return next(err);
+			}
+			tags.forEach(function(element) {
+			    if(element.__t === 'LivingArticleTag')
+			    	res.locals.livingTags.push(element);
+			    else if(element.__t === 'ThingsToDoArticleTag')
+			    	res.locals.thingsToDoTags.push(element);
+			    else if(element.__t === 'PlacesToGoArticleTag'){
+			    	res.locals.placesToGoTags.push(element);
+			    }else if(element.__t === 'PlanYourTripArticleTag'){
+			    	res.locals.planYourTripTags.push(element);
+			    }
+			});
+
+			next();
+		});
+	
+}
+
+exports.allArticles = function(req, res, next){
+		var cookie = req.cookies.country;
+		//if no Cookie
+		if(!cookie || (cookie == '')){
+			return next();
+		};
+		res.locals.allArticles = [];
+
+		var lang = req.cookies.lang;
+		if(!lang || lang == ''){
+			lang = '59e8822877df3618184b7a91'; //by default : english
+		}
+		
+		keystone.list('Article').model.find({$and:[{'language': lang}, {'country': cookie}]}).exec(function(err, articles) {
+			if (err || !articles.length) {
+				return next(err);
+			}
+			res.locals.allArticles = articles;
+			next();
+		});
+	
+}
+
 exports.initLanguage = function(req, res, next){
 	var query = req.body.query;
 	
@@ -196,8 +252,6 @@ exports.initLanguage = function(req, res, next){
 
 				// if more than 1 result : we take the first one by default
 				var result = JSON.stringify(result[0]);
-			/*	result = result.substring(1,result.length);
-				result = result.substring(0,result.length-1); */
 				country = JSON.parse(result);
 
 				//Temporary alert

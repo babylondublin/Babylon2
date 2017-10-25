@@ -72,6 +72,9 @@ exports = module.exports = function (app) {
 	// load the countries for the search bar
 	app.use('*', middleware.initCountries);
 
+	app.use('*', middleware.loadTags);
+	app.use('*', middleware.allArticles);
+
 	// GraphQL
 	app.use('/api/graphql', graphqlhttps({ schema: graphQLSchema, graphiql: true }));
 	app.use('/api/relay', graphqlhttps({ schema: relaySchema, graphiql: true }));

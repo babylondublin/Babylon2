@@ -12,7 +12,8 @@ var ArticleTag = new keystone.List('ArticleTag', {
 });
 
 ArticleTag.add({
-	name: { type: String, required: true}
+	name: { type: String, required: true},
+	language: {type: Types.Relationship, ref: 'Language', index:true}
 });
 
 
@@ -28,7 +29,8 @@ ArticleTag.add({
  * Registration
  * ============
  */
-ArticleTag.defaultColumns = 'name, articles';
+ArticleTag.defaultSort = 'language';
+ArticleTag.defaultColumns = 'name, articles, language';
 ArticleTag.register();
 
 //Inheritence from ArticleTag:
