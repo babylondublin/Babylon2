@@ -1,0 +1,38 @@
+mixin recentpost(newsPosts)
+	article(itemscope='', itemtype='http://schema.org/Article')
+		a.image-link(href='/news/post/' + newsPosts[0].slug, title=newsPosts[0].title, itemprop='url')
+			img.image.wp-post-image.no-display.appear(width='351', height='185', src=newsPosts[0].image.url, alt='', title=newsPosts[0].title)
+		.meta
+			time(datetime=em=moment(newsPosts[0].publishedDate).fromNow()) 
+				em=moment(newsPosts[0].publishedDate).fromNow()
+			h2(itemprop='name')
+				a(href='/news/post/' + newsPosts[0].slug, title=newsPosts[0].title)
+					=newsPosts[0].title
+			.excerpt
+				p
+					!= newsPosts[0].content.full
+	ul.block.posts-list.thumb
+		li
+			a(href='/news/post/' + newsPosts[1].slug)
+				img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image.no-display.appear(width='110', height='96', src=newsPosts[1].image.url, alt='', title=newsPosts[1].title)
+			.content
+				time(datetime=em=moment(newsPosts[1].publishedDate).fromNow()) 
+					em=moment(newsPosts[1].publishedDate).fromNow() 
+				a(href='/news/post/' + newsPosts[1].slug, title=newsPosts[1].title)
+					=newsPosts[1].title
+		li
+			a(href='/news/post/' + newsPosts[2].slug)
+				img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image.no-display.appear(width='110', height='96', src=newsPosts[2].image.url, alt='', title=newsPosts[2].title)
+			.content
+				time(datetime=em=moment(newsPosts[2].publishedDate).fromNow()) 
+					em=moment(newsPosts[2].publishedDate).fromNow() 
+				a(href='/news/post/' + newsPosts[2].slug, title=newsPosts[2].title)
+					=newsPosts[2].title
+		li
+			a(href='/news/post/' + newsPosts[3].slug)
+				img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image.no-display.appear(width='110', height='96', src=newsPosts[3].image.url, alt='', title=newsPosts[3].title)
+			.content
+				time(datetime=em=moment(newsPosts[3].publishedDate).fromNow()) 
+					em=moment(newsPosts[3].publishedDate).fromNow() 
+				a(href='/news/post/' + newsPosts[3].slug, title=newsPosts[3].title)
+					=newsPosts[3].title
