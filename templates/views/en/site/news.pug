@@ -20,7 +20,8 @@ block content
 				else
 					if data.posts && data.posts.length
 						if data.searchWord
-							h5.text-muted The 10 latest results for your search "
+							h5.text-muted The 
+								!= data.posts.length + " latest results for your search "
 								!=data.searchWord + '" :' 
 
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")

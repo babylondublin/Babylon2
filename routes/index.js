@@ -131,6 +131,9 @@ exports = module.exports = function (app) {
 	app.get('/events',routes.controller.events);
 	app.get('/events/event/:event',routes.controller.event);
 	
+	//Radio player
+	app.get('/radioplayer',routes.controller.radioplayer);
+
 	// Session
 	app.all('/join', routes.controller.session.join);
 	app.all('/signin', routes.controller.session.signin);
