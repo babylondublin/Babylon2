@@ -3,9 +3,14 @@ div
     span.open-slide
         a#btn-open(href='#')
             svg(width='30', height='30')
-                path(d='M0,5 30,5', stroke='#333', stroke-width='5')
-                path(d='M0,14 30,14', stroke='#333', stroke-width='5')
-                path(d='M0,23 30,23', stroke='#333', stroke-width='5')
+                if locals.section == 'home'
+                    path(d='M0,5 30,5', stroke='#E5E5E5', stroke-width='5')
+                    path(d='M0,14 30,14', stroke='#E5E5E5', stroke-width='5')
+                    path(d='M0,23 30,23', stroke='#E5E5E5', stroke-width='5')
+                else
+                    path(d='M0,5 30,5', stroke='#333', stroke-width='5')
+                    path(d='M0,14 30,14', stroke='#333', stroke-width='5')
+                    path(d='M0,23 30,23', stroke='#333', stroke-width='5')
     #toggle.toggle
         a#btn-close.btn-close(href='#') ×
         ul

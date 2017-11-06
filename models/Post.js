@@ -1,7 +1,7 @@
 var async = require('async');
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
-
+var Email = require('keystone-email');
 /**
  * Posts Model
  * ===========
@@ -59,6 +59,7 @@ Post.schema.methods.notifyAdmins = function(callback) {
 	var post = this;
 	// Method to send the notification email after data has been loaded
 	var sendEmail = function(err, results) {
+		console.log('notificaaaaaation');
 		if (err) return callback(err);
 		async.each(results.admins, function(admin, done) {
 			new keystone.Email('admin-notification-new-post').send({
