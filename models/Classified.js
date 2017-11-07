@@ -1,6 +1,7 @@
 var async = require('async');
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var Email = require('keystone-email');
 
 /**
  * Classifieds Model

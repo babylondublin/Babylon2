@@ -3,9 +3,14 @@ div
     span.open-slide
         a#btn-open(href='#')
             svg(width='30', height='30')
-                path(d='M0,5 30,5', stroke='#333', stroke-width='5')
-                path(d='M0,14 30,14', stroke='#333', stroke-width='5')
-                path(d='M0,23 30,23', stroke='#333', stroke-width='5')
+                if locals.section == 'home'
+                    path(d='M0,5 30,5', stroke='#E5E5E5', stroke-width='5')
+                    path(d='M0,14 30,14', stroke='#E5E5E5', stroke-width='5')
+                    path(d='M0,23 30,23', stroke='#E5E5E5', stroke-width='5')
+                else
+                    path(d='M0,5 30,5', stroke='#333', stroke-width='5')
+                    path(d='M0,14 30,14', stroke='#333', stroke-width='5')
+                    path(d='M0,23 30,23', stroke='#333', stroke-width='5')
     #toggle.toggle
         a#btn-close.btn-close(href='#') ×
         ul
@@ -20,63 +25,65 @@ div
         button.accordion Places to Go
         #p1.panel
             ul
-                h4 Tag 1
-                    //-render articles for tag 1
-                li 
-                    a link to article 1
-                li
-                    a link 2
-                li
-                    a link 3
-                li
-                    a link 4
+                if placesToGoTags && placesToGoTags.length
+                    each tag in placesToGoTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/places_to_go/' + tag.key + '/' + article.slug)
+                                                = article.title
         button.accordion Things to Do
         #p2.panel 
             ul
-                h4 Tag 1
-                li 
-                    a link 1
-                li
-                    a link 2
-                li
-                    a link 3
-                li
-                    a link 4
-
-                h4 Tag 2
-                li 
-                    a link 1
-                li
-                    a link 2
-                li
-                    a link 3
-                li
-                    a link 4
+                if thingsToDoTags && thingsToDoTags.length
+                    each tag in thingsToDoTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/things_to_do/' + tag.key + '/' + article.slug)
+                                                = article.title
  
         button.accordion Plan your trip
         #p3.panel 
             ul
-                h4 Tag 1
-                li 
-                    a link 1
-                li
-                    a link 2
-                li
-                    a link 3
-                li
-                    a link 4
+                if planYourTripTags && planYourTripTags.length
+                    each tag in planYourTripTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/plan_your_trip/' + tag.key + '/' + article.slug)
+                                                = article.title
         button.accordion Living
         #p4.panel
             ul
-                h4 Tag 1
-                li 
-                    a link 1
-                li
-                    a link 2
-                li
-                    a link 3
-                li
-                    a link 4
+                if livingTags && livingTags.length
+                    each tag in livingTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/living/' + tag.key + '/' + article.slug)
+                                                = article.title
+                                                
         a.menu-item(href="/classifieds") Classifieds
         a.menu-item(href="/events") Events
         a.menu-item(href="/about") About
