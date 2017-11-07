@@ -13,6 +13,9 @@ exports = module.exports = function(req, res) {
 	locals.filters = {
 		article: req.params.article
 	};
+	
+	locals.tag = req.params.tag;
+	
 
 	view.on('init', function(next) {
 
