@@ -290,16 +290,26 @@ li{
   overflow-x:hidden;
   padding-top:100px;
 	.menu-item{
-	margin-top:20px;
-	padding-left: 64px;
-	display:block;
-	color:#333;
-	font-size: 20px;
-	text-decoration: none;
-	cursor: pointer;
+    /* margin-top: 20px; */
+    padding-left: 64px;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    /* transition: .4s; */
+    display: block;
+    color: #333;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
 	}
 	a:hover{
-	color:grey;
+    color:grey;
 	}
 	.btn-close{
 	position:absolute;
@@ -365,7 +375,24 @@ div.panel {
 
 div.panel.show {
     opacity: 1;
-    max-height: 500px;
+    max-height: 3500px;
+    padding: 20px;
+    ul{
+        margin-top: 0;
+        h4{
+            font-size: 1.4em;
+        }
+        li{
+            margin-bottom: 16px;
+            a{
+                color: black;
+                text-decoration: none;
+            }
+            a:hover{
+                color:grey;
+            }
+        }
+    }
 }
 
 // Page
