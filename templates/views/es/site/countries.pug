@@ -1,0 +1,28 @@
+extends ../../../layouts/default
+include ../../../mixins/country
+
+block flash-messages
+	//- !!! intentionally left blank
+block intro
+	.page-intro: .container
+		h1.page-title Países
+		p.lead Explora los países de Babylon. 
+block content
+	.container
+		+flash-messages(messages)
+		if countries.length
+			.members-group
+				ul.list-unstyled.members-list
+					li.grid-sizer
+					each country in countries
+						+country(country)
+		
+		if  !countries.length
+			h3.text-muted No hay paises aún.
+
+block js
+	script(src='/js/lib/bootstrap/transition.js')
+	script(src='/js/lib/bootstrap/tooltip.js')
+	script(src="/js/lib/masonry/masonry.pkgd.min.js")
+	script(src="/js/lib/masonry/imagesloaded.pkgd.min.js")
+	script(src="/js/views/members.js")

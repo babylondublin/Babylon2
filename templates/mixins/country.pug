@@ -1,0 +1,4 @@
+mixin country(country)
+	li.member-item
+		.member.member--card
+			img(src=(country.image.exists ? country.image.secure_url : '/images/earth.png'), alt=country.name).img-country-list
