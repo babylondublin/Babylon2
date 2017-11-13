@@ -59,7 +59,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 		.megamenu
 			.ddown
 				button.dropbtn
-					span#living Living
+					span#living Living &nbsp;
 					i.fa.fa-caret-down
 				.dropdown-content
 					.row
@@ -69,6 +69,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 								.column
 									h3 
 										= tag.name
+									hr.hr-megamenu
 									if allArticles && allArticles.length
 										each article in allArticles
 											-var articleTag = JSON.stringify(article.tags)
@@ -77,7 +78,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 													= article.title
 			.ddown
 				button.dropbtn 
-					span#placesToGo Places to go
+					span#placesToGo Places to go &nbsp;
 					i.fa.fa-caret-down
 				.dropdown-content
 					.row
@@ -87,6 +88,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 								.column
 									h3 
 										= tag.name
+									hr.hr-megamenu
 									if allArticles && allArticles.length
 										each article in allArticles
 											-var articleTag = JSON.stringify(article.tags)
@@ -95,7 +97,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 													= article.title
 			.ddown
 				button.dropbtn 
-					span#thingsToDo Things to Do
+					span#thingsToDo Things to Do &nbsp;
 					i.fa.fa-caret-down
 				.dropdown-content
 					.row
@@ -105,6 +107,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 								.column
 									h3 
 										= tag.name
+									hr.hr-megamenu
 									if allArticles && allArticles.length
 										each article in allArticles
 											-var articleTag = JSON.stringify(article.tags)
@@ -113,7 +116,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 													= article.title
 			.ddown
 				button.dropbtn 
-					span#planYourTrip Plan your trip
+					span#planYourTrip Plan your trip &nbsp;
 					i.fa.fa-caret-down
 				.dropdown-content
 					.row
@@ -123,6 +126,7 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 								.column
 									h3 
 										= tag.name
+									hr.hr-megamenu
 									if allArticles && allArticles.length
 										each article in allArticles
 											-var articleTag = JSON.stringify(article.tags)
