@@ -18,10 +18,11 @@ Event.add({
     date: Date,
     image: { type: Types.CloudinaryImage },
     content :{ type: Types.Html, wysiwyg: true, height: 400 },
-    color: { type: Types.Select, options: 'orange, red, blue, green, yellow', default: 'orange'}
+    color: { type: Types.Select, options: 'orange, red, blue, green, yellow', default: 'orange'},
+    country: {type: Types.Relationship, ref: 'Country', index:true}
 });
 
 
 Event.defaultSort = '-publishedDate';
-Event.defaultColumns = 'title, date, image, content';
+Event.defaultColumns = 'title, date, country, image, content';
 Event.register();
