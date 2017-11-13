@@ -1,0 +1,31 @@
+extends ../../../layouts/default
+
+block content
+	.container-sm
+		if !member.isPublic
+			.lead.text-center
+				.h2.mb-0.text-muted: span.entypo.entypo-user
+				br
+				.text-muted Este miembro tiene un perfil privado.
+		else
+			- var twitterUsername = member.twitterUsername || (member.twitter ? member.twitter.replace('@', ''): '');
+			.page-intro
+				.text-left: a(href='/members').text-muted &larr; Atrás
+				//- hr
+				//- code=JSON.stringify(member)
+			.member.member--profile
+				.member-section.member__info
+					.row
+						.col-sm-3
+								img(src=(member.photo.exists ? member._.photo.thumbnail(600,600) : member.avatarUrl || '/images/avatar.png'), alt=member.name.full).img-responsive.img-rounded
+						.col-sm-9
+							h1.mb-0= member.name.full
+							p.text-muted.mv-1 Miembro desde #{moment(member.createdAt).format('MMMM YYYY')}
+							if twitterUsername
+								.member__accounts.mb-1
+									if twitterUsername
+										a(href='https://twitter.com/' + twitterUsername, target='_blank', data-toggle='tooltip', data-title='@' + twitterUsername, data-placement='top').member__account.member__account--twitter.btn.btn-default
+											span.entypo-social.entypo-twitter
+											=twitterUsername
+							if member.bio.html
+								!= member.bio.html

@@ -1,0 +1,30 @@
+extends ../../../layouts/default
+include ../../../mixins/member
+
+block flash-messages
+	//- !!! intentionally left blank
+block intro
+	.page-intro: .container
+		h1.page-title Miembros
+		p.lead Las personas que hacen posible Babylon. 
+			if !user
+				a(href='/join').js-auth-trigger Add your tile
+block content
+	.container
+		+flash-messages(messages)
+		if community.length
+			.members-group
+				ul.list-unstyled.members-list
+					li.grid-sizer
+					each member in community
+						+member(member)
+		
+		if  !community.length
+			h3.text-muted No hay miembros todavia.
+
+block js
+	script(src='/js/lib/bootstrap/transition.js')
+	script(src='/js/lib/bootstrap/tooltip.js')
+	script(src="/js/lib/masonry/masonry.pkgd.min.js")
+	script(src="/js/lib/masonry/imagesloaded.pkgd.min.js")
+	script(src="/js/views/members.js")
