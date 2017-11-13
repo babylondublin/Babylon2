@@ -157,7 +157,9 @@ li{
 	font-size: @font-size-base * 1.1;
 	position: relative;
 	z-index: 3;
-
+    .row{
+        margin-bottom: 20px;
+    }
 	.footer-heading {
 		color: whitesmoke;
 	}
@@ -173,8 +175,9 @@ li{
 
 }
 .footer-copyright {
-	margin-top: 2em;
-	padding: 2em @page-padding;
+    margin-top: 2em;
+    margin-top: 50px;
+	padding: 2em @page-padding !important;
 	border-top: 1px solid fade(black, 10%);
 	text-align: center;
 }
@@ -329,6 +332,44 @@ li{
 		.btn-close{display: none;}
  	}
 }
+// Side-searcher
+.side-searcher{
+    padding:20px;
+    .side-searcher-submit{
+        position: absolute;
+        color: black;
+        margin-left: 17px;
+        height: 27px;
+        padding: 2px;
+        font-size: 0.8em;
+        background: transparent;
+        border: 1px solid black;
+    }
+    .side-searcher-submit:hover{
+        color: white;
+        background: black;
+    }
+    input#searchInput{
+        width: 135px;
+        height: 25px;
+        float: left;
+        /* margin-top: 18px; */
+        /* margin-left: 50px; */
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url(../../images/ic_search_black_24dp_2x.png);
+        background-size: 22px;
+        background-position: 6px 3px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width .4s ease-in-out;
+        transition: width .4s ease-in-out;
+    }
+}
+
 //Accordion
 button.accordion {
     background-color: #eee;
@@ -626,7 +667,7 @@ top: 106px;
     position: absolute;
     z-index: 2;
     right: 0;
-    top: 106px;
+    top: 120px;
     padding: 5px;
     overflow: hidden;
 	height: 80%;
@@ -673,7 +714,7 @@ ul.grid {
 }
 
 .wrap {
-    width: 1078px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 5px;
     text-align: left
@@ -687,7 +728,7 @@ ul.grid {
 .main-featured img {
     width: auto;
     height: auto;
-    max-width: 100%
+   /* max-width: 100%*/
 }
 
 .main-featured .wp-post-image {
@@ -841,7 +882,7 @@ ul.grid {
 
 .featured-grid-b .medium-item {
     padding-left: 4px;
-    padding-bottom: 4px
+    padding-bottom: 0px
 }
 
 .featured-grid-b .small-item {

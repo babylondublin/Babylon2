@@ -14,13 +14,13 @@ div
     #toggle.toggle
         a#btn-close.btn-close(href='#') ×
         ul
-            form(action='/search', method='post', autocomplete='off', novalidate)
+            form.side-searcher(action='/search', method='post', autocomplete='off', novalidate)
                 input(id="searchInput" list='countries', name='query', placeholder="Search a country..", required)
                 datalist(id='countries')
                     if countries && countries.length
                         each country in countries
                             option(value=country.name) 
-                input(type='submit', value='Search')
+                input.side-searcher-submit(type='submit', value='Search')
         a.menu-item(href="/news") News
         button.accordion Places to Go
         #p1.panel

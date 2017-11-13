@@ -1,5 +1,6 @@
 .calendar-container *, *:before, *:after {
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box; box-sizing: border-box;
     }
     
     .calendar-container {
@@ -17,7 +18,15 @@
      -ms-user-select: none;
      user-select: none;
     }
-    
+    .calendar-container a{
+      margin-left:3px;
+      text-decoration: none;
+      color: white;
+    }
+    .calendar-container a:hover{
+      color:white;
+      text-decoration:none;
+    }
     #calendar {
       -webkit-transform: translate3d(0, 0, 0);
       -moz-transform: translate3d(0, 0, 0);

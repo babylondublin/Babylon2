@@ -56,6 +56,9 @@
   background-color: #ccc;
   height: 100%;
 }
+.column h3{
+  font-size: 1.3em;
+}
 
 .column a {
   float: none;
