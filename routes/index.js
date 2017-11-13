@@ -1,12 +1,6 @@
-var babelify = require('babelify');
 var bodyParser = require('body-parser');
-var browserify = require('browserify-middleware');
-var clientConfig = require('../client/config');
 var keystone = require('keystone');
 var middleware = require('./middleware');
-var graphqlhttps = require('express-graphql');
-var graphQLSchema = require('../graphql/basicSchema').default;
-var relaySchema = require('../graphql/relaySchema').default;
 
 var importRoutes = keystone.importer(__dirname);
 var bodyParser = require('body-parser');
@@ -45,21 +39,6 @@ var routes = {
 // Bind Routes
 exports = module.exports = function (app) {
 
-	// Browserification
-	app.get('/js/packages.js', browserify(clientConfig.packages, {
-		cache: true,
-		precompile: true,
-	}));
-
-	app.use('/js', browserify('./client/scripts', {
-		external: clientConfig.packages,
-		transform: [
-			babelify.configure({
-				presets: ['es2015', 'react']
-			}),
-		],
-    }));
- 
  	//http://expressjs.com/tr/api.html#req.body
  	app.use(bodyParser.json());
  	// change language
@@ -75,9 +54,6 @@ exports = module.exports = function (app) {
 	app.use('*', middleware.loadTags);
 	app.use('*', middleware.allArticles);
 
-	// GraphQL
-	app.use('/api/graphql', graphqlhttps({ schema: graphQLSchema, graphiql: true }));
-	app.use('/api/relay', graphqlhttps({ schema: relaySchema, graphiql: true }));
 
 	// Allow cross-domain requests (development only)
 	if (process.env.NODE_ENV !== 'production') {
