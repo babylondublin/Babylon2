@@ -6,21 +6,17 @@ if lastPosts && lastPosts.length > 3
 				ul.grid
 					li.first
 						.item.large-item
-							a.image-link(href='/news/post/' + lastPosts[0].slug)
-								img.attachment-grid-slider-b-large.size-grid-slider-b-large.wp-post-image(src=lastPosts[0]._.image.thumbnail(600,480), alt=lastPosts[0].title, title='')
+							a.image-link(href="/radioplayer" onclick="window.open(this.href, 'RadioPlayer', 'left=20,top=20,width=450,height=640,toolbar=1,resizable=0'); return false;")
+								//- CHANGE THE IMAGE SOURCE TO ADAPT THE PRESENTER ???
+								img.attachment-grid-slider-b-large.size-grid-slider-b-large.wp-post-image(src="https://www.wikihow.com/images/thumb/2/29/Become-a-Radio-Presenter-Step-6.jpg/aid1380798-v4-728px-Become-a-Radio-Presenter-Step-6.jpg", alt=lastPosts[0].title, title='')
 							.caption.caption-large
-								//-span.cat-title.cat-13
-									a(href='/news/post/' + lastPosts[0].tag.key, title=lastPosts[0].tag.name) Test tag
-								h3
-									a.item-heading(href='/news/post/' + lastPosts[0].slug) 
-										= lastPosts[0].title
-								time.the-date(datetime= em=moment(lastPosts[0].publishedDate.publishedDate).fromNow()) 
-									em=moment(lastPosts[0].publishedDate).fromNow()
+								h1
+									a.item-heading(href='/news/post/' + lastPosts[0].slug) Listen now
 					li.second
 						.item.medium-item
 							if lastPosts[1]
 								a.image-link(href='/news/post/' + lastPosts[1].slug)
-									img.attachment-grid-slider-b-med.size-grid-slider-b-med.wp-post-image(src=lastPosts[1]._.image.thumbnail(474,250), alt=lastPosts[1].title)
+									img.attachment-grid-slider-b-med.size-grid-slider-b-med.wp-post-image(src=lastPosts[1]._.image.thumbnail(600,250), alt=lastPosts[1].title)
 								.caption.caption-small
 									//-span.cat-title.cat-13
 										//-a(href='/news/post/' + lastPosts[1].tag.key, title=lastPosts[1].tag.name) 
@@ -34,7 +30,7 @@ if lastPosts && lastPosts.length > 3
 						.col-6.item.small-item
 							if lastPosts[2]
 								a.image-link(href='/news/post/' + lastPosts[2].slug)
-									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[2]._.image.thumbnail(235,226), alt=lastPosts[2].title, title='')
+									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[2]._.image.thumbnail(260,226), alt=lastPosts[2].title, title='')
 								.caption.caption-small
 									//-span.cat-title.cat-13
 										//-a(href='/news/post/' + lastPosts[2].tag.key, title=lastPosts[2].tag.name) 
@@ -47,7 +43,7 @@ if lastPosts && lastPosts.length > 3
 						.col-6.item.small-item
 							if lastPosts[3]
 								a.image-link(href='/news/post/' + lastPosts[3].slug)
-									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[3]._.image.thumbnail(235,226), alt=lastPosts[3].title, title='')
+									img.attachment-grid-slider-b-small.size-grid-slider-b-small.wp-post-image(src=lastPosts[3]._.image.thumbnail(260,226), alt=lastPosts[3].title, title='')
 								.caption.caption-small
 									//-span.cat-title.cat-13
 										//-a(href='/news/post/' + lastPosts[3].tag.key, title=lastPosts[3].tag.name) 
