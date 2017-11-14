@@ -6,7 +6,7 @@ block intro
 	.page-intro: .container
 		h1.page-title Classifieds
 		hr
-		if country
+		if countrysearched
 			if user
 				a(href='/me/create/classified') create classified
 			if !user
@@ -32,7 +32,7 @@ block content
 							each classified in data.classifieds
 								+classified(classified)
 					else
-						if country
+						if countrysearched
 							h3.text-muted There are no Classifieds yet.
 						else
 			

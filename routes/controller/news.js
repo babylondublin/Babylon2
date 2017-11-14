@@ -17,6 +17,7 @@ exports = module.exports = function(req, res) {
 		tags: [],
 		searchWord: '',
 	};
+	locals.countrysearched = req.session.countrysearched;
 
 	//if no Cookie
 	if(!req.cookies.country || (req.cookies.country == '')){

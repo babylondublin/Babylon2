@@ -8,18 +8,16 @@ include ../../../mixins/advertisement
 
 //- INTRO
 block intro
-		if country
-			if country.image
-				div(style={'background-image':'url('+country.image.secure_url+')'}).home-image
-				h1.home-image-title= 'Welcome to Babylon  ' + country.name
+		if countrysearched
+			if countrysearched.image
+				div(style={'background-image':'url('+countrysearched.image.secure_url+')'}).home-image
+				h1.home-image-title= 'Welcome to Babylon  ' + countrysearched.name
 			else
 		else
 		.page-intro: .container-sm
 			hr
-			if country
-				p.text-center= 'Enjoy your experience in ' + country.name 	
-		h3 
-			a(href="/radioplayer" onclick="window.open(this.href, 'RadioPlayer', 'left=20,top=20,width=450,height=650,toolbar=1,resizable=0'); return false;") Play Radio		
+			if countrysearched
+				p.text-center= 'Enjoy your experience in ' + countrysearched.name		
 
 		include ../../../includes/layout/latest-news
 

@@ -258,6 +258,9 @@ exports.initLanguage = function(req, res, next){
 				req.flash('info','You are in Babylon <strong>' + country.name +'</strong>');
 
 				//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
+
+				//countrysearched : Country object to put in session (fix multi-users problems)
+				req.session.countrysearched = country;
 				res.cookie('country', country._id).redirect('/');
 				}
 			});

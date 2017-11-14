@@ -10,7 +10,7 @@ exports = module.exports = function(req, res) {
 	
 	locals.section = 'home';
 	locals.page.title = 'Welcome to Babylon';
-	
+	locals.countrysearched = req.session.countrysearched;
 
 
 	locals.user = req.user;
