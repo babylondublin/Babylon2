@@ -12,8 +12,12 @@ locals.page.title = 'Events - Babylon';
 
 //load all events
 view.on('init', function(next) {
-    var cookie = req.cookies.country;
-    keystone.list('Event').model.find().where( {'country': cookie})
+	    var country = req.session.country;
+
+	if(!country || (country == '')){
+		return next();
+	};
+    keystone.list('Event').model.find().where( {'country': country._id})
     .exec(function(err, events) {
         if (err) res.err(err);
         locals.events = events;
@@ -21,6 +25,8 @@ view.on('init', function(next) {
     });
 });
 
-view.render(keystone.lang + '/site/events');
+var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+view.render(lang + '/site/events');
 
 }

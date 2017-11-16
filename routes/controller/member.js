@@ -37,7 +37,8 @@ exports = module.exports = function(req, res) {
 		}
 		next();
 	});
-	
-	view.render(keystone.lang + '/site/member');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/member');
 
 }

@@ -138,12 +138,11 @@ var qs_set = exports.qs_set = function(req, res) {
 	Load the 5 latest news for the news side panel on every pages except the News page.
 */
 exports.loadLatestNews = function(req, res, next){
-	    var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no session
+		if(!req.session.country || (req.session.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author').limit(5);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': req.session.country._id}]}).sort('-publishedDate').populate('author').limit(5);	
 		q.exec(function(err, results) {
 	        if (err) return res.err(err);
 	   		 res.locals.lastPosts = results;
@@ -155,12 +154,11 @@ exports.loadLatestNews = function(req, res, next){
 	Load the 3 most popular articles
 */
 exports.loadPopularNews = function(req, res, next){
-	    var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no session
+		if(!req.session.country || (req.session.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-views').populate('author').limit(3);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': req.session.country._id}]}).sort('-views').populate('author').limit(3);	
 		q.exec(function(err, results) {
 	        if (err) return res.err(err);
 	   		 res.locals.popularPosts = results;
@@ -213,9 +211,8 @@ exports.loadTags = function(req, res, next){
 }
 
 exports.allArticles = function(req, res, next){
-		var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no country
+		if(!req.session.country || (req.session.country == '')){
 			return next();
 		};
 		res.locals.allArticles = [];
@@ -225,7 +222,7 @@ exports.allArticles = function(req, res, next){
 			lang = '59e8822877df3618184b7a91'; //by default : english
 		}
 		
-		keystone.list('Article').model.find({$and:[{'language': lang}, {'country': cookie}]}).exec(function(err, articles) {
+		keystone.list('Article').model.find({$and:[{'language': lang}, {'country': req.session.country._id}]}).exec(function(err, articles) {
 			if (err || !articles.length) {
 				return next(err);
 			}
@@ -259,7 +256,7 @@ exports.initLanguage = function(req, res, next){
 
 				//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
 
-				//countrysearched : Country object to put in session (fix multi-users problems)
+				//country : Country object to put in session (fix multi-users problems)
 				req.session.country = country;
 				res.redirect('/');
 

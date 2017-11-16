@@ -33,5 +33,6 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render(keystone.lang + '/site/contactUs');
+	var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+	view.render(lang + '/site/contactUs');
 };

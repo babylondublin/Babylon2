@@ -16,18 +16,18 @@ exports = module.exports = function(req, res) {
 		classifieds: [],
 		tags: []
 	};
-	locals.country = req.session.countrysearched;
+	locals.country = req.session.country;
 
-	//if no Cookie
-	if(!req.cookies.country || (req.cookies.country == '')){
+	//if no country in session
+	if(!locals.country || (locals.country == '')){
 		req.flash('error', 'Search a country first please.');
 	};
 
 	// Load all tags
 	view.on('init', function(next) {
 		
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no session
+		if(!locals.country || (locals.country == '')){
 		return next();
 		};
 
@@ -58,8 +58,8 @@ exports = module.exports = function(req, res) {
 	// Load the current tagfilter
 	view.on('init', function(next) {
 
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no session
+		if(!locals.country || (locals.country == '')){
 		return next();
 		};
 
@@ -76,13 +76,12 @@ exports = module.exports = function(req, res) {
 	
 	// Load the classifieds
 	view.on('init', function(next) {
-		var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no session
+		if(!locals.country || (locals.country == '')){
 		return next();
 		};
 
-		var q = keystone.list('Classified').model.find().where({$and:[{'state':'published'}, {'country': cookie}]}).sort('-publishedDate').populate('author tag');
+		var q = keystone.list('Classified').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}]}).sort('-publishedDate').populate('author tag');
 		
 		if (locals.data.tag) {
 			q.where('tag').in([locals.data.tag]);
@@ -96,6 +95,7 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render(keystone.lang + '/site/classifieds');
-	
+	var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+	view.render(lang + '/site/classifieds');
+
 }

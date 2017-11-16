@@ -28,7 +28,8 @@ view.on('init', function(next) {
     });
 });
 
+    var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
 
-view.render(keystone.lang + '/site/event');
+view.render(lang + '/site/event');
 
 }

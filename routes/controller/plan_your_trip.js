@@ -16,17 +16,19 @@ exports = module.exports = function(req, res) {
 		articles: [],
 		tags: []
 	};
+
+	var country = req.session.country;
 	
-	//if no Cookie
-	if(!req.cookies.country || (req.cookies.country == '')){
+	//if no country
+	if(!country || (country == '')){
 		req.flash('error', 'Search a country first please.');
 	};
 
 	// Load all tags
 	view.on('init', function(next) {
 
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no country
+		if(!country || (country == '')){
 		return next();
 		};
 
@@ -57,8 +59,8 @@ exports = module.exports = function(req, res) {
 	// Load the current tagfilter
 	view.on('init', function(next) {
 
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no coutnry
+		if(!country || (country == '')){
 		return next();
 		};
 
@@ -75,15 +77,12 @@ exports = module.exports = function(req, res) {
 	
 	// Load the articles
 	view.on('init', function(next) {
-		var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no coutrny
+		if(!country || (country == '')){
 		return next();
 		};
 		
-		var lang = req.cookies.lang;
-
-		var q = keystone.list('PlanYourTripArticle').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'language': lang}]}).sort('-publishedDate').populate('author tags');
+		var q = keystone.list('PlanYourTripArticle').model.find().where({$and:[{'state':'published'}, {'country': country._id}, {'language': req.cookies.lang}]}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);
@@ -97,6 +96,7 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render(keystone.lang + '/site/plan_your_trip');
+	var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+	view.render(lang + '/site/plan_your_trip');
 	
 }

@@ -202,6 +202,8 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render(keystone.lang + '/site/post');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/post');
 
 }

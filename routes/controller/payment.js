@@ -85,6 +85,8 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render(keystone.lang + '/site/payment');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/payment');
 	
 }

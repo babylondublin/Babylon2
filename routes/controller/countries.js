@@ -25,6 +25,6 @@ view.on('init', function(next) {
     });
 });
 
-
-view.render(keystone.lang +  '/site/countries');
+var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+view.render(lang +  '/site/countries');
 }

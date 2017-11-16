@@ -131,6 +131,8 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render(keystone.lang + '/site/things_to_doOne');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/things_to_doOne');
 
 }

@@ -7,6 +7,7 @@ exports = module.exports = function (req, res) {
 
 	// Set locals
 	locals.section = 'RadioPlayer';
-	
-	view.render(keystone.lang + '/site/radioplayer');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/radioplayer');
 };

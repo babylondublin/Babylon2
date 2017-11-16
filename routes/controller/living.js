@@ -17,15 +17,15 @@ exports = module.exports = function(req, res) {
 		tags: []
 	};
 	
-	//if no Cookie
-	if(!req.cookies.country || (req.cookies.country == '')){
+	//if no session
+	if(!req.session.country || (req.session.country == '')){
 		req.flash('error', 'Search a country first please.');
 	};
 
 	// Load all tags
 	view.on('init', function(next) {
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no session
+		if(!req.session.country || (req.session.country == '')){
 		return next();
 		};
 
@@ -55,8 +55,8 @@ exports = module.exports = function(req, res) {
 	
 	// Load the current tagfilter
 	view.on('init', function(next) {
-		//if no Cookie
-		if(!req.cookies.country || (req.cookies.country == '')){
+		//if no session
+		if(!req.session.country || (req.session.country == '')){
 		return next();
 		};
 		if (req.params.tag) {
@@ -72,16 +72,14 @@ exports = module.exports = function(req, res) {
 	
 	// Load the articles
 	view.on('init', function(next) {
-		var cookie = req.cookies.country;
-		var session_country = req.session.country._id;
-		var session_lang = req.session.language._id;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		
+		//if no session
+		if(!req.session.country || (req.session.country == '')){
 		return next();
 		};
 		var lang = req.cookies.lang;
 
-		var q = keystone.list('LivingArticle').model.find().where({$and:[{'state':'published'}, {'country': session_country}, {'language': session_lang}]}).sort('-publishedDate').populate('author tags');
+		var q = keystone.list('LivingArticle').model.find().where({$and:[{'state':'published'}, {'country': req.session.country._id}, {'language': req.cookies.lang}]}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);
@@ -95,6 +93,7 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render(keystone.lang + '/site/living');
+	var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+	view.render(lang + '/site/living');
 	
 }

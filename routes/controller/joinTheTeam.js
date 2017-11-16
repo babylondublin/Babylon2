@@ -9,5 +9,7 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.section = 'jointheteam';
 	
-	view.render(keystone.lang + '/site/joinTheTeam');
+		var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+
+	view.render(lang + '/site/joinTheTeam');
 };
