@@ -131,7 +131,9 @@ exports = module.exports = function(req, res) {
 	});
 
 	
+	//view.render(keystone.lang + '/site/index');
 	
-	view.render(keystone.lang + '/site/index');
-	
+	var lang = (req.session.languageselected ? req.session.languageselected.key : 'en');
+	view.render( lang + '/site/index');
+
 }
