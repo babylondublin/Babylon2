@@ -232,7 +232,7 @@ exports.allArticles = function(req, res, next){
 	
 }
 
-exports.initLanguage = function(req, res, next){
+exports.searchCountry = function(req, res, next){
 	var query = req.body.query;
 	
 		if(query && query != ''){

@@ -42,7 +42,7 @@ exports = module.exports = function (app) {
  	//http://expressjs.com/tr/api.html#req.body
  	app.use(bodyParser.json());
  	// change language
- 	app.use("*", middleware.initLanguage);	
+ 	app.use("*", middleware.searchCountry);	
 
 	// Load the 5 latest news for the news side panel	
 	app.use('*', middleware.loadLatestNews);
@@ -90,14 +90,14 @@ exports = module.exports = function (app) {
 	app.all('/contactUs', routes.controller.contactUs);
 	app.all('/joinTheTeam', routes.controller.joinTheTeam);
 
-	app.get('/places_to_go/:tag?', routes.controller.places_to_go);
+	//app.get('/places_to_go/:tag?', routes.controller.places_to_go);
 	app.all('/places_to_go/:tag/:article', routes.controller.places_to_goOne);
-	app.get('/things_to_do/:tag?', routes.controller.things_to_do);
+	//app.get('/things_to_do/:tag?', routes.controller.things_to_do);
 	app.all('/things_to_do/:tag/:article', routes.controller.things_to_doOne);
-	app.get('/living/:tag?', routes.controller.living);
+	//app.get('/living/:tag?', routes.controller.living);
 	app.all('/living/:tag/:article', routes.controller.livingOne);
 
-	app.get('/plan_your_trip/:tag?', routes.controller.plan_your_trip);
+	//app.get('/plan_your_trip/:tag?', routes.controller.plan_your_trip);
  	app.all('/plan_your_trip/:tag/:article', routes.controller.plan_your_tripOne);
   
 	app.all('/payment', routes.controller.payment);
