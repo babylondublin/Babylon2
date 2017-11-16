@@ -10,14 +10,13 @@ exports = module.exports = function(req, res) {
 	
 	locals.section = 'home';
 	locals.page.title = 'Welcome to Babylon';
-	locals.countrysearched = req.session.countrysearched;
-
+	locals.country = req.session.country;
 
 	locals.user = req.user;
 	var cultureTag, newsTag, whatsonTag, lifestyleTag;
 
 	// Decide which to render
-	if(!req.cookies.country || (req.cookies.country == '')){
+	if(!locals.country || (locals.country == '')){
 		req.flash('error', 'Search a country first please.');
 	};
 
@@ -31,12 +30,11 @@ exports = module.exports = function(req, res) {
 
 	/* Load the 4 latest culture posts */
 	view.on('init', function(next) {
-	 	var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no country
+		if(!locals.country || (locals.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'tag' : cultureTag }]}).sort('-publishedDate').populate('author').limit(4);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}, {'tag' : cultureTag }]}).sort('-publishedDate').populate('author').limit(4);	
 
 		q.exec(function(err, results) {
 			locals.culturePosts = results;
@@ -54,12 +52,11 @@ exports = module.exports = function(req, res) {
 
 	/* Load the 4 latest news posts */
 	view.on('init', function(next) {
-	 	var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no country
+		if(!locals.country || (locals.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'tag' : newsTag }]}).sort('-publishedDate').populate('author').limit(4);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}, {'tag' : newsTag }]}).sort('-publishedDate').populate('author').limit(4);	
 
 		q.exec(function(err, results) {
 			locals.newsPosts = results;
@@ -77,12 +74,11 @@ exports = module.exports = function(req, res) {
 
 	/* Load the 4 latest culture posts */
 	view.on('init', function(next) {
-	 	var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no country
+		if(!locals.country || (locals.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'tag' : lifestyleTag }]}).sort('-publishedDate').populate('author').limit(4);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}, {'tag' : lifestyleTag }]}).sort('-publishedDate').populate('author').limit(4);	
 
 		q.exec(function(err, results) {
 			locals.lifestylePosts = results;
@@ -100,12 +96,11 @@ exports = module.exports = function(req, res) {
 
 	/* Load the 4 latest culture posts */
 	view.on('init', function(next) {
-	 	var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no coountry
+		if(!locals.country || (locals.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'tag' : lifestyleTag }]}).sort('-publishedDate').populate('author').limit(4);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}, {'tag' : lifestyleTag }]}).sort('-publishedDate').populate('author').limit(4);	
 
 		q.exec(function(err, results) {
 			locals.lifestylePosts = results;
@@ -123,12 +118,11 @@ exports = module.exports = function(req, res) {
 
 	/* Load the 4 latest whatson posts */
 	view.on('init', function(next) {
-	 	var cookie = req.cookies.country;
-		//if no Cookie
-		if(!cookie || (cookie == '')){
+		//if no country
+		if(!locals.country || (locals.country == '')){
 			return next();
 		};
-		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'tag' : whatsonTag }]}).sort('-publishedDate').populate('author').limit(4);	
+		var q = keystone.list('Post').model.find().where({$and:[{'state':'published'}, {'country': locals.country._id}, {'tag' : whatsonTag }]}).sort('-publishedDate').populate('author').limit(4);	
 
 		q.exec(function(err, results) {
 			locals.whatsonPosts = results;

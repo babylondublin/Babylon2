@@ -260,8 +260,10 @@ exports.initLanguage = function(req, res, next){
 				//https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client
 
 				//countrysearched : Country object to put in session (fix multi-users problems)
-				req.session.countrysearched = country;
-				res.cookie('country', country._id).redirect('/');
+				req.session.country = country;
+				res.redirect('/');
+
+				//res.cookie('country', country._id).redirect('/');
 				}
 			});
 			

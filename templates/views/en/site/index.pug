@@ -8,16 +8,16 @@ include ../../../mixins/advertisement
 
 //- INTRO
 block intro
-		if countrysearched
-			if countrysearched.image
-				div(style={'background-image':'url('+countrysearched.image.secure_url+')'}).home-image
-				h1.home-image-title= 'Welcome to Babylon  ' + countrysearched.name
+		if country
+			if country.image
+				div(style={'background-image':'url('+country.image.secure_url+')'}).home-image
+				h1.home-image-title= 'Welcome to Babylon  ' + country.name
 			else
 		else
 		.page-intro: .container-sm
 			hr
-			if countrysearched
-				p.text-center= 'Enjoy your experience in ' + countrysearched.name		
+			if country
+				p.text-center= 'Enjoy your experience in ' + country.name		
 
 		include ../../../includes/layout/latest-news
 

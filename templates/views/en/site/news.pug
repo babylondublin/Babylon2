@@ -6,7 +6,7 @@ block intro
 	.page-intro: .container
 		
 		h1.page-title=data.tag ? data.tag.name : 'News'
-		if countrysearched
+		if country
 			if user && (user.isJournalist || user.isAdmin)
 				a(href='/me/create/post') create New
 			hr
@@ -31,7 +31,7 @@ block content
 						if data.searchWord	
 							h3.text-muted No result found for your search "
 								!=data.searchWord + '".' 
-						else if countrysearched
+						else if country
 							h3.text-muted There are no Posts yet.
 						else
 			if data.tags.length
