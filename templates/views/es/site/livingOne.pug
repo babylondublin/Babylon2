@@ -14,9 +14,9 @@ block content
 							|  to publish it.
 					
 					h1.blog-article__title= article.title
-					p.blog-article__byline Posté
+					p.blog-article__byline Publicado
 						if article.author
-							|	par&nbsp;
+							|	por&nbsp;
 							a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
 						if article.publishedDate
 							|  le #{article._.publishedDate.format('MMMM D, YYYY')}
@@ -66,7 +66,7 @@ block content
 											textarea(name='content').form-control 
 												=comment.content.md
 											.mv-1
-												button(type='submit').btn.btn-success Save changes
+												button(type='submit').btn.btn-success Guardar cambios
 				if user
 						//- Reply form
 						form(method='post').comment-form.mt-5
@@ -77,7 +77,7 @@ block content
 								.media-body
 									textarea(placeholder='Add your comment...', name='content').form-control
 									.mv-1
-										button(type='submit').btn.btn-success Submit
+										button(type='submit').btn.btn-success Publicar
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")

@@ -14,6 +14,13 @@ block intro
 				h1.home-image-title= 'Welcome to Babylon  ' + country.name
 			else
 		else
+			form(method='post', autocomplete='off', novalidate)
+				input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+				datalist(id='countriesList')
+					if countries && countries.length
+						each country in countries
+							option(value=country.name) 
+				input(type='submit', value='Search').btn.submit-search
 		.page-intro: .container-sm
 			hr
 			if country

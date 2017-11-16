@@ -2,8 +2,17 @@ extends ../../../layouts/default
 
 block intro 
 	//-https://codepen.io/peanav/pen/ulkof
-	div.calendar-container
-		div#calendar
+	if country
+		div.calendar-container
+			div#calendar
+	else
+		form(method='post', autocomplete='off', novalidate)
+			input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+			datalist(id='countriesList')
+				if countries && countries.length
+					each country in countries
+						option(value=country.name) 
+			input(type='submit', value='Search').btn.submit-search
 
 block js
 	script(src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js")

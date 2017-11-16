@@ -4,7 +4,7 @@ include ../../../mixins/post
 
 block intro
 	.page-intro: .container
-		h1.page-title=data.tag ? data.tag.name : 'News'
+		h1.page-title=data.tag ? data.tag.name : 'Noticias'
 
 
 block content
@@ -12,7 +12,7 @@ block content
 		.row
 			div(class= data.tags.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
 				if filters.tag && !data.tag
-					h3 Invalid tag.
+					h3 Etiqueta inválida.
 				else
 					if data.posts.length
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
@@ -22,8 +22,8 @@ block content
 			if data.tags.length
 				.col-md-2
 					if data.tags.length
-						h5.text-muted Filter by tag
+						h5.text-muted Filtrar por etiqueta
 						ul.list-unstyled.tags-list
-							li: a(href='/News', class=!data.tags ? 'active' : false) All
+							li: a(href='/News', class=!data.tags ? 'active' : false) Todos
 							each tag in data.tags
 								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name

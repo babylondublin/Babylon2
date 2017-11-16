@@ -13,6 +13,13 @@ block intro
 				a(href='/join') Register to create classifieds
 			hr
 		else
+			form(method='post', autocomplete='off', novalidate)
+				input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+				datalist(id='countriesList')
+					if countries && countries.length
+						each country in countries
+							option(value=country.name) 
+				input(type='submit', value='Search').btn.submit-search
 block content
 	.page-content: .container.blog
 		.row
