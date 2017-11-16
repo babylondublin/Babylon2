@@ -2,22 +2,38 @@
 footer.site-footer.site-footer--sticky: .container
 	.row
 		.col-sm-3
-			h5.footer-heading About
+			h5.footer-heading#about About
 			ul
-				li: a(href='/about') Who we are
-				li: a(href='/contactUs') Contact us
+				li: a(href='/about')#whoWeAre Who we are
+				li: a(href='/contactUs')#contactUs Contact us
 		.col-sm-3
-			h5: a(href='/joinTheTeam').footer-heading Jobs
-			ul
-				li: a(href='#') Developer
-				li: a(href='#') Journalist
+			h5: a(href='/joinTheTeam').footer-heading#careers Careers
 		.col-sm-3
-			h5: a(href='#').footer-heading Countries
-			ul
-				li: a(href='/countries') Explore our Countries
+			h5: a(href='/countries').footer-heading#explorecountries Countries
 		.col-sm-3
-			h5: a(href='/members').footer-heading Members
+			h5: a(href='/members').footer-heading#members Members
 
 	.row.footer-copyright
 		p Copyright &copy; 2017 Babylon. Powered by <a href='https://keystonejs.com' rel='external'>KeystoneJS</a>.
 		p Forked from <a href="https://github.com/JedWatson/sydjs-site" rel='external'>Sydjs</a>.
+
+script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+script.
+		$( document ).ready(function() {
+			//- FIND A BEtTER WAY TO DO THAT  ?? 
+			if($.cookie("lang") === '59e8823077df3618184b7a92'){ // FR
+				$('#about').text('À propos de nous');
+				$('#whoWeAre').text('Qui sommes nous');
+				$('#contactUs').text('Contactez nous');
+				$('#careers').text('Emplois');
+				$('#explorecountries').text('Explorez les pays');
+				$('#members').text('Membres');
+			}else if($.cookie("lang") === '59e8823877df3618184b7a93'){ // ESP
+				$('#about').text('Acerca de');
+				$('#whoWeAre').text('Quienes somos');
+				$('#contactUs').text('Contáctenos');
+				$('#careers').text('Empleos');
+				$('#explorecountries').text('Explora los paises');
+				$('#members').text('Miembros de Babylon');
+			}
+		});
