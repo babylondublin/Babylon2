@@ -1,0 +1,117 @@
+extends ../../../layouts/default
+
+block content
+	.container-sm.width-auto
+		a(href='/living').text-muted &larr; Atrás
+		article.full-post
+			if !article
+				h2 Artículo inválido.
+			else
+				header
+					if article.state != 'published' && user.isAdmin
+						.mt-1: .alert.alert-danger This Article has not been published yet. 
+							a(href='/keystone/articles/' + article.id).alert-link Open Keystone
+							|  to publish it.
+					
+					h1.blog-article__title= article.title
+					p.blog-article__byline Posté
+						if article.author
+							|	par&nbsp;
+							a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
+						if article.publishedDate
+							|  le #{article._.publishedDate.format('MMMM D, YYYY')}
+						if article.tags && article.tags.length
+							|  dans&nbsp;
+							each tag, tag_i in article.tags
+								a(href='/living/' + tag.key)= tag.name
+								if tag_i < article.tags.length - 1
+									| ,&nbsp;
+								else
+									|&nbsp;
+					
+					//- sharing buttons
+					.share-buttons
+						span.share-button
+							.fb-like(data-href="https://www.sydjs.com/blog/post/" + article.slug, data-colorscheme="light", data-layout="button_count", data-action="like", data-show-faces="false", data-send="false")
+						span.share-button
+							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
+						span.share-button
+							.g-plusone(data-size="medium")
+				if article.image.exists
+					.article-image.mv-3: img(src=article._.image.fit(720,420)).img-responsive.img-thumbnail
+				!= article.content.full
+
+				//- Comment
+				.comments
+						h4.mb-1=article.comments.length == 0 ? 'Soyez le premier à répondre' : plural(article.comments.length, '* commentaire', '* commentaires')
+						for comment in article.comments
+							if comment.author
+								.comment.media
+									.pull-left
+										img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=comment.author.name.full, width=40, height=40).media-object.img-circle
+									.media-body
+										h6.mt-0
+											a(href='/member/'+ comment.author.key, rel='author')=comment.author.name.full
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
+										!=comment.content.html
+							//-delete and update article comment
+							if user && user.id == comment.author.id
+								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
+								a(href='', class='modify', value='Modify', id=comment.id)  Edit
+								form(method='post' class="update-comment" style="display: none" id="form"+comment.id).comment-form.mt-5
+									input(type='hidden', name='action', value='update-comment')
+									input(type='hidden', name='comment', value=comment.id)
+									.media
+										.media-body
+											textarea(name='content').form-control 
+												=comment.content.md
+											.mv-1
+												button(type='submit').btn.btn-success Save changes
+				if user
+						//- Reply form
+						form(method='post').comment-form.mt-5
+							input(type='hidden', name='action', value='create-comment')
+							.media
+								.pull-left
+									img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=user.name.full, width=40, height=40).img-responsive.img-circle
+								.media-body
+									textarea(placeholder='Add your comment...', name='content').form-control
+									.mv-1
+										button(type='submit').btn.btn-success Submit
+block js
+	script(src='/js/common/share.js')
+	script(src="https://apis.google.com/js/plusone.js")
+	script.
+		$('.modify').click( function(e) {e.preventDefault(); var id=this.id; $('#form' + id).css("display", "block"); return false; } );
+		$("body").mouseup(function (e) {
+		    var container = $("form.update-comment");
+		    if (container.has(e.target).length === 0) {
+		        container.hide();
+		    }
+		});	
+		document.getElementsByClassName("container")[0].style.width = "100%";
+	script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+	script(src='https://unpkg.com/masonry-layout@4.2.0/dist/masonry.pkgd.min.js')
+	script(src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js')
+	script.
+		(function( $ ) {
+		var $container = $('.masonry-container');
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		//Reinitialize masonry inside each panel after the relative tab link is clicked -
+		$('a[data-toggle=tab]').each(function () {
+		var $this = $(this);
+		$this.on('shown.bs.tab', function () {
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		}); //end shown
+		});  //end each
+		})(jQuery);

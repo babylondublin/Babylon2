@@ -73,13 +73,15 @@ exports = module.exports = function(req, res) {
 	// Load the articles
 	view.on('init', function(next) {
 		var cookie = req.cookies.country;
+		var session_country = req.session.country._id;
+		var session_lang = req.session.language._id;
 		//if no Cookie
 		if(!cookie || (cookie == '')){
 		return next();
 		};
 		var lang = req.cookies.lang;
 
-		var q = keystone.list('LivingArticle').model.find().where({$and:[{'state':'published'}, {'country': cookie}, {'language': lang}]}).sort('-publishedDate').populate('author tags');
+		var q = keystone.list('LivingArticle').model.find().where({$and:[{'state':'published'}, {'country': session_country}, {'language': session_lang}]}).sort('-publishedDate').populate('author tags');
 		
 		if (locals.data.tag) {
 			q.where('tags').in([locals.data.tag]);

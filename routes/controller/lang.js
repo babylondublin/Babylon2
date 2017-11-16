@@ -27,7 +27,7 @@ exports = module.exports = function(req, res) {
 
 				var result = JSON.stringify(result[0]);
 				language = JSON.parse(result);
-
+				req.session.languageselected = language;
 				res.cookie('lang', language._id).redirect('/');
 			}
 		});

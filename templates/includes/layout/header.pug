@@ -134,10 +134,10 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 												a(href='/plan_your_trip/' + tag.key + '/' + article.slug)
 													= article.title
 
-			a(href="/news") News
-			a(href="/classifieds") Classifieds
-			a(href="/events") Events
-			a(href="/about") About Us
+			a(href="/news")#news News
+			a(href="/classifieds")#classifieds Classifieds
+			a(href="/events")#events Events
+			a(href="/about")#aboutus About Us
 
 					
 //-.header-placeholder
@@ -153,11 +153,20 @@ script.
 				$('#placesToGo').text('A visiter');
 				$('#thingsToDo').text('A faire');
 				$('#planYourTrip').text('Planifiez votre voyage');
+				$('#news').text('Nouvelles');
+				$('#classifieds').text('Annonces');
+				$('#events').text('Événements');
+				$('#about').text('À propos de');
 			}else if($.cookie("lang") === '59e8823877df3618184b7a93'){ // ESP
 				$('#living').text('Vida en Irlanda');
 				$('#placesToGo').text('Visitando');
 				$('#thingsToDo').text('Hacer');
 				$('#planYourTrip').text('Planifica tu viaje');
+				$('#news').text('Noticias');
+				$('#events').text('Eventos');
+				$('#about').text('Acerca de');
+
+
 			}
 			var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
