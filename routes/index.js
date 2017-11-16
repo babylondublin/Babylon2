@@ -41,7 +41,7 @@ exports = module.exports = function (app) {
 
  	//http://expressjs.com/tr/api.html#req.body
  	app.use(bodyParser.json());
- 	// change language
+ 	// Search country
  	app.use("*", middleware.searchCountry);	
 
 	// Load the 5 latest news for the news side panel	
@@ -50,7 +50,7 @@ exports = module.exports = function (app) {
 	app.use('*', middleware.loadPopularNews);
 	// load the countries for the search bar
 	app.use('*', middleware.initCountries);
-
+	// load all Tags and Articles to the Nav Bar
 	app.use('*', middleware.loadTags);
 	app.use('*', middleware.allArticles);
 

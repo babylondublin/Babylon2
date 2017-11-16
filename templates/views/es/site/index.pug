@@ -11,13 +11,13 @@ block intro
 		if country
 			if country.image
 				div(style={'background-image':'url('+country.image.secure_url+')'}).home-image
-				h1.home-image-title= 'Welcome to Babylon  ' + country.name
+				h1.home-image-title= 'Bienvenido a Babylon  ' + country.name
 			else
 		else
 		.page-intro: .container-sm
 			hr
 			if country
-				p.text-center= 'Enjoy your experience in ' + country.name		
+				p.text-center= 'Disfruta de tu experiencia en ' + country.name		
 
 		include ../../../includes/layout/latest-news
 
@@ -26,13 +26,13 @@ block intro
 					.column.half 
 						section.highlights
 							span.cat-title.larger.cat-10
-								a(href='/news/news') News
+								a(href='/news/news') Noticias
 							+recentpost(newsPosts)
 				if culturePosts && culturePosts.length
 					.column.half
 						section.highlights
 							span.cat-title.larger.cat-75
-								a(href='/news/culture') Culture
+								a(href='/news/culture') Cultura
 							+recentpost(culturePosts)
 
 			.row.cf.highlights-box
@@ -40,19 +40,19 @@ block intro
 					.column.half 
 						section.highlights
 							span.cat-title.larger.cat-10
-								a(href='/news/lifestyle') Lifestyle
+								a(href='/news/lifestyle') Estilo de vida
 							+recentpost(lifestylePosts)
 				if whatsonPosts && whatsonPosts.length
 					.column.half
 						section.highlights
 							span.cat-title.larger.cat-75
-								a(href='/news/what-s-on') What's on
+								a(href='/news/what-s-on') Qué hacer
 							+recentpost(whatsonPosts)
 
 //- JS
 block js
 
-	//- REACT SCRIPTS
+
 	script.
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 		document.getElementById("playRadio").click(function(){
