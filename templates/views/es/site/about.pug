@@ -1,8 +1,41 @@
 extends ../../../layouts/default
 
-
-block intro
-	.page-intro: .container
-		h1.page-title Acerca de
-		p.lead Babylon
-
+block content
+	.wrapper
+		.col-lg-12.col-md-12.col-sm-12.col-xs-12
+			.container
+				h1.pageHeading Our Concept
+				|       
+				|          
+				.row.aboutUs
+					.col-lg-8.col-lg-offset-2.col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='')
+								button#ourConceptBtn.active.aboutUSbtn Our Concept
+						//- col-lg-4
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='joinTheTeam')
+								button#joinTheTeamBtn.aboutUSbtn Join the team
+						//- col-lg-4
+						.col-lg-4.col-md-4.col-sm-4.col-xs-4
+							a(href='contactUs')
+								button#contactUsBtn.aboutUSbtn Contact Us
+						//- col-lg-4
+					//- col-lg-8
+				//- row
+				br
+				|     
+				|        
+				.row
+					.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+						p
+							| Babylon Radio helps you with every step of integrating to Irish life by providing useful information about living here, visiting and things to do. We also appeal to Irish nationals who have an interest in different cultures. Above all we celebrate all cultures and promote integration.
+							br
+							br
+							|                 We have created a helpful space where those who are new to life in Ireland will feel welcome and included. Through our Radio Shows and live events we bring together both the multicultural and Irish community to celebrate the diverse cultures of the world through the universal language of music.
+							|               
+							br
+							|               
+							.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+								iframe.noPaddingMargin(width='100%', height='385', src='https://www.youtube.com/embed/L9aTVHsAs0k', frameborder='0', allowfullscreen='')
+		
