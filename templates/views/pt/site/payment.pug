@@ -1,0 +1,16 @@
+extends ../../../layouts/default
+
+		
+block content
+	.page-intro: .container-sm
+		if user
+			if user.isPremium
+				h3 You are already premium
+			else
+				form(action='/payment', method='POST')
+					input(type='hidden', name='action', value='charge')
+					input(type='hidden', name='chargeAmount', value='999')
+					script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key='pk_test_JBtgfm3edubE1RNmHqqkkoBu', data-amount='999', data-name='Babylon Radio', data-description='Upgrade your account', data-image='images/letter-b-icon-png-0.png', data-locale='auto' , data-currency='eur', data-email=user.email)
+
+		else
+			h3 You need to be signed in

@@ -1,0 +1,38 @@
+extends ../../../layouts/default
+
+include ../../../mixins/classified
+
+block intro
+	.page-intro: .container
+		h1.page-title Classifieds
+		hr
+		if country
+			if user
+				a(href='/me/create/classified') create classified
+			if !user
+				a(href='/join') Register to create classifieds
+			hr
+		else
+block content
+	.page-content: .container.blog
+		.row
+			if data.tags.length
+				.sub-menu
+					if data.tags.length
+						ul.list-unstyled.tags-list
+							each tag in data.tags
+								li: a(href='/classifieds/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+
+			div(class= data.tags.length || !data.classifieds.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
+				if filters.tag && !data.tag
+					h3 Invalid Tag.
+				else
+					if data.classifieds.length
+						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
+							each classified in data.classifieds
+								+classified(classified)
+					else
+						if country
+							h3.text-muted There are no Classifieds yet.
+						else
+			

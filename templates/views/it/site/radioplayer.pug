@@ -1,0 +1,43 @@
+doctype html
+html
+
+	//- HTML HEAD
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+
+		//- Appstore smart banner
+		meta(name="apple-itunes-app", content="app-id=897396382")
+		
+		title= page.title
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href="/styles/site.min.css", rel="stylesheet")
+		link(href="/styles/font-awesome/css/font-awesome.min.css", rel="stylesheet")
+		
+		block css
+		block head
+
+	//- HTML BODY
+	body.radio-page
+		main
+			.page-intro: .container-sm
+				img(src='http://babylonradio.com/wp-content/uploads/2015/05/logo.png', alt='Babylon logo')
+				h3.h3-radiopage Radio player
+				div#play
+				
+				img(src='http://babylonradio.com/wp-content/uploads/2016/03/new.jpg', id="radio-image")
+
+	//- JAVASCRIPT
+
+
+	script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+	script(src='/js/lib/radioplayer.js')
+	script(src='/js/ui.js')
+	script.
+		$( document ).ready(function() {
+			$("#play").click();
+		});
+	
+	//- ANALYTICS
+	include ../../../includes/layout/analytics

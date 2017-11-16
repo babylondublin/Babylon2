@@ -1,0 +1,367 @@
+extends ../../../layouts/default
+
+block content
+	.container-sm.width-auto
+		if tag == 'city'
+			
+				
+					a(href='/places_to_go').text-muted &larr; Back to Places to Go
+					article.full-post
+						if !article
+							h2 Invalid Article.
+						else
+							header
+								if article.state != 'published' && user.isAdmin
+									.mt-1: .alert.alert-danger This Article has not been published yet. 
+										a(href='/keystone/articles/' + article.id).alert-link Open Keystone
+										|  to publish it.
+					
+								h1.blog-article__title= article.title
+								p.blog-article__byline Posted
+									if article.author
+										|  by&nbsp;
+										a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
+									if article.publishedDate
+										|  on #{article._.publishedDate.format('MMMM D, YYYY')}
+									if article.tags && article.tags.length
+										|  in&nbsp;
+										each tag, tag_i in article.tags
+											a(href='/places_to_go/' + tag.key)= tag.name
+											if tag_i < article.tags.length - 1
+												| ,&nbsp;
+											else
+												|&nbsp;
+					
+								//- sharing buttons
+								.share-buttons
+									span.share-button
+										.fb-like(data-href="https://www.sydjs.com/blog/post/" + article.slug, data-colorscheme="light", data-layout="button_count", data-action="like", data-show-faces="false", data-send="false")
+									span.share-button
+										a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
+									span.share-button
+										.g-plusone(data-size="medium")
+							if article.image.exists
+								.article-image.mv-3: img(src=article._.image.fit(720,420)).img-responsive.img-thumbnail
+							!= article.content.full
+					
+							br
+						.container
+							.row
+								div
+									#cityIcons.col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+										.col-lg-4.col-md-4.col-sm-4.col-xs-4
+											button#hotelsBtn.btn.btn-default.btn-lg.text-center.active(type='button')
+												span.fa.fa-bed
+												br
+												p Hotels
+										.col-lg-4.col-md-4.col-sm-4.col-xs-4
+											button#restaurantsBtn.btn.btn-default.btn-lg.text-center(type='button')
+												span.fa.fa-cutlery
+												br
+												p Restuarants
+										.col-lg-4.col-md-4.col-sm-4.col-xs-4
+											button#pubsBtn.btn.btn-default.btn-lg.text-center(type='button')
+												span.fa.fa-beer
+												br
+												p Pubs
+						br
+						#hotels.active.container
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='http://www.special-ireland.com/wp-content/uploads/2009/06/burlington_hotel_dublin_front1.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Burlington Hotel
+													i.fa.fa-map-marker(aria-hidden='true')  4 Leeson Street Upper, Dublin 4
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										//
+											<img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
+										.hrpBlock
+											img.image(src='http://www.brookshotel.ie/cmsGallery/imagerow/2781/resized/1400x700/brooks_exterior.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Hotel name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+							br
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='https://www.dublinairport.com/images/default-source/default-album/radisson.jpg?sfvrsn=0', alt='Dublin')
+											.overlay
+												.text
+													h3 Hotel name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										//
+											<img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
+										.hrpBlock
+											img.image(src='http://cache.marriott.com/propertyimages/d/dubbr/dubbr_main01.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Hotel name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+						#restaurants.container
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/Ireland/Dublin/CoppingerII-trave-dublin-large.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Bochelli
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										.hrpBlock
+											img.image(src='http://www.menupages.ie/uploads/files/dobbins.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Restaurant name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+							br
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI_TnWM58YE6TGvna7wuGJc76lsQ3oZsLRUBo6iG-zneX7NedlFw', alt='Dublin')
+											.overlay
+												.text
+													h3 Restaurant name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										.hrpBlock
+											img.image(src='http://www.cornucopia.ie/wp-content/uploads/MG_1784.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Restaurant name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+						#pubs.container
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='http://www.visitdublin.com/getmedia/f0e6d46f-65c9-47eb-8bb1-c80f346a913a/400x200-Brazen-Head-pub-frontage.jpg.aspx?width=400&height=200&ext=.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Pub name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										//
+											<img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
+										.hrpBlock
+											img.image(src='http://images.huffingtonpost.com/2016-04-01-1459517952-2024689-IMG_4906.JPG', alt='Dublin')
+											.overlay
+												.text
+													h3 Pub name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+							br
+							.row
+								div
+									.col-lg-5.col-lg-offset-1.col-md-6.col-sm-6.col-xs-12.row2
+										.hrpBlock
+											img.image(src='http://www.visitdublin.com/getmedia/c0bf01b3-5737-4f80-8ddc-40eea35fc261/400x200-L-Mullligan-Grocer.jpg.aspx?width=400&height=200&ext=.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Pub name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+									.col-lg-5.col-md-6.col-sm-6.col-xs-12
+										//
+											<img src="http://d5qsyj6vaeh11.cloudfront.net/images/destinations/dublin/dublin-main/ten-attractions/dublin-top-ten-hapenny-bridge-bg.jpg" alt="Dublin">
+										.hrpBlock
+											img.image(height='300px', src='http://www.touristindublin.com/wp-content/uploads/2013/12/The-Duke-Dublin.jpg', alt='Dublin')
+											.overlay
+												.text
+													h3 Pub name
+													i.fa.fa-map-marker(aria-hidden='true')  Location
+													br
+													a.noTextBlue(href='#', target='_blank') Visit Website
+													
+		if tag == 'attraction'
+				a(href='/places_to_go').text-muted &larr; Back to Places to Go
+					article.full-post
+						if !article
+							h2 Invalid Article.
+						else
+							header
+								if article.state != 'published' && user.isAdmin
+									.mt-1: .alert.alert-danger This Article has not been published yet. 
+										a(href='/keystone/articles/' + article.id).alert-link Open Keystone
+										|  to publish it.
+					
+								h1.blog-article__title= article.title
+								p.blog-article__byline Posted
+									if article.author
+										|  by&nbsp;
+										a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
+									if article.publishedDate
+										|  on #{article._.publishedDate.format('MMMM D, YYYY')}
+									if article.tags && article.tags.length
+										|  in&nbsp;
+										each tag, tag_i in article.tags
+											a(href='/places_to_go/' + tag.key)= tag.name
+											if tag_i < article.tags.length - 1
+												| ,&nbsp;
+											else
+												|&nbsp;
+					
+								//- sharing buttons
+								.share-buttons
+									span.share-button
+										.fb-like(data-href="https://www.sydjs.com/blog/post/" + article.slug, data-colorscheme="light", data-layout="button_count", data-action="like", data-show-faces="false", data-send="false")
+									span.share-button
+										a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
+									span.share-button
+										.g-plusone(data-size="medium")
+							if article.image.exists
+								.article-image.mv-3: img(src=article._.image.fit(720,420)).img-responsive.img-thumbnail
+							!= article.content.full
+							
+						.container
+							.row
+								div
+									#transportsIcons.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1.col-sm-12.col-xs-12
+										a(href='', style='text-decoration:none', target='_blank')
+											button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+												span.fa.fa-bus
+												br
+												p Bus
+										a(href='', style='text-decoration:none', target='_blank')
+											button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+												span.fa.fa-train
+												br
+												p Trains
+										a(href='', style='text-decoration:none', target='_blank')
+											button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+												span.fa.fa-subway
+												br
+												p Luas
+										a(href='', style='text-decoration:none', target='_blank')
+											button.btn.btn-default.btn-lg.text-center(type='button', style='margin-left:5%;')
+												span.fa.fa-taxi
+												br
+												p Taxi
+						
+						br
+						.container
+							.row
+								.col-lg-12
+									h2(style='text-align:center') @BookofKells
+									.col-lg-4.col-md-4.col-sm-6.col-xs-12
+										.instaImageWrapper
+											a(href='#', target='_blank')
+												img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20481900_1017858225017551_8278772633835667456_n.jpg', alt='Dublin')
+												i.fa.fa-instagram.instaIcon(aria-hidden='true')
+									.col-lg-4.col-md-4.col-sm-6.col-xs-12
+										.instaImageWrapper
+											a(href='#', target='_blank')
+												img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20582942_288238861640856_6154126864546791424_n.jpg', alt='Dublin')
+												i.fa.fa-instagram.instaIcon(aria-hidden='true')
+									.col-lg-4.col-md-4.col-sm-6.col-xs-12
+										.instaImageWrapper
+											a(href='#', target='_blank')
+												img.instaPics(src='https://instagram.fdub2-1.fna.fbcdn.net/t51.2885-15/e35/20479316_136614193600418_6233489463515807744_n.jpg', alt='Dublin')
+												i.fa.fa-instagram.instaIcon(aria-hidden='true')
+
+
+
+
+					//- Comment
+		.comments
+				h4.mb-1=article.comments.length == 0 ? 'Be the first to reply' : plural(article.comments.length, '* comment', '* comments')
+				for comment in article.comments
+					if comment.author
+						.comment.media
+							.pull-left
+								img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=comment.author.name.full, width=40, height=40).media-object.img-circle
+							.media-body
+								h6.mt-0
+									a(href='/member/'+ comment.author.key, rel='author')=comment.author.name.full
+									span.text-muted  &middot; #{moment(comment.date).fromNow()}
+								!=comment.content.html
+					//-delete and modify article comment
+					if user && user.id == comment.author.id
+						a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
+						a(href='', class='modify', value='Modify', id=comment.id)  Edit
+						form(method='post' class="update-comment" style="display: none" id="form"+comment.id).comment-form.mt-5
+							input(type='hidden', name='action', value='update-comment')
+							input(type='hidden', name='comment', value=comment.id)
+							.media
+								.media-body
+									textarea(name='content').form-control 
+									=comment.content.md
+									.mv-1
+										button(type='submit').btn.btn-success Save changes
+		if user
+				//- Reply form
+				form(method='post').comment-form.mt-5
+					input(type='hidden', name='action', value='create-comment')
+					.media
+						.pull-left
+							img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=user.name.full, width=40, height=40).img-responsive.img-circle
+						.media-body
+							textarea(placeholder='Add your comment...', name='content').form-control
+							.mv-1
+								button(type='submit').btn.btn-success Submit
+											
+	
+
+	script.
+		$("#restaurantsBtn").click(function() {
+		$(this).addClass('active');
+		$("#hotelsBtn").removeClass('active');
+		$("#pubsBtn").removeClass('active');
+		$("#hotels").css('display','none');
+		$("#pubs").css('display','none');
+		$("#restaurants").css('display','block');
+		});
+		$("#hotelsBtn").click(function() {
+		$(this).addClass('active');
+		$("#restaurantsBtn").removeClass('active');
+		$("#pubsBtn").removeClass('active');
+		$("#restaurants").css('display','none');
+		$("#pubs").css('display','none');
+		$("#hotels").css('display','block');
+		});
+		$("#pubsBtn").click(function() {
+		$(this).addClass('active');
+		$("#restaurantsBtn").removeClass('active');
+		$("#hotelsBtn").removeClass('active');
+		$("#restaurants").css('display','none');
+		$("#hotels").css('display','none');
+		$("#pubs").css('display','block');
+		});
+		
+	script(src='/js/common/share.js')
+	script(src="https://apis.google.com/js/plusone.js")
+	script.
+		$('.modify').click( function(e) {e.preventDefault(); var id=this.id; $('#form' + id).css("display", "block"); return false; } );
+		$("body").mouseup(function (e) {
+		    var container = $("form.update-comment");
+		    if (container.has(e.target).length === 0) {
+		        container.hide();
+		    }
+		});

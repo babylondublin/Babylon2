@@ -1,0 +1,138 @@
+extends ../../../layouts/default
+
+block content
+	.container-sm
+		a(href='/classifieds').text-muted &larr; Back to Classifieds
+		article.full-post
+			if !classified
+				h2 Invalid Classified.
+			else
+				header
+					if classified.state != 'published' && user.isAdmin
+						.mt-1: .alert.alert-danger This Classified has not been published yet. 
+							a(href='/keystone/classifieds/' + classified.id).alert-link Open Keystone
+							|  to publish it.
+					
+					h1.blog-post__title= classified.title
+					p.blog-post__byline Posted
+						if classified.author
+							|  by&nbsp;
+							a(href='/member/'+ classified.author.key, rel='author')=classified.author.name.full
+						if classified.publishedDate
+							|  on #{classified._.publishedDate.format('MMMM D, YYYY')}
+					//- Image
+					if classified.image.exists
+						.post-image.mv-3: img(src=classified._.image.fit(720,420)).img-responsive.img-thumbnail
+						!= classified.content.full
+					//- sharing buttons
+					.share-buttons
+						span.share-button
+							.fb-like(data-href="https://www.sydjs.com/blog/post/" + classified.slug, data-colorscheme="light", data-layout="button_count", data-action="like", data-show-faces="false", data-send="false")
+						span.share-button
+							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
+						span.share-button
+							.g-plusone(data-size="medium")
+					//- delete & update classified
+					if user && user.id == classified.author.id
+						a(href='?remove=classified&classified=' + classified.id, title='Delete this classified', rel='tooltip', data-placement='left') Delete
+						a(href='', class='modify', value='Modify', id=classified.id)  Edit
+						form(method='post', enctype='multipart/form-data', class="update-classified" style="display: none" id="form"+classified.id).form-horizontal.create-form.profile-form
+							input(type='hidden', name='action', value='update-classified')
+							input(type='hidden', name='classified', value=classified.id)
+							.row: .col-sm-8.col-sm-offset-2
+								//- Title
+								.form-group
+									h1 Edit
+									input(type='text', id='post-title', name='title', placeholder='Classified title' value=classified.title).input.input-xl.input-faded
+								//- Tag
+								if tags && tags.length
+									.form.group
+										label Tag
+										select(name='tag')
+											each tag in tags
+												option(value=tag.id) 
+													= tag.name
+								else
+									p.
+										Sorry, tags cannot be loaded.
+										
+								//- Image
+								.form-group
+									label Upload image
+									input(type='file', name='image_upload')
+								
+								//- Content
+								.form-group
+									label Classified content
+									textarea(name='content.extended', class='wysiwyg').input.input-faded
+										=classified.content.full
+
+											
+								//- Submit
+								.form-group
+									button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Save changes
+
+				//- Comment
+				.comments
+						h4.mb-1=classified.comments.length == 0 ? 'Be the first to reply' : plural(classified.comments.length, '* comment', '* comments')
+						for comment in classified.comments
+							if comment.author
+								.comment.media
+									.pull-left
+										img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=comment.author.name.full, width=40, height=40).media-object.img-circle
+									.media-body
+										h6.mt-0 
+											a(href='/member/'+ comment.author.key, rel='author')=comment.author.name.full
+											span.text-muted  &middot; #{moment(comment.date).fromNow()}
+										!=comment.content.html
+							//-delete and modify classified comment
+							if user && user.id == comment.author.id
+								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
+								a(href='', class='modify', value='Modify', id=comment.id)  Edit
+								form(method='post' class="update-comment" style="display: none" id="form"+comment.id).comment-form.mt-5
+									input(type='hidden', name='action', value='update-comment')
+									input(type='hidden', name='comment', value=comment.id)
+									.media
+										.media-body
+											textarea(name='content').form-control 
+												=comment.content.md
+											.mv-1
+												button(type='submit').btn.btn-success Save changes
+				if user
+						//- Reply form
+						form(method='post').comment-form.mt-5
+							input(type='hidden', name='action', value='create-comment')
+							.media
+								.pull-left
+									img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : '/images/placeholders/user-60x60.jpg', alt=user.name.full, width=40, height=40).img-responsive.img-circle
+								.media-body
+									textarea(placeholder='Add your comment...', name='content').form-control
+									.mv-1
+										button(type='submit').btn.btn-success Submit
+block js
+	script(src='/js/common/share.js')
+	script(src="https://apis.google.com/js/plusone.js")
+	script.
+		$('.modify').click( function(e) {e.preventDefault(); var id=this.id; $('#form' + id).css("display", "block"); return false; } );
+		$("body").mouseup(function (e) {
+		    var container = $("form.update-comment");
+		    if (container.has(e.target).length === 0) {
+		        container.hide();
+		    }
+		});
+	script(src='/js/lib/bootstrap/button.js')
+	script(src='/js/lib/tinymce/tinymce.min.js')
+	script(src='/js/lib/tinymce/jquery.tinymce.min.js')
+	script.
+		jQuery(function($) {
+			$( "#post-title" ).focus();
+			tinymce.init({
+				selector: 'textarea.wysiwyg',
+				menubar: false,
+				height: 400,
+				plugins: [ 'code', 'link' ],
+				toolbar: 'bold italic | alignleft aligncenter alignright | bullist numlist | outdent indent | link | code',
+				skin: 'keystone'
+			});
+		});
+
