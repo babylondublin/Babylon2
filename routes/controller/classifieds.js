@@ -16,7 +16,7 @@ exports = module.exports = function(req, res) {
 		classifieds: [],
 		tags: []
 	};
-	locals.countrysearched = req.session.countrysearched;
+	locals.country = req.session.countrysearched;
 
 	//if no Cookie
 	if(!req.cookies.country || (req.cookies.country == '')){
