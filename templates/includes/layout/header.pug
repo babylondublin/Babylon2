@@ -144,31 +144,9 @@ header(id='header', role='banner', class=(section == 'home' ? 'header--home' : '
 
 script(src='/js/lib/awesomplete.js')
 script(src='/js/lib/jquery/jquery-1.10.2.min.js')
-
+script(src='/js/views/translate-menu-items.js')
 script.
 		$( document ).ready(function() {
-			//- FIND A BEtTER WAY TO DO THAT  ?? 
-			if($.cookie("lang") === '59e8823077df3618184b7a92'){ // FR
-				$('#living').text('Y vivre');
-				$('#placesToGo').text('A visiter');
-				$('#thingsToDo').text('A faire');
-				$('#planYourTrip').text('Planifiez votre voyage');
-				$('#news').text('Nouvelles');
-				$('#classifieds').text('Annonces');
-				$('#events').text('Événements');
-				$('#aboutus').text('À propos de');
-			}else if($.cookie("lang") === '59e8823877df3618184b7a93'){ // ESP
-				$('#living').text('Viviendo');
-				$('#placesToGo').text('Visitando');
-				$('#thingsToDo').text('Hacer');
-				$('#planYourTrip').text('Planifica tu viaje');
-				$('#news').text('Noticias');
-				$('#classifieds').text('Clasificados');
-				$('#events').text('Eventos');
-				$('#aboutus').text('Acerca de');
-
-
-			}
 			var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 			if(isSafari){

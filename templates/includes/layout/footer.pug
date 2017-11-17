@@ -17,23 +17,4 @@ footer.site-footer.site-footer--sticky: .container
 		p Copyright &copy; 2017 Babylon. Powered by <a href='https://keystonejs.com' rel='external'>KeystoneJS</a>.
 		p Forked from <a href="https://github.com/JedWatson/sydjs-site" rel='external'>Sydjs</a>.
 
-script(src='/js/lib/jquery/jquery-1.10.2.min.js')
-script.
-		$( document ).ready(function() {
-			//- FIND A BEtTER WAY TO DO THAT  ?? 
-			if($.cookie("lang") === '59e8823077df3618184b7a92'){ // FR
-				$('#about').text('À propos de nous');
-				$('#whoWeAre').text('Qui sommes nous');
-				$('#contactUs').text('Contactez nous');
-				$('#careers').text('Emplois');
-				$('#explorecountries').text('Explorez les pays');
-				$('#members').text('Membres');
-			}else if($.cookie("lang") === '59e8823877df3618184b7a93'){ // ESP
-				$('#about').text('Acerca de');
-				$('#whoWeAre').text('Quienes somos');
-				$('#contactUs').text('Contáctenos');
-				$('#careers').text('Empleos');
-				$('#explorecountries').text('Explora los paises');
-				$('#members').text('Miembros de Babylon');
-			}
-		});
+script(src='/js/views/translate-menu-items.js')

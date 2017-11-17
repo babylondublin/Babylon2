@@ -23,7 +23,8 @@ block content
 					//- Image
 					if classified.image.exists
 						.post-image.mv-3: img(src=classified._.image.fit(720,420)).img-responsive.img-thumbnail
-						!= classified.content.full
+					//- classified content
+					!= classified.content.full
 					//- sharing buttons
 					.share-buttons
 						span.share-button

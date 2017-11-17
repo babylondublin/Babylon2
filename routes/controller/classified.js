@@ -121,6 +121,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	//Update a Classified
+	// why not using put request?
 	view.on('post', { action: 'update-classified' }, function(next) {
 		
 		if(!req.body.title || !req.body.title.trim()){

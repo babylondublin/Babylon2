@@ -21,58 +21,8 @@ div
                         each country in countries
                             option(value=country.name) 
                 input.side-searcher-submit(type='submit', value='Search')
-        a.menu-item(href="/news") News
-        button.accordion Places to Go
+        button.accordion#living Living
         #p1.panel
-            ul
-                if placesToGoTags && placesToGoTags.length
-                    each tag in placesToGoTags
-                        -var tagID = JSON.stringify(tag._id)
-                            h4
-                                = tag.name
-                            hr.hr-megamenu
-                            if allArticles && allArticles.length
-                                each article in allArticles
-                                    -var articleTag = JSON.stringify(article.tags)
-                                    if articleTag === tagID
-                                        li
-                                            a(href='/places_to_go/' + tag.key + '/' + article.slug)
-                                                = article.title
-        button.accordion Things to Do
-        #p2.panel 
-            ul
-                if thingsToDoTags && thingsToDoTags.length
-                    each tag in thingsToDoTags
-                        -var tagID = JSON.stringify(tag._id)
-                            h4
-                                = tag.name
-                            hr.hr-megamenu
-                            if allArticles && allArticles.length
-                                each article in allArticles
-                                    -var articleTag = JSON.stringify(article.tags)
-                                    if articleTag === tagID
-                                        li
-                                            a(href='/things_to_do/' + tag.key + '/' + article.slug)
-                                                = article.title
- 
-        button.accordion Plan your trip
-        #p3.panel 
-            ul
-                if planYourTripTags && planYourTripTags.length
-                    each tag in planYourTripTags
-                        -var tagID = JSON.stringify(tag._id)
-                            h4
-                                = tag.name
-                            hr.hr-megamenu
-                            if allArticles && allArticles.length
-                                each article in allArticles
-                                    -var articleTag = JSON.stringify(article.tags)
-                                    if articleTag === tagID
-                                        li
-                                            a(href='/plan_your_trip/' + tag.key + '/' + article.slug)
-                                                = article.title
-        button.accordion Living
-        #p4.panel
             ul
                 if livingTags && livingTags.length
                     each tag in livingTags
@@ -88,9 +38,61 @@ div
                                             a(href='/living/' + tag.key + '/' + article.slug)
                                                 = article.title
                                                 
-        a.menu-item(href="/classifieds") Classifieds
-        a.menu-item(href="/events") Events
-        a.menu-item(href="/about") About
+        button.accordion#placesToGo Places to Go
+        #p2.panel
+            ul
+                if placesToGoTags && placesToGoTags.length
+                    each tag in placesToGoTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            hr.hr-megamenu
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/places_to_go/' + tag.key + '/' + article.slug)
+                                                = article.title
+        button.accordion#thingsToDo Things to Do
+        #p3.panel 
+            ul
+                if thingsToDoTags && thingsToDoTags.length
+                    each tag in thingsToDoTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            hr.hr-megamenu
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/things_to_do/' + tag.key + '/' + article.slug)
+                                                = article.title
+ 
+        button#planYourTrip.accordion Plan your trip
+        #p4.panel 
+            ul
+                if planYourTripTags && planYourTripTags.length
+                    each tag in planYourTripTags
+                        -var tagID = JSON.stringify(tag._id)
+                            h4
+                                = tag.name
+                            hr.hr-megamenu
+                            if allArticles && allArticles.length
+                                each article in allArticles
+                                    -var articleTag = JSON.stringify(article.tags)
+                                    if articleTag === tagID
+                                        li
+                                            a(href='/plan_your_trip/' + tag.key + '/' + article.slug)
+                                                = article.title
+        a.menu-item(href="/news")#news News
+        a.menu-item(href="/classifieds")#classifieds Classifieds
+        a.menu-item(href="/events")#events Events
+        a.menu-item(href="/about")#aboutus About
+        
+script(src='/js/views/translate-menu-items.js')
 script.
     var acc = document.getElementsByClassName("accordion");
     var i;
