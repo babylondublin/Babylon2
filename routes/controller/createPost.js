@@ -11,8 +11,8 @@ exports = module.exports = function(req, res) {
 	//if not admin or jurnalist
 	if(!locals.user.isAdmin && !locals.user.isJournalist) res.redirect('/');
 
-	//if no Cookie
-	if(!req.cookies.country){
+	//if no Session
+	if(!req.session.country){
 		return res.redirect('/news');
 	};
 	
@@ -32,12 +32,12 @@ exports = module.exports = function(req, res) {
 
 	view.on('post', { action: 'create-post' }, function(next) {
 		
-		var cookie = req.cookies.country;
+		var session = req.session.country._id;
 		// handle form
 		var newPost = new Post.model({
 				author: locals.user.id,
 				publishedDate: new Date(),
-				country: cookie
+				country: session
 			}),
 
 			updater = newPost.getUpdateHandler(req, res, {

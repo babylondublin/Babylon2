@@ -10,8 +10,8 @@ exports = module.exports = function(req, res) {
 	//if not User
 	if(!locals.user) res.redirect('/');
 	
-	//if no Cookie
-	if(!req.cookies.country){
+	//if no Session
+	if(!req.session.country){
 		return res.redirect('/classifieds');
 	};
 	
@@ -31,12 +31,12 @@ exports = module.exports = function(req, res) {
 
 	view.on('post', { action: 'create-classified' }, function(next) {
 		
-		var cookie = req.cookies.country;
+		var session = req.session.country;
 		// handle form
 		var newClassified = new Classified.model({
 				author: locals.user.id,
 				publishedDate: new Date(),
-				country: cookie
+				country: session
 			}),
 
 			updater = newClassified.getUpdateHandler(req, res, {

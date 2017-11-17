@@ -27,7 +27,12 @@ exports = module.exports = function(req, res) {
 
 				var result = JSON.stringify(result[0]);
 				language = JSON.parse(result);
+				//We use session ir order to use the templates depending on the 
+				//language (EN, ES, FR, ...) and handle multiple users at the same time changing the lang.
 				req.session.languageselected = language;
+
+				// export this session as a global var and handle it from the jQuery in header and footer,
+				//at the controller change cookie for session.lang._id and delete the following res.cookie
 				res.cookie('lang', language._id).redirect('/');
 			}
 		});

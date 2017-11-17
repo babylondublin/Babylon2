@@ -4,7 +4,7 @@ block content
 	.container-sm.width-auto
 		article.full-post
 			if !article
-				h2 Article invalide.
+				h2 Invalid Article.
 			else
 				header
 					if article.state != 'published' && user.isAdmin
@@ -13,16 +13,16 @@ block content
 							|  to publish it.
 					
 					h1.blog-article__title= article.title
-					p.blog-article__byline Posté
+					p.blog-article__byline Posted
 						if article.author
-							|	par&nbsp;
+							|  by&nbsp;
 							a(href='/member/'+ article.author.key, rel='author')=article.author.name.full
 						if article.publishedDate
-							|  le #{article._.publishedDate.format('MMMM D, YYYY')}
+							|  on #{article._.publishedDate.format('MMMM D, YYYY')}
 						if article.tags && article.tags.length
-							|  dans&nbsp;
+							|  in&nbsp;
 							each tag, tag_i in article.tags
-								a(href='/living/' + tag.key)= tag.name
+								a(href='/plan_your_trip/' + tag.key)= tag.name
 								if tag_i < article.tags.length - 1
 									| ,&nbsp;
 								else
@@ -42,7 +42,7 @@ block content
 
 				//- Comment
 				.comments
-						h4.mb-1=article.comments.length == 0 ? 'Soyez le premier à répondre' : plural(article.comments.length, '* commentaire', '* commentaires')
+						h4.mb-1=article.comments.length == 0 ? 'Be the first to reply' : plural(article.comments.length, '* comment', '* comments')
 						for comment in article.comments
 							if comment.author
 								.comment.media
@@ -53,7 +53,7 @@ block content
 											a(href='/member/'+ comment.author.key, rel='author')=comment.author.name.full
 											span.text-muted  &middot; #{moment(comment.date).fromNow()}
 										!=comment.content.html
-							//-delete and update article comment
+							//-delete and modify article comment
 							if user && user.id == comment.author.id
 								a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left') Delete
 								a(href='', class='modify', value='Modify', id=comment.id)  Edit
@@ -87,8 +87,7 @@ block js
 		    if (container.has(e.target).length === 0) {
 		        container.hide();
 		    }
-		});	
-		document.getElementsByClassName("container")[0].style.width = "100%";
+		});
 	script(src='https://code.jquery.com/jquery-3.2.1.min.js')
 	script(src='https://unpkg.com/masonry-layout@4.2.0/dist/masonry.pkgd.min.js')
 	script(src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js')
@@ -114,3 +113,8 @@ block js
 		}); //end shown
 		});  //end each
 		})(jQuery);
+	
+
+
+
+	
