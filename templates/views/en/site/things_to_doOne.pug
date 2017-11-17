@@ -1,7 +1,7 @@
 extends ../../../layouts/default
 
 block content
-	.container-sm
+	.container-sm.width-auto
 		article.full-post
 			if !article
 				h2 Invalid Article.
@@ -39,6 +39,28 @@ block content
 				if article.image.exists
 					.article-image.mv-3: img(src=article._.image.fit(720,420)).img-responsive.img-thumbnail
 				!= article.content.full
+				
+				
+				br
+				.container
+					.row
+						.col-lg-12
+							h2(style='text-align:center') @babylonradiodublin
+							.col-lg-4.col-md-4.col-sm-6.col-xs-12
+								.instaImageWrapper
+									a(href='#', target='_blank')
+										img.instaPics(src='https://instagram.fdub2-2.fna.fbcdn.net/t51.2885-15/e35/23279994_131019127561335_5414191294656282624_n.jpg', alt='Dublin')
+										i.fa.fa-instagram.instaIcon(aria-hidden='true')
+							.col-lg-4.col-md-4.col-sm-6.col-xs-12
+								.instaImageWrapper
+									a(href='#', target='_blank')
+										img.instaPics(src='https://instagram.fdub2-2.fna.fbcdn.net/t51.2885-15/e35/23164504_1485156118248094_2430729624410390528_n.jpg', alt='Dublin')
+										i.fa.fa-instagram.instaIcon(aria-hidden='true')
+							.col-lg-4.col-md-4.col-sm-6.col-xs-12
+								.instaImageWrapper
+									a(href='#', target='_blank')
+										img.instaPics(src='https://instagram.fdub2-2.fna.fbcdn.net/t51.2885-15/e35/22709165_372663956506899_4858923036272754688_n.jpg', alt='Dublin')
+										i.fa.fa-instagram.instaIcon(aria-hidden='true')
 
 				//- Comment
 				.comments
@@ -80,6 +102,10 @@ block content
 block js
 	script(src='/js/common/share.js')
 	script(src="https://apis.google.com/js/plusone.js")
+	script(src='https://unpkg.com/masonry-layout@4.2.0/dist/masonry.pkgd.min.js')
+	script(src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js')
+
+
 	script.
 		$('.modify').click( function(e) {e.preventDefault(); var id=this.id; $('#form' + id).css("display", "block"); return false; } );
 		$("body").mouseup(function (e) {
@@ -88,3 +114,25 @@ block js
 		        container.hide();
 		    }
 		});
+	script.
+		(function( $ ) {
+		var $container = $('.masonry-container');
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		//Reinitialize masonry inside each panel after the relative tab link is clicked -
+		$('a[data-toggle=tab]').each(function () {
+		var $this = $(this);
+		$this.on('shown.bs.tab', function () {
+		$container.imagesLoaded( function () {
+		$container.masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+		});
+		});
+		}); //end shown
+		});  //end each
+		})(jQuery);
