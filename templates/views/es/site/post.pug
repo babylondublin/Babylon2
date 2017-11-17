@@ -11,7 +11,7 @@ block content
 					if post.state != 'published' && user.isAdmin
 						.mt-1: .alert.alert-danger Este post no ha sido publicado aún. 
 							a(href='/keystone/posts/' + post.id).alert-link Abre Keystone
-							|  to publish it.
+							|  para publicarlo.
 					
 					h1.blog-post__title= post.title
 					p.blog-post__byline Publicado
@@ -27,7 +27,12 @@ block content
 									| ,&nbsp;
 								else
 									|&nbsp;
-					
+					//- Image
+					if post.image.exists
+						.post-image.mv-3: img(src=post._.image.fit(720,420)).img-responsive.img-thumbnail
+					//- Post content
+					!= post.content.full
+
 					//- sharing buttons
 					.share-buttons
 						span.share-button
@@ -36,9 +41,44 @@ block content
 							a(href="https://twitter.com/share", data-via="Babylon", data-hashtags="babylon", data-count="button", data-dnt="true").twitter-share-button Tweet
 						span.share-button
 							.g-plusone(data-size="medium")
-				if post.image.exists
-					.post-image.mv-3: img(src=post._.image.fit(720,420)).img-responsive.img-thumbnail
-				!= post.content.full
+					//- delete & update post
+					if  user && user.id == post.author.id
+						a(href='?remove=post&post=' + post.id, title='Delete this Post', rel='tooltip', data-placement='left') Eliminar
+						a(href='', class='modify', value='Modify', id=post.id)  Editar
+						form(method='post', enctype='multipart/form-data', class="update-post" style="display: none" id="form"+post.id).form-horizontal.create-form.profile-form
+							input(type='hidden', name='action', value='update-post')
+							input(type='hidden', name='post', value=post.id)
+							.row: .col-sm-8.col-sm-offset-2
+								//- Title
+								.form-group
+									h1 Editar
+									input(type='text', id='post-title', name='title', placeholder='Post title' value=post.title).input.input-xl.input-faded
+								//- Tag
+								if tags && tags.length
+									.form.group
+										label Tag
+										select(name='tag')
+											each tag in tags
+												option(value=tag.id) 
+													= tag.name
+								else
+									p Lo sentimos, las etiquetas no se pueden cargar.
+										
+								//- Image
+								.form-group
+									label Cargar imagen
+									input(type='file', name='image_upload')
+								
+								//- Content
+								.form-group
+									label Contenido
+									textarea(name='content.extended', class='wysiwyg').input.input-faded
+										=post.content.full
+
+											
+								//- Submit
+								.form-group
+									button(type='submit', data-loading-text="Changing...").btn.btn-lg.btn-primary.btn-block Guardar Cambios
 
 				//- Comment
 				.comments

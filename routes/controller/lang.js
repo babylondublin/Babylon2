@@ -1,7 +1,6 @@
 var keystone = require('keystone'),
 	moment = require('moment')
 
-var Post = keystone.list('Post')
 
 exports = module.exports = function(req, res) {
 	

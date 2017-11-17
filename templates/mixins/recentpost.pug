@@ -28,7 +28,9 @@ mixin recentpost(newsPosts)
 					em=moment(newsPosts[2].publishedDate).fromNow() 
 				a(href='/news/post/' + newsPosts[2].slug, title=newsPosts[2].title)
 					=newsPosts[2].title
-		li
+		//-Cannot read property 'slug' of undefined 
+		//- at line 35| a(href='/news/post/' + newsPosts[3].slug)
+		//-li
 			a(href='/news/post/' + newsPosts[3].slug)
 				img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image.no-display.appear(width='110', height='96', src=newsPosts[3].image.url, alt='', title=newsPosts[3].title)
 			.content

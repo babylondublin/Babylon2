@@ -4,26 +4,53 @@ include ../../../mixins/post
 
 block intro
 	.page-intro: .container
-		h1.page-title=data.tag ? data.tag.name : 'Noticias'
-
-
+		
+		h1.page-title=data.tag ? data.tag.name : 'News'
+		if country
+			if user && (user.isJournalist || user.isAdmin)
+				a(href='/me/create/post') crear Noticia
+			hr
+		else
+			form(method='post', autocomplete='off', novalidate)
+				input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+				datalist(id='countriesList')
+					if countries && countries.length
+						each country in countries
+							option(value=country.name) 
+				input(type='submit', value='Search').btn.submit-search
 block content
 	.page-content: .container.blog
 		.row
 			div(class= data.tags.length || !data.posts.length ? 'col-md-10' : 'col-md-10 col-md-offset-1')
 				if filters.tag && !data.tag
-					h3 Etiqueta inválida.
+					h3 Invalid tag.
 				else
-					if data.posts.length
+					if data.posts && data.posts.length
+						if data.searchWord
+							h5.text-muted Los 
+								!= data.posts.length + " últimos resultados que has buscado "
+								!=data.searchWord + '" :' 
+
 						.post-cards.row(itemscope itemtype="https://schema.org/Blog")
 							each post in data.posts
 								+post(post)
-					
+					else
+						if data.searchWord	
+							h3.text-muted El resultado no fue encontrado "
+								!=data.searchWord + '".' 
+						else if country
+							h3.text-muted No hay noticias aún.
+						else
 			if data.tags.length
+				.col-md-2
+					form().comment-form.mt-5
+						input(id="search", name='search', placeholder="Search...").searchNew
+						input(type='submit', value='').btn.search-news
+
 				.col-md-2
 					if data.tags.length
 						h5.text-muted Filtrar por etiqueta
 						ul.list-unstyled.tags-list
 							li: a(href='/News', class=!data.tags ? 'active' : false) Todos
 							each tag in data.tags
-								li: a(href='/blog/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
+								li: a(href='/news/' + tag.key, class=data.tag && data.tag.id == tag.id ? 'active' : false).list-group-item= tag.name
