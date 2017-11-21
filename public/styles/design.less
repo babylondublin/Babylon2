@@ -1224,7 +1224,19 @@ border-radius: 4px;
    }
 
   .embassyBlock:after{
+     
     bottom:215px !important;
+    left: 43% !important;
+    border-top:0px !important;
+    border-left: 0px solid transparent !important;
+    border-bottom: 0px solid #0f9e6d !important; 
+    border-right: 0px solid transparent !important; 
+  } 
+}
+
+@media screen and (min-width: 577px) and (max-width:767px){
+.embassyBlock:after{
+    bottom:195px !important;
     left: 43% !important;
     border-top:0px !important;
     border-left: 25px solid transparent !important;
@@ -1232,8 +1244,6 @@ border-radius: 4px;
     border-right:25px solid transparent !important; 
   } 
 }
-
-
 
 /*Embassies*/
 .embassyBlock{
@@ -1261,6 +1271,14 @@ border-radius: 4px;
   width: 0;
   z-index: 1;
 }
+.embassyBlock p{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.embassyBlock p:last-child {
+  padding-bottom:10px;
+}
 
 
 .embassyContactIcon{
@@ -1268,7 +1286,7 @@ border-radius: 4px;
   font-size:1.5em;
 }
 
-#australia, #brazil{
+.australia, .brazil{
   display:none;
 }
 

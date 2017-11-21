@@ -113,7 +113,23 @@ block js
 		}); //end shown
 		});  //end each
 		})(jQuery);
-	
+	script.
+		$(document.body).delegate('#countries', 'change', function() {
+		var values="null";
+		values = $('select[id=countries]').val();
+		if(values=="australia"){
+		$('.australia').css('display','block');
+		$('.brazil').css('display','none');
+		}
+		if(values=="brazil"){
+		$('.brazil').css('display','block');
+		$('.australia').css('display','none');
+		}
+		if(values=="selectcountry"){
+		$('.australia').css('display','none');
+		$('.brazil').css('display','none');
+		}
+		});
 
 
 
