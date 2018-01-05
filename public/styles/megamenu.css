@@ -34,7 +34,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ccc;
+  background-color: #333;
   width: 100%;
   left: 0;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.6);
@@ -42,7 +42,7 @@
   top: 117px;
 }
 .hr-megamenu {
-  border-top: 1px solid #333;
+  border-top: 1px solid #ccc;
   margin-top: .5em;
 }
 
@@ -56,16 +56,17 @@
   float: left;
   width: 33.33%;
   padding: 40px;
-  background-color: #ccc;
+  background-color: #333;
   height: 100%;
 }
 .column h3{
   font-size: 1.3em;
+  color:#ccc;
 }
 
 .column a {
   float: none;
-  color: black;
+  color: #ccc;
   padding: 10px;
   text-decoration: none;
   display: block;
@@ -73,7 +74,7 @@
 }
 
 .column a:hover {
-  background-color: #ddd;
+  background-color: rgb(77, 77, 77);
 }
 
 /* Clear floats after the columns */

@@ -14,7 +14,7 @@ block intro
 			hr
 		else
 			form(method='post', autocomplete='off', novalidate)
-				input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher 
+				input(id="searchInput" list='countriesList', name='query', placeholder="Search a country..", required).searcher-home 
 				datalist(id='countriesList')
 					if countries && countries.length
 						each country in countries
